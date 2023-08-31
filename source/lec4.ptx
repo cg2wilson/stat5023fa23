@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-4" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 4 - 08/31/23</title>
+
+    <section xml:id="lec-4-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Observational vs. Experimental Studies</title>
+            <p>
+                <ul>
+                    <li>
+                        <p>
+                            <term>Observational Study</term>: data withotu any interference of researchers in data generation process
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Experimental Study</term>: data collected by planned procedure of researchers to confirm their claim
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Treatment (factor)</term>: experimental condition under study
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Response</term>: the measured outcome resulting from experiment
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Experimental Unit</term>: Object to which a treatment is applied
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Observational (sampling) Unit</term>: object on which response is measured
+                        </p>
+                    </li>
+                </ul>
+            </p>
+
+            <p>
+                <ul>
+                    <li>
+                        <p>
+                            <term>Experimental Error</term>: variation in the responses among experimental units that are assigned to the same treatment
+                        </p>
+                        <p>
+                            Such variability would also exist among units across different treatment levels
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <term>Replication</term>: an independent observation at a treatment level. When each treatment level is applied to several experimental units, we have more than a single replication
+                        </p>
+                        <p>
+                            Having more replications would be helpful to measure experimental error and eventually leads to more precise inference
+                        </p>
+                    </li>
+                </ul>
+            </p>
+
+            <example>
+                <statement>
+                    <p>
+                        Consider the following experiment. Four types of protective coatings for frying pans are to be evaluated. Five frying pans are randomly assigned to each of the four coatings. The abrasion resistance of the coating is measured at three locations on each of the 20 pans.
+                    </p>
+                    <p>
+                        Identify the following: treatments, response, experimental units, observational units, and replication.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Treatments: four types of protective coatings
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Response: Abrasion resistance of the coating
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Experimental unit: Frying pan
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Observational unit: Particular locations on the frying pan
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Replication: Five frying pans for each treatment
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </solution>
+            </example>
+    </section>
+    
+    <section xml:id="lec-4-sec2">
+        <title>Completely Randomized Design (CRD)</title>
+
+        <p>
+            We are interested in the effect of factor/treatment on response.
+        </p>
+        <p>
+            <term>Completely Randomized Design (CRD)</term>: independent and completely random assignments of treatments to experimental units
+        </p>
+        <p>
+            In CRD, each experimental unit has the same probability of having each treatment
+        </p>
+        <p>
+            ANOVA works under these assumptions: random and independent samples
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    Suppose we study the effect of three different fertilizers on corn yields with 15 1-acre plots. Each fertilizer is assigned to 5 randomly selected plots.
+                </p>
+                <p>
+                    Due to a gradient in the 15-acre field affecting yields, fertilizers are randomly assigned to 1-acre plots within strips in the field.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The original setup is a CRD, as all units are homogeneous. However, due to the gradient, our response (which is crop yields) would be affected by both fertilizers and the gradient.
+                </p>
+                <p>
+                    The solution is to randomly assign, within a 3x5 grid, treatments to a cell in a column. However, when we specificaly assign a treatments to 3x1 strips, we break the CRD designation because the equal probability condition will be broken.
+                </p>
+            </solution>
+        </example>
+    </section>
+
+    <section xml:id="lec-4-sec3">
+        <title>Linear Model Approach</title>
+
+        <p>
+            This is a description of a CRD experiment based on a statistical model.
+        </p>
+        <p>
+            We have
+            <me>
+                Y_{ij} = \mu_i + \varepsilon_{ij}
+            </me>
+            where <m>Y_{ij}</m> is the <m>j-</m>th observation of the treatment level <m>i</m>, <m>\mu_i</m> is the treatment level <m>i</m>, and <m>\varepsilon_{ij}</m> denotes the random error associated with unit <m>j</m> in treatment level <m>i</m> such that
+            <me>
+                \varepsilon_{ij} \approx_{iid} N(0,\sigma^2)
+            </me>
+            This model is also referred to as a "mean model"
+        </p>
+        <p>
+            <m>\mu_i</m> is an unknown, fixed (and thus, non-random) parameter
+        </p>
+        <p>
+            The assumption on <m>\varepsilon_{ij}</m> in the statement of <m>Y_{ij}</m> above is equivalent to the one-way ANOVA assumptions: <m>t</m> independent, random samples, and that there are <m>t</m> normal popualations with equal variances
+        </p>
+
+        <p>
+            An alternative way of writing
+            <me>
+                Y_{ij} = \mu_i + \varepsilon_{ij}
+            </me>
+            is referred to as an "effects model" such that
+            <me>
+                Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
+            </me>
+            where <m>\mu</m> is the overall mean and <m>\tau_i</m> is the <m>i-</m>th treatment level effect.
+        </p>
+        <p>
+            In this case, <m>\mu</m> and <m>\tau_i</m> are unknown, fixed (and thus, non random) parameters
+        </p>
+        <p>
+            We have a handful of comparisons:
+        </p>
+        <tabular>
+            <row>
+                <cell>
+
+                </cell>
+                <cell>
+                    Expectation of <m>Y_{ij}</m>
+                </cell>
+                <cell>
+                    Variance of <m>Y_{ij}</m>
+                </cell>
+            </row>
+            <row>
+                <cell>
+                    Means Model
+                </cell>
+                <cell>
+                    <m>E(Y_{ij}) = \mu_i</m>
+                </cell>
+                <cell>
+                    <m>Var(Y_{ij}) = \sigma^2</m>
+                </cell>
+            </row>
+            <row>
+                <cell>
+                    Effects Model
+                </cell>
+                <cell>
+                    <m>E(Y_{ij}) = \mu + \tau_i</m>
+                </cell>
+                <cell>
+                    <m>Var(Y_{ij}) = \sigma^2</m>
+                </cell>
+            </row>
+        </tabular>
+        <p>
+            For hypothesis testing:
+            <ul>
+                <li>
+                    <p>
+                        The means model takes the hypotheses <m>H_0: \mu_i = \mu_j</m> for all <m>i,j\in \lrbrace{1,...,t}</m> vs. the alternative that <m>\mu_i \neq \mu_j</m> for some at least one pair <m>i,j</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The effects model takes the hypotheses <m>H_0: \tau_i = \tau_j = 0</m> for all <m>i,j\in\lrbrace{1,...,t}</m> vs. the alternative that at least one <m>\tau_i</m> is non-zero
+                    </p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            The effects model also has different point estimates:
+            <ul>
+                <li>
+                    <p>
+                        <m>\mu = \hat{\mu} = \bar{Y}_{\cdot\cdot}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\tau_i = \hat{\tau_i} = \bar{Y}_{i\cdot} - \bar{Y}_{\cdot\cdot}</m>
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <p>
+            We may also note that
+            <me>
+                Y_{ij} = \bar{Y}_{\cdot\cdot} + (\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot}) + (Y_{ij} - \bar{Y}_{i\cdot})
+            </me>
+            where
+            <ul>
+                <li>
+                    <p>
+                        <m>\bar{Y}_{\cdot\cdot} = \hat{\mu}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot} = \hat{\tau_i}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>Y_{ij} - \bar{Y}_{i\cdot} = \hat{\varepsilon_{ij}}</m>
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </section>
+</chapter>

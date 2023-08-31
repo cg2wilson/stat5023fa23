@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter.  Fill in and comment/uncomment to see how this -->
+<!-- works.                                                        -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <titlepage>
+      <author>
+        <personname>Cory Wilson</personname>
+		    <department>Department of Mathematics</department>
+		    <institution>University of Oklahoma</institution>
+        <email>cw@ou.edu</email>
+      </author>
+	  
+        <date><today /></date>
+  </titlepage>
+
+
+  <colophon xml:id="colophon">
+
+    <xi:include href="./copyright.xml" />
+
+      <p>
+        This work includes materials used under license from the following works:
+        <ul>
+          <li>
+              <p><pubtitle>Calculus 8/e</pubtitle> by Stewart</p>
+          </li>
+        </ul>
+      </p>
+
+
+  </colophon>
+
+<!--    <preface xml:id="printable-pdf">
+    <title>Printable PDF</title>
+    <p>
+A PDF with all activities may be printed by visiting <url href="pdf/main.pdf"/>.
+    </p>
+</preface>
+-->
+<!--  <dedication>
+    <p>
+      For ...
+    </p>
+  </dedication> -->
+
+<!--  <acknowledgement>
+    <p>
+      I would like to thank...
+    </p>
+  </acknowledgement> -->
+
+    <!-- You should be a little careful about what you put here -->
+    <!-- Avoid elements that should have a number, for example  -->
+<!--  <preface xml:id="preface">
+    <p>
+      About this book:
+    </p>
+  </preface> -->
+
+  <!-- You can have more than one preface. -->
+</frontmatter>
