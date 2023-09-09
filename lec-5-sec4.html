@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>STAT 5023: One-way ANOVA: Homogeneity of Variances</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="STAT 5023 - Statistics For Experimenters II">
+<meta property="book:author" content="Cory Wilson">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="stat5023-fa23.html"><span class="title">STAT 5023 - Statistics For Experimenters II:</span> <span class="subtitle">Fall 2023</span></a></h1>
+<p class="byline">Cory Wilson</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-5-sec3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-5.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-5-sec5.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
+\newcommand{\lrpar}[1]{\left(#1\right)}
+\newcommand{\lrbrace}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\dc}{^\circ}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="lec-4.html" class="internal"><span class="codenumber">1</span> <span class="title">Lecture 4 - 08/31/23</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-4-sec1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Observational vs. Experimental Studies</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Completely Randomized Design (CRD)</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Linear Model Approach</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-5.html" class="internal"><span class="codenumber">2</span> <span class="title">Lecture 5 - 09/05/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-5-sec1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">One-way ANOVA: Assumptions</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">One-way ANOVA: Graphics</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">One-way ANOVA: Check Normality</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="lec-5-sec4.html" class="internal"><span class="codenumber">2.4</span> <span class="title">One-way ANOVA: Homogeneity of Variances</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec5.html" class="internal"><span class="codenumber">2.5</span> <span class="title">One-way ANOVA: Data Transformation</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 - 09/07/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-5-sec4"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">One-way ANOVA: Homogeneity of Variances</span>
+</h2>
+<div class="para logical" id="p-67">
+<div class="para">For comparison of two population variances, recall that we have used the test statistic F such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{s_1^2}{s_2^2}\sim F_{n_1-1,n_2-1}
+\end{equation*}
+</div>
+<div class="para">under the null hypothesis <span class="process-math">\(H_0: \sigma_1^2 = \sigma_2^2\text{.}\)</span> How do we generalize this to compare more than two variances?</div>
+</div>
+<div class="para logical" id="p-68">
+<div class="para">Consider the null</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_0: \sigma_1^2 = \sigma_2^2=\cdots = \sigma_t^2
+\end{equation*}
+</div>
+<div class="para">versus the alternative <span class="process-math">\(H_a: \sigma_i^2\neq \sigma_j^2\)</span> for some <span class="process-math">\(i,j\)</span>
+</div>
+</div>
+<div class="para logical" id="p-69">
+<div class="para">One test is <dfn class="terminology">Hartley’s F-max test</dfn>. It requires the balanced case, i.e. <span class="process-math">\(n_1 = \cdots = n_t = n\text{.}\)</span> Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s_{max}^2 = \max_{1\leq i\leq t} s_i^2
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s_{min}^2 = \min_{1\leq i\leq t} s_i^2
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(s_i^2\)</span> denotes the sample variance of the <span class="process-math">\(i-\)</span>th treatment level.</div>
+</div>
+<div class="para logical" id="p-70">
+<div class="para">The test statistic can be given as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F-max = \dfrac{s_{max}^2}{s_{min}^2}\sim F-max_{t,df} \text{ under }H_0
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(F-max_{t,df}\)</span> is the F-max distribution (which is distinct from the usual F distribution) with <span class="process-math">\(t\)</span> and <span class="process-math">\(df = n-1\text{.}\)</span>
+</div>
+</div>
+<div class="para" id="p-71">We reject <span class="process-math">\(H_0: \sigma_1^2 = \cdots \sigma_t^2\)</span> if <span class="process-math">\(F-max \geq F-max_{\alpha,t,df}\text{;}\)</span> the critical value <span class="process-math">\(F-max_{\alpha,t,df}\)</span> can be found in the F-max table.</div>
+<article class="example example-like" id="example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-72">An experiment to compare the yield of four varieties of rice was conducted. Each of 16 plots on a test farm where soil fertility was fairly homogeneous was treated alike relative to water and fertilizer. Four plots were randomly assigned each of the four varieties of rice.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Variety</td>
+<td class="c m b0 r0 l0 t0 lines" colspan="4">Yields</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">934</td>
+<td class="l m b0 r0 l0 t0 lines">1041</td>
+<td class="l m b0 r0 l0 t0 lines">1028</td>
+<td class="l m b0 r0 l0 t0 lines">935</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">880</td>
+<td class="l m b0 r0 l0 t0 lines">963</td>
+<td class="l m b0 r0 l0 t0 lines">924</td>
+<td class="l m b0 r0 l0 t0 lines">946</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">987</td>
+<td class="l m b0 r0 l0 t0 lines">951</td>
+<td class="l m b0 r0 l0 t0 lines">976</td>
+<td class="l m b0 r0 l0 t0 lines">840</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">992</td>
+<td class="l m b0 r0 l0 t0 lines">1143</td>
+<td class="l m b0 r0 l0 t0 lines">1140</td>
+<td class="l m b0 r0 l0 t0 lines">1191</td>
+</tr>
+</table></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><div class="para logical" id="p-73">
+<div class="para">Compute each variance:</div>
+<div class="displaymath process-math" id="md-1">
+\begin{align*}
+s_1^2 &amp;= 3361.67\\
+s_2^2 &amp;= 1289.58\\
+s_3^2 &amp;= 4539.00\\
+s_4^2 &amp;= 7435.00
+\end{align*}
+</div>
+<div class="para">and identify the values of <span class="process-math">\(s_{max}^2\)</span> and <span class="process-math">\(s_{min}^2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="md-2">
+\begin{align*}
+s_{max}^2 &amp; = 7435.00\\
+s_{min}^2 &amp; = 1289.58
+\end{align*}
+</div>
+<div class="para">Now, the <span class="process-math">\(F-max\)</span> statistic is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F-max = \dfrac{s_{max}^2}{s_{min}^2} = \dfrac{7435}{1289.58} = 5.77
+\end{equation*}
+</div>
+<div class="para">From the F-max table, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F-max_{0.05,4,3} = 39.2
+\end{equation*}
+</div>
+<div class="para">Under</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_0: \sigma_i^2 = \sigma_j^2 \text{ for all }i,j
+\end{equation*}
+</div>
+<div class="para">we reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(F-max \geq F-max_{0.05,4,3} \text{,}\)</span> so we conclude there is insufficient evidence to reject the hypothesis of equal variances.</div>
+</div></div></div>
+</div></article><div class="para logical" id="p-74">
+<div class="para">Another test is <dfn class="terminology">Bartlett’s test</dfn>. The test statistic is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\chi^2 = \dfrac{1}{C}\left[ (n_\cdot - t)\log (MSE) - \sum_{i=1}^t (n_i-1)s_i^2\right]
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = 1 + \dfrac{1}{3(t-1)} \lrpar{\sum_{i=1}^t \dfrac{1}{n_i-1} - \dfrac{1}{n_\cdot - t}}
+\end{equation*}
+</div>
+<div class="para">For this test, we don’t require the balanced case. Additionally, the test statistic approximately follows <span class="process-math">\(\chi^2_{t-1}\)</span> under the null hypothesis. We set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_0: \sigma_1^2 = \sigma_2^2=\cdots = \sigma_t^2
+\end{equation*}
+</div>
+<div class="para">and reject if <span class="process-math">\(\chi^2 \geq \chi^2_{\alpha,t-1}\text{.}\)</span>
+</div>
+</div>
+<div class="para" id="p-75">Note: Bartlett’s test is sensitive to departures from the normality assumption.</div>
+<div class="para logical" id="p-76">
+<div class="para">A third test is <dfn class="terminology">Levene’s test</dfn>: let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \bar{Y}_{i\cdot}|
+\end{equation*}
+</div>
+<div class="para">denote the absolute value of the residual <span class="process-math">\(\hat{\varepsilon_{ij}}\text{.}\)</span> We perform one-way ANOVA by treating the <span class="process-math">\(r_{ij}\)</span> as our observations.</div>
+</div>
+<div class="para logical" id="p-77">
+<div class="para">Levene’s test is based on the F test statistic:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{\sum_{i=1}^t n_i(\bar{r}_{i\cdot} - \bar{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\bar{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
+\end{equation*}
+</div>
+<div class="para">under <span class="process-math">\(H_0\text{,}\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bar{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bar{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
+\end{equation*}
+</div>
+<div class="para">We reject the null hypothesis of equal variance if <span class="process-math">\(F\geq F_{\alpha,t-1,n_\cdot -t}\)</span>
+</div>
+</div>
+<div class="para logical" id="p-78">
+<div class="para">Once we conduct the hypothesis testing for homogeneity of variances, we consider the following:</div>
+<ul class="disc">
+<li id="li-29"><div class="para" id="p-79">If we fail to reject the null, we go with one-way ANOVA</div></li>
+<li id="li-30"><div class="para logical" id="p-80">
+<div class="para">If we reject the null, we have two choices:</div>
+<ul class="circle">
+<li id="li-31"><div class="para" id="p-81">Apply Welch’s ANOVA with each <span class="process-math">\(s_i^2\)</span> instead of the pooled variance. Calculate the degrees of freedom for error just like what we did in the two-sample t-test for unequal variances</div></li>
+<li id="li-32"><div class="para" id="p-82">Perform data transformation to stabilize the variance</div></li>
+</ul>
+</div></li>
+</ul>
+</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="lec-5-sec3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-5-sec5.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

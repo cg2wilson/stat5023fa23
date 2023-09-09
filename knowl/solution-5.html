@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.1.3.1</span><span class="period">.</span>
+</h3>
+<div class="para">The one-way ANOVA table for the example looks like this.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Source</td>
+<td class="l m b0 r0 l0 t0 lines">df</td>
+<td class="l m b0 r0 l0 t0 lines">SS</td>
+<td class="l m b0 r0 l0 t0 lines">MS</td>
+<td class="l m b0 r0 l0 t0 lines">F-statistic</td>
+<td class="l m b0 r0 l0 t0 lines">p-value</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Treatment</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">0.3648</td>
+<td class="l m b0 r0 l0 t0 lines">0.0912</td>
+<td class="l m b0 r0 l0 t0 lines">5.96</td>
+<td class="l m b0 r0 l0 t0 lines">0.0016</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Error</td>
+<td class="l m b0 r0 l0 t0 lines">25</td>
+<td class="l m b0 r0 l0 t0 lines">0.3825</td>
+<td class="l m b0 r0 l0 t0 lines">0.0153</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">29</td>
+<td class="l m b0 r0 l0 t0 lines">0.7473</td>
+</tr>
+</table></div> <div class="para">The following table gives the necessary information (NEED TO FINISH FILLING OUT)</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Contrast</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\hat{L}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s_{\hat{L}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(F\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(SSC_L\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.2090\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.05656\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-3.7019\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(13.7038\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2097\)</span></td>
+</tr>
+</table></div> <div class="para logical">
+<div class="para">Here, note the following for the first row :</div>
+<ul class="disc">
+<li><div class="para"><span class="process-math">\(\displaystyle \hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\displaystyle s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i}^2{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\displaystyle t = \dfrac{\hat{L}_1}{s_{\hat{L}_1}}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\displaystyle F = t^2 = (-3.7019)^2\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\displaystyle SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}\)</span></div></li>
+</ul>
+</div> <div class="para">With <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject <span class="process-math">\(H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0\)</span> since <span class="process-math">\(|t|\geq t_{0.025,25} = 2.0595\text{.}\)</span> We conclude that there is a significant difference of effectiveness between the control and average of all agents under <span class="process-math">\(\alpha = 0.05\)</span>
+</div>
+</div>
+<span class="incontext"><a href="lec-6-sec1.html#solution-5" class="internal">in-context</a></span>
+</body>
+</html>

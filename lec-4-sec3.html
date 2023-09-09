@@ -202,7 +202,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-4-sec2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-4.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-4-sec2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-4.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-5.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
 \newcommand{\lrpar}[1]{\left(#1\right)}
@@ -226,6 +226,23 @@ window.MathJax = {
 <li><div class="toc-item"><a href="lec-4-sec1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Observational vs. Experimental Studies</span></a></div></li>
 <li><div class="toc-item"><a href="lec-4-sec2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Completely Randomized Design (CRD)</span></a></div></li>
 <li class="active"><div class="toc-item"><a href="lec-4-sec3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Linear Model Approach</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-5.html" class="internal"><span class="codenumber">2</span> <span class="title">Lecture 5 - 09/05/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-5-sec1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">One-way ANOVA: Assumptions</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">One-way ANOVA: Graphics</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">One-way ANOVA: Check Normality</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec4.html" class="internal"><span class="codenumber">2.4</span> <span class="title">One-way ANOVA: Homogeneity of Variances</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec5.html" class="internal"><span class="codenumber">2.5</span> <span class="title">One-way ANOVA: Data Transformation</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 - 09/07/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
@@ -278,7 +295,7 @@ Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Means Model</td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E(Y_{ij}) = \mu_I\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E(Y_{ij}) = \mu_i\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Var(Y_{ij}) = \sigma^2\)</span></td>
 </tr>
 <tr>
@@ -303,7 +320,7 @@ Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
 </ul>
 </div>
 <div class="para logical" id="p-44">
-<div class="para">We may also note that</div>
+<div class="para">We may also note that we have a similar statement to the TSS decomposition in ANOVA:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 Y_{ij} = \bar{Y}_{\cdot\cdot} + (\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot}) + (Y_{ij} - \bar{Y}_{i\cdot})
@@ -317,7 +334,7 @@ Y_{ij} = \bar{Y}_{\cdot\cdot} + (\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot}) + (Y_{ij
 </ul>
 </div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="lec-4-sec2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="lec-4-sec2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-5.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
