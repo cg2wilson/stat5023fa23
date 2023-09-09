@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-6" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 6 - 09/07/2023</title>
+
+    <section xml:id="lec-6-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Linear Contrasts</title>
+        
+        <p>
+            Suppose that we reject the null hypothesis of equal variances under ANOVA. This means that we believe the alternative hypothesis that at least one <m>\mu_i</m> is different- which group means are different?
+        </p>
+
+        <definition xml:id="linear-contrast">
+            <title>Linear Contrast</title>
+            <statement>
+                <p>
+                    A linear combination of the population group means, that is,
+                    <me>
+                        L = \sum_{i=1}^t a_i\mu_i
+                    </me>
+                    is called a <term>linear contrast</term> of <m>\mu_1,\mu_2,...,\mu_t</m> if 
+                    <me>
+                        \sum_{i=1}^t a_i = 0
+                    </me>   
+                </p>
+            </statement>
+        </definition>
+        
+        <example>
+            <statement>
+                <p>
+                    An experiment to compare the yield of four varieties of rice was conducted.
+                </p>
+                <p>
+                    Case 1: Assume we are interested in any difference between the means of the first and fourth varieties. 
+                </p>
+                <p>
+                    Case 2: Suppose that the fourth variety is a new type of rice and we want to know whether its mean yield is different from the average of the means for the other three varieties.
+                </p>
+                <p>
+                    Our hypotheses in either case are
+                    <me>
+                        H_0: L = \sum_{i=1}^t a_i\mu_i = 0
+                    </me>
+                    versus
+                    <me>
+                        H_a: L = \sum_{i=1}^t a_i\mu_i \neq 0
+                    </me>
+                    
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Case 1: With <m>a_1 = 1</m>, <m>a_2=a_3 = 0</m> and <m>a_4=-1</m>, the contrast  
+                </p>
+                <p>
+                    Case 2: <m>a_1 = a_2=a_3 = \dfrac{1}{3}</m> and <m>a_4 = -1</m>, so the contrast
+                    <me>
+                        L = \dfrac{1}{3}(\mu_1 + \mu_2 + \mu_3) - \mu_4
+                    </me>
+                    can be considered
+                    
+                </p>
+            </solution>
+        </example>
+
+        <p>
+            Here are some useful formulas to construct the test statistic. When <m>Y_1,Y_2,...,Y_n</m> is a random sample from a population with variance <m>\sigma^2</m>, we have
+            <ul>
+                <li>
+                    <p>
+                        \text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        \text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        \text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}
+                    </p>
+                </li>
+            </ul>
+            These formulas hold without normality as well.
+        </p>
+
+        <p>
+            Set 
+            <me>
+                \hat{L} = \sum_{i=1}^t a_i\bar{Y}_{i\cdot}
+            </me>
+            to be the estimate of <m>L</m>. Under the assumptions of one-way ANOVA,
+            <me>
+                \hat{L} \sim N\lrpar{\sum_{i=1}^t a_i\mu_i,\text{Var}(\hat{L})}
+            </me>
+            where
+            <me>
+                \text{Var}(\hat{L}) = \sigma^2\sum_{i=1}^t \dfrac{a_i^2}{n_i}
+            </me>
+            (using the above formulas to simplify along the way). Without the knowledge of <m>\sigma^2</m>, <m>\text{Var}(\hat{L})</m> can be estimated by <m>s_{\hat{L}}^2</m> such that
+            <me>
+                s_{\hat{L}} = \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+            </me>
+            The test statistic is given by
+            <me>
+                t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
+            </me>
+            under <m>H_0</m>. We reject the null <m>H_0: L = 0</m> if <m>|t| \geq t_{\alpha/2,n_\cdot-t}</m>.
+        </p>
+
+        <p>
+            A <m>100(1-\alpha)%</m> confidence interval for <m>L</m> is given by
+            <me>
+                \sum_{i=1}^t a_i\bar{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+            </me>
+        </p>
+
+        <p>
+            It can be shown that <m>t_{n_\cdot-t}^2 = F_{1,n_\cdot-t}</m>; so, if we have a statistic from a t-distribution with <m>\nu</m> degrees of freeom, its square is from the F-distribution with 1 and <m>\nu</m> degrees of freedom. THis gives an alternative F-test statistic:
+            <me>
+                F = t^2 = \dfrac{SSC_L/1}{MSE}\sim F_{1,n_\cdot-t}
+            </me>
+            under <m>H_0</m>, where <m>t = \hat{L}/s_{\hat{L}}</m> and <m>SSC_L</m> is referred to as the sum of squares for the contrast <m>L</m> such that
+            <me>
+                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+            </me>
+            <m>SSC_L</m> has one degree of freedom; we reject the null <m>H_0: L = 0</m> if <m>F\geq F_{\alpha,1,n_\cdot -t}</m>
+        </p>
+
+        <p>
+            We may ask: why is the rejection region of the F-statistic only one-sided, even though the t-statistic is two-sided?
+            <ul>
+                <li>
+                    <p>
+                        Recall that we test <m>H_0: L = 0</m> based on the t-statistic following the t-distribution, which is defined on <m>(-\infty,\infty)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We reject <m>H_0</m> if the t-statistic is too small or too large
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If we square a significant t-statistic, we get two situations: (1), the resulting F-statistic would be large with positive sign; (2), the F-distribution then becomes defined on <m>(0,\infty)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        As a result, we only need to consider the right-hand region on the F distribution.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A small F-statistic would correspond to a t-statistic with small absolute value <m>|t|</m>, which should not lead us to reject the null. Thus, there is no need to consider the left part of the F distribution.
+                    </p>
+                </li>
+            </ul>
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.
+                </p>
+                <tabular>
+                    <row>
+                        <cell></cell>
+                        <cell>None (Control)</cell>
+                        <cell>Bio1</cell>
+                        <cell>Bio2</cell>
+                        <cell>Chm1</cell>
+                        <cell>Chm2</cell>
+                    </row>
+                    <row>
+                        <cell><m>\bar{Y}_{i\cdot}</m></cell>
+                        <cell>1.175</cell>
+                        <cell>1.293</cell>
+                        <cell>1.328</cell>
+                        <cell>1.415</cell>
+                        <cell>1.500</cell>
+                    </row>
+                    <row>
+                        <cell><m>s_i</m></cell>
+                        <cell>0.1204</cell>
+                        <cell>0.1269</cell>
+                        <cell>0.1196</cell>
+                        <cell>0.1249</cell>
+                        <cell>0.1265</cell>
+                    </row>
+                    <row>
+                        <cell><m>n_i</m></cell>
+                        <cell>6</cell>
+                        <cell>6</cell>
+                        <cell>6</cell>
+                        <cell>6</cell>
+                        <cell>6</cell>
+                    </row>
+                </tabular>
+                <p>
+                    We can ask these questions:
+                    <ol>
+                        <li>
+                            <p>
+                                Is there a difference of effectiveness between control and the average of all agents?
+                                <me>
+                                    L_1 = \mu_1 - \dfrac{1}{4}\lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
+                                </me>                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Is there a difference of effectiveness between Bio1 and the average of all chemical agents?
+                                <me>
+                                    L_2 = \dfrac{1}{2}(\mu_4 + \mu_5) - \mu_2
+                                </me>                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Is there a difference of effectiveness between Bio2 and the average of all chemical agents?
+                                <me>
+                                    L_3 = \dfrac{1}{2}(\mu_4 + \mu_5) - \mu_3
+                                </me>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Compare biological agents 1 and 2?
+                                <me>
+                                    L_4 = \mu_2 - \mu_3
+                                </me>
+                                
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The one-way ANOVA table for the example looks like this.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Source</cell>
+                        <cell>df</cell>
+                        <cell>SS</cell>
+                        <cell>MS</cell>
+                        <cell>F-statistic</cell>
+                        <cell>p-value</cell>
+                    </row>
+                    <row>
+                        <cell>Treatment</cell>
+                        <cell>4</cell>
+                        <cell>0.3648</cell>
+                        <cell>0.0912</cell>
+                        <cell>5.96</cell>
+                        <cell>0.0016</cell>
+                    </row>
+                    <row>
+                        <cell>Error</cell>
+                        <cell>25</cell>
+                        <cell>0.3825</cell>
+                        <cell>0.0153</cell>
+                    </row>
+                    <row>
+                        <cell>Total</cell>
+                        <cell>29</cell>
+                        <cell>0.7473</cell>
+                    </row>
+                </tabular>
+                <p>
+                    The following table gives the necessary information (NEED TO FINISH FILLING OUT)
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Contrast</cell>
+                        <cell><m>\hat{L}</m></cell>
+                        <cell><m>s_{\hat{L}}</m></cell>
+                        <cell><m>t</m></cell>
+                        <cell><m>F</m></cell>
+                        <cell><m>SSC_L</m></cell>
+                    </row>
+                    <row>
+                        <cell>1</cell>
+                        <cell><m>-0.2090</m></cell>
+                        <cell><m> 0.05656</m></cell>
+                        <cell><m>-3.7019</m></cell>
+                        <cell><m>13.7038</m></cell>
+                        <cell><m>0.2097</m></cell>
+                    </row>
+                </tabular>
+                <p>
+                    Here, note the following for the first row :
+                    <ul>
+                        <li>
+                            <p>
+                                <m>\hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i}^2{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>t = \dfrac{\hat{L}_1}{s_{\hat{L}_1}}</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>F = t^2 = (-3.7019)^2</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}</m>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    With <m>\alpha = 0.05</m>, we reject <m>H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0</m> since <m>|t|\geq t_{0.025,25} = 2.0595</m>. We conclude that there is a significant difference of effectiveness between the control and average of all agents under <m>\alpha = 0.05</m>
+                </p>
+            </solution>
+            <p>
+                In the previous example, note that there would be multiple <m>a_i</m> for the same comparison. For example, we can also set <m>a_1 = 4, a_2=a_3=a_4 = -1</m> for <m>L_1</m>. In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given <m>a_i</m>s, let <m>b_i = c\cdot a_i</m> for some <m>c</m>. Then, we still obey the condition that
+                <me>
+                    \sum_{i=1}^t b_i = 0
+                </me>
+                so we can say that 
+                <me>
+                    L' = \sum_{i=1}^t b_i\mu_i
+                </me>
+                is a linear contrast. This means that the t-statistic for the contrast <m>L'</m> is given by
+                <me>
+                    t = \dfrac{\sum_{i=1}^t b_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t b_i^2/n_i}} = \dfrac{c\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot c^2\sum_{i=1}^t a_i^2/n_i}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot \sum_{i=1}^t a_i^2/n_i}}
+                </me>
+                which is the same as for the constrast <m>L</m>                
+            </p>
+        </example>
+
+    </section>
+
+    <section xml:id="lec-6-sec2" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Orthogonal Contrasts</title>
+        
+        <p>
+            We will assume the balanced case for what remains.
+        </p>
+
+        <definition>
+            <title>Orthogonal Contrast</title>         
+            <statement>
+                <p>
+                    In the balanced case (<m>n_1=n_2=\cdots=n_t=n</m>), two contrasts <m>L_1=\sum_{i=1}^t a_i\mu_i</m> and <m>L_2 = \sum_{i=1}^t b_i\mu_i</m> are <term>orthogonal</term> if
+                    <me>
+                        \sum_{i=1}^t a_ib_i = 0
+                    </me>                    
+                </p>
+            </statement>
+        </definition>
+
+        <example>
+            <statement>
+                <p>
+                    Consider the three contrasts:
+                    <md>
+                        <mrow> L_1 \amp = \mu_1-\mu_2 </mrow>
+                        <mrow> L_2 \amp = \mu_1 - \mu_3 </mrow>
+                        <mrow> L_3 \amp = \dfrac{1}{2}\mu_1 - \mu_2 + \dfrac{1}{2}\mu_3 </mrow>
+                    </md>
+                    Which pair is orthogonal?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The only orthogonal pair is <m>L_2</m> and <m>L_3</m>
+                </p>
+            </solution>
+        </example>
+
+        <p>
+            A set of contrasts is said to be <term>mutually orthogonal</term> if all pairs of contrasts in the set are orthogonal. For a set with <m>t</m> treatment levels, the maximum number of mutually orthogonal contrasts is <m>t-1</m>. 
+        </p>
+
+        <p>
+            Even though there are many different ways of making a set of orthogonal contrasts, not all will be meaningful:
+        </p>
+        <tabular>
+            <row>
+                <cell>Treatment</cell>
+                <cell>Coefficient of contrast 1</cell>
+                <cell>Coefficient of contrast 2</cell>
+            </row>
+            <row>
+                <cell>1 (Control)</cell>
+                <cell><m>-2</m></cell>
+                <cell>0</cell>
+            </row>
+            <row>
+                <cell>2 (Level 1)</cell>
+                <cell>1</cell>
+                <cell><m>-1</m></cell>
+            </row>
+            <row>
+                <cell>3 (Level 2)</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+            </row>
+        </tabular>
+
+        <p>
+            If two contrasts are orthogonal, then one contrast conveys no information about the other contrast.
+        </p>
+
+        <p>
+            Recall that <m>SSC_L</m> is a sum of squares associated with contrast <m>L</m>:
+            <me>
+                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i}
+            </me>
+            with a single degree of freedom. It can be shown that SSTrt from one-way ANOVA can be decomposed into <m>t-1</m> independent <m>SSL_i</m>s corresponding to each mutually orthogonal contrast. Given a set of mutually orthogonal contrasts <m>L_1,L_2,...,L_{t-1}</m>,
+            <me>
+                SSTrt = SSC_{L_1} + SSC_{L_2} + \cdots + SSC_{L_{t-1}}
+            </me>
+            As shown above, we have
+            <me>
+                \dfrac{SSC_{L_i}/1}{MSE}\sim F_{1,n_\cdot - t}
+            </me>
+            under the null hypothesis <m>H_0: L_i = 0</m>            
+        </p>
+
+        <p>
+            From the weed control example from above, we have the following contrasts:
+            <ol>
+                <li>
+                    <p>
+                        Is there a difference of effectiveness between control and average of all agents? 
+                        <me>
+                            L_1 = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5)
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Is there an average effectiveness difference between biological and chemical agents?
+                        <me>
+                            L_2 = \dfrac{1}{2}(\mu_2 + \mu_3) - \dfrac{1}{2}(\mu_4 + \mu_5)
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Compare biological agents 1-2:
+                        <me>
+                            L_3 = \mu_2 - \mu_3
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Compare chemical agents 1-2:
+                        <me>
+                            L_4 = \mu_4 - \mu_5
+                        </me>
+                        
+                    </p>
+                </li>
+            </ol>
+
+            It can be shown that all pairs of contrasts are orthogonal.
+        </p>
+        <p>
+            If we compute each <m>SSC_{L_i}</m>:
+            <ul>
+                <li>
+                    <p>
+                        <me>
+                            SSC_{L_1} = \dfrac{\lrpar{1.175 - \dfrac{1}{4}(1.293 + 1.328 + 1.415+1.500)^2}}{\dfrac{1}{6} (1^2 + (-1/4)^2 + (-1/4)^2 + (-1/4)^2 + (-1/4)^2)} = 0.2097
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <me>
+                            SSC_{L_2} = \dfrac{\lrpar{\dfrac{1}{2}(1.293+1.328) - \dfrac{1}{2}(1.415+1.500)}^2}{\dfrac{1}{6}((1/2)^2 + (1/2)^2 + (-1/2)^2 + (-1/2)^2)} = 0.1297
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <me>
+                            SSC_{L_3} = \dfrac{(1.293-1.328)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0037
+                        </me>
+                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <me>
+                            SSC_{L_4} = \dfrac{(1.415-1.500)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0217
+                        </me>
+                        
+                    </p>
+                </li>
+            </ul>
+            Recall the one-way ANOVA table:
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell>F-statistic</cell>
+                <cell>p-value</cell>
+            </row>
+            <row>
+                <cell>Treatment</cell>
+                <cell>4</cell>
+                <cell>0.3648</cell>
+                <cell>0.0912</cell>
+                <cell>5.96</cell>
+                <cell>0.0016</cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>25</cell>
+                <cell>0.3825</cell>
+                <cell>0.0153</cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>29</cell>
+                <cell>0.7473</cell>
+            </row>
+        </tabular>
+        <p>
+            The following table summarizes the result based on the specified orthogonal contrasts:
+        </p>
+        <tabular>
+            <row>
+                <cell>Contrast</cell>
+                <cell>df</cell>
+                <cell>Contrast SS</cell>
+                <cell>F-statistic</cell>
+            </row>
+            <row>
+                <cell><m>L_1</m></cell>
+                <cell>1</cell>
+                <cell>0.2097</cell>
+                <cell>13.703</cell>
+            </row>
+            <row>
+                <cell><m>L_2</m></cell>
+                <cell>1</cell>
+                <cell>0.1297</cell>
+                <cell>8.474</cell>
+            </row>
+            <row>
+                <cell><m>L_3</m></cell>
+                <cell>1</cell>
+                <cell>0.0037</cell>
+                <cell>0.240</cell>
+            </row>
+            <row>
+                <cell><m>L_4</m></cell>
+                <cell>1</cell>
+                <cell>0.0217</cell>
+                <cell>1.417</cell>
+            </row>
+        </tabular>
+    </section>
+</chapter>

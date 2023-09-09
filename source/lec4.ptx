@@ -248,7 +248,7 @@
             </ul>
         </p>
         <p>
-            We may also note that
+            We may also note that we have a similar statement to the TSS decomposition in ANOVA:
             <me>
                 Y_{ij} = \bar{Y}_{\cdot\cdot} + (\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot}) + (Y_{ij} - \bar{Y}_{i\cdot})
             </me>

@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-5" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 5 - 09/05/2023</title>
+
+    <section xml:id="lec-5-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>One-way ANOVA: Assumptions</title>
+            <p>
+                In one-way ANOVA, we assume:
+                <ol marker="a">
+                    <li>
+                        <p>
+                            <m>Y_{ij}\approx^{i.i.d.} N(\mu_i,\sigma_i^2)</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Homoscedasticity: <m>\sigma_1^2 = \cdots = \sigma_t^2 = \sigma^2</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Independence of each sample
+                        </p>
+                    </li>
+                </ol>
+            </p>
+            <p>
+                Recall the "effects" model for one-way ANOVA such that
+                <me>
+                    Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
+                </me>
+                where <m>Y_{ij}</m> is the <m>j-</m>th observation of treatment level <m>i</m>; <m>\mu \text{ and }\tau_i</m> are the overall mean and the <m>i-</m>the treatment level effect; and <m>\varepsilon_{ij}</m> is the random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\approx^{i.i.d.} N(0,\sigma^2)</m>
+            </p>
+            <p>
+                Note that the assumption on <m>\varepsilon_{ij}</m> in the previous paragraph is equivalent to the three conditions above.
+            </p>
+
+            <p>
+                These three assumptions guarantee a valid statistical inference based on ANOVA; it also makes the sampling distribution of our test statistic follow the F distribution.
+            </p>
+
+            <p>
+                ANOVA is robust to moderate deviations from normality, but extreme skewness or outliers create problems because we assume normality and equal variance in ANOVA.
+            </p>
+
+            <p>
+                Our solution is to use the residuals
+                <me>
+                    \hat{\varepsilon_{ij}} = Y_{ij} - \bar{Y}_{i\cdot}
+                </me>
+                to make a guess of the distribution of <m>\varepsilon_{ij}</m>. Note that 
+                <me>
+                    \sum_{j=1}^{n_i} \hat{\varepsilon_{ij}} = 0
+                </me>            
+            </p>
+
+            <p>
+                If the normality assumption were true, then 
+                <me>
+                    \hat{\varepsilon_{i1}},\cdots,\hat{\varepsilon_{in_i}}
+                </me>
+                would be normally distributed as well; if <m>n_i</m> were small, we would collect the <m>\hat{\varepsilon_{i1}},\cdots,\hat{\varepsilon_{in_i}}</m> from all <m>i-</m>th treatment levels.
+            </p>
+            
+            <p>
+                Under normality and homoscedasticity, the set of residuals from all treatment levels, i.e. the collection
+                <me>
+                    \hat{\varepsilon_{ij}} \text{ for }i=1...,t\text{ and }j=1,...,n_t
+                </me>
+                would seem to be from the same normal distribution
+            </p>
+    </section>
+    
+    <section xml:id="lec-5-sec2">
+        <title>One-way ANOVA: Graphics</title>
+
+        <p>
+            Two useful graphics to check assumptions are boxplots/histograms and quantile-quantile (QQ) plots.
+        </p>
+
+        <p>
+            <term>QQ plot</term>: the scatterplot of the sample quantiles against the theoretical quantiles of the corresponding observations that are expected if the data are from the normal distribution.
+        </p>
+        <p>
+            The points on a QQ plot should cluster around a straight line for a normally distributed variable.
+        </p>
+
+        <image source="qq-plot-lec5.png"/>
+    </section>
+
+    <section xml:id="lec-5-sec3">
+        <title>One-way ANOVA: Check Normality</title>
+
+        <p>
+            What happens if our underlying assumptions appear to be non-normal?
+            <ul>
+                <li>
+                    <p>
+                        We can use the Kruskal-Wallis test (see Ch. 14 in textbook)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We can use non-parametric statistical models, which are distribution-free
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We can use some parametric statistical models (like ANOVA): these are more powerful if the underlying assumptions are met. ANOVA in particular is known to be robust to non-normality.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        It's always helpful to use graphics to check assumptions BEFORE analysis
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </section>
+
+    <section xml:id="lec-5-sec4">
+        <title>One-way ANOVA: Homogeneity of Variances</title>
+
+        <p>
+            For comparison of two population variances, recall that we have used the test statistic F such that
+            <me>
+                F = \dfrac{s_1^2}{s_2^2}\sim F_{n_1-1,n_2-1}
+            </me>
+            under the null hypothesis <m>H_0: \sigma_1^2 = \sigma_2^2</m>. How do we generalize this to compare more than two variances?
+        </p>
+        <p>
+            Consider the null
+            <me>
+                H_0: \sigma_1^2 = \sigma_2^2=\cdots = \sigma_t^2
+            </me>
+            versus the alternative <m>H_a: \sigma_i^2\neq \sigma_j^2</m> for some <m>i,j</m>
+        </p>
+
+        <p>
+            One test is <term>Hartley's F-max test</term>. It requires the balanced case, i.e. <m>n_1 = \cdots = n_t = n</m>. Let 
+            <me>
+                s_{max}^2 = \max_{1\leq i\leq t} s_i^2
+            </me>
+            and 
+            <me>
+                s_{min}^2 = \min_{1\leq i\leq t} s_i^2
+            </me>
+            where <m>s_i^2</m> denotes the sample variance of the <m>i-</m>th treatment level.
+        </p>
+        <p>
+            The test statistic can be given as
+            <me>
+                F-max = \dfrac{s_{max}^2}{s_{min}^2}\sim F-max_{t,df} \text{ under }H_0
+            </me>
+            where <m>F-max_{t,df}</m> is the F-max distribution (which is distinct from the usual F distribution) with <m>t</m> and <m>df = n-1</m>.
+        </p>
+        <p>
+            We reject 
+            <m>
+                H_0: \sigma_1^2 = \cdots \sigma_t^2
+            </m>
+            if <m>F-max \geq F-max_{\alpha,t,df}</m>; the critical value <m>F-max_{\alpha,t,df}</m> can be found in the F-max table.
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    An experiment to compare the yield of four varieties of rice was conducted. Each of 16 plots on a test farm where soil fertility was fairly homogeneous was treated alike relative to water and fertilizer. Four plots were randomly assigned each of the four varieties of rice.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>
+                            Variety
+                        </cell>
+                        <cell halign="center" colspan="4">
+                            Yields
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            1
+                        </cell>
+                        <cell>
+                            934
+                        </cell>
+                        <cell>
+                            1041
+                        </cell>
+                        <cell>
+                            1028
+                        </cell>
+                        <cell>
+                            935
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            2
+                        </cell>
+                        <cell>
+                            880
+                        </cell>
+                        <cell>
+                            963
+                        </cell>
+                        <cell>
+                            924
+                        </cell>
+                        <cell>
+                            946
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            3
+                        </cell>
+                        <cell>
+                            987
+                        </cell>
+                        <cell>
+                            951
+                        </cell>
+                        <cell>
+                            976
+                        </cell>
+                        <cell>
+                            840
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            4
+                        </cell>
+                        <cell>
+                            992
+                        </cell>
+                        <cell>
+                            1143
+                        </cell>
+                        <cell>
+                            1140
+                        </cell>
+                        <cell>
+                            1191
+                        </cell>
+                    </row>
+                </tabular>
+            </statement>
+            <solution>
+                <p>
+                    Compute each variance:
+                    <md>
+                        <mrow>s_1^2 &amp;= 3361.67</mrow>
+                        <mrow>s_2^2 &amp;= 1289.58</mrow>
+                        <mrow>s_3^2 &amp;= 4539.00</mrow>
+                        <mrow>s_4^2 &amp;= 7435.00</mrow>
+                    </md>
+                    and identify the values of <m>s_{max}^2</m> and <m>s_{min}^2</m>:
+                    <md>
+                        <mrow>s_{max}^2 &amp; = 7435.00</mrow>
+                        <mrow>s_{min}^2 &amp; = 1289.58</mrow>
+                    </md>
+                    Now, the <m>F-max</m> statistic is given by
+                    <me>
+                        F-max = \dfrac{s_{max}^2}{s_{min}^2} = \dfrac{7435}{1289.58} = 5.77
+                    </me>
+                    From the F-max table, we get
+                    <me>
+                        F-max_{0.05,4,3} = 39.2
+                    </me>
+                    Under 
+                    <me>
+                        H_0: \sigma_i^2 = \sigma_j^2 \text{ for all }i,j
+                    </me>
+                    we reject <m>H_0</m> if <m>F-max \geq F-max_{0.05,4,3} </m>, so we conclude there is insufficient evidence to reject the hypothesis of equal variances.
+                </p>
+            </solution>
+        </example>
+
+        <p>
+            Another test is <term>Bartlett's test</term>. The test statistic is given by
+            <me>
+                \chi^2 = \dfrac{1}{C}\left[ (n_\cdot - t)\log (MSE) - \sum_{i=1}^t (n_i-1)s_i^2\right]
+            </me>
+            where
+            <me>
+                C = 1 + \dfrac{1}{3(t-1)} \lrpar{\sum_{i=1}^t \dfrac{1}{n_i-1} - \dfrac{1}{n_\cdot - t}}
+            </me>
+            For this test, we don't require the balanced case. Additionally, the test statistic approximately follows <m>\chi^2_{t-1}</m> under the null hypothesis. We set
+            <me>
+                H_0: \sigma_1^2 = \sigma_2^2=\cdots = \sigma_t^2
+            </me>
+            and reject if <m>\chi^2 \geq \chi^2_{\alpha,t-1}</m>. 
+        </p>
+        <p>
+            Note: Bartlett's test is sensitive to departures from the normality assumption.
+        </p>
+
+        <p>
+            A third test is <term>Levene's test</term>: let 
+            <me>
+                r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \bar{Y}_{i\cdot}|
+            </me>
+            denote the absolute value of the residual <m>\hat{\varepsilon_{ij}}</m>. We perform one-way ANOVA by treating the <m>r_{ij}</m> as our observations.
+        </p>
+        <p>
+            Levene's test is based on the F test statistic:
+            <me>
+                F = \dfrac{\sum_{i=1}^t n_i(\bar{r}_{i\cdot} - \bar{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\bar{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
+            </me>
+            under <m>H_0</m>, where
+            <me>
+                \bar{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
+            </me>
+            and
+            <me>
+                \bar{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
+            </me>
+            We reject the null hypothesis of equal variance if <m>F\geq F_{\alpha,t-1,n_\cdot -t}</m>
+        </p>
+
+        <p>
+            Once we conduct the hypothesis testing for homogeneity of variances, we consider the following:
+            <ul>
+                <li>
+                    <p>
+                        If we fail to reject the null, we go with one-way ANOVA
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If we reject the null, we have two choices:
+                        <ul>
+                            <li>
+                                <p>
+                                    Apply Welch's ANOVA with each <m>s_i^2</m> instead of the pooled variance. Calculate the degrees of freedom for error just like what we did in the two-sample t-test for unequal variances
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Perform data transformation to stabilize the variance
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </section>
+
+    <section xml:id="lec-5-sec5">
+        <title>One-way ANOVA: Data Transformation</title>
+
+        <p>
+            Transformations on <m>Y_{ij}</m> would be helpful to stabilize the variance <m>\sigma_i^2</m>. Then, we can perform ANOVA with the transformed data.
+        </p>
+        <p>
+            Some widely used transformations are: <m>\log (Y_{ij})</m>, <m>\sqrt{Y_{ij}}</m>, and <m>Y_{ij}^2</m>
+        </p>
+        <tabular>
+            <row>
+                <cell>
+                    Relationship
+                </cell>
+                <cell>
+                    Transformation
+                </cell>
+            </row>
+            <row>
+                <cell>
+                    <m>\sigma_i^2 \propto \mu_i</m>
+                </cell>
+                <cell>
+                    <m>\sqrt{Y_{ij}}</m>
+                </cell>
+            </row>
+            <row>
+                <cell>
+                    <m>\sigma_i^2 \propto \mu_i^2</m>
+                </cell>
+                <cell>
+                    <m> \log (Y_{ij})</m>
+                </cell>
+            </row>
+        </tabular>
+        <p>
+            Caution: departures from normality may happen after transformation.
+        </p>
+    </section>
+</chapter>
