@@ -14,7 +14,7 @@
 <article class="example example-like"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
 </h3>
-<div class="para">Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para">Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines"></td>
 <td class="l m b0 r0 l0 t0 lines">None (Control)</td>
@@ -50,14 +50,24 @@
 </table></div> <div class="para logical">
 <div class="para">We can ask these questions:</div>
 <ol class="decimal">
-<li><div class="para logical">
+<li>
+<div class="para logical">
 <div class="para">Is there a difference of effectiveness between control and the average of all agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
 L_1 = \mu_1 - \dfrac{1}{4}\lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
 \end{equation*}
 </div>
-</div></li>
+</div>
+<div class="para logical">
+<div class="para">NOTE: The choice of <span class="process-math">\(a_i\)</span> in a contrast is arbitrary; provided that <span class="process-math">\(\sum a_i = 0\text{,}\)</span> we can choose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{L_1} = 4\mu_1 - \lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
+\end{equation*}
+</div>
+</div>
+</li>
 <li><div class="para logical">
 <div class="para">Is there a difference of effectiveness between Bio1 and the average of all chemical agents?</div>
 <div class="displaymath process-math">

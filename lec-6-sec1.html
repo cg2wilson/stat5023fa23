@@ -239,10 +239,27 @@ window.MathJax = {
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 - 09/07/2023</span></a></div>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 &amp; 7- 09/07 and 09/12/2023</span></a></div>
 <ul class="structural">
 <li class="active"><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
 <li><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-8.html" class="internal"><span class="codenumber">4</span> <span class="title">Lecture 8 &amp; 9- 09/14 and 09/19/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-8-sec1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Simultaneous Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-8-sec2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Trend Analysis</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-9.html" class="internal"><span class="codenumber">5</span> <span class="title">Lecture 9 &amp; 11- 09/19 - 09/26/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-9-sec1.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Multiple Comparisons</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Fisher’s LSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Tukey’s HSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Scheff’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec5.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Summary</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
@@ -297,9 +314,9 @@ L = \dfrac{1}{3}(\mu_1 + \mu_2 + \mu_3) - \mu_4
 </div></article><div class="para logical" id="p-94">
 <div class="para">Here are some useful formulas to construct the test statistic. When <span class="process-math">\(Y_1,Y_2,...,Y_n\)</span> is a random sample from a population with variance <span class="process-math">\(\sigma^2\text{,}\)</span> we have</div>
 <ul class="disc">
-<li id="li-33"><div class="para" id="p-95">\text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2</div></li>
-<li id="li-34"><div class="para" id="p-96">\text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2</div></li>
-<li id="li-35"><div class="para" id="p-97">\text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}</div></li>
+<li id="li-33"><div class="para" id="p-95"><span class="process-math">\(\displaystyle \text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2\)</span></div></li>
+<li id="li-34"><div class="para" id="p-96"><span class="process-math">\(\displaystyle \text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2\)</span></div></li>
+<li id="li-35"><div class="para" id="p-97"><span class="process-math">\(\displaystyle \text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}\)</span></div></li>
 </ul>
 <div class="para">These formulas hold without normality as well.</div>
 </div>
@@ -338,7 +355,7 @@ t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqr
 </div>
 </div>
 <div class="para logical" id="p-99">
-<div class="para">A <span class="process-math">\(100(1-\alpha)%\)</span> confidence interval for <span class="process-math">\(L\)</span> is given by</div>
+<div class="para">A <span class="process-math">\(100(1-\alpha)\%\)</span> confidence interval for <span class="process-math">\(L\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{i=1}^t a_i\bar{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
@@ -359,7 +376,7 @@ SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{
 \end{equation*}
 </div>
 <div class="para">
-<span class="process-math">\(SSC_L\)</span> has one degree of freedom; we reject the null <span class="process-math">\(H_0: L = 0\)</span> if <span class="process-math">\(F\geq F_{\alpha,1,n_\cdot -t}\)</span>
+<span class="process-math">\(SSC_L\)</span> has one degree of freedom (this is the reason for the division by 1 above); we reject the null <span class="process-math">\(H_0: L = 0\)</span> if <span class="process-math">\(F\geq F_{\alpha,1,n_\cdot -t}\)</span>
 </div>
 </div>
 <div class="para logical" id="p-101">
@@ -367,7 +384,7 @@ SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{
 <ul class="disc">
 <li id="li-36"><div class="para" id="p-102">Recall that we test <span class="process-math">\(H_0: L = 0\)</span> based on the t-statistic following the t-distribution, which is defined on <span class="process-math">\((-\infty,\infty)\)</span>
 </div></li>
-<li id="li-37"><div class="para" id="p-103">We reject <span class="process-math">\(H_0\)</span> if the t-statistic is too small or too large</div></li>
+<li id="li-37"><div class="para" id="p-103">We reject <span class="process-math">\(H_0\)</span> if the t-statistic is too large in magnitude.</div></li>
 <li id="li-38"><div class="para" id="p-104">If we square a significant t-statistic, we get two situations: (1), the resulting F-statistic would be large with positive sign; (2), the F-distribution then becomes defined on <span class="process-math">\((0,\infty)\)</span>
 </div></li>
 <li id="li-39"><div class="para" id="p-105">As a result, we only need to consider the right-hand region on the F distribution.</div></li>
@@ -377,7 +394,7 @@ SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{
 <article class="example example-like" id="example-5"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-107">Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-107">Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines"></td>
 <td class="l m b0 r0 l0 t0 lines">None (Control)</td>
@@ -413,15 +430,25 @@ SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{
 </table></div> <div class="para logical" id="p-108">
 <div class="para">We can ask these questions:</div>
 <ol class="decimal">
-<li id="li-41"><div class="para logical" id="p-109">
+<li id="li-41">
+<div class="para logical" id="p-109">
 <div class="para">Is there a difference of effectiveness between control and the average of all agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
 L_1 = \mu_1 - \dfrac{1}{4}\lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
 \end{equation*}
 </div>
-</div></li>
-<li id="li-42"><div class="para logical" id="p-110">
+</div>
+<div class="para logical" id="p-110">
+<div class="para">NOTE: The choice of <span class="process-math">\(a_i\)</span> in a contrast is arbitrary; provided that <span class="process-math">\(\sum a_i = 0\text{,}\)</span> we can choose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{L_1} = 4\mu_1 - \lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
+\end{equation*}
+</div>
+</div>
+</li>
+<li id="li-42"><div class="para logical" id="p-111">
 <div class="para">Is there a difference of effectiveness between Bio1 and the average of all chemical agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -429,7 +456,7 @@ L_2 = \dfrac{1}{2}(\mu_4 + \mu_5) - \mu_2
 \end{equation*}
 </div>
 </div></li>
-<li id="li-43"><div class="para logical" id="p-111">
+<li id="li-43"><div class="para logical" id="p-112">
 <div class="para">Is there a difference of effectiveness between Bio2 and the average of all chemical agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -437,7 +464,7 @@ L_3 = \dfrac{1}{2}(\mu_4 + \mu_5) - \mu_3
 \end{equation*}
 </div>
 </div></li>
-<li id="li-44"><div class="para logical" id="p-112">
+<li id="li-44"><div class="para logical" id="p-113">
 <div class="para">Compare biological agents 1 and 2?</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -449,7 +476,7 @@ L_4 = \mu_2 - \mu_3
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
-<div class="para" id="p-113">The one-way ANOVA table for the example looks like this.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-114">The one-way ANOVA table for the example looks like this.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Source</td>
 <td class="l m b0 r0 l0 t0 lines">df</td>
@@ -477,7 +504,7 @@ L_4 = \mu_2 - \mu_3
 <td class="l m b0 r0 l0 t0 lines">29</td>
 <td class="l m b0 r0 l0 t0 lines">0.7473</td>
 </tr>
-</table></div> <div class="para" id="p-114">The following table gives the necessary information (NEED TO FINISH FILLING OUT)</div> <div class="tabular-box natural-width"><table class="tabular">
+</table></div> <div class="para" id="p-115">The following table gives the necessary information (NEED TO FINISH FILLING OUT)</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Contrast</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\hat{L}\)</span></td>
@@ -488,22 +515,46 @@ L_4 = \mu_2 - \mu_3
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">1</td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.2090\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.05656\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-3.7019\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(13.7038\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2097\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
 </tr>
-</table></div> <div class="para logical" id="p-115">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+</tr>
+</table></div> <div class="para logical" id="p-116">
 <div class="para">Here, note the following for the first row :</div>
 <ul class="disc">
-<li id="li-45"><div class="para" id="p-116"><span class="process-math">\(\displaystyle \hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}\)</span></div></li>
-<li id="li-46"><div class="para" id="p-117"><span class="process-math">\(\displaystyle s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i}^2{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}\)</span></div></li>
-<li id="li-47"><div class="para" id="p-118"><span class="process-math">\(\displaystyle t = \dfrac{\hat{L}_1}{s_{\hat{L}_1}}\)</span></div></li>
-<li id="li-48"><div class="para" id="p-119"><span class="process-math">\(\displaystyle F = t^2 = (-3.7019)^2\)</span></div></li>
-<li id="li-49"><div class="para" id="p-120"><span class="process-math">\(\displaystyle SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}\)</span></div></li>
+<li id="li-45"><div class="para" id="p-117"><span class="process-math">\(\displaystyle \hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}\)</span></div></li>
+<li id="li-46"><div class="para" id="p-118"><span class="process-math">\(\displaystyle s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i^2}{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}\)</span></div></li>
+<li id="li-47"><div class="para" id="p-119"><span class="process-math">\(\displaystyle t = \dfrac{\hat{L}_1}{s_{\hat{L}_1}}\)</span></div></li>
+<li id="li-48"><div class="para" id="p-120"><span class="process-math">\(\displaystyle F = t^2 = (-3.7019)^2\)</span></div></li>
+<li id="li-49"><div class="para" id="p-121"><span class="process-math">\(\displaystyle SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}\)</span></div></li>
 </ul>
-</div> <div class="para" id="p-121">With <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject <span class="process-math">\(H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0\)</span> since <span class="process-math">\(|t|\geq t_{0.025,25} = 2.0595\text{.}\)</span> We conclude that there is a significant difference of effectiveness between the control and average of all agents under <span class="process-math">\(\alpha = 0.05\)</span>
+</div> <div class="para" id="p-122">With <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject <span class="process-math">\(H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0\)</span> since <span class="process-math">\(|t|\geq t_{0.025,25} = 2.0595\text{.}\)</span> We conclude that there is a significant difference of effectiveness between the control and average of all agents under <span class="process-math">\(\alpha = 0.05\)</span>
 </div>
 </div></div>
 </div></article></section></div>

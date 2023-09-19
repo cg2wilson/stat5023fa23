@@ -178,7 +178,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.1",
   "title": "Linear Contrasts",
-  "body": " Linear Contrasts  Suppose that we reject the null hypothesis of equal variances under ANOVA. This means that we believe the alternative hypothesis that at least one is different- which group means are different?   Linear Contrast   A linear combination of the population group means, that is, is called a linear contrast of if       An experiment to compare the yield of four varieties of rice was conducted.  Case 1: Assume we are interested in any difference between the means of the first and fourth varieties.  Case 2: Suppose that the fourth variety is a new type of rice and we want to know whether its mean yield is different from the average of the means for the other three varieties.  Our hypotheses in either case are versus     Case 1: With , and , the contrast  Case 2: and , so the contrast can be considered    Here are some useful formulas to construct the test statistic. When is a random sample from a population with variance , we have   \\text{Var}\\lrpar{\\sum_{i=1}^n Y_i} = \\sum_{i=1}^n \\text{Var}(Y_i) = \\sum_{i=1}^n \\sigma^2 = n\\sigma^2    \\text{Var}\\lrpar{\\sum_{i=1}^n a_iY_i} = \\sum_{i=1}^na_i^2\\text{Var}(Y_i) = \\sigma^2\\sum_{i=1}^n a_i^2    \\text{Var}(\\bar{Y}) = \\text{Var}\\lrpar{\\dfrac{1}{n}\\sum_{i=1}^n Y_i} = \\sum_{i=1}^n \\dfrac{1}{n^2}\\text{Var}(Y_i) = \\dfrac{1}{n^2}\\cdot n\\sigma^2 = \\dfrac{\\sigma^2}{n}   These formulas hold without normality as well.  Set to be the estimate of . Under the assumptions of one-way ANOVA, where (using the above formulas to simplify along the way). Without the knowledge of , can be estimated by such that The test statistic is given by under . We reject the null if .  A confidence interval for is given by   It can be shown that ; so, if we have a statistic from a t-distribution with degrees of freeom, its square is from the F-distribution with 1 and degrees of freedom. THis gives an alternative F-test statistic: under , where and is referred to as the sum of squares for the contrast such that  has one degree of freedom; we reject the null if   We may ask: why is the rejection region of the F-statistic only one-sided, even though the t-statistic is two-sided?   Recall that we test based on the t-statistic following the t-distribution, which is defined on     We reject if the t-statistic is too small or too large    If we square a significant t-statistic, we get two situations: (1), the resulting F-statistic would be large with positive sign; (2), the F-distribution then becomes defined on     As a result, we only need to consider the right-hand region on the F distribution.    A small F-statistic would correspond to a t-statistic with small absolute value , which should not lead us to reject the null. Thus, there is no need to consider the left part of the F distribution.       Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.     None (Control)  Bio1  Bio2  Chm1  Chm2     1.175  1.293  1.328  1.415  1.500     0.1204  0.1269  0.1196  0.1249  0.1265     6  6  6  6  6    We can ask these questions:   Is there a difference of effectiveness between control and the average of all agents?     Is there a difference of effectiveness between Bio1 and the average of all chemical agents?     Is there a difference of effectiveness between Bio2 and the average of all chemical agents?     Compare biological agents 1 and 2?        The one-way ANOVA table for the example looks like this.    Source  df  SS  MS  F-statistic  p-value    Treatment  4  0.3648  0.0912  5.96  0.0016    Error  25  0.3825  0.0153    Total  29  0.7473    The following table gives the necessary information (NEED TO FINISH FILLING OUT)    Contrast         1         Here, note the following for the first row :                             With , we reject since . We conclude that there is a significant difference of effectiveness between the control and average of all agents under    In the previous example, note that there would be multiple for the same comparison. For example, we can also set for . In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given s, let for some . Then, we still obey the condition that so we can say that is a linear contrast. This means that the t-statistic for the contrast is given by which is the same as for the constrast    "
+  "body": " Linear Contrasts  Suppose that we reject the null hypothesis of equal variances under ANOVA. This means that we believe the alternative hypothesis that at least one is different- which group means are different?   Linear Contrast   A linear combination of the population group means, that is, is called a linear contrast of if       An experiment to compare the yield of four varieties of rice was conducted.  Case 1: Assume we are interested in any difference between the means of the first and fourth varieties.  Case 2: Suppose that the fourth variety is a new type of rice and we want to know whether its mean yield is different from the average of the means for the other three varieties.  Our hypotheses in either case are versus     Case 1: With , and , the contrast  Case 2: and , so the contrast can be considered    Here are some useful formulas to construct the test statistic. When is a random sample from a population with variance , we have                 These formulas hold without normality as well.  Set to be the estimate of . Under the assumptions of one-way ANOVA, where (using the above formulas to simplify along the way). Without the knowledge of , can be estimated by such that The test statistic is given by under . We reject the null if .  A confidence interval for is given by   It can be shown that ; so, if we have a statistic from a t-distribution with degrees of freeom, its square is from the F-distribution with 1 and degrees of freedom. THis gives an alternative F-test statistic: under , where and is referred to as the sum of squares for the contrast such that  has one degree of freedom (this is the reason for the division by 1 above); we reject the null if   We may ask: why is the rejection region of the F-statistic only one-sided, even though the t-statistic is two-sided?   Recall that we test based on the t-statistic following the t-distribution, which is defined on     We reject if the t-statistic is too large in magnitude.    If we square a significant t-statistic, we get two situations: (1), the resulting F-statistic would be large with positive sign; (2), the F-distribution then becomes defined on     As a result, we only need to consider the right-hand region on the F distribution.    A small F-statistic would correspond to a t-statistic with small absolute value , which should not lead us to reject the null. Thus, there is no need to consider the left part of the F distribution.       Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.     None (Control)  Bio1  Bio2  Chm1  Chm2     1.175  1.293  1.328  1.415  1.500     0.1204  0.1269  0.1196  0.1249  0.1265     6  6  6  6  6    We can ask these questions:   Is there a difference of effectiveness between control and the average of all agents?   NOTE: The choice of in a contrast is arbitrary; provided that , we can choose     Is there a difference of effectiveness between Bio1 and the average of all chemical agents?     Is there a difference of effectiveness between Bio2 and the average of all chemical agents?     Compare biological agents 1 and 2?        The one-way ANOVA table for the example looks like this.    Source  df  SS  MS  F-statistic  p-value    Treatment  4  0.3648  0.0912  5.96  0.0016    Error  25  0.3825  0.0153    Total  29  0.7473    The following table gives the necessary information (NEED TO FINISH FILLING OUT)    Contrast         1         2         3         4         Here, note the following for the first row :                             With , we reject since . We conclude that there is a significant difference of effectiveness between the control and average of all agents under    In the previous example, note that there would be multiple for the same comparison. For example, we can also set for . In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given s, let for some . Then, we still obey the condition that so we can say that is a linear contrast. This means that the t-statistic for the contrast is given by which is the same as for the constrast    "
 },
 {
   "id": "linear-contrast",
@@ -205,7 +205,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.1.3",
   "title": "",
-  "body": "  Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.     None (Control)  Bio1  Bio2  Chm1  Chm2     1.175  1.293  1.328  1.415  1.500     0.1204  0.1269  0.1196  0.1249  0.1265     6  6  6  6  6    We can ask these questions:   Is there a difference of effectiveness between control and the average of all agents?     Is there a difference of effectiveness between Bio1 and the average of all chemical agents?     Is there a difference of effectiveness between Bio2 and the average of all chemical agents?     Compare biological agents 1 and 2?        The one-way ANOVA table for the example looks like this.    Source  df  SS  MS  F-statistic  p-value    Treatment  4  0.3648  0.0912  5.96  0.0016    Error  25  0.3825  0.0153    Total  29  0.7473    The following table gives the necessary information (NEED TO FINISH FILLING OUT)    Contrast         1         Here, note the following for the first row :                             With , we reject since . We conclude that there is a significant difference of effectiveness between the control and average of all agents under    In the previous example, note that there would be multiple for the same comparison. For example, we can also set for . In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given s, let for some . Then, we still obey the condition that so we can say that is a linear contrast. This means that the t-statistic for the contrast is given by which is the same as for the constrast   "
+  "body": "  Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.     None (Control)  Bio1  Bio2  Chm1  Chm2     1.175  1.293  1.328  1.415  1.500     0.1204  0.1269  0.1196  0.1249  0.1265     6  6  6  6  6    We can ask these questions:   Is there a difference of effectiveness between control and the average of all agents?   NOTE: The choice of in a contrast is arbitrary; provided that , we can choose     Is there a difference of effectiveness between Bio1 and the average of all chemical agents?     Is there a difference of effectiveness between Bio2 and the average of all chemical agents?     Compare biological agents 1 and 2?        The one-way ANOVA table for the example looks like this.    Source  df  SS  MS  F-statistic  p-value    Treatment  4  0.3648  0.0912  5.96  0.0016    Error  25  0.3825  0.0153    Total  29  0.7473    The following table gives the necessary information (NEED TO FINISH FILLING OUT)    Contrast         1         2         3         4         Here, note the following for the first row :                             With , we reject since . We conclude that there is a significant difference of effectiveness between the control and average of all agents under    In the previous example, note that there would be multiple for the same comparison. For example, we can also set for . In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given s, let for some . Then, we still obey the condition that so we can say that is a linear contrast. This means that the t-statistic for the contrast is given by which is the same as for the constrast   "
 },
 {
   "id": "lec-6-sec2",
@@ -235,13 +235,157 @@ var ptx_lunr_docs = [
   "body": "  Consider the three contrasts: Which pair is orthogonal?    The only orthogonal pair is and    "
 },
 {
-  "id": "p-127",
+  "id": "p-128",
   "level": "2",
-  "url": "lec-6-sec2.html#p-127",
+  "url": "lec-6-sec2.html#p-128",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "mutually orthogonal "
+},
+{
+  "id": "lec-8-sec1",
+  "level": "1",
+  "url": "lec-8-sec1.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Simultaneous Contrasts",
+  "body": " Simultaneous Contrasts  Reconsider the example on weed control from the previous lecture:  Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.     None (Control)  Bio1  Bio2  Chm1  Chm2     1.175  1.293  1.328  1.415  1.500     0.1204  0.1269  0.1196  0.1249  0.1265     6  6  6  6  6    We have five treatment levels: control, biological agents 1 and 2, and chemical agents 1 and 2. We can ask the question: are all biological and chemical agents similarly effective? This translates to versus Our goal will be to write a null hypothesis of equations with contrasts such that when all such equations are simultaneously true, the null is also true.  Consider the mutually orthogonal contrasts below: The above contrasts are simultaneous contrasts (which also happen to be mutually orthogonal). When all such contrasts are 0, it follows that for appropriate in the null hypothesis considered.  To test , we develop a test statistic. Consider Set Then, we have due to the mutual orthogonality of the contrasts in .  The degrees of freedom for , denoted , is the minimum number of contrasts required to express the simultaneous equality of means. In the weed control example, ; in general, we have where comes from one-way ANOVA. In this situation, we reject if   In the weed example, we can compute: This means that which is compared to under . Since , we reject . Thus, under , there is evidence that at least one average effect on weed control is different among the four agents.  If we ignore the control group and run ANOVA on the four treatment levels, we have . The ANOVA table would be given by    Source  df  SS  MS  F-statistic    Trt  3  SSTrt*  MSTrt*  F = MSTrt*\/MSE*    Error  20  SSE*  MSE*    Total  23    It is true that ; why don't we use this result to test the new ? The answer is in the degrees of freedom for the error. For the simultaneous contrasts, we have 25 degrees of freedom, while there are only 20 in the ANOVA with 4 treatment levels.  If we have treatments and are interested in , we can develop the mutually orthogonal contrasts The test statistic for can be given by under , where MSE comes from one-way ANOVA. We still reject if .  "
+},
+{
+  "id": "p-146",
+  "level": "2",
+  "url": "lec-8-sec1.html#p-146",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "simultaneous contrasts "
+},
+{
+  "id": "lec-8-sec2",
+  "level": "1",
+  "url": "lec-8-sec2.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "Trend Analysis",
+  "body": " Trend Analysis  We have an ANOVA setup: values of a quantitative variable as treatment levels. For example, the effect of varying doses of a drug on patients, the effect on yield due to increased amounts of fertilizer, etc. After testing , it would be our interest to examine whether a trend exists in the response variable over the varying levels of the quantitative factor.  The typical trends seen here are polynomial; so, we use a set of orthogonal contrasts called orthgonal polynomial contrasts to test the existence of such a trend. We assume the balanced case and that treatment levels are equally spaced.  When , the only possible trend is linear. Testing (see below) can be useful to determine whether there exists an evidence of linear trend. If we reject , there is evidence of linear trend of response over the treatment levels.   When , there are two possible trends: linear and quadratic. For some constants , we have the following equation:    Consider each contrast corresponding to each trend sequentially:   We consider to determine if     We consider to see if .     In (1), if we fail to reject , there is no significant evidence of linear trend; if we reject, then either linear or quadratic trends would exist. In (2), if we fail to reject , then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject , this indicates that a quadratic trend would exist.  We can generalize the trend analysis for as well. To set up the contrasts for trend analysis, we can use a table for coefficients. In general, if there are treatment levels, then a polynomial with degree at most can be considered. Lower-degree curves are easy to interpret but may not be a good fit; higher-degree curves are more complicated, but often provide good fit.  We investigate any existence of trends only if we reject , which implies that . For , given orthogonal polynomial contrasts we have If there is significant evidence of linear trend, takes a large proportion of compared to ; for a quadratic trend, the reverse is true.  For , given orthogonal polynomial contrasts , we have It is often the case that the first few dominate while the other are small; thus, it leads us to reject for the first few values of (which means there is significant evidence of trend corresponding to contrast).  The last few are not large enough for to be rejected means that there is insignificant evidence of trend corresponding to contrast. We often call the sum of the last few the SS for lack of fit.    To determine whether the sales of apples can be enhanced by increasing the size of hte apple display in supermarkets, 20 large supermarkets are randomly selected from those in a large city. Four stores are randomly assigned to have either 10, 15, 20, 25, or 30 square feet for display of apples. Sales of apples per customer for a selected week is the response variable below.    Space  10 sq. ft.  15 sq. ft.  20 sq. ft.  25 sq. ft.  30 sq. ft.     0.778  0.665  0.973  1.003  1.125     0.458  0.830  1.029  1.073  1.184     0.638  0.716  1.106  0.979  9.904     0.602  0.877  0.964  0.981  0.951    Mean  0.618  0.772  1.018  1.009  1.041    Which trend would be appropriate?    We arrive at the following ANOVA table:    Source  df  SS  MS  F    Space  4  0.5628  0.1407  13.72    Error  15  0.1538  0.0103    Total  19  0.7166    Note that we reject for since . This means that we can begin the trend analysis.  First, we set up the appropriate contrasts for each trend: by using the orthogonal polynomials table. Second, we compute each .   Third, we have additional rows of SS corresponding to each trend:    Source  df  SS  MS  F    Space  4  0.5628  0.1407  13.72    Linear  1  0.4674  0.4674  45.58    Quadratic  1  0.0706  0.0706  6.88    Lack of fit  2  0.0248  0.0248  1.20    Error  15  0.1538  0.0103    Total  19  0.7166    Under , we reject both and as . This means that both linear and quadratic trends are significant. See the plot below.     "
+},
+{
+  "id": "p-154",
+  "level": "2",
+  "url": "lec-8-sec2.html#p-154",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "orthgonal polynomial contrasts "
+},
+{
+  "id": "example-7",
+  "level": "2",
+  "url": "lec-8-sec2.html#example-7",
+  "type": "Example",
+  "number": "4.2.1",
+  "title": "",
+  "body": "  To determine whether the sales of apples can be enhanced by increasing the size of hte apple display in supermarkets, 20 large supermarkets are randomly selected from those in a large city. Four stores are randomly assigned to have either 10, 15, 20, 25, or 30 square feet for display of apples. Sales of apples per customer for a selected week is the response variable below.    Space  10 sq. ft.  15 sq. ft.  20 sq. ft.  25 sq. ft.  30 sq. ft.     0.778  0.665  0.973  1.003  1.125     0.458  0.830  1.029  1.073  1.184     0.638  0.716  1.106  0.979  9.904     0.602  0.877  0.964  0.981  0.951    Mean  0.618  0.772  1.018  1.009  1.041    Which trend would be appropriate?    We arrive at the following ANOVA table:    Source  df  SS  MS  F    Space  4  0.5628  0.1407  13.72    Error  15  0.1538  0.0103    Total  19  0.7166    Note that we reject for since . This means that we can begin the trend analysis.  First, we set up the appropriate contrasts for each trend: by using the orthogonal polynomials table. Second, we compute each .   Third, we have additional rows of SS corresponding to each trend:    Source  df  SS  MS  F    Space  4  0.5628  0.1407  13.72    Linear  1  0.4674  0.4674  45.58    Quadratic  1  0.0706  0.0706  6.88    Lack of fit  2  0.0248  0.0248  1.20    Error  15  0.1538  0.0103    Total  19  0.7166    Under , we reject both and as . This means that both linear and quadratic trends are significant. See the plot below.    "
+},
+{
+  "id": "lec-9-sec1",
+  "level": "1",
+  "url": "lec-9-sec1.html",
+  "type": "Section",
+  "number": "5.1",
+  "title": "Multiple Comparisons",
+  "body": " Multiple Comparisons  Recall the motivation for one-way ANOVA: we seek to test the hypothesis for an experiment with treatments. But why not apply a two-sample -test for each pair?  Recall that when we declare a signficance level , we declare the probability of making a type I error (rejecting the null when we should not). At the signficance level , we have when we independently test hypotheses. Note that we call the term the family-wise or experiment-wise error rate . So for example, if and , the family-wise error rate is given by   In one-way ANOVA, if we reject , it is natural to investigate which 's are different. We can test all possible pairwaise contrasts , so that the type I error is better controlled. This gives, for example,      FWER with  FWER with    3  3  0.14  0.03    4  6  0.26  0.06    5  10  0.40  0.09    6  15  0.54  0.14    where is the number of possible pairwise contrasts, and FWER is the family-wise error rate.  "
+},
+{
+  "id": "p-172",
+  "level": "2",
+  "url": "lec-9-sec1.html#p-172",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "family-wise or experiment-wise error rate "
+},
+{
+  "id": "lec-9-sec2",
+  "level": "1",
+  "url": "lec-9-sec2.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Fisher’s LSD",
+  "body": " Fisher's LSD  Suppose that we want to test vs. Our test statistic is given by under . This gives a rejection region , which is equivalent to here, we call the term the least significant difference (LSD) .  For a confidence interval for , we have so that in the balanced case, we have In general, the LSD makes pairwise comparison and is recommended to use when one-way ANOVA gives a significant result; it does not control FWER .    Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      First, compute the LSD: Second, sort the sample means from each group in increasing order:    Group  6  4  1  2  3  5    Sample Mean  470  498  505  528  564  600    Compare the smallest to the largest, second largest, etc. until we find a non-significant pair: Continue with Group 4, Group 1 and Group 2:      Now, identify groups without significant difference:   Groups 6,4,1,2 do not differ    Groups 1,2,3 do not differ    Groups 3,5 do not differ   This gives the following table:    Group  6  4  1  2  3  5    Sample Mean          The sample means with a common superscript do not significantly differ under .    "
+},
+{
+  "id": "p-175",
+  "level": "2",
+  "url": "lec-9-sec2.html#p-175",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "least significant difference (LSD) "
+},
+{
+  "id": "example-8",
+  "level": "2",
+  "url": "lec-9-sec2.html#example-8",
+  "type": "Example",
+  "number": "5.2.1",
+  "title": "",
+  "body": "  Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      First, compute the LSD: Second, sort the sample means from each group in increasing order:    Group  6  4  1  2  3  5    Sample Mean  470  498  505  528  564  600    Compare the smallest to the largest, second largest, etc. until we find a non-significant pair: Continue with Group 4, Group 1 and Group 2:      Now, identify groups without significant difference:   Groups 6,4,1,2 do not differ    Groups 1,2,3 do not differ    Groups 3,5 do not differ   This gives the following table:    Group  6  4  1  2  3  5    Sample Mean          The sample means with a common superscript do not significantly differ under .   "
+},
+{
+  "id": "lec-9-sec3",
+  "level": "1",
+  "url": "lec-9-sec3.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Tukey’s HSD",
+  "body": " Tukey's HSD  This assumes the balanced case, i.e. . We replace the LSD term with where is a critical value found in a Tukey's HSD table. The term is called Tukey's Honest Significant Difference (HSD) . We reject the hypothesis if . The Tukey C.I. for is given by Tukey's method provides a valid type I error control.    Consider the example from above:  Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      The solution method for Tukey's HSD is identical to Fisher's LSD; the difference is that we are comparing against HSD rather than LSD in the pairwise comparison. We get    Group  6  4  1  2  3  5    Sample Mean            Note that because , Tukey's method results in less reject.  "
+},
+{
+  "id": "p-185",
+  "level": "2",
+  "url": "lec-9-sec3.html#p-185",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Tukey's Honest Significant Difference (HSD) "
+},
+{
+  "id": "example-9",
+  "level": "2",
+  "url": "lec-9-sec3.html#example-9",
+  "type": "Example",
+  "number": "5.3.1",
+  "title": "",
+  "body": "  Consider the example from above:  Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      The solution method for Tukey's HSD is identical to Fisher's LSD; the difference is that we are comparing against HSD rather than LSD in the pairwise comparison. We get    Group  6  4  1  2  3  5    Sample Mean           "
+},
+{
+  "id": "lec-9-sec4",
+  "level": "1",
+  "url": "lec-9-sec4.html",
+  "type": "Section",
+  "number": "5.4",
+  "title": "Scheff’s Method",
+  "body": " Scheff's Method  Scheff's method controls FWER and can be applied to all types of contrasts. In particular, it's useful if many contrasts are to be examined.  The method is considered conservative, since large differences are required for significance; consider a contrast We calculate the Scheff value such that So that for the null , we reject if . We get a C.I. for with     Consider the example from above:  Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      Pairwise comparison is computed as with Fisher's LSD and Tukey's HSD, but using The resulting pairwise comparison from Scheff's method is    Group  6  4  1  2  3  5    Sample Mean            Since , Scheff's method leads to less rejection than Tukey's HSD (and so less rejection than Fisher's LSD).  This method can be used for a general contrast; suppose we want to test under . We have  We fail to reject , which implies that the mean of Group 1 is not significantly different from that of Groups 5 and 6. The 95% C.I. is The fact that 0 is included in the C.I. implies that there is no significant difference.  "
+},
+{
+  "id": "example-10",
+  "level": "2",
+  "url": "lec-9-sec4.html#example-10",
+  "type": "Example",
+  "number": "5.4.1",
+  "title": "",
+  "body": "  Consider the example from above:  Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using , , and for all , make all pairwise comparisons using Fisher's LSD.    Group  1  2  3  4  5  6    Sample Mean  505  528  564  498  600  470      Pairwise comparison is computed as with Fisher's LSD and Tukey's HSD, but using The resulting pairwise comparison from Scheff's method is    Group  6  4  1  2  3  5    Sample Mean           "
+},
+{
+  "id": "lec-9-sec5",
+  "level": "1",
+  "url": "lec-9-sec5.html",
+  "type": "Section",
+  "number": "5.5",
+  "title": "Summary",
+  "body": " Summary     Fisher's LSD: For pairwise contrasts, no control over FWER    Tukey's HSD: For pairwise contrasts, controls FWER    Scheff's method: For any contrasts, controls FWER     "
 }
 ]
 

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>STAT 5023: Trend Analysis</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="STAT 5023 - Statistics For Experimenters II">
+<meta property="book:author" content="Cory Wilson">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="stat5023-fa23.html"><span class="title">STAT 5023 - Statistics For Experimenters II:</span> <span class="subtitle">Fall 2023</span></a></h1>
+<p class="byline">Cory Wilson</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-8-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-8.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-9.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
+\newcommand{\lrpar}[1]{\left(#1\right)}
+\newcommand{\lrbrace}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\dc}{^\circ}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="lec-4.html" class="internal"><span class="codenumber">1</span> <span class="title">Lecture 4 - 08/31/23</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-4-sec1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Observational vs. Experimental Studies</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Completely Randomized Design (CRD)</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Linear Model Approach</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-5.html" class="internal"><span class="codenumber">2</span> <span class="title">Lecture 5 - 09/05/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-5-sec1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">One-way ANOVA: Assumptions</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">One-way ANOVA: Graphics</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">One-way ANOVA: Check Normality</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec4.html" class="internal"><span class="codenumber">2.4</span> <span class="title">One-way ANOVA: Homogeneity of Variances</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec5.html" class="internal"><span class="codenumber">2.5</span> <span class="title">One-way ANOVA: Data Transformation</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 &amp; 7- 09/07 and 09/12/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-8.html" class="internal"><span class="codenumber">4</span> <span class="title">Lecture 8 &amp; 9- 09/14 and 09/19/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-8-sec1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Simultaneous Contrasts</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="lec-8-sec2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Trend Analysis</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-9.html" class="internal"><span class="codenumber">5</span> <span class="title">Lecture 9 &amp; 11- 09/19 - 09/26/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-9-sec1.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Multiple Comparisons</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Fisher’s LSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Tukey’s HSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Scheff’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec5.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-8-sec2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Trend Analysis</span>
+</h2>
+<div class="para" id="p-153">We have an ANOVA setup: values of a quantitative variable as treatment levels. For example, the effect of varying doses of a drug on patients, the effect on yield due to increased amounts of fertilizer, etc. After testing <span class="process-math">\(H_0: \mu_1 = \cdots \mu_t\text{,}\)</span> it would be our interest to examine whether a trend exists in the response variable over the varying levels of the quantitative factor.</div>
+<div class="para" id="p-154">The typical trends seen here are polynomial; so, we use a set of orthogonal contrasts called <dfn class="terminology">orthgonal polynomial contrasts</dfn> to test the existence of such a trend. We assume the balanced case and that treatment levels are equally spaced.</div>
+<div class="para" id="p-155">When <span class="process-math">\(t = 2\text{,}\)</span> the only possible trend is linear. Testing <span class="process-math">\(H_0: \mu_{10} - \mu_{15} = 0\)</span> (see below) can be useful to determine whether there exists an evidence of linear trend. If we reject <span class="process-math">\(H_0\text{,}\)</span> there is evidence of linear trend of response over the treatment levels.</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lin-trend-lec8.png" class="contained"></div>
+<div class="para logical" id="p-156">
+<div class="para">When <span class="process-math">\(t = 3\text{,}\)</span> there are two possible trends: linear and quadratic. For some constants <span class="process-math">\(a,b\text{,}\)</span> we have the following equation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Response } = a\cdot \text{Dose}^2 + b\cdot\text{Dose}
+\end{equation*}
+</div>
+</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/quad-trend-lec8.png" class="contained"></div>
+<div class="para logical" id="p-157">
+<div class="para">Consider each contrast corresponding to each trend sequentially:</div>
+<ol class="decimal">
+<li id="li-58"><div class="para" id="p-158">We consider <span class="process-math">\(H_0: -\mu_{10} + \mu_{20} = 0\)</span> to determine if <span class="process-math">\(b=0\)</span>
+</div></li>
+<li id="li-59"><div class="para" id="p-159">We consider <span class="process-math">\(H_0: \mu_{10} - 2\mu_{15} + \mu_{20} = 0\)</span> to see if <span class="process-math">\(a = 0\text{.}\)</span>
+</div></li>
+</ol>
+</div>
+<div class="para" id="p-160">In (1), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> there is no significant evidence of linear trend; if we reject, then either linear or quadratic trends would exist. In (2), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <span class="process-math">\(H_0\text{,}\)</span> this indicates that a quadratic trend would exist.</div>
+<div class="para" id="p-161">We can generalize the trend analysis for <span class="process-math">\(t \gt 3\)</span> as well. To set up the contrasts for trend analysis, we can use a table for coefficients. In general, if there are <span class="process-math">\(t\)</span> treatment levels, then a polynomial with degree at most <span class="process-math">\(t-1\)</span> can be considered. Lower-degree curves are easy to interpret but may not be a good fit; higher-degree curves are more complicated, but often provide good fit.</div>
+<div class="para logical" id="p-162">
+<div class="para">We investigate any existence of trends only if we reject <span class="process-math">\(H_0: \mu_1 = \cdots \mu_t\text{,}\)</span> which implies that <span class="process-math">\(SSTrt \gt SSE\text{.}\)</span> For <span class="process-math">\(t = 3\text{,}\)</span> given orthogonal polynomial contrasts <span class="process-math">\(L_1,L_2\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+SSC_{L_1} + SSC_{L_2} = SSTrt
+\end{equation*}
+</div>
+<div class="para">If there is significant evidence of linear trend, <span class="process-math">\(SSC_{L_1}\)</span> takes a large proportion of <span class="process-math">\(SSTrt\)</span> compared to <span class="process-math">\(SSC_{L_2}\text{;}\)</span> for a quadratic trend, the reverse is true.</div>
+</div>
+<div class="para logical" id="p-163">
+<div class="para">For <span class="process-math">\(t \gt 3\text{,}\)</span> given orthogonal polynomial contrasts <span class="process-math">\(L_1,L_2,...,L_{t-1}\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^{t-1} SSC_{L_i} = SSTrt
+\end{equation*}
+</div>
+<div class="para">It is often the case that the first few <span class="process-math">\(SSC_{L_i}\)</span> dominate <span class="process-math">\(SSTrt\)</span> while the other <span class="process-math">\(SSC_{L_i}\)</span> are small; thus, it leads us to reject <span class="process-math">\(H_{0i}: L_i = 0\)</span> for the first few values of <span class="process-math">\(i\)</span> (which means there is significant evidence of trend corresponding to contrast).</div>
+</div>
+<div class="para" id="p-164">The last few <span class="process-math">\(SSC_{L_i}\)</span> are not large enough for <span class="process-math">\(H_{0i} : L_i = 0\)</span> to be rejected means that there is insignificant evidence of trend corresponding to contrast. We often call the sum of the last few <span class="process-math">\(SSC_{L_i}\)</span> the SS for lack of fit.</div>
+<article class="example example-like" id="example-7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-165">To determine whether the sales of apples can be enhanced by increasing the size of hte apple display in supermarkets, 20 large supermarkets are randomly selected from those in a large city. Four stores are randomly assigned to have either 10, 15, 20, 25, or 30 square feet for display of apples. Sales of apples per customer for a selected week is the response variable below.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Space</td>
+<td class="l m b0 r0 l0 t0 lines">10 sq. ft.</td>
+<td class="l m b0 r0 l0 t0 lines">15 sq. ft.</td>
+<td class="l m b0 r0 l0 t0 lines">20 sq. ft.</td>
+<td class="l m b0 r0 l0 t0 lines">25 sq. ft.</td>
+<td class="l m b0 r0 l0 t0 lines">30 sq. ft.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">0.778</td>
+<td class="l m b0 r0 l0 t0 lines">0.665</td>
+<td class="l m b0 r0 l0 t0 lines">0.973</td>
+<td class="l m b0 r0 l0 t0 lines">1.003</td>
+<td class="l m b0 r0 l0 t0 lines">1.125</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">0.458</td>
+<td class="l m b0 r0 l0 t0 lines">0.830</td>
+<td class="l m b0 r0 l0 t0 lines">1.029</td>
+<td class="l m b0 r0 l0 t0 lines">1.073</td>
+<td class="l m b0 r0 l0 t0 lines">1.184</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">0.638</td>
+<td class="l m b0 r0 l0 t0 lines">0.716</td>
+<td class="l m b0 r0 l0 t0 lines">1.106</td>
+<td class="l m b0 r0 l0 t0 lines">0.979</td>
+<td class="l m b0 r0 l0 t0 lines">9.904</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">0.602</td>
+<td class="l m b0 r0 l0 t0 lines">0.877</td>
+<td class="l m b0 r0 l0 t0 lines">0.964</td>
+<td class="l m b0 r0 l0 t0 lines">0.981</td>
+<td class="l m b0 r0 l0 t0 lines">0.951</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Mean</td>
+<td class="l m b0 r0 l0 t0 lines">0.618</td>
+<td class="l m b0 r0 l0 t0 lines">0.772</td>
+<td class="l m b0 r0 l0 t0 lines">1.018</td>
+<td class="l m b0 r0 l0 t0 lines">1.009</td>
+<td class="l m b0 r0 l0 t0 lines">1.041</td>
+</tr>
+</table></div> <div class="para" id="p-166">Which trend would be appropriate?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<div class="para" id="p-167">We arrive at the following ANOVA table:</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Source</td>
+<td class="l m b0 r0 l0 t0 lines">df</td>
+<td class="l m b0 r0 l0 t0 lines">SS</td>
+<td class="l m b0 r0 l0 t0 lines">MS</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Space</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">0.5628</td>
+<td class="l m b0 r0 l0 t0 lines">0.1407</td>
+<td class="l m b0 r0 l0 t0 lines">13.72</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Error</td>
+<td class="l m b0 r0 l0 t0 lines">15</td>
+<td class="l m b0 r0 l0 t0 lines">0.1538</td>
+<td class="l m b0 r0 l0 t0 lines">0.0103</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">19</td>
+<td class="l m b0 r0 l0 t0 lines">0.7166</td>
+</tr>
+</table></div> <div class="para" id="p-168">Note that we reject <span class="process-math">\(H_0:\mu_i = \mu_j\)</span> for <span class="process-math">\(i,j\in \lrbrace{1,...,5}\)</span> since <span class="process-math">\(F \gt F_{0.05,4,15} = 3.06\text{.}\)</span> This means that we can begin the trend analysis.</div> <div class="para logical" id="p-169">
+<div class="para">First, we set up the appropriate contrasts for each trend:</div>
+<div class="displaymath process-math" id="md-8">
+\begin{align*}
+L_1 \amp = -2\mu_1 - \mu_2 + \mu_4 + 2\mu_5 \\
+L_2 \amp = 2\mu_1 - \mu_2 - 2\mu_3 - \mu_4 + 2\mu_5 
+\end{align*}
+</div>
+<div class="para">by using the orthogonal polynomials table. Second, we compute each <span class="process-math">\(SSC_{L_i}\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+SSC_{L_1} = \dfrac{\lrpar{-2(0.619) - 0.772+1.009+2(1.041)}^2}{\dfrac{1}{4}\lrpar{(-2)^2 + (-1)^2 + 1^2 + 2^2}} = 0.4674
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+SSC_{L_3} + SSC_{L_4} = SS\text{ Lack of fit}
+\end{equation*}
+</div>
+<div class="para">Third, we have additional rows of SS corresponding to each trend:</div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Source</td>
+<td class="l m b0 r0 l0 t0 lines">df</td>
+<td class="l m b0 r0 l0 t0 lines">SS</td>
+<td class="l m b0 r0 l0 t0 lines">MS</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Space</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">0.5628</td>
+<td class="l m b0 r0 l0 t0 lines">0.1407</td>
+<td class="l m b0 r0 l0 t0 lines">13.72</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Linear</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">0.4674</td>
+<td class="l m b0 r0 l0 t0 lines">0.4674</td>
+<td class="l m b0 r0 l0 t0 lines">45.58</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Quadratic</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">0.0706</td>
+<td class="l m b0 r0 l0 t0 lines">0.0706</td>
+<td class="l m b0 r0 l0 t0 lines">6.88</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Lack of fit</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">0.0248</td>
+<td class="l m b0 r0 l0 t0 lines">0.0248</td>
+<td class="l m b0 r0 l0 t0 lines">1.20</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Error</td>
+<td class="l m b0 r0 l0 t0 lines">15</td>
+<td class="l m b0 r0 l0 t0 lines">0.1538</td>
+<td class="l m b0 r0 l0 t0 lines">0.0103</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">19</td>
+<td class="l m b0 r0 l0 t0 lines">0.7166</td>
+</tr>
+</table></div> <div class="para" id="p-170">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject both <span class="process-math">\(H_0: L_1 = 0\)</span> and <span class="process-math">\(H_0: L_2 = 0\)</span> as <span class="process-math">\(F_{0.05,1,15} = 4.54\text{.}\)</span> This means that both linear and quadratic trends are significant. See the plot below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/apple-data-lec8.png" class="contained"></div>
+</div></div>
+</div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="lec-8-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-9.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

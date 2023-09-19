@@ -12,27 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">In the previous example, note that there would be multiple <span class="process-math">\(a_i\)</span> for the same comparison. For example, we can also set <span class="process-math">\(a_1 = 4, a_2=a_3=a_4 = -1\)</span> for <span class="process-math">\(L_1\text{.}\)</span> In either case, the test statistic is the same for any constant multiple of the original set of coefficients. To see this, given <span class="process-math">\(a_i\)</span>s, let <span class="process-math">\(b_i = c\cdot a_i\)</span> for some <span class="process-math">\(c\text{.}\)</span> Then, we still obey the condition that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\sum_{i=1}^t b_i = 0
-\end{equation*}
-</div>
-<div class="para">so we can say that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-L' = \sum_{i=1}^t b_i\mu_i
-\end{equation*}
-</div>
-<div class="para">is a linear contrast. This means that the t-statistic for the contrast <span class="process-math">\(L'\)</span> is given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-t = \dfrac{\sum_{i=1}^t b_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t b_i^2/n_i}} = \dfrac{c\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot c^2\sum_{i=1}^t a_i^2/n_i}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot \sum_{i=1}^t a_i^2/n_i}}
-\end{equation*}
-</div>
-<div class="para">which is the same as for the constrast <span class="process-math">\(L\)</span>
-</div>
+<div class="para">With <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject <span class="process-math">\(H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0\)</span> since <span class="process-math">\(|t|\geq t_{0.025,25} = 2.0595\text{.}\)</span> We conclude that there is a significant difference of effectiveness between the control and average of all agents under <span class="process-math">\(\alpha = 0.05\)</span>
 </div>
 <span class="incontext"><a href="lec-6-sec1.html#p-122" class="internal">in-context</a></span>
 </body>

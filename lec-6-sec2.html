@@ -202,7 +202,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-6-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-6.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-6-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-6.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-8.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
 \newcommand{\lrpar}[1]{\left(#1\right)}
@@ -239,20 +239,37 @@ window.MathJax = {
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 - 09/07/2023</span></a></div>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 &amp; 7- 09/07 and 09/12/2023</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
 <li class="active"><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-8.html" class="internal"><span class="codenumber">4</span> <span class="title">Lecture 8 &amp; 9- 09/14 and 09/19/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-8-sec1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Simultaneous Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-8-sec2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Trend Analysis</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-9.html" class="internal"><span class="codenumber">5</span> <span class="title">Lecture 9 &amp; 11- 09/19 - 09/26/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-9-sec1.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Multiple Comparisons</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Fisher’s LSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Tukey’s HSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Scheff’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec5.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Summary</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-6-sec2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span>
 </h2>
-<div class="para" id="p-123">We will assume the balanced case for what remains.</div>
+<div class="para" id="p-124">We will assume the balanced case for what remains.</div>
 <article class="definition definition-like" id="definition-2"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Orthogonal Contrast.</span>
-</h3> <div class="para logical" id="p-124">
+</h3> <div class="para logical" id="p-125">
 <div class="para">In the balanced case (<span class="process-math">\(n_1=n_2=\cdots=n_t=n\)</span>), two contrasts <span class="process-math">\(L_1=\sum_{i=1}^t a_i\mu_i\)</span> and <span class="process-math">\(L_2 = \sum_{i=1}^t b_i\mu_i\)</span> are <dfn class="terminology">orthogonal</dfn> if</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -262,7 +279,7 @@ window.MathJax = {
 </div></article><article class="example example-like" id="example-6"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-125">
+<div class="para logical" id="p-126">
 <div class="para">Consider the three contrasts:</div>
 <div class="displaymath process-math" id="md-3">
 \begin{align*}
@@ -274,11 +291,11 @@ L_3 \amp = \dfrac{1}{2}\mu_1 - \mu_2 + \dfrac{1}{2}\mu_3
 <div class="para">Which pair is orthogonal?</div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="para" id="p-126">The only orthogonal pair is <span class="process-math">\(L_2\)</span> and <span class="process-math">\(L_3\)</span>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="para" id="p-127">The only orthogonal pair is <span class="process-math">\(L_2\)</span> and <span class="process-math">\(L_3\)</span>
 </div></div></div>
-</div></article><div class="para" id="p-127">A set of contrasts is said to be <dfn class="terminology">mutually orthogonal</dfn> if all pairs of contrasts in the set are orthogonal. For a set with <span class="process-math">\(t\)</span> treatment levels, the maximum number of mutually orthogonal contrasts is <span class="process-math">\(t-1\text{.}\)</span>
+</div></article><div class="para" id="p-128">A set of contrasts is said to be <dfn class="terminology">mutually orthogonal</dfn> if all pairs of contrasts in the set are orthogonal. For a set with <span class="process-math">\(t\)</span> treatment levels, the maximum number of mutually orthogonal contrasts is <span class="process-math">\(t-1\text{.}\)</span>
 </div>
-<div class="para" id="p-128">Even though there are many different ways of making a set of orthogonal contrasts, not all will be meaningful:</div>
+<div class="para" id="p-129">Even though there are many different ways of making a set of orthogonal contrasts, not all will be meaningful:</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Treatment</td>
@@ -301,8 +318,8 @@ L_3 \amp = \dfrac{1}{2}\mu_1 - \mu_2 + \dfrac{1}{2}\mu_3
 <td class="l m b0 r0 l0 t0 lines">1</td>
 </tr>
 </table></div>
-<div class="para" id="p-129">If two contrasts are orthogonal, then one contrast conveys no information about the other contrast.</div>
-<div class="para logical" id="p-130">
+<div class="para" id="p-130">If two contrasts are orthogonal, then one contrast conveys no information about the other contrast.</div>
+<div class="para logical" id="p-131">
 <div class="para">Recall that <span class="process-math">\(SSC_L\)</span> is a sum of squares associated with contrast <span class="process-math">\(L\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -326,10 +343,10 @@ SSTrt = SSC_{L_1} + SSC_{L_2} + \cdots + SSC_{L_{t-1}}
 <div class="para">under the null hypothesis <span class="process-math">\(H_0: L_i = 0\)</span>
 </div>
 </div>
-<div class="para logical" id="p-131">
+<div class="para logical" id="p-132">
 <div class="para">From the weed control example from above, we have the following contrasts:</div>
 <ol class="decimal">
-<li id="li-50"><div class="para logical" id="p-132">
+<li id="li-50"><div class="para logical" id="p-133">
 <div class="para">Is there a difference of effectiveness between control and average of all agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -337,7 +354,7 @@ L_1 = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5)
 \end{equation*}
 </div>
 </div></li>
-<li id="li-51"><div class="para logical" id="p-133">
+<li id="li-51"><div class="para logical" id="p-134">
 <div class="para">Is there an average effectiveness difference between biological and chemical agents?</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -345,7 +362,7 @@ L_2 = \dfrac{1}{2}(\mu_2 + \mu_3) - \dfrac{1}{2}(\mu_4 + \mu_5)
 \end{equation*}
 </div>
 </div></li>
-<li id="li-52"><div class="para logical" id="p-134">
+<li id="li-52"><div class="para logical" id="p-135">
 <div class="para">Compare biological agents 1-2:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -353,7 +370,7 @@ L_3 = \mu_2 - \mu_3
 \end{equation*}
 </div>
 </div></li>
-<li id="li-53"><div class="para logical" id="p-135">
+<li id="li-53"><div class="para logical" id="p-136">
 <div class="para">Compare chemical agents 1-2:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -364,26 +381,26 @@ L_4 = \mu_4 - \mu_5
 </ol>
 <div class="para">It can be shown that all pairs of contrasts are orthogonal.</div>
 </div>
-<div class="para logical" id="p-136">
+<div class="para logical" id="p-137">
 <div class="para">If we compute each <span class="process-math">\(SSC_{L_i}\text{:}\)</span>
 </div>
 <ul class="disc">
-<li id="li-54"><div class="para logical" id="p-137"><div class="displaymath process-math">
+<li id="li-54"><div class="para logical" id="p-138"><div class="displaymath process-math">
 \begin{equation*}
 SSC_{L_1} = \dfrac{\lrpar{1.175 - \dfrac{1}{4}(1.293 + 1.328 + 1.415+1.500)^2}}{\dfrac{1}{6} (1^2 + (-1/4)^2 + (-1/4)^2 + (-1/4)^2 + (-1/4)^2)} = 0.2097
 \end{equation*}
 </div></div></li>
-<li id="li-55"><div class="para logical" id="p-138"><div class="displaymath process-math">
+<li id="li-55"><div class="para logical" id="p-139"><div class="displaymath process-math">
 \begin{equation*}
 SSC_{L_2} = \dfrac{\lrpar{\dfrac{1}{2}(1.293+1.328) - \dfrac{1}{2}(1.415+1.500)}^2}{\dfrac{1}{6}((1/2)^2 + (1/2)^2 + (-1/2)^2 + (-1/2)^2)} = 0.1297
 \end{equation*}
 </div></div></li>
-<li id="li-56"><div class="para logical" id="p-139"><div class="displaymath process-math">
+<li id="li-56"><div class="para logical" id="p-140"><div class="displaymath process-math">
 \begin{equation*}
 SSC_{L_3} = \dfrac{(1.293-1.328)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0037
 \end{equation*}
 </div></div></li>
-<li id="li-57"><div class="para logical" id="p-140"><div class="displaymath process-math">
+<li id="li-57"><div class="para logical" id="p-141"><div class="displaymath process-math">
 \begin{equation*}
 SSC_{L_4} = \dfrac{(1.415-1.500)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0217
 \end{equation*}
@@ -420,7 +437,7 @@ SSC_{L_4} = \dfrac{(1.415-1.500)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0217
 <td class="l m b0 r0 l0 t0 lines">0.7473</td>
 </tr>
 </table></div>
-<div class="para" id="p-141">The following table summarizes the result based on the specified orthogonal contrasts:</div>
+<div class="para" id="p-142">The following table summarizes the result based on the specified orthogonal contrasts:</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Contrast</td>
@@ -454,7 +471,7 @@ SSC_{L_4} = \dfrac{(1.415-1.500)^2}{\dfrac{1}{6}((1)^2 + (-1)^2)} = 0.0217
 </tr>
 </table></div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="lec-6-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="lec-6-sec1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-8.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
