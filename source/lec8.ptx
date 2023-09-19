@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-8" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 8 &amp; 9- 09/14 and 09/19/2023</title>
+
+    <section xml:id="lec-8-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Simultaneous Contrasts</title>
+        
+        <p>
+            Reconsider the example on weed control from the previous lecture:
+        </p>
+        <p>
+            Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell>None (Control)</cell>
+                <cell>Bio1</cell>
+                <cell>Bio2</cell>
+                <cell>Chm1</cell>
+                <cell>Chm2</cell>
+            </row>
+            <row>
+                <cell><m>\bar{Y}_{i\cdot}</m></cell>
+                <cell>1.175</cell>
+                <cell>1.293</cell>
+                <cell>1.328</cell>
+                <cell>1.415</cell>
+                <cell>1.500</cell>
+            </row>
+            <row>
+                <cell><m>s_i</m></cell>
+                <cell>0.1204</cell>
+                <cell>0.1269</cell>
+                <cell>0.1196</cell>
+                <cell>0.1249</cell>
+                <cell>0.1265</cell>
+            </row>
+            <row>
+                <cell><m>n_i</m></cell>
+                <cell>6</cell>
+                <cell>6</cell>
+                <cell>6</cell>
+                <cell>6</cell>
+                <cell>6</cell>
+            </row>
+        </tabular>
+
+        <p>
+            We have five treatment levels: control, biological agents 1 and 2, and chemical agents 1 and 2. We can ask the question: are all biological and chemical agents similarly effective? This translates to 
+            <me>
+                H_0: \mu_2 = \mu_3 = \mu_4 = \mu_5
+            </me>
+            versus
+            <me>
+                H_a: \text{ at least one }\mu_i \text{ is different}
+            </me>
+            Our goal will be to write a null hypothesis of equations with contrasts such that when all such equations are simultaneously true, the null
+            <me>
+                H_0: \mu_2 = \mu_3 = \mu_4 = \mu_5
+            </me>
+            is also true.
+        </p>
+
+        <p>
+            Consider the mutually orthogonal contrasts below:
+            <me>
+                H_0: \mu_2 - \mu_3 = 0,\quad \mu_2 + \mu_3 -2\mu_4 = 0 \quad \mu_2 + \mu_3 + \mu_4 - 3\mu_5 = 0
+            </me>
+            The above contrasts are <term>simultaneous contrasts</term> (which also happen to be mutually orthogonal). When all such contrasts are 0, it follows that <m>\mu_i = \mu_j</m> for appropriate <m>i,j</m> in the null hypothesis considered.
+        </p>
+
+        <p>
+            To test <m>H_0</m>, we develop a test statistic. Consider 
+            <me>
+                SS_{H_0}: \text{ Sum of squares under }H_0
+            </me>
+            Set
+            <md>
+                <mrow> L_1 \amp := \mu_2 - \mu_3 = 0 </mrow>
+                <mrow> L_2 \amp := \mu_2 + \mu_3 - 2\mu_4 = 0 </mrow>
+                <mrow> L_3 \amp := \mu_2 + \mu_3 + \mu_4 - 3\mu_5 = 0</mrow>
+            </md>
+            Then, we have 
+            <me>
+                SS_{H_0} = SSC_{L_1} + SSC_{L_2} + SSC_{L_3}
+            </me>
+            due to the mutual orthogonality of the contrasts in <m>H_0</m>.
+        </p>
+        <p>
+            The degrees of freedom for <m>SS_{H_0}</m>, denoted <m>df_{H_0}</m>, is the minimum number of contrasts required to express the simultaneous equality of means. In the weed control example, <m>df_{H_0} = 3</m>; in general, we have
+            <me>
+                F = \dfrac{SS_{H_0}/df_{H_0}}{MSE} \approx F_{df_{H_0},n_\cdot - t} \text{ under }H_0
+            </me>
+            where <m>MSE = SSE/(n_\cdot - t</m> comes from one-way ANOVA. In this situation, we reject <m>H_0</m> if <m>F \geq F_{\alpha,df_{H_0},n_\cdot -t}</m>
+        </p>
+
+        <p>
+            In the weed example, we can compute:
+            <md>
+                <mrow> SSC_{L_1} \amp = 0.0037 </mrow>
+                <mrow> SSC_{L_2} \amp = 0.0437 </mrow>
+                <mrow> SSC_{L_3} \amp = 0.1076</mrow>
+            </md>
+            This means that 
+            <md>
+                <mrow>F \amp = \dfrac{SS_{H_0}/3}{MSE} </mrow>
+                <mrow> \amp = \dfrac{(0.0037 + 0.0437 + 0.1076)/3}{0.0153}</mrow>
+                <mrow> \amp = 3.3769 </mrow>
+            </md>
+            which is compared to <m>F_{3,25}</m> under <m>H_0</m>. Since <m>F \geq F_{0.05,3,25} = 2.99</m>, we reject <m>H_0</m>. Thus, under <m>\alpha = 0.05</m>, there is evidence that at least one average effect on weed control is different among the four agents.
+        </p>
+
+        <p>
+            If we ignore the control group and run ANOVA on the four treatment levels, we have <m>H_0: \mu_2 = \mu_3 = \mu_4 = \mu_5</m>. The ANOVA table would be given by
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell>F-statistic</cell>
+            </row>
+            <row>
+                <cell>Trt</cell>
+                <cell>3</cell>
+                <cell>SSTrt*</cell>
+                <cell>MSTrt*</cell>
+                <cell>F = MSTrt*/MSE*</cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>20</cell>
+                <cell>SSE*</cell>
+                <cell>MSE*</cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>23</cell>
+            </row>
+        </tabular>
+        <p>
+            It is true that <m>SSTrt^* = SS_{H_0}</m>; why don't we use this result to test the new <m>H_0</m>? The answer is in the degrees of freedom for the error. For the simultaneous contrasts, we have 25 degrees of freedom, while there are only 20 in the ANOVA with 4 treatment levels.
+        </p>
+        <p>
+            If we have <m>t = 4</m> treatments and are interested in <m>H_0: \mu_2 = \mu_3 = \mu_4</m>, we can develop the mutually orthogonal contrasts
+            <md>
+                <mrow> L_1 \amp = \mu_2 - \mu_3 </mrow>
+                <mrow> L_2 \amp = \mu_2 + \mu_3 - 2\mu_4</mrow>
+            </md>
+            The test statistic for <m>H_0: L_1 = L_2 = 0</m> can be given by
+            <me>
+                F = \dfrac{SS_{H_0}/df_{H_0}}{MSE} = \dfrac{(SSC_{L_1} + SSC_{L_2})2}{MSE}\approx F_{df_{H_0},n_\cdot - t}
+            </me>
+            under <m>H_0</m>, where MSE comes from one-way ANOVA. We still reject <m>H_0</m> if <m>F \geq F_{\alpha,df_{H_0},n_\cdot - t}</m>.
+            
+        </p>
+    </section>
+
+    <section xml:id="lec-8-sec2" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Trend Analysis</title>
+        
+        <p>
+            We have an ANOVA setup: values of a quantitative variable as treatment levels. For example, the effect of varying doses of a drug on patients, the effect on yield due to increased amounts of fertilizer, etc. After testing <m>H_0: \mu_1 = \cdots \mu_t</m>, it would be our interest to examine whether a trend exists in the response variable over the varying levels of the quantitative factor.
+        </p>
+        <p>
+            The typical trends seen here are polynomial; so, we use a set of orthogonal contrasts called <term>orthgonal polynomial contrasts</term> to test the existence of such a trend. We assume the balanced case and that treatment levels are equally spaced.
+        </p>
+
+        <p>
+            When <m>t = 2</m>, the only possible trend is linear. Testing <m>H_0: \mu_{10} - \mu_{15} = 0</m> (see below) can be useful to determine whether there exists an evidence of linear trend. If we reject <m>H_0</m>, there is evidence of linear trend of response over the treatment levels.
+        </p>
+        <image source="lin-trend-lec8.png" />
+        <p>
+            When <m>t = 3</m>, there are two possible trends: linear and quadratic. For some constants <m>a,b</m>, we have the following equation:
+            <me>
+                \text{Response } = a\cdot \text{Dose}^2 + b\cdot\text{Dose}
+            </me>
+        </p>
+        <image source = "quad-trend-lec8.png" />
+        <p>
+            Consider each contrast corresponding to each trend sequentially: 
+            <ol>
+                <li>
+                    <p>
+                        We consider <m>H_0: -\mu_{10} + \mu_{20} = 0</m> to determine if <m>b=0</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We consider <m>H_0: \mu_{10} - 2\mu_{15} + \mu_{20} = 0</m> to see if <m>a = 0</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+        <p>
+            In (1), if we fail to reject <m>H_0</m>, there is no significant evidence of linear trend; if we reject, then either linear or quadratic trends would exist. In (2), if we fail to reject <m>H_0</m>, then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <m>H_0</m>, this indicates that a quadratic trend would exist.
+        </p>
+        <p>
+            We can generalize the trend analysis for <m>t \gt 3</m> as well. To set up the contrasts for trend analysis, we can use a table for coefficients. In general, if there are <m>t</m> treatment levels, then a polynomial with degree at most <m>t-1</m> can be considered. Lower-degree curves are easy to interpret but may not be a good fit; higher-degree curves are more complicated, but often provide good fit.
+        </p>
+        <p>
+            We investigate any existence of trends only if we reject <m>H_0: \mu_1 = \cdots \mu_t</m>, which implies that <m>SSTrt \gt SSE</m>. For <m>t = 3</m>, given orthogonal polynomial contrasts <m>L_1,L_2</m> we have 
+            <me>
+                SSC_{L_1} + SSC_{L_2} = SSTrt
+            </me>
+            If there is significant evidence of linear trend, <m>SSC_{L_1}</m> takes a large proportion of <m>SSTrt</m> compared to <m>SSC_{L_2}</m>; for a quadratic trend, the reverse is true.
+        </p>
+        <p>
+            For <m>t \gt 3</m>, given orthogonal polynomial contrasts <m>L_1,L_2,...,L_{t-1}</m>, we have
+            <me>
+                \sum_{i=1}^{t-1} SSC_{L_i} = SSTrt
+            </me>
+            It is often the case that the first few <m>SSC_{L_i}</m> dominate <m>SSTrt</m> while the other <m>SSC_{L_i}</m> are small; thus, it leads us to reject <m>H_{0i}: L_i = 0</m> for the first few values of <m>i</m> (which means there is significant evidence of trend corresponding to contrast). 
+        </p>
+        <p>
+            The last few <m>SSC_{L_i}</m> are not large enough for <m>H_{0i} : L_i = 0</m> to be rejected means that there is insignificant evidence of trend corresponding to contrast. We often call the sum of the last few <m>SSC_{L_i}</m> the SS for lack of fit.
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    To determine whether the sales of apples can be enhanced by increasing the size of hte apple display in supermarkets, 20 large supermarkets are randomly selected from those in a large city. Four stores are randomly assigned to have either 10, 15, 20, 25, or 30 square feet for display of apples. Sales of apples per customer for a selected week is the response variable below.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Space</cell>
+                        <cell>10 sq. ft.</cell>
+                        <cell>15 sq. ft.</cell>
+                        <cell>20 sq. ft.</cell>
+                        <cell>25 sq. ft.</cell>
+                        <cell>30 sq. ft.</cell>
+                    </row>
+                    <row>
+                        <cell></cell>
+                        <cell>0.778</cell>
+                        <cell>0.665</cell>
+                        <cell>0.973</cell>
+                        <cell>1.003</cell>
+                        <cell>1.125</cell>
+                    </row>
+                    <row>
+                        <cell></cell>
+                        <cell>0.458</cell>
+                        <cell>0.830</cell>
+                        <cell>1.029</cell>
+                        <cell>1.073</cell>
+                        <cell>1.184</cell>
+                    </row>
+                    <row>
+                        <cell></cell>
+                        <cell>0.638</cell>
+                        <cell>0.716</cell>
+                        <cell>1.106</cell>
+                        <cell>0.979</cell>
+                        <cell>9.904</cell>
+                    </row>
+                    <row>
+                        <cell></cell>
+                        <cell>0.602</cell>
+                        <cell>0.877</cell>
+                        <cell>0.964</cell>
+                        <cell>0.981</cell>
+                        <cell>0.951</cell>
+                    </row>
+                    <row>
+                        <cell>Mean</cell>
+                        <cell>0.618</cell>
+                        <cell>0.772</cell>
+                        <cell>1.018</cell>
+                        <cell>1.009</cell>
+                        <cell>1.041</cell>
+                    </row>
+                </tabular>
+                <p>
+                    Which trend would be appropriate?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We arrive at the following ANOVA table:
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Source</cell>
+                        <cell>df</cell>
+                        <cell>SS</cell>
+                        <cell>MS</cell>
+                        <cell>F</cell>
+                    </row>
+                    <row>
+                        <cell>Space</cell>
+                        <cell>4</cell>
+                        <cell>0.5628</cell>
+                        <cell>0.1407</cell>
+                        <cell>13.72</cell>
+                    </row>
+                    <row>
+                        <cell>Error</cell>
+                        <cell>15</cell>
+                        <cell>0.1538</cell>
+                        <cell>0.0103</cell>
+                    </row>
+                    <row>
+                        <cell>Total</cell>
+                        <cell>19</cell>
+                        <cell>0.7166</cell>
+                    </row>
+                </tabular>
+                <p>
+                    Note that we reject <m>H_0:\mu_i = \mu_j</m> for <m>i,j\in \lrbrace{1,...,5}</m> since <m>F \gt F_{0.05,4,15} = 3.06</m>. This means that we can begin the trend analysis.
+                </p>
+                <p>
+                    First, we set up the appropriate contrasts for each trend:
+                    <md>
+                        <mrow> L_1 \amp = -2\mu_1 - \mu_2 + \mu_4 + 2\mu_5 </mrow>
+                        <mrow> L_2 \amp = 2\mu_1 - \mu_2 - 2\mu_3 - \mu_4 + 2\mu_5 </mrow>
+                    </md>
+                    by using the orthogonal polynomials table. Second, we compute each <m>SSC_{L_i}</m>. 
+                    <me>
+                        SSC_{L_1} = \dfrac{\lrpar{-2(0.619) - 0.772+1.009+2(1.041)}^2}{\dfrac{1}{4}\lrpar{(-2)^2 + (-1)^2 + 1^2 + 2^2}} = 0.4674
+                    </me>
+                    <me>
+                        SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
+                    </me>
+                    <me>
+                        SSC_{L_3} + SSC_{L_4} = SS\text{ Lack of fit}
+                    </me>
+                    Third, we have additional rows of SS corresponding to each trend:
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Source</cell>
+                        <cell>df</cell>
+                        <cell>SS</cell>
+                        <cell>MS</cell>
+                        <cell>F</cell>
+                    </row>
+                    <row>
+                        <cell>Space</cell>
+                        <cell>4</cell>
+                        <cell>0.5628</cell>
+                        <cell>0.1407</cell>
+                        <cell>13.72</cell>
+                    </row>
+                    <row>
+                        <cell>Linear</cell>
+                        <cell>1</cell>
+                        <cell>0.4674</cell>
+                        <cell>0.4674</cell>
+                        <cell>45.58</cell>
+                    </row>
+                    <row>
+                        <cell>Quadratic</cell>
+                        <cell>1</cell>
+                        <cell>0.0706</cell>
+                        <cell>0.0706</cell>
+                        <cell>6.88</cell>
+                    </row>
+                    <row>
+                        <cell>Lack of fit</cell>
+                        <cell>2</cell>
+                        <cell>0.0248</cell>
+                        <cell>0.0248</cell>
+                        <cell>1.20</cell>
+                    </row>
+                    <row>
+                        <cell>Error</cell>
+                        <cell>15</cell>
+                        <cell>0.1538</cell>
+                        <cell>0.0103</cell>
+                    </row>
+                    <row>
+                        <cell>Total</cell>
+                        <cell>19</cell>
+                        <cell>0.7166</cell>
+                    </row>
+                </tabular>
+                <p>
+                    Under <m>\alpha = 0.05</m>, we reject both <m>H_0: L_1 = 0</m> and <m>H_0: L_2 = 0</m> as <m>F_{0.05,1,15} = 4.54</m>. This means that both linear and quadratic trends are significant. See the plot below.
+                </p>
+                <image source = "apple-data-lec8.png"/>
+            </solution>
+        </example>
+    </section>
+</chapter>

@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-9" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 9 &amp; 11- 09/19 - 09/26/2023</title>
+
+    <section xml:id="lec-9-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Multiple Comparisons</title>
+        
+        <p>
+            Recall the motivation for one-way ANOVA: we seek to test the hypothesis
+            <me>
+                H_0: \mu_1 = \mu_2 = \cdots = \mu_t
+            </me>
+            for an experiment with <m>t</m> treatments. But why not apply a two-sample <m>t</m>-test for each pair?             
+        </p>
+
+        <p>
+            Recall that when we declare a signficance level <m>\alpha</m>, we declare the probability of making a type I error (rejecting the null when we should not). At the signficance level <m>\alpha</m>, we have
+            <md>
+                <mrow> \mathbb{P}(\text{at least one false rejection})  \amp = 1 - \mathbb{P}(\text{no false single rejection}) </mrow>
+                <mrow>  \amp = 1 - (1-\alpha)^m </mrow>
+            </md>
+            when we independently test <m>m</m> hypotheses. Note that we call the term 
+            <me>
+                \mathbb{P}(\text{at least one false rejection})
+            </me>
+            the <term>family-wise or experiment-wise error rate</term>. So for example, if <m>\alpha = 0.05</m> and <m>m = 10</m>, the family-wise error rate is given by
+            <me>
+                1 - (1-\alpha)^m \approx 1 - 0.599 = 0.401 \gt \alpha = 0.05
+            </me>
+        </p>
+
+        <p>
+            In one-way ANOVA, if we reject <m>H_0</m>, it is natural to investigate which <m>\mu_i</m>'s are different. We can test all possible pairwaise contrasts <m>L_{ij} = \mu_i - \mu_j</m>, so that the type I error is better controlled. This gives, for example,
+        </p>
+        <tabular>
+            <row>
+                <cell><m>t</m></cell>
+                <cell><m>m</m></cell>
+                <cell>FWER with <m>\alpha = 0.05</m></cell>
+                <cell>FWER with <m>\alpha = 0.01</m></cell>
+            </row>
+            <row>
+                <cell>3</cell>
+                <cell>3</cell>
+                <cell>0.14</cell>
+                <cell>0.03</cell>
+            </row>
+            <row>
+                <cell>4</cell>
+                <cell>6</cell>
+                <cell>0.26</cell>
+                <cell>0.06</cell>
+            </row>
+            <row>
+                <cell>5</cell>
+                <cell>10</cell>
+                <cell>0.40</cell>
+                <cell>0.09</cell>
+            </row>
+            <row>
+                <cell>6</cell>
+                <cell>15</cell>
+                <cell>0.54</cell>
+                <cell>0.14</cell>
+            </row>
+        </tabular>
+        <p>
+            where <m>m</m> is the number of possible pairwise contrasts, and FWER is the family-wise error rate.
+        </p>
+    </section>
+
+    <section xml:id="lec-9-sec2">
+        <title>Fisher's LSD</title>
+        
+        <p>
+            Suppose that we want to test
+            <me>
+                H_0: \mu_i - \mu_j = 0
+            </me>
+            vs.
+            <me>
+                H_0: \mu_i - \m_j \neq 0
+            </me>
+            Our <m>t-</m>test statistic is given by 
+            <me>
+                t = \dfrac{\bar{Y_{i\cdot}} = \bar{Y_{j\cdot}}}{\sqrt{MSE\cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}}\sim t_{n_\cdot - t}
+            </me>
+            under <m>H_0</m>. This gives a rejection region <m>|t| \geq t_{\alpha/2,n_\cdot - t}</m>, which is equivalent to
+            <me>
+                |\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}| \geq t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+            </me>
+            here, we call the term 
+            <me>
+                t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+            </me>
+            the <term>least significant difference (LSD)</term>.   
+        </p>
+
+        <p>
+            For a <m>100(1-\alpha)\%</m> confidence interval for <m>\mu_i - \mu_j</m>, we have
+            <me>
+                (\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}) \pm t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+            </me>
+            so that in the balanced case, we have
+            <me>
+                LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
+            </me>
+            In general, the LSD makes pairwise comparison and is recommended to use when one-way ANOVA gives a significant result; <alert>it does not control FWER</alert>.
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <m>\alpha = 0.05</m>, <m>MSE = 2451</m>, and <m>n_i = 5</m> for all <m>i</m>, make all pairwise comparisons using Fisher's LSD.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>5</cell>
+                        <cell>6</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell>505</cell>
+                        <cell>528</cell>
+                        <cell>564</cell>
+                        <cell>498</cell>
+                        <cell>600</cell>
+                        <cell>470</cell>
+                    </row>
+                </tabular>
+            </statement>
+            <solution>
+                <p>
+                    First, compute the LSD:
+                    <me>
+                        LSD = t_{\alpha/2,n_\cdot - t}\sqrt{MSE\cdot \lrpar{\dfrac{2}{n}}} = t_{0.025,24}\sqrt{2451\lrpar{\dfrac{2}{5}}} = 64.6235
+                    </me>
+                    Second, sort the sample means from each group in increasing order:
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>6</cell>
+                        <cell>4</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>5</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell>470</cell>
+                        <cell>498</cell>
+                        <cell>505</cell>
+                        <cell>528</cell>
+                        <cell>564</cell>
+                        <cell>600</cell>
+                    </row>
+                </tabular>
+                <p>
+                    Compare the smallest to the largest, second largest, etc. until we find a non-significant pair:
+                    <md>
+                        <mrow>|\bar{Y_{6\cdot}} - \bar{Y_{5\cdot}}| \amp = 102 \gt LSD</mrow>
+                        <mrow>|\bar{Y_{6\cdot}} - \bar{Y_{3\cdot}}| \amp = 94 \gt LSD</mrow>
+                        <mrow>|\bar{Y_{6\cdot}} - \bar{Y_{2\cdot}}| \amp  = 30 \lt LSD</mrow>
+                    </md>
+                    Continue with Group 4, Group 1 and Group 2:
+                    <md>
+                        <mrow>|\bar{Y_{4\cdot}} - \bar{Y_{5\cdot}}| \amp = 102 \gt LSD</mrow>
+                        <mrow>|\bar{Y_{4\cdot}} - \bar{Y_{3\cdot}}| \amp = 66 \gt LSD </mrow>
+                        <mrow>|\bar{Y_{4\cdot}} - \bar{Y_{2\cdot}}| \amp = 30 \lt LSD</mrow>
+                    </md>
+                    <md>
+                        <mrow>|\bar{Y_{1\cdot}} - \bar{Y_{5\cdot}}| \amp = 95 \gt LSD</mrow>
+                        <mrow>|\bar{Y_{1\cdot}} - \bar{Y_{3\cdot}}| \amp = 59 \lt LSD</mrow>
+                    </md>
+                    <md>
+                        <mrow>|\bar{Y_{2\cdot}} - \bar{Y_{5\cdot}}| \amp = 72 \gt LSD</mrow>
+                        <mrow>|\bar{Y_{2\cdot}} - \bar{Y_{3\cdot}}| \amp = 36 \lt LSD</mrow>
+                    </md>
+                    <md>
+                        <mrow>|\bar{Y_{3\cdot}} - \bar{Y_{5\cdot}}| \amp = 36 \lt LSD</mrow>
+                    </md>
+                </p>
+                <p>
+                    Now, identify groups without significant difference:
+                    <ul>
+                        <li>
+                            <p>
+                                Groups 6,4,1,2 do not differ
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Groups 1,2,3 do not differ
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Groups 3,5 do not differ
+                            </p>
+                        </li>
+                    </ul>
+                    This gives the following table:
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>6</cell>
+                        <cell>4</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>5</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell><m>470^a</m></cell>
+                        <cell><m>498^a</m></cell>
+                        <cell><m>505^{ab}</m></cell>
+                        <cell><m>528^{ab}</m></cell>
+                        <cell><m>564^{bc}</m></cell>
+                        <cell><m>600^c</m></cell>
+                    </row>
+                </tabular>
+                <p>
+                    The sample means with a common superscript do not significantly differ under <m>\alpha = 0.05</m>.
+                </p>
+            </solution>
+        </example>
+    </section>
+
+    <section xml:id="lec-9-sec3">
+        <title>Tukey's HSD</title>
+        
+        <p>
+            This assumes the balanced case, i.e. <m>n_1 = n_2 = \cdots =n_t = n</m>. We replace the LSD term
+            <me>
+                LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
+            </me>
+            with
+            <me>
+                HSD = q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
+            </me>
+            where <m>q_{\alpha,t,n_\cdot - t}</m> is a critical value found in a Tukey's HSD table. The term
+            <me>
+                q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
+            </me>
+            is called <term>Tukey's Honest Significant Difference (HSD)</term>. We reject the hypothesis <m>H_0: \mu_i - \mu_j = 0</m> if <m>|\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}|\geq HSD</m>. The <m>100(1-\alpha)\%</m> Tukey C.I. for <m>\mu_i - \mu_j</m> is given by 
+            <me>
+                (\bar{Y_{i\cdot}}-\bar{Y_{j\cdot}}) \pm HSD
+            </me>
+            Tukey's method provides a valid type I error control.
+        </p>
+        <example>
+            <statement>
+                <p>
+                    Consider the example from above:
+                </p>
+                <p>
+                    Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <m>\alpha = 0.05</m>, <m>MSE = 2451</m>, and <m>n_i = 5</m> for all <m>i</m>, make all pairwise comparisons using Fisher's LSD.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>5</cell>
+                        <cell>6</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell>505</cell>
+                        <cell>528</cell>
+                        <cell>564</cell>
+                        <cell>498</cell>
+                        <cell>600</cell>
+                        <cell>470</cell>
+                    </row>
+                </tabular>
+            </statement>
+            <solution>
+                <p>
+                    The solution method for Tukey's HSD is identical to Fisher's LSD; the difference is that we are comparing against HSD rather than LSD in the pairwise comparison. We get
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>6</cell>
+                        <cell>4</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>5</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell><m>470^a</m></cell>
+                        <cell><m>498^a</m></cell>
+                        <cell><m>505^{ab}</m></cell>
+                        <cell><m>528^{ab}</m></cell>
+                        <cell><m>564^{ab}</m></cell>
+                        <cell><m>600^b</m></cell>
+                    </row>
+                </tabular>
+            </solution>
+        </example>
+        <p>
+            Note that because <m>HSD \gt LSD</m>, Tukey's method results in less reject.
+        </p>
+    </section>
+
+    <section xml:id="lec-9-sec4">
+        <title>Scheff&#130;'s Method</title>
+        
+        <p>
+            Scheff&#130;'s method controls FWER and can be applied to all types of contrasts. In particular, it's useful if many contrasts are to be examined. 
+        </p>
+        <p>
+            The method is considered conservative, since large differences are required for significance; consider a contrast
+            <me>
+                L = \sum_{i=1}^t a_i\mu_i
+            </me>
+            We calculate the Scheff&#130; value such that
+            <me>
+                S = \sqrt{(t-1)F_{\alpha,t-1,n_\cdot - t}}\cdot \sqrt{MSE\cdot \lrpar{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}}
+            </me>
+            So that for the null <m>H_0 : L = 0</m>, we reject if <m>|\hat{L}| \geq S</m>. We get a <m>100(1-\alpha)\%</m> C.I. for <m>L</m> with
+            <me>
+                \hat{L} \pm \sqrt{(t-1)F_{\alpha,t-1,n_\cdot - t}}\cdot \sqrt{MSE\cdot \lrpar{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}}
+            </me>            
+        </p>
+
+        <example>
+            <statement>
+                <p>
+                    Consider the example from above:
+                </p>
+                <p>
+                    Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <m>\alpha = 0.05</m>, <m>MSE = 2451</m>, and <m>n_i = 5</m> for all <m>i</m>, make all pairwise comparisons using Fisher's LSD.
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>5</cell>
+                        <cell>6</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell>505</cell>
+                        <cell>528</cell>
+                        <cell>564</cell>
+                        <cell>498</cell>
+                        <cell>600</cell>
+                        <cell>470</cell>
+                    </row>
+                </tabular>
+            </statement>
+            <solution>
+                <p>
+                    Pairwise comparison is computed as with Fisher's LSD and Tukey's HSD, but using
+                    <me>
+                        S = \sqrt{(t-1)F_{\alpha,t-1,n_\cdot - t}}\cdot \sqrt{MSE\cdot \lrpar{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}} = 113.3280
+                    </me>
+                    The resulting pairwise comparison from Scheff&#130;'s method is
+                </p>
+                <tabular>
+                    <row>
+                        <cell>Group</cell>
+                        <cell>6</cell>
+                        <cell>4</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>5</cell>
+                    </row>
+                    <row>
+                        <cell>Sample Mean</cell>
+                        <cell><m>470^a</m></cell>
+                        <cell><m>498^{ab}</m></cell>
+                        <cell><m>505^{ab}</m></cell>
+                        <cell><m>528^{ab}</m></cell>
+                        <cell><m>564^{ab}</m></cell>
+                        <cell><m>600^b</m></cell>
+                    </row>
+                </tabular>
+            </solution>
+        </example>
+        <p>
+            Since <m>S \gt HSD</m>, Scheff&#130;'s method leads to less rejection than Tukey's HSD (and so less rejection than Fisher's LSD).
+        </p>
+        <p>
+            This method can be used for a general contrast; suppose we want to test
+            <me>
+                H_0: \mu_1 - \dfrac{1}{2}(\mu_5 + \mu_6) = 0
+            </me>
+            under <m>\alpha = 0.05</m>. We have
+            <me>
+                \hat{L} = 505 - \dfrac{1}{2}(600 + 470) = -30
+            </me>
+            <me>
+                S = \sqrt{5\cdot F_{0.05,5,24}}\cdot \sqrt{2451(1^2 + (-0.5)^2 + (-0.5)^2)/2} = 98.1449
+            </me>
+            We fail to reject <m>H_0</m>, which implies that the mean of Group 1 is not significantly different from that of Groups 5 and 6. The 95% C.I. is 
+            <me>
+                -30 \pm 98.1449 = (-128.1449,68.149)
+            </me>
+            The fact that 0 is included in the C.I. implies that there is no significant difference.
+        </p>
+    </section>
+
+    <section xml:id="lec-9-sec5">
+        <title>Summary</title>
+        
+        <p>
+            <ul>
+                <li>
+                    <p>
+                        Fisher's LSD: For pairwise contrasts, no control over FWER
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Tukey's HSD: For pairwise contrasts, controls FWER
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Scheff&#130;'s method: For any contrasts, controls FWER
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </section>
+</chapter>

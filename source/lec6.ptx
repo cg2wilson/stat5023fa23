@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <chapter xml:id="lec-6" xmlns:xi="http://www.w3.org/2001/XInclude">
-	<title>Lecture 6 - 09/07/2023</title>
+	<title>Lecture 6 &amp; 7- 09/07 and 09/12/2023</title>
 
     <section xml:id="lec-6-sec1" xmlns:xi="http://www.w3.org/2001/XInclude">
         <title>Linear Contrasts</title>
@@ -69,17 +69,17 @@
             <ul>
                 <li>
                     <p>
-                        \text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2
+                        <m>\text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        \text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2
+                        <m>\text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        \text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}
+                        <m>\text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}</m>
                     </p>
                 </li>
             </ul>
@@ -111,7 +111,7 @@
         </p>
 
         <p>
-            A <m>100(1-\alpha)%</m> confidence interval for <m>L</m> is given by
+            A <m>100(1-\alpha)\%</m> confidence interval for <m>L</m> is given by
             <me>
                 \sum_{i=1}^t a_i\bar{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
             </me>
@@ -126,7 +126,7 @@
             <me>
                 SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
             </me>
-            <m>SSC_L</m> has one degree of freedom; we reject the null <m>H_0: L = 0</m> if <m>F\geq F_{\alpha,1,n_\cdot -t}</m>
+            <m>SSC_L</m> has one degree of freedom (this is the reason for the division by 1 above); we reject the null <m>H_0: L = 0</m> if <m>F\geq F_{\alpha,1,n_\cdot -t}</m>
         </p>
 
         <p>
@@ -139,7 +139,7 @@
                 </li>
                 <li>
                     <p>
-                        We reject <m>H_0</m> if the t-statistic is too small or too large
+                        We reject <m>H_0</m> if the t-statistic is too large in magnitude.
                     </p>
                 </li>
                 <li>
@@ -163,7 +163,7 @@
         <example>
             <statement>
                 <p>
-                    Researched conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.
+                    Researchers conducted a study of biological agents to assess their effectiveness in comparison to the chemical weed agents. The study consisted of a control (no agent), two biological agents (Bio1 and Bio2) and two chemical agents (Chm1 and Chm2). Thirty 1-acre plots of land were planted with hay. Six plots were randomly assigned to receive one of the five treatments. The hay was harvested, and the total yield in tons per acre was recorded for each plot.
                 </p>
                 <tabular>
                     <row>
@@ -208,6 +208,13 @@
                                 <me>
                                     L_1 = \mu_1 - \dfrac{1}{4}\lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
                                 </me>                                
+                            </p>
+                            <p>
+                                NOTE: The choice of <m>a_i</m> in a contrast is arbitrary; provided that <m>\sum a_i = 0</m>, we can choose 
+                                <me>
+                                    \tilde{L_1} = 4\mu_1 - \lrpar{\mu_2 + \mu_3 + \mu_4 + \mu_5}
+                                </me>
+                                
                             </p>
                         </li>
                         <li>
@@ -286,11 +293,35 @@
                     </row>
                     <row>
                         <cell>1</cell>
-                        <cell><m>-0.2090</m></cell>
-                        <cell><m> 0.05656</m></cell>
-                        <cell><m>-3.7019</m></cell>
-                        <cell><m>13.7038</m></cell>
-                        <cell><m>0.2097</m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                    </row>
+                    <row>
+                        <cell>2</cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                    </row>
+                    <row>
+                        <cell>3</cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                    </row>
+                    <row>
+                        <cell>4</cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
+                        <cell><m></m></cell>
                     </row>
                 </tabular>
                 <p>
@@ -303,7 +334,7 @@
                         </li>
                         <li>
                             <p>
-                                <m>s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i}^2{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}</m>
+                                <m>s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i^2}{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}</m>
                             </p>
                         </li>
                         <li>
