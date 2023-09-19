@@ -79,7 +79,7 @@
                 </li>
                 <li>
                     <p>
-                        <m>\text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}</m>
+                        <m>\text{Var}(\overline{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}</m>
                     </p>
                 </li>
             </ul>
@@ -89,7 +89,7 @@
         <p>
             Set 
             <me>
-                \hat{L} = \sum_{i=1}^t a_i\bar{Y}_{i\cdot}
+                \hat{L} = \sum_{i=1}^t a_i\overline{Y}_{i\cdot}
             </me>
             to be the estimate of <m>L</m>. Under the assumptions of one-way ANOVA,
             <me>
@@ -105,7 +105,7 @@
             </me>
             The test statistic is given by
             <me>
-                t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
+                t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
             </me>
             under <m>H_0</m>. We reject the null <m>H_0: L = 0</m> if <m>|t| \geq t_{\alpha/2,n_\cdot-t}</m>.
         </p>
@@ -113,7 +113,7 @@
         <p>
             A <m>100(1-\alpha)\%</m> confidence interval for <m>L</m> is given by
             <me>
-                \sum_{i=1}^t a_i\bar{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+                \sum_{i=1}^t a_i\overline{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
             </me>
         </p>
 
@@ -124,7 +124,7 @@
             </me>
             under <m>H_0</m>, where <m>t = \hat{L}/s_{\hat{L}}</m> and <m>SSC_L</m> is referred to as the sum of squares for the contrast <m>L</m> such that
             <me>
-                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\overline{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
             </me>
             <m>SSC_L</m> has one degree of freedom (this is the reason for the division by 1 above); we reject the null <m>H_0: L = 0</m> if <m>F\geq F_{\alpha,1,n_\cdot -t}</m>
         </p>
@@ -175,7 +175,7 @@
                         <cell>Chm2</cell>
                     </row>
                     <row>
-                        <cell><m>\bar{Y}_{i\cdot}</m></cell>
+                        <cell><m>\overline{Y}_{i\cdot}</m></cell>
                         <cell>1.175</cell>
                         <cell>1.293</cell>
                         <cell>1.328</cell>
@@ -329,7 +329,7 @@
                     <ul>
                         <li>
                             <p>
-                                <m>\hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}</m>
+                                <m>\hat{L}_1 = \overline{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \overline{Y}_{i\cdot}}</m>
                             </p>
                         </li>
                         <li>
@@ -349,7 +349,7 @@
                         </li>
                         <li>
                             <p>
-                                <m>SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}</m>
+                                <m>SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}</m>
                             </p>
                         </li>
                     </ul>
@@ -369,7 +369,7 @@
                 </me>
                 is a linear contrast. This means that the t-statistic for the contrast <m>L'</m> is given by
                 <me>
-                    t = \dfrac{\sum_{i=1}^t b_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t b_i^2/n_i}} = \dfrac{c\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot c^2\sum_{i=1}^t a_i^2/n_i}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE\cdot \sum_{i=1}^t a_i^2/n_i}}
+                    t = \dfrac{\sum_{i=1}^t b_i\overline{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t b_i^2/n_i}} = \dfrac{c\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}{\sqrt{MSE\cdot c^2\sum_{i=1}^t a_i^2/n_i}} = \dfrac{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}{\sqrt{MSE\cdot \sum_{i=1}^t a_i^2/n_i}}
                 </me>
                 which is the same as for the constrast <m>L</m>                
             </p>
@@ -452,7 +452,7 @@
         <p>
             Recall that <m>SSC_L</m> is a sum of squares associated with contrast <m>L</m>:
             <me>
-                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i}
+                SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i}
             </me>
             with a single degree of freedom. It can be shown that SSTrt from one-way ANOVA can be decomposed into <m>t-1</m> independent <m>SSL_i</m>s corresponding to each mutually orthogonal contrast. Given a set of mutually orthogonal contrasts <m>L_1,L_2,...,L_{t-1}</m>,
             <me>

@@ -237,12 +237,12 @@
             <ul>
                 <li>
                     <p>
-                        <m>\mu = \hat{\mu} = \bar{Y}_{\cdot\cdot}</m>
+                        <m>\mu = \hat{\mu} = \overline{Y}_{\cdot\cdot}</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>\tau_i = \hat{\tau_i} = \bar{Y}_{i\cdot} - \bar{Y}_{\cdot\cdot}</m>
+                        <m>\tau_i = \hat{\tau_i} = \overline{Y}_{i\cdot} - \overline{Y}_{\cdot\cdot}</m>
                     </p>
                 </li>
             </ul>
@@ -250,23 +250,23 @@
         <p>
             We may also note that we have a similar statement to the TSS decomposition in ANOVA:
             <me>
-                Y_{ij} = \bar{Y}_{\cdot\cdot} + (\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot}) + (Y_{ij} - \bar{Y}_{i\cdot})
+                Y_{ij} = \overline{Y}_{\cdot\cdot} + (\overline{Y}_{i\cdot}-\overline{Y}_{\cdot\cdot}) + (Y_{ij} - \overline{Y}_{i\cdot})
             </me>
             where
             <ul>
                 <li>
                     <p>
-                        <m>\bar{Y}_{\cdot\cdot} = \hat{\mu}</m>
+                        <m>\overline{Y}_{\cdot\cdot} = \hat{\mu}</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot} = \hat{\tau_i}</m>
+                        <m>\overline{Y}_{i\cdot}-\overline{Y}_{\cdot\cdot} = \hat{\tau_i}</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>Y_{ij} - \bar{Y}_{i\cdot} = \hat{\varepsilon_{ij}}</m>
+                        <m>Y_{ij} - \overline{Y}_{i\cdot} = \hat{\varepsilon_{ij}}</m>
                     </p>
                 </li>
             </ul>

@@ -22,7 +22,7 @@
                 <cell>Chm2</cell>
             </row>
             <row>
-                <cell><m>\bar{Y}_{i\cdot}</m></cell>
+                <cell><m>\overline{Y}_{i\cdot}</m></cell>
                 <cell>1.175</cell>
                 <cell>1.293</cell>
                 <cell>1.328</cell>
@@ -196,7 +196,7 @@
             </ol>
         </p>
         <p>
-            In (1), if we fail to reject <m>H_0</m>, there is no significant evidence of linear trend; if we reject, then either linear or quadratic trends would exist. In (2), if we fail to reject <m>H_0</m>, then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <m>H_0</m>, this indicates that a quadratic trend would exist.
+            In (1), if we fail to reject <m>H_0</m>, there is no significant evidence of linear trend; if we reject, then a significant evidence of linear trend. In (2), if we fail to reject <m>H_0</m>, then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <m>H_0</m>, this indicates that a quadratic trend would exist.
         </p>
         <p>
             We can generalize the trend analysis for <m>t \gt 3</m> as well. To set up the contrasts for trend analysis, we can use a table for coefficients. In general, if there are <m>t</m> treatment levels, then a polynomial with degree at most <m>t-1</m> can be considered. Lower-degree curves are easy to interpret but may not be a good fit; higher-degree curves are more complicated, but often provide good fit.
@@ -318,12 +318,12 @@
                         <mrow> L_1 \amp = -2\mu_1 - \mu_2 + \mu_4 + 2\mu_5 </mrow>
                         <mrow> L_2 \amp = 2\mu_1 - \mu_2 - 2\mu_3 - \mu_4 + 2\mu_5 </mrow>
                     </md>
-                    by using the orthogonal polynomials table. Second, we compute each <m>SSC_{L_i}</m>. 
+                    by using the orthogonal polynomials table. Note that we disregard cubic and quartic contrasts; this is due to the small value of their corresponding <m>SSC_{L_i}</m> (see below). Second, we compute each <m>SSC_{L_i}</m>. 
                     <me>
                         SSC_{L_1} = \dfrac{\lrpar{-2(0.619) - 0.772+1.009+2(1.041)}^2}{\dfrac{1}{4}\lrpar{(-2)^2 + (-1)^2 + 1^2 + 2^2}} = 0.4674
                     </me>
                     <me>
-                        SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
+                        SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}^2}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
                     </me>
                     <me>
                         SSC_{L_3} + SSC_{L_4} = SS\text{ Lack of fit}
@@ -378,6 +378,9 @@
                         <cell>0.7166</cell>
                     </row>
                 </tabular>
+                <p>
+                    As mentioned earlier, we disregard cubic and quartic trends; note that since <m>SSC_{lack}</m> results in <m>F = 1.20</m>, if we conduct a hypothesis test for <m>L_3,L_4</m>, we would fail to reject the null <m>H_0: L_i = 0</m> because <m>F_{0.05,1,15} = 4.54 \gt 1.20</m>.
+                </p>
                 <p>
                     Under <m>\alpha = 0.05</m>, we reject both <m>H_0: L_1 = 0</m> and <m>H_0: L_2 = 0</m> as <m>F_{0.05,1,15} = 4.54</m>. This means that both linear and quadratic trends are significant. See the plot below.
                 </p>

@@ -47,7 +47,7 @@
             <p>
                 Our solution is to use the residuals
                 <me>
-                    \hat{\varepsilon_{ij}} = Y_{ij} - \bar{Y}_{i\cdot}
+                    \hat{\varepsilon_{ij}} = Y_{ij} - \overline{Y}_{i\cdot}
                 </me>
                 to make a guess of the distribution of <m>\varepsilon_{ij}</m>. Note that 
                 <me>
@@ -300,22 +300,22 @@
         <p>
             A third test is <term>Levene's test</term>: let 
             <me>
-                r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \bar{Y}_{i\cdot}|
+                r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \overline{Y}_{i\cdot}|
             </me>
             denote the absolute value of the residual <m>\hat{\varepsilon_{ij}}</m>. We perform one-way ANOVA by treating the <m>r_{ij}</m> as our observations.
         </p>
         <p>
             Levene's test is based on the F test statistic:
             <me>
-                F = \dfrac{\sum_{i=1}^t n_i(\bar{r}_{i\cdot} - \bar{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\bar{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
+                F = \dfrac{\sum_{i=1}^t n_i(\overline{r}_{i\cdot} - \overline{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\overline{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
             </me>
             under <m>H_0</m>, where
             <me>
-                \bar{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
+                \overline{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
             </me>
             and
             <me>
-                \bar{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
+                \overline{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
             </me>
             We reject the null hypothesis of equal variance if <m>F\geq F_{\alpha,t-1,n_\cdot -t}</m>
         </p>
