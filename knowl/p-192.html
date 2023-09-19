@@ -11,8 +11,27 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Consider the example from above:</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">The method is considered conservative, since large differences are required for significance; consider a contrast</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L = \sum_{i=1}^t a_i\mu_i
+\end{equation*}
+</div>
+<div class="para">We calculate the Scheff value such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S = \sqrt{(t-1)F_{\alpha,t-1,n_\cdot - t}}\cdot \sqrt{MSE\cdot \lrpar{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}}
+\end{equation*}
+</div>
+<div class="para">So that for the null <span class="process-math">\(H_0 : L = 0\text{,}\)</span> we reject if <span class="process-math">\(|\hat{L}| \geq S\text{.}\)</span> We get a <span class="process-math">\(100(1-\alpha)\%\)</span> C.I. for <span class="process-math">\(L\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\hat{L} \pm \sqrt{(t-1)F_{\alpha,t-1,n_\cdot - t}}\cdot \sqrt{MSE\cdot \lrpar{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}}
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="lec-9-sec4.html#p-192" class="internal">in-context</a></span>
 </body>
 </html>

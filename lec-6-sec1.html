@@ -316,7 +316,7 @@ L = \dfrac{1}{3}(\mu_1 + \mu_2 + \mu_3) - \mu_4
 <ul class="disc">
 <li id="li-33"><div class="para" id="p-95"><span class="process-math">\(\displaystyle \text{Var}\lrpar{\sum_{i=1}^n Y_i} = \sum_{i=1}^n \text{Var}(Y_i) = \sum_{i=1}^n \sigma^2 = n\sigma^2\)</span></div></li>
 <li id="li-34"><div class="para" id="p-96"><span class="process-math">\(\displaystyle \text{Var}\lrpar{\sum_{i=1}^n a_iY_i} = \sum_{i=1}^na_i^2\text{Var}(Y_i) = \sigma^2\sum_{i=1}^n a_i^2\)</span></div></li>
-<li id="li-35"><div class="para" id="p-97"><span class="process-math">\(\displaystyle \text{Var}(\bar{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}\)</span></div></li>
+<li id="li-35"><div class="para" id="p-97"><span class="process-math">\(\displaystyle \text{Var}(\overline{Y}) = \text{Var}\lrpar{\dfrac{1}{n}\sum_{i=1}^n Y_i} = \sum_{i=1}^n \dfrac{1}{n^2}\text{Var}(Y_i) = \dfrac{1}{n^2}\cdot n\sigma^2 = \dfrac{\sigma^2}{n}\)</span></div></li>
 </ul>
 <div class="para">These formulas hold without normality as well.</div>
 </div>
@@ -324,7 +324,7 @@ L = \dfrac{1}{3}(\mu_1 + \mu_2 + \mu_3) - \mu_4
 <div class="para">Set</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\hat{L} = \sum_{i=1}^t a_i\bar{Y}_{i\cdot}
+\hat{L} = \sum_{i=1}^t a_i\overline{Y}_{i\cdot}
 \end{equation*}
 </div>
 <div class="para">to be the estimate of <span class="process-math">\(L\text{.}\)</span> Under the assumptions of one-way ANOVA,</div>
@@ -348,7 +348,7 @@ s_{\hat{L}} = \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
 <div class="para">The test statistic is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
+t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{.}\)</span> We reject the null <span class="process-math">\(H_0: L = 0\)</span> if <span class="process-math">\(|t| \geq t_{\alpha/2,n_\cdot-t}\text{.}\)</span>
@@ -358,7 +358,7 @@ t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqr
 <div class="para">A <span class="process-math">\(100(1-\alpha)\%\)</span> confidence interval for <span class="process-math">\(L\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\sum_{i=1}^t a_i\bar{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+\sum_{i=1}^t a_i\overline{Y}_{i\cdot} \pm t_{\alpha/2,n_\cdot -t} \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
 \end{equation*}
 </div>
 </div>
@@ -372,7 +372,7 @@ F = t^2 = \dfrac{SSC_L/1}{MSE}\sim F_{1,n_\cdot-t}
 <div class="para">under <span class="process-math">\(H_0\text{,}\)</span> where <span class="process-math">\(t = \hat{L}/s_{\hat{L}}\)</span> and <span class="process-math">\(SSC_L\)</span> is referred to as the sum of squares for the contrast <span class="process-math">\(L\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
+SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\overline{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{a_i^2}{n_i}}
 \end{equation*}
 </div>
 <div class="para">
@@ -404,7 +404,7 @@ SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i \cdot}}^2}{\sum_{i=1}^t \dfrac{
 <td class="l m b0 r0 l0 t0 lines">Chm2</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\bar{Y}_{i\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{i\cdot}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines">1.175</td>
 <td class="l m b0 r0 l0 t0 lines">1.293</td>
 <td class="l m b0 r0 l0 t0 lines">1.328</td>
@@ -548,11 +548,11 @@ L_4 = \mu_2 - \mu_3
 </table></div> <div class="para logical" id="p-116">
 <div class="para">Here, note the following for the first row :</div>
 <ul class="disc">
-<li id="li-45"><div class="para" id="p-117"><span class="process-math">\(\displaystyle \hat{L}_1 = \bar{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \bar{Y}_{i\cdot}}\)</span></div></li>
+<li id="li-45"><div class="para" id="p-117"><span class="process-math">\(\displaystyle \hat{L}_1 = \overline{Y}_{1\cdot} - \dfrac{1}{4}\lrpar{\sum_{i=2}^5 \overline{Y}_{i\cdot}}\)</span></div></li>
 <li id="li-46"><div class="para" id="p-118"><span class="process-math">\(\displaystyle s_{\hat{L}_1}= \sqrt{MSE\cdot \sum_{i=1}^t \dfrac{a_i^2}{n_i}}=\sqrt{0.0153\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}}\)</span></div></li>
 <li id="li-47"><div class="para" id="p-119"><span class="process-math">\(\displaystyle t = \dfrac{\hat{L}_1}{s_{\hat{L}_1}}\)</span></div></li>
 <li id="li-48"><div class="para" id="p-120"><span class="process-math">\(\displaystyle F = t^2 = (-3.7019)^2\)</span></div></li>
-<li id="li-49"><div class="para" id="p-121"><span class="process-math">\(\displaystyle SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}\)</span></div></li>
+<li id="li-49"><div class="para" id="p-121"><span class="process-math">\(\displaystyle SSC_L = \dfrac{\lrpar{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}^2}{\sum_{i=1}^t a_i^2/n_i} = (-0.2090)^2/\lrpar{\dfrac{1^2}{6} + 4\cdot \dfrac{(-1/4)^2}{6}}\)</span></div></li>
 </ul>
 </div> <div class="para" id="p-122">With <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject <span class="process-math">\(H_0:L = \mu_1 - \dfrac{1}{4}(\mu_2 + \mu_3 + \mu_4 + \mu_5) = 0\)</span> since <span class="process-math">\(|t|\geq t_{0.025,25} = 2.0595\text{.}\)</span> We conclude that there is a significant difference of effectiveness between the control and average of all agents under <span class="process-math">\(\alpha = 0.05\)</span>
 </div>

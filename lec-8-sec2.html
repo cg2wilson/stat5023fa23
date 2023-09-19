@@ -288,7 +288,7 @@ window.MathJax = {
 </div></li>
 </ol>
 </div>
-<div class="para" id="p-160">In (1), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> there is no significant evidence of linear trend; if we reject, then either linear or quadratic trends would exist. In (2), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <span class="process-math">\(H_0\text{,}\)</span> this indicates that a quadratic trend would exist.</div>
+<div class="para" id="p-160">In (1), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> there is no significant evidence of linear trend; if we reject, then a significant evidence of linear trend. In (2), if we fail to reject <span class="process-math">\(H_0\text{,}\)</span> then there is no significant evidence of quadratic trend; thus, we conclude that only linear trend would exist. If we reject <span class="process-math">\(H_0\text{,}\)</span> this indicates that a quadratic trend would exist.</div>
 <div class="para" id="p-161">We can generalize the trend analysis for <span class="process-math">\(t \gt 3\)</span> as well. To set up the contrasts for trend analysis, we can use a table for coefficients. In general, if there are <span class="process-math">\(t\)</span> treatment levels, then a polynomial with degree at most <span class="process-math">\(t-1\)</span> can be considered. Lower-degree curves are easy to interpret but may not be a good fit; higher-degree curves are more complicated, but often provide good fit.</div>
 <div class="para logical" id="p-162">
 <div class="para">We investigate any existence of trends only if we reject <span class="process-math">\(H_0: \mu_1 = \cdots \mu_t\text{,}\)</span> which implies that <span class="process-math">\(SSTrt \gt SSE\text{.}\)</span> For <span class="process-math">\(t = 3\text{,}\)</span> given orthogonal polynomial contrasts <span class="process-math">\(L_1,L_2\)</span> we have</div>
@@ -398,7 +398,7 @@ L_1 \amp = -2\mu_1 - \mu_2 + \mu_4 + 2\mu_5 \\
 L_2 \amp = 2\mu_1 - \mu_2 - 2\mu_3 - \mu_4 + 2\mu_5 
 \end{align*}
 </div>
-<div class="para">by using the orthogonal polynomials table. Second, we compute each <span class="process-math">\(SSC_{L_i}\text{.}\)</span>
+<div class="para">by using the orthogonal polynomials table. Note that we disregard cubic and quartic contrasts; this is due to the small value of their corresponding <span class="process-math">\(SSC_{L_i}\)</span> (see below). Second, we compute each <span class="process-math">\(SSC_{L_i}\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -407,7 +407,7 @@ SSC_{L_1} = \dfrac{\lrpar{-2(0.619) - 0.772+1.009+2(1.041)}^2}{\dfrac{1}{4}\lrpa
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
-SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
+SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}^2}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
 \end{equation*}
 </div>
 <div class="displaymath process-math">
@@ -463,7 +463,8 @@ SSC_{L_3} + SSC_{L_4} = SS\text{ Lack of fit}
 <td class="l m b0 r0 l0 t0 lines">19</td>
 <td class="l m b0 r0 l0 t0 lines">0.7166</td>
 </tr>
-</table></div> <div class="para" id="p-170">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject both <span class="process-math">\(H_0: L_1 = 0\)</span> and <span class="process-math">\(H_0: L_2 = 0\)</span> as <span class="process-math">\(F_{0.05,1,15} = 4.54\text{.}\)</span> This means that both linear and quadratic trends are significant. See the plot below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/apple-data-lec8.png" class="contained"></div>
+</table></div> <div class="para" id="p-170">As mentioned earlier, we disregard cubic and quartic trends; note that since <span class="process-math">\(SSC_{lack}\)</span> results in <span class="process-math">\(F = 1.20\text{,}\)</span> if we conduct a hypothesis test for <span class="process-math">\(L_3,L_4\text{,}\)</span> we would fail to reject the null <span class="process-math">\(H_0: L_i = 0\)</span> because <span class="process-math">\(F_{0.05,1,15} = 4.54 \gt 1.20\text{.}\)</span>
+</div> <div class="para" id="p-171">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject both <span class="process-math">\(H_0: L_1 = 0\)</span> and <span class="process-math">\(H_0: L_2 = 0\)</span> as <span class="process-math">\(F_{0.05,1,15} = 4.54\text{.}\)</span> This means that both linear and quadratic trends are significant. See the plot below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/apple-data-lec8.png" class="contained"></div>
 </div></div>
 </div></article></section></div>
 <div class="ptx-content-footer">

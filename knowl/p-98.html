@@ -16,7 +16,7 @@
 <div class="para">Set</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\hat{L} = \sum_{i=1}^t a_i\bar{Y}_{i\cdot}
+\hat{L} = \sum_{i=1}^t a_i\overline{Y}_{i\cdot}
 \end{equation*}
 </div>
 <div class="para">to be the estimate of <span class="process-math">\(L\text{.}\)</span> Under the assumptions of one-way ANOVA,</div>
@@ -40,7 +40,7 @@ s_{\hat{L}} = \sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}
 <div class="para">The test statistic is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\bar{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
+t = \dfrac{\hat{L}}{s_{\hat{L}}} = \dfrac{\sum_{i=1}^t a_i\overline{Y}_{i\cdot}}{\sqrt{MSE \sum_{i=1}^t \dfrac{a_i^2}{n_i}}} \sim t_{n_\cdot -t}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{.}\)</span> We reject the null <span class="process-math">\(H_0: L = 0\)</span> if <span class="process-math">\(|t| \geq t_{\alpha/2,n_\cdot-t}\text{.}\)</span>

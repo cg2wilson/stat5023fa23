@@ -414,7 +414,7 @@ H_0: \sigma_1^2 = \sigma_2^2=\cdots = \sigma_t^2
 <div class="para">A third test is <dfn class="terminology">Levene’s test</dfn>: let</div>
 <div class="displaymath process-math">
 \begin{equation*}
-r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \bar{Y}_{i\cdot}|
+r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \overline{Y}_{i\cdot}|
 \end{equation*}
 </div>
 <div class="para">denote the absolute value of the residual <span class="process-math">\(\hat{\varepsilon_{ij}}\text{.}\)</span> We perform one-way ANOVA by treating the <span class="process-math">\(r_{ij}\)</span> as our observations.</div>
@@ -423,19 +423,19 @@ r_{ij} = |\hat{\varepsilon_{ij}}| = |Y_{ij} - \bar{Y}_{i\cdot}|
 <div class="para">Levene’s test is based on the F test statistic:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F = \dfrac{\sum_{i=1}^t n_i(\bar{r}_{i\cdot} - \bar{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\bar{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
+F = \dfrac{\sum_{i=1}^t n_i(\overline{r}_{i\cdot} - \overline{r}_{\cdot\cdot})^2/(t-1)}{\sum_{i=1}^t\sum_{j=1}^{n_i} (r_{ij}-\overline{r}_{i\cdot})^2/(n_\cdot - t)}\sim F_{t-1,n_\cdot-t}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{,}\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\bar{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
+\overline{r}_{i\cdot} = \dfrac{1}{n_i}\sum_{j=1}^{n_i} r_{ij}
 \end{equation*}
 </div>
 <div class="para">and</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\bar{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
+\overline{r}_{\cdot\cdot} = \dfrac{1}{n_\cdot} \sum_{i=1}^t\sum_{j=1}^{n_i}r_{ij}
 \end{equation*}
 </div>
 <div class="para">We reject the null hypothesis of equal variance if <span class="process-math">\(F\geq F_{\alpha,t-1,n_\cdot -t}\)</span>

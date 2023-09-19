@@ -12,7 +12,27 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">In one-way ANOVA, if we reject <span class="process-math">\(H_0\text{,}\)</span> it is natural to investigate which <span class="process-math">\(\mu_i\)</span>’s are different. We can test all possible pairwaise contrasts <span class="process-math">\(L_{ij} = \mu_i - \mu_j\text{,}\)</span> so that the type I error is better controlled. This gives, for example,</div>
+<div class="para logical">
+<div class="para">Recall that when we declare a signficance level <span class="process-math">\(\alpha\text{,}\)</span> we declare the probability of making a type I error (rejecting the null when we should not). At the signficance level <span class="process-math">\(\alpha\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\mathbb{P}(\text{at least one false rejection})  \amp = 1 - \mathbb{P}(\text{no false single rejection}) \\
+\amp = 1 - (1-\alpha)^m 
+\end{align*}
+</div>
+<div class="para">when we independently test <span class="process-math">\(m\)</span> hypotheses. Note that we call the term</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{P}(\text{at least one false rejection})
+\end{equation*}
+</div>
+<div class="para">the <dfn class="terminology">family-wise or experiment-wise error rate</dfn>. So for example, if <span class="process-math">\(\alpha = 0.05\)</span> and <span class="process-math">\(m = 10\text{,}\)</span> the family-wise error rate is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1 - (1-\alpha)^m \approx 1 - 0.599 = 0.401 \gt \alpha = 0.05
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="lec-9-sec1.html#p-173" class="internal">in-context</a></span>
 </body>
 </html>

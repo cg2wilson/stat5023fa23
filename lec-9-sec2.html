@@ -266,7 +266,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-9-sec2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Fisher’s LSD</span>
 </h2>
-<div class="para logical" id="p-175">
+<div class="para logical" id="p-176">
 <div class="para">Suppose that we want to test</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -276,19 +276,19 @@ H_0: \mu_i - \mu_j = 0
 <div class="para">vs.</div>
 <div class="displaymath process-math">
 \begin{equation*}
-H_0: \mu_i - \m_j \neq 0
+H_0: \mu_i - \mu_j \neq 0
 \end{equation*}
 </div>
 <div class="para">Our <span class="process-math">\(t-\)</span>test statistic is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-t = \dfrac{\bar{Y_{i\cdot}} = \bar{Y_{j\cdot}}}{\sqrt{MSE\cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}}\sim t_{n_\cdot - t}
+t = \dfrac{\overline{Y_{i\cdot}} = \overline{Y_{j\cdot}}}{\sqrt{MSE\cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}}\sim t_{n_\cdot - t}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{.}\)</span> This gives a rejection region <span class="process-math">\(|t| \geq t_{\alpha/2,n_\cdot - t}\text{,}\)</span> which is equivalent to</div>
 <div class="displaymath process-math">
 \begin{equation*}
-|\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}| \geq t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+|\overline{Y_{i\cdot}} - \overline{Y_{j\cdot}}| \geq t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
 \end{equation*}
 </div>
 <div class="para">here, we call the term</div>
@@ -299,11 +299,11 @@ t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}
 </div>
 <div class="para">the <dfn class="terminology">least significant difference (LSD)</dfn>.</div>
 </div>
-<div class="para logical" id="p-176">
+<div class="para logical" id="p-177">
 <div class="para">For a <span class="process-math">\(100(1-\alpha)\%\)</span> confidence interval for <span class="process-math">\(\mu_i - \mu_j\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-(\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}) \pm t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+(\overline{Y_{i\cdot}} - \overline{Y_{j\cdot}}) \pm t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
 \end{equation*}
 </div>
 <div class="para">so that in the balanced case, we have</div>
@@ -317,7 +317,7 @@ LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
 <article class="example example-like" id="example-8"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-177">Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <span class="process-math">\(\alpha = 0.05\text{,}\)</span> <span class="process-math">\(MSE = 2451\text{,}\)</span> and <span class="process-math">\(n_i = 5\)</span> for all <span class="process-math">\(i\text{,}\)</span> make all pairwise comparisons using Fisher’s LSD.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-178">Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <span class="process-math">\(\alpha = 0.05\text{,}\)</span> <span class="process-math">\(MSE = 2451\text{,}\)</span> and <span class="process-math">\(n_i = 5\)</span> for all <span class="process-math">\(i\text{,}\)</span> make all pairwise comparisons using Fisher’s LSD.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Group</td>
 <td class="l m b0 r0 l0 t0 lines">1</td>
@@ -339,7 +339,7 @@ LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
 </table></div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
-<div class="para logical" id="p-178">
+<div class="para logical" id="p-179">
 <div class="para">First, compute the LSD:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -366,46 +366,46 @@ LSD = t_{\alpha/2,n_\cdot - t}\sqrt{MSE\cdot \lrpar{\dfrac{2}{n}}} = t_{0.025,24
 <td class="l m b0 r0 l0 t0 lines">564</td>
 <td class="l m b0 r0 l0 t0 lines">600</td>
 </tr>
-</table></div> <div class="para logical" id="p-179">
+</table></div> <div class="para logical" id="p-180">
 <div class="para">Compare the smallest to the largest, second largest, etc. until we find a non-significant pair:</div>
 <div class="displaymath process-math" id="md-10">
 \begin{align*}
-|\bar{Y_{6\cdot}} - \bar{Y_{5\cdot}}| \amp = 102 \gt LSD\\
-|\bar{Y_{6\cdot}} - \bar{Y_{3\cdot}}| \amp = 94 \gt LSD\\
-|\bar{Y_{6\cdot}} - \bar{Y_{2\cdot}}| \amp  = 30 \lt LSD
+|\overline{Y_{6\cdot}} - \overline{Y_{5\cdot}}| \amp = 102 \gt LSD\\
+|\overline{Y_{6\cdot}} - \overline{Y_{3\cdot}}| \amp = 94 \gt LSD\\
+|\overline{Y_{6\cdot}} - \overline{Y_{2\cdot}}| \amp  = 30 \lt LSD
 \end{align*}
 </div>
 <div class="para">Continue with Group 4, Group 1 and Group 2:</div>
 <div class="displaymath process-math" id="md-11">
 \begin{align*}
-|\bar{Y_{4\cdot}} - \bar{Y_{5\cdot}}| \amp = 102 \gt LSD\\
-|\bar{Y_{4\cdot}} - \bar{Y_{3\cdot}}| \amp = 66 \gt LSD \\
-|\bar{Y_{4\cdot}} - \bar{Y_{2\cdot}}| \amp = 30 \lt LSD
+|\overline{Y_{4\cdot}} - \overline{Y_{5\cdot}}| \amp = 102 \gt LSD\\
+|\overline{Y_{4\cdot}} - \overline{Y_{3\cdot}}| \amp = 66 \gt LSD \\
+|\overline{Y_{4\cdot}} - \overline{Y_{2\cdot}}| \amp = 30 \lt LSD
 \end{align*}
 </div>
 <div class="displaymath process-math" id="md-12">
 \begin{align*}
-|\bar{Y_{1\cdot}} - \bar{Y_{5\cdot}}| \amp = 95 \gt LSD\\
-|\bar{Y_{1\cdot}} - \bar{Y_{3\cdot}}| \amp = 59 \lt LSD
+|\overline{Y_{1\cdot}} - \overline{Y_{5\cdot}}| \amp = 95 \gt LSD\\
+|\overline{Y_{1\cdot}} - \overline{Y_{3\cdot}}| \amp = 59 \lt LSD
 \end{align*}
 </div>
 <div class="displaymath process-math" id="md-13">
 \begin{align*}
-|\bar{Y_{2\cdot}} - \bar{Y_{5\cdot}}| \amp = 72 \gt LSD\\
-|\bar{Y_{2\cdot}} - \bar{Y_{3\cdot}}| \amp = 36 \lt LSD
+|\overline{Y_{2\cdot}} - \overline{Y_{5\cdot}}| \amp = 72 \gt LSD\\
+|\overline{Y_{2\cdot}} - \overline{Y_{3\cdot}}| \amp = 36 \lt LSD
 \end{align*}
 </div>
 <div class="displaymath process-math" id="md-14">
 \begin{align*}
-|\bar{Y_{3\cdot}} - \bar{Y_{5\cdot}}| \amp = 36 \lt LSD
+|\overline{Y_{3\cdot}} - \overline{Y_{5\cdot}}| \amp = 36 \lt LSD
 \end{align*}
 </div>
-</div> <div class="para logical" id="p-180">
+</div> <div class="para logical" id="p-181">
 <div class="para">Now, identify groups without significant difference:</div>
 <ul class="disc">
-<li id="li-60"><div class="para" id="p-181">Groups 6,4,1,2 do not differ</div></li>
-<li id="li-61"><div class="para" id="p-182">Groups 1,2,3 do not differ</div></li>
-<li id="li-62"><div class="para" id="p-183">Groups 3,5 do not differ</div></li>
+<li id="li-60"><div class="para" id="p-182">Groups 6,4,1,2 do not differ</div></li>
+<li id="li-61"><div class="para" id="p-183">Groups 1,2,3 do not differ</div></li>
+<li id="li-62"><div class="para" id="p-184">Groups 3,5 do not differ</div></li>
 </ul>
 <div class="para">This gives the following table:</div>
 </div> <div class="tabular-box natural-width"><table class="tabular">
@@ -427,7 +427,7 @@ LSD = t_{\alpha/2,n_\cdot - t}\sqrt{MSE\cdot \lrpar{\dfrac{2}{n}}} = t_{0.025,24
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(564^{bc}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(600^c\)</span></td>
 </tr>
-</table></div> <div class="para" id="p-184">The sample means with a common superscript do not significantly differ under <span class="process-math">\(\alpha = 0.05\text{.}\)</span>
+</table></div> <div class="para" id="p-185">The sample means with a common superscript do not significantly differ under <span class="process-math">\(\alpha = 0.05\text{.}\)</span>
 </div>
 </div></div>
 </div></article></section></div>

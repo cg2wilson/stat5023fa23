@@ -11,8 +11,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <span class="process-math">\(\alpha = 0.05\text{,}\)</span> <span class="process-math">\(MSE = 2451\text{,}\)</span> and <span class="process-math">\(n_i = 5\)</span> for all <span class="process-math">\(i\text{,}\)</span> make all pairwise comparisons using Fisher’s LSD.</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">For a <span class="process-math">\(100(1-\alpha)\%\)</span> confidence interval for <span class="process-math">\(\mu_i - \mu_j\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\overline{Y_{i\cdot}} - \overline{Y_{j\cdot}}) \pm t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{1}{n_i} + \dfrac{1}{n_j}}}
+\end{equation*}
+</div>
+<div class="para">so that in the balanced case, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
+\end{equation*}
+</div>
+<div class="para">In general, the LSD makes pairwise comparison and is recommended to use when one-way ANOVA gives a significant result; <em class="alert">it does not control FWER</em>.</div>
+</div>
 <span class="incontext"><a href="lec-9-sec2.html#p-177" class="internal">in-context</a></span>
 </body>
 </html>

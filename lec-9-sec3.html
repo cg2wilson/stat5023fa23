@@ -266,7 +266,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-9-sec3"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Tukey’s HSD</span>
 </h2>
-<div class="para logical" id="p-185">
+<div class="para logical" id="p-186">
 <div class="para">This assumes the balanced case, i.e. <span class="process-math">\(n_1 = n_2 = \cdots =n_t = n\text{.}\)</span> We replace the LSD term</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -285,10 +285,10 @@ HSD = q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
 q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
 \end{equation*}
 </div>
-<div class="para">is called <dfn class="terminology">Tukey’s Honest Significant Difference (HSD)</dfn>. We reject the hypothesis <span class="process-math">\(H_0: \mu_i - \mu_j = 0\)</span> if <span class="process-math">\(|\bar{Y_{i\cdot}} - \bar{Y_{j\cdot}}|\geq HSD\text{.}\)</span> The <span class="process-math">\(100(1-\alpha)\%\)</span> Tukey C.I. for <span class="process-math">\(\mu_i - \mu_j\)</span> is given by</div>
+<div class="para">is called <dfn class="terminology">Tukey’s Honest Significant Difference (HSD)</dfn>. We reject the hypothesis <span class="process-math">\(H_0: \mu_i - \mu_j = 0\)</span> if <span class="process-math">\(|\overline{Y_{i\cdot}} - \overline{Y_{j\cdot}}|\geq HSD\text{.}\)</span> The <span class="process-math">\(100(1-\alpha)\%\)</span> Tukey C.I. for <span class="process-math">\(\mu_i - \mu_j\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-(\bar{Y_{i\cdot}}-\bar{Y_{j\cdot}}) \pm HSD
+(\overline{Y_{i\cdot}}-\overline{Y_{j\cdot}}) \pm HSD
 \end{equation*}
 </div>
 <div class="para">Tukey’s method provides a valid type I error control.</div>
@@ -296,7 +296,7 @@ q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
 <article class="example example-like" id="example-9"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-186">Consider the example from above:</div> <div class="para" id="p-187">Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <span class="process-math">\(\alpha = 0.05\text{,}\)</span> <span class="process-math">\(MSE = 2451\text{,}\)</span> and <span class="process-math">\(n_i = 5\)</span> for all <span class="process-math">\(i\text{,}\)</span> make all pairwise comparisons using Fisher’s LSD.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-187">Consider the example from above:</div> <div class="para" id="p-188">Six population means were tested by one-way ANOVA, which indicates there is at least one different mean. Using <span class="process-math">\(\alpha = 0.05\text{,}\)</span> <span class="process-math">\(MSE = 2451\text{,}\)</span> and <span class="process-math">\(n_i = 5\)</span> for all <span class="process-math">\(i\text{,}\)</span> make all pairwise comparisons using Fisher’s LSD.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Group</td>
 <td class="l m b0 r0 l0 t0 lines">1</td>
@@ -318,7 +318,7 @@ q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
 </table></div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<div class="para" id="p-188">The solution method for Tukey’s HSD is identical to Fisher’s LSD; the difference is that we are comparing against HSD rather than LSD in the pairwise comparison. We get</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-189">The solution method for Tukey’s HSD is identical to Fisher’s LSD; the difference is that we are comparing against HSD rather than LSD in the pairwise comparison. We get</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Group</td>
 <td class="l m b0 r0 l0 t0 lines">6</td>
@@ -339,7 +339,7 @@ q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
 </tr>
 </table></div>
 </div></div>
-</div></article><div class="para" id="p-189">Note that because <span class="process-math">\(HSD \gt LSD\text{,}\)</span> Tukey’s method results in less reject.</div></section></div>
+</div></article><div class="para" id="p-190">Note that because <span class="process-math">\(HSD \gt LSD\text{,}\)</span> Tukey’s method results in less reject.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-9-sec2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-9-sec4.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

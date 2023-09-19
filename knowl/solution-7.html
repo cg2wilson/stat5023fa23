@@ -49,7 +49,7 @@ L_1 \amp = -2\mu_1 - \mu_2 + \mu_4 + 2\mu_5 \\
 L_2 \amp = 2\mu_1 - \mu_2 - 2\mu_3 - \mu_4 + 2\mu_5 
 \end{align*}
 </div>
-<div class="para">by using the orthogonal polynomials table. Second, we compute each <span class="process-math">\(SSC_{L_i}\text{.}\)</span>
+<div class="para">by using the orthogonal polynomials table. Note that we disregard cubic and quartic contrasts; this is due to the small value of their corresponding <span class="process-math">\(SSC_{L_i}\)</span> (see below). Second, we compute each <span class="process-math">\(SSC_{L_i}\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -58,7 +58,7 @@ SSC_{L_1} = \dfrac{\lrpar{-2(0.619) - 0.772+1.009+2(1.041)}^2}{\dfrac{1}{4}\lrpa
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
-SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
+SSC_{L_2} = \dfrac{\lrpar{2(0.619) - 0.772 -2(1.018) -1.009 + 2(1.041)}^2}{\dfrac{1}{4}\lrpar{(2)^2 + (-1)^2 + (-2)^2 + (-1)^2 + (2)^2}} = 0.0706
 \end{equation*}
 </div>
 <div class="displaymath process-math">
@@ -114,7 +114,8 @@ SSC_{L_3} + SSC_{L_4} = SS\text{ Lack of fit}
 <td class="l m b0 r0 l0 t0 lines">19</td>
 <td class="l m b0 r0 l0 t0 lines">0.7166</td>
 </tr>
-</table></div> <div class="para">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject both <span class="process-math">\(H_0: L_1 = 0\)</span> and <span class="process-math">\(H_0: L_2 = 0\)</span> as <span class="process-math">\(F_{0.05,1,15} = 4.54\text{.}\)</span> This means that both linear and quadratic trends are significant. See the plot below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/apple-data-lec8.png" class="contained"></div>
+</table></div> <div class="para">As mentioned earlier, we disregard cubic and quartic trends; note that since <span class="process-math">\(SSC_{lack}\)</span> results in <span class="process-math">\(F = 1.20\text{,}\)</span> if we conduct a hypothesis test for <span class="process-math">\(L_3,L_4\text{,}\)</span> we would fail to reject the null <span class="process-math">\(H_0: L_i = 0\)</span> because <span class="process-math">\(F_{0.05,1,15} = 4.54 \gt 1.20\text{.}\)</span>
+</div> <div class="para">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> we reject both <span class="process-math">\(H_0: L_1 = 0\)</span> and <span class="process-math">\(H_0: L_2 = 0\)</span> as <span class="process-math">\(F_{0.05,1,15} = 4.54\text{.}\)</span> This means that both linear and quadratic trends are significant. See the plot below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/apple-data-lec8.png" class="contained"></div>
 </div>
 <span class="incontext"><a href="lec-8-sec2.html#solution-7" class="internal">in-context</a></span>
 </body>

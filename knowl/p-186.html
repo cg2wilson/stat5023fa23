@@ -11,8 +11,34 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Consider the example from above:</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">This assumes the balanced case, i.e. <span class="process-math">\(n_1 = n_2 = \cdots =n_t = n\text{.}\)</span> We replace the LSD term</div>
+<div class="displaymath process-math">
+\begin{equation*}
+LSD = t_{\alpha/2,n_\cdot - t} \sqrt{MSE \cdot \lrpar{\dfrac{2}{n}}}
+\end{equation*}
+</div>
+<div class="para">with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+HSD = q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(q_{\alpha,t,n_\cdot - t}\)</span> is a critical value found in a Tukey’s HSD table. The term</div>
+<div class="displaymath process-math">
+\begin{equation*}
+q_{\alpha,t,n_\cdot - t}\sqrt{\dfrac{MSE}{n}}
+\end{equation*}
+</div>
+<div class="para">is called <dfn class="terminology">Tukey’s Honest Significant Difference (HSD)</dfn>. We reject the hypothesis <span class="process-math">\(H_0: \mu_i - \mu_j = 0\)</span> if <span class="process-math">\(|\overline{Y_{i\cdot}} - \overline{Y_{j\cdot}}|\geq HSD\text{.}\)</span> The <span class="process-math">\(100(1-\alpha)\%\)</span> Tukey C.I. for <span class="process-math">\(\mu_i - \mu_j\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\overline{Y_{i\cdot}}-\overline{Y_{j\cdot}}) \pm HSD
+\end{equation*}
+</div>
+<div class="para">Tukey’s method provides a valid type I error control.</div>
+</div>
 <span class="incontext"><a href="lec-9-sec3.html#p-186" class="internal">in-context</a></span>
 </body>
 </html>
