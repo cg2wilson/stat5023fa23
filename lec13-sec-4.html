@@ -263,7 +263,7 @@ window.MathJax = {
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="lec-13.html" class="internal"><span class="codenumber">6</span> <span class="title">Lecture 13 &amp; 14- 09/28 - 10/3/2023</span></a></div>
+<div class="toc-item"><a href="lec-13.html" class="internal"><span class="codenumber">6</span> <span class="title">Lecture 14- 10/3/2023</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="lec-13-sec-1.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Factorial Experiments</span></a></div></li>
 <li><div class="toc-item"><a href="lec-13-sec-2.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Simple Effects and Main Effects</span></a></div></li>
@@ -335,7 +335,7 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines">SS</td>
 <td class="l m b0 r0 l0 t0 lines">MS</td>
 <td class="l m b0 r0 l0 t0 lines">F</td>
-<td class="l m b0 r0 l0 t0 lines">Pr \gt F</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Pr \gt F\)</span></td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Trt</td>
@@ -483,7 +483,7 @@ H_0: \mu_{11} = \mu_{12} = \mu_{21} = \mu_{22} = \mu_{31} = \mu_{32}
 <td class="l m b0 r0 l0 t0 lines">SS</td>
 <td class="l m b0 r0 l0 t0 lines">MS</td>
 <td class="l m b0 r0 l0 t0 lines">F</td>
-<td class="l m b0 r0 l0 t0 lines">Pr \gt F</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Pr \gt F\)</span></td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Car</td>
@@ -572,26 +572,26 @@ H_0: \mu_{11} = \mu_{12} = \mu_{21} = \mu_{22} = \mu_{31} = \mu_{32}
 <td class="l m b0 r0 l0 t0 lines">Test Statistic</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0:\bar{\mu_{1\cdot}} = \cdots \bar{\mu_{a\cdot}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0:\overline{\mu_{1\cdot}} = \cdots \overline{\mu_{a\cdot}}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0: \alpha_1 = \cdots = \alpha_a = 0\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(F = MSA/MSE\)</span></td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">
-<span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\bar{\mu_{i\cdot}}\)</span> is distinct</td>
+<span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\overline{\mu_{i\cdot}}\)</span> is distinct</td>
 <td class="l m b0 r0 l0 t0 lines">
 <span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\alpha_{i}\)</span> is distinct</td>
 <td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(F\geq F_{\alpha,a-1,ab(n-1)}\)</span>
 </td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0: \bar{\mu_{\cdot 1}} = \cdots \bar{\mu_{\cdot b}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0: \overline{\mu_{\cdot 1}} = \cdots \overline{\mu_{\cdot b}}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(H_0: \beta_1 = \cdots = \beta_b = 0\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(F = MSB/MSE\)</span></td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">
-<span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\bar{\mu_{\cdot j}}\)</span> is distinct</td>
+<span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\overline{\mu_{\cdot j}}\)</span> is distinct</td>
 <td class="l m b0 r0 l0 t0 lines">
 <span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\beta_j\)</span> is distinct</td>
 <td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(F\geq F_{\alpha,b-1,ab(n-1)}\)</span>
@@ -612,7 +612,7 @@ H_0: \mu_{11} = \mu_{12} = \mu_{21} = \mu_{22} = \mu_{31} = \mu_{32}
 </td>
 </tr>
 </table></div>
-<div class="para" id="p-242">Here, <span class="process-math">\(\bar{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}\)</span> and <span class="process-math">\(\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}\)</span>
+<div class="para" id="p-242">Here, <span class="process-math">\(\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}\)</span> and <span class="process-math">\(\ds\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}\)</span>
 </div>
 <div class="para" id="p-243">When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.</div>
 <div class="para" id="p-244">In the absence of significant interaction, the test for main effects can be interpreted separately.</div></section></div>
