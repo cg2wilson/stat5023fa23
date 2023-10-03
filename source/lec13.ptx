@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-13" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 13 &amp; 14- 09/28 - 10/3/2023</title>
+
+    <section xml:id="lec-13-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Factorial Experiments</title>
+        
+        <p>
+            In one-way ANOVA, we consider a single factor/treatment with <m>t</m> levels on the response of our interest. In practice, though, there must be more than one single treatment. For example, we can compare gas mileage (mpg) for car models and gasoline additives; or, we can observe the effect of two major fertilizer ingredients (nitrogen and phosphorus) on crop yield.
+        </p>
+
+        <p>
+            A <term>factorial treatment structure</term> is an experiment where the response is observed for all combinations of each factor. A two-way factorial experiment is one in which we examine all combinations of the levels of two treatments: <m>A</m> with <m>a</m> levels, and <m>B</m> with <m>b</m> levels. This creates a <m>a\times b</m> factorial structure with <m>ab</m> treatment combinations.
+        </p>
+        <p>
+            As a matter of notation, we use the notation <m>Y_{ijk}</m> to denote the <m>k-</m>th replicate of treatment <m>A = i</m> and <m>B = j</m>. We can extend the notation:
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell><m>A = 1</m></cell>
+                <cell><m>A = 2</m></cell>
+                <cell><m>A = 3</m></cell>
+            </row>
+            <row>
+                <cell><m>B = 1</m></cell>
+                <cell><m>Y_{111},Y_{112}</m></cell>
+                <cell><m>Y_{211},Y_{212}</m></cell>
+                <cell><m>Y_{311},Y_{312}</m></cell>
+            </row>
+            <row>
+                <cell><m>B = 2</m></cell>
+                <cell><m>Y_{121},Y_{122}</m></cell>
+                <cell><m>Y_{221},Y_{222}</m></cell>
+                <cell><m>Y_{321},Y_{322}</m></cell>
+            </row>
+        </tabular>
+        <p>
+            This table gives a <m>3\times 2</m> factorial design with <m>n_{ij} = 2</m> for <m>A =i, B=j</m>
+        </p>
+    </section>
+
+    <section xml:id="lec-13-sec-2">
+        <title>Simple Effects and Main Effects</title>
+        
+        <p>
+            We are interested in whether any difference of average response is significant due to the treatment structure. A <term>simple effect</term> (SE) of treatment <m>A</m> is the difference between mean responses at two levels of <m>A</m> at a given level of treatment <m>B</m>.
+        </p>
+        <p>
+            Consider the example where we compare the mean yield for two levels of nitrogen (N) and phosphorous (P):
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell><m>N = 40</m></cell>
+                <cell><m>N = 60</m></cell>
+            </row>
+            <row>
+                <cell><m>P = 10</m></cell>
+                <cell><m>Y_{111},Y_{112}</m></cell>
+                <cell><m>Y_{211},Y_{212}</m></cell>
+            </row>
+            <row>
+                <cell><m>P=20</m></cell>
+                <cell><m>Y_{121},Y_{122}</m></cell>
+                <cell><m>Y_{221},Y_{222}</m></cell>
+            </row>
+        </tabular>
+        <p>
+            The estimated SE of nitrogen at <m>P = 10</m> is given by
+            <me>
+                \dfrac{1}{2}(Y_{211}+Y_{212}) - \dfrac{1}{2}(Y_{111}+Y_{112})
+            </me>
+            And similarly, the estimated SE of nitrogen at <m>P = 20</m> is given by
+            <me>
+                \bar{Y_{22\cdot}} - \bar{Y_{12\cdot}}
+            </me>
+            
+        </p>
+        <p>
+            A <term>main effect</term> is the effect of each individual treatment/factor on the response. For example, the main effect of treatment <m>A</m> is the average of simple effects of <m>A</m>. In the nitrogen/phosphorous example, the estimated main effect of nitrogen is given by 
+            <me>
+                \bar{Y_{2\cdot\cdot}} - \bar{Y_{1\cdot\cdot}} = \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2}Y_{2ij}} - \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2} Y_{1ij}}
+            </me>
+            Here, the main effects are the differences in the mean response of a factor over all other levels of a factor.
+        </p>
+        <p>
+            For the same example, if we have the following information
+        </p>
+        <sidebyside widths="40 40" >
+            <image source="lec6-me-2.png"/>
+            <image source="l3c6-me-1.png"/>
+        </sidebyside>
+        
+        <p>
+            On the left, we see that <m>\bar{Y}_{1\cdot\cdot} \lt \bar{Y_{2\cdot\cdot}}</m> and <m>\bar{Y_{\cdot Y\cdot}} \\lt \bar{Y_{\cdot 2\cdot}}</m>, which gives the main effects of both nitrogen and phosphorous. 
+        </p>
+        <p>
+            On the right, we see <m>\bar{Y_{1\cdot\cdot}} = \bar{Y_{2\cdot\cdot}}</m> and <m>\bar{Y_{\cdot 1\cdot}} \lt \bar{Y_{\cdot 2\cdot}}</m>, so conclude there is no main effect of nitrogen.
+        </p>
+    </section>
+
+    <section xml:id="lec13-sec-3">
+        <title>Interaction</title>
+        
+        <p>
+            Suppose we have a different data set so that the figure is given by
+        </p>
+        <image source ="lec6-interaction.png" />
+        <p>
+            From this, we see that the effect of nitrogen is different for <m>P = 10</m> and <m>P = 20</m>. We say that <term>interaction</term> occurs when two factors <m>A</m> and <m>B</m> have a nonconstant differences in mean response levels across treatments.
+        </p>
+        <p>
+            As an example, compare the gas mileage for 3 car models and two gasoline additives:
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell><m>A = 1</m></cell>
+                <cell><m>A =2 </m></cell>
+                <cell><m>A = 3</m></cell>
+            </row>
+            <row>
+                <cell><m>B = 1</m></cell>
+                <cell><m>23, 24</m></cell>
+                <cell><m>28, 29</m></cell>
+                <cell><m>27, 24</m></cell>
+            </row>
+            <row>
+                <cell><m>B =2 </m></cell>
+                <cell><m>24, 21</m></cell>
+                <cell><m>31, 31</m></cell>
+                <cell><m>23, 24</m></cell>
+            </row>
+        </tabular>
+        <p>
+            The figure below shows the sample mean of each combination.
+        </p>
+        <image source="lec6-interaction-ex.png" />
+        <p>
+            From the figure, we see that additive 1 is best for the first and third cars, while additive 2 is better for the second car. The sample mean difference of Additives 1 and 2 change for each car; this means that there is interaction between car models and gasoline additives.
+        </p>
+    </section>
+
+    <section xml:id="lec13-sec-4">
+        <title>Models for Factorial Experiments and Connections to ANOVA</title>
+        
+        
+        <p>
+            A completely randomized design with <m>a\times b</m> factorial treatment structure can be described in terms of a statistical model as follows:
+            <md>
+                <mrow>\text{Statistical Means Model: } \amp Y_{ijk} = \mu_{ij} + \varepsilon_{ijk} </mrow>
+                <mrow>\text{Statistical Effects Model: } \amp Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk} </mrow>
+            </md>
+            where 
+            <ul>
+                <li>
+                    <p>
+                        <m>Y_{ijk}</m> is the k-th observation at <m>A=i,B=j</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\mu_{ij}</m> is the average of the population with <m>A=i,B=j</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\mu</m> is the overall population mean
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\alpha_i</m> is the average of the population with <m>A = i</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\beta_j</m> is the average of the population with <m>B= j</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(\alpha\beta)_{ij}</m> is the interaction between two populations with <m>A=i,B=j</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\varepsilon_{ijk}\sim^{iid} N(0,\sigma^2)</m> is a random error
+                    </p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            Reconsider the car/gasoline example as a one-way treatment structure with six levels (three car models and two additives); the data is reproduced below:
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell><m>A = 1</m></cell>
+                <cell><m>A =2 </m></cell>
+                <cell><m>A = 3</m></cell>
+            </row>
+            <row>
+                <cell><m>B = 1</m></cell>
+                <cell><m>23, 24</m></cell>
+                <cell><m>28, 29</m></cell>
+                <cell><m>27, 24</m></cell>
+            </row>
+            <row>
+                <cell><m>B =2 </m></cell>
+                <cell><m>24, 21</m></cell>
+                <cell><m>31, 31</m></cell>
+                <cell><m>23, 24</m></cell>
+            </row>
+        </tabular>
+        <p>
+            We have the one-way ANOVA table:
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell>F</cell>
+                <cell>Pr \gt F</cell>
+            </row>
+            <row>
+                <cell>Trt</cell>
+                <cell>5</cell>
+                <cell>107.6667</cell>
+                <cell>21.5333</cell>
+                <cell>10.7</cell>
+                <cell>0.0059</cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>6</cell>
+                <cell>12.0000</cell>
+                <cell>2.0</cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>11</cell>
+                <cell>119.6667</cell>
+            </row>
+        </tabular>
+        <p>
+            From this, we can test
+            <me>
+                H_0: \mu_{11} = \mu_{12} = \mu_{21} = \mu_{22} = \mu_{31} = \mu_{32}
+            </me>
+            against <m>H_a: \mu_{ij}\neq \mu_{(ij)'}</m> for at least one pair <m>i,j</m>. Under <m>\alpha = 0.05</m>, we conclude that there is a significant difference in average of mpg among the six treatment combinations.
+        </p>
+        <p>
+            So, we construct five meaningful, mutually orthogonal contrasts as follows:
+        </p>
+        <tabular>
+            <row>
+                <cell></cell>
+                <cell><m>\mu_{11}</m></cell>
+                <cell><m>\mu_{12}</m></cell>
+                <cell><m>\mu_{21}</m></cell>
+                <cell><m>\mu_{22}</m></cell>
+                <cell><m>\mu_{31}</m></cell>
+                <cell><m>\mu_{32}</m></cell>
+                <cell><m>L</m></cell>
+            </row>
+            <row>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell><m>-1</m></cell>
+                <cell><m>-1</m></cell>
+                <cell><m>\mu_{11} + \mu_{12} - (\mu_{31} + \mu_{32})</m></cell>
+            </row>
+            <row>
+                <cell>2</cell>
+                <cell>1</cell>
+                <cell>1</cell>
+                <cell><m>-2</m></cell>
+                <cell><m>-2</m></cell>
+                <cell><m>1</m></cell>
+                <cell><m>1</m></cell>
+                <cell><m>\mu_{11} + \mu_{12} - 2(\mu_{21} + \mu_{22}) + \mu_{31} + \mu_{32}</m></cell>
+            </row>
+            <row>
+                <cell>3</cell>
+                <cell>1</cell>
+                <cell><m>-1</m></cell>
+                <cell>1</cell>
+                <cell><m>-1</m></cell>
+                <cell><m>1</m></cell>
+                <cell><m>-1</m></cell>
+                <cell><m>\mu_{11} - \mu_{12} + \mu_{21} - \mu_{22}+ \mu_{31} - \mu_{32}</m></cell>
+            </row>
+            <row>
+                <cell>4</cell>
+                <cell>1</cell>
+                <cell><m>-1</m></cell>
+                <cell>0</cell>
+                <cell>0</cell>
+                <cell><m>-1</m></cell>
+                <cell><m>1</m></cell>
+                <cell><m>\mu_{11} - \mu_{12} - \mu_{31} + \mu_{32}</m></cell>
+            </row>
+            <row>
+                <cell>5</cell>
+                <cell>1</cell>
+                <cell><m>-1</m></cell>
+                <cell><m>-2</m></cell>
+                <cell><m>2</m></cell>
+                <cell><m>1</m></cell>
+                <cell><m>-1</m></cell>
+                <cell><m>\mu_{11} - \mu_{12} - 2\mu_{21} + 2\mu_{22} + \mu_{31} - \mu_{32}</m></cell>
+            </row>
+        </tabular>
+        <p>
+            The description of the contrasts are given:
+            <ul>
+                <li>
+                    <p>
+                        Contrast 1: Difference in average mpg between Car 1 and Car 3
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contrast 2: Difference between average mpg of Cars 1 &amp; 3 and that of Car 2
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contrast 3: Difference in average mpg between Additive 1 and Additive 2
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contrast 4: Difference in average mpg between Car 1 and Car 3 for each additive
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contrast 5: Difference between average mpg of Cars 1 &amp; 3 and that of Car 2 for each Additive.
+                    </p>
+                </li>
+            </ul>
+            Contrasts 1 and 2 give a model of car effect; contrast 3 gives an effect of additive; contrasts 3 and 4 give interaction between car and additive.
+        </p>
+        <p>
+            The following table shows the corresponding <m>\hat{L}</m>, <m>SSC_{L}</m> and <m>F</m>-statistic values:
+        </p>
+        <tabular>
+            <row>
+                <cell>Contrast</cell>
+                <cell><m>\hat{L}</m></cell>
+                <cell><m>SSC_L</m></cell>
+            </row>
+            <row>
+                <cell><m>1</m></cell>
+                <cell><m>-2.5</m></cell>
+                <cell><m>3.125</m></cell>
+            </row>
+            <row>
+                <cell><m>2</m></cell>
+                <cell><m>23.5</m></cell>
+                <cell><m>92.04167</m></cell>
+            </row>
+            <row>
+                <cell><m>3</m></cell>
+                <cell><m>1.0</m></cell>
+                <cell><m>0.3333</m></cell>
+            </row>
+            <row>
+                <cell><m>4</m></cell>
+                <cell><m>-0.5</m></cell>
+                <cell><m>0.125</m></cell>
+            </row>
+            <row>
+                <cell><m>5</m></cell>
+                <cell><m>8.5</m></cell>
+                <cell><m>12.0417</m></cell>
+            </row>
+        </tabular>
+        <p>
+            Note that <m>SSTrt = 107.6667</m>. The SS due to the model of car (<m>SSA</m>)is 95.16667 with <m>df = 2</m>, the SS due to gasoline additive (<m>SSB</m>) is 0.333 with <m>df=1</m>, and the SS due to interaction (<m>SS(AB)</m>) is 12.16667 with <m>df = 2</m>
+        </p>
+        <p>
+            The decomposition of SSTrt via each contrast gives the following table:
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell>F</cell>
+                <cell>Pr \gt F</cell>
+            </row>
+            <row>
+                <cell>Car</cell>
+                <cell>2</cell>
+                <cell>95.1667</cell>
+                <cell>47.83335</cell>
+                <cell>23.7917</cell>
+                <cell>0.0014</cell>
+            </row>
+            <row>
+                <cell>Additive</cell>
+                <cell>1</cell>
+                <cell>0.3333</cell>
+                <cell>0.3333</cell>
+                <cell>0.1665</cell>
+                <cell>0.6973</cell>
+            </row>
+            <row>
+                <cell>Interaction</cell>
+                <cell>2</cell>
+                <cell>12.1667</cell>
+                <cell>6.08335</cell>
+                <cell>3.0417</cell>
+                <cell>0.1224</cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>6</cell>
+                <cell>12.0000</cell>
+                <cell>2.0</cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>11</cell>
+                <cell>1119.6667</cell>
+            </row>
+        </tabular>
+        <p>
+            We conclude that there is no significant interaction between model of car and gasoline additive under <m>\alpha = 0.05</m>, and the effect of gasoline additive is not significant under the same significance. However, we do conclude that the effect of the car model is significant.
+        </p>
+
+        <p>
+            For a CRD of <m>a\times b</m> factorial treatment structure with the same number of replicates <m>n</m>, the source of variation can be decomposed as follows:
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell>F</cell>
+            </row>
+            <row>
+                <cell>A</cell>
+                <cell>a-1</cell>
+                <cell>SSA</cell>
+                <cell>MSA = SSA/(a-1)</cell>
+                <cell>MSA/MSE</cell>
+            </row>
+            <row>
+                <cell>B</cell>
+                <cell>b-1</cell>
+                <cell>SSB</cell>
+                <cell>MSB = SSB/(b-1)</cell>
+                <cell>MSB/MSE</cell>
+            </row>
+            <row>
+                <cell>AB</cell>
+                <cell>(a-1)(b-1)</cell>
+                <cell>SS(AB)</cell>
+                <cell>MSA = SS(AB)/((a-1)(b-1))</cell>
+                <cell>MS(AB)/MSE</cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>ab(n-1)</cell>
+                <cell>SSE</cell>
+                <cell>MSE = SSE/(ab(n-1))</cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>abn-1</cell>
+                <cell>SSTotal</cell>
+            </row>
+        </tabular>
+        <p>
+            When conducting experiments using ANOVA for factorial experiments, we have the following options:
+        </p>
+        <tabular>
+            <row>
+                <cell>Means Model</cell>
+                <cell>Effects Model</cell>
+                <cell>Test Statistic</cell>
+            </row>
+            <row>
+                <cell><m>H_0:\bar{\mu_{1\cdot}} = \cdots \bar{\mu_{a\cdot}}</m></cell>
+                <cell><m>H_0: \alpha_1 = \cdots = \alpha_a = 0</m></cell>
+                <cell><m>F = MSA/MSE</m></cell>
+            </row>
+            <row>
+                <cell><m>H_a:</m> at least one <m>\bar{\mu_{i\cdot}}</m> is distinct</cell>
+                <cell><m>H_a:</m> at least one <m>\alpha_{i}</m> is distinct</cell>
+                <cell>Reject <m>H_0</m> if <m>F\geq F_{\alpha,a-1,ab(n-1)}</m></cell>
+            </row>
+            <row>
+                <cell><m>H_0: \bar{\mu_{\cdot 1}} = \cdots \bar{\mu_{\cdot b}}</m></cell>
+                <cell><m>H_0: \beta_1 = \cdots = \beta_b = 0</m></cell>
+                <cell><m>F = MSB/MSE</m></cell>
+            </row>
+            <row>
+                <cell><m>H_a:</m> at least one <m>\bar{\mu_{\cdot j}}</m> is distinct</cell>
+                <cell><m>H_a:</m> at least one <m>\beta_j</m> is distinct</cell>
+                <cell>Reject <m>H_0</m> if <m>F\geq F_{\alpha,b-1,ab(n-1)}</m></cell>
+            </row>
+            <row>
+                <cell><m>H_0: \mu_{ij} - \mu_{ij'} = \mu_{i'j}-\mu_{i'j'} \forall i\neq i', j\neq j'</m></cell>
+                <cell><m>H_0: (\alpha\beta)_{ij} = 0 \forall i,j</m></cell>
+                <cell><m>F = MS(AB)/MSE</m></cell>
+            </row>
+            <row>
+                <cell><m>H_a: \mu_{ij} - \mu_{ij'} \neq \mu_{i'j}-\mu_{i'j'}</m> for at least one <m>i\neq i',j\neq j'</m></cell>
+                <cell><m>H_a:</m> at least one <m>(\alpha\beta)_{ij}</m> is nonzero</cell>
+                <cell>Reject <m>H_0</m> if <m>F\geq F_{\alpha,(a-1)(b-1),ab(n-1)}</m></cell>
+            </row>
+        </tabular>
+        <p>
+            Here, <m>\bar{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}</m> and <m>\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}</m>
+        </p>
+        <p>
+            When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.
+        </p>
+        <p>
+            In the absence of significant interaction, the test for main effects can be interpreted separately.
+        </p>
+    </section>
+</chapter>
