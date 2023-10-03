@@ -88,7 +88,7 @@
         <p>
             For the same example, if we have the following information
         </p>
-        <sidebyside widths="40 40" >
+        <sidebyside widths="40% 40%" >
             <image source="lec6-me-2.png"/>
             <image source="l3c6-me-1.png"/>
         </sidebyside>
