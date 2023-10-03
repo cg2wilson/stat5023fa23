@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <chapter xml:id="lec-13" xmlns:xi="http://www.w3.org/2001/XInclude">
-	<title>Lecture 13 &amp; 14- 09/28 - 10/3/2023</title>
+	<title>Lecture 14- 10/3/2023</title>
 
     <section xml:id="lec-13-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
         <title>Factorial Experiments</title>
@@ -74,14 +74,14 @@
             </me>
             And similarly, the estimated SE of nitrogen at <m>P = 20</m> is given by
             <me>
-                \bar{Y_{22\cdot}} - \bar{Y_{12\cdot}}
+                \overline{Y_{22\cdot}} - \overline{Y_{12\cdot}}
             </me>
             
         </p>
         <p>
             A <term>main effect</term> is the effect of each individual treatment/factor on the response. For example, the main effect of treatment <m>A</m> is the average of simple effects of <m>A</m>. In the nitrogen/phosphorous example, the estimated main effect of nitrogen is given by 
             <me>
-                \bar{Y_{2\cdot\cdot}} - \bar{Y_{1\cdot\cdot}} = \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2}Y_{2ij}} - \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2} Y_{1ij}}
+                \overline{Y_{2\cdot\cdot}} - \overline{Y_{1\cdot\cdot}} = \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2}Y_{2ij}} - \dfrac{1}{4}\lrpar{\sum_{i,j=1}^{i=2,j=2} Y_{1ij}}
             </me>
             Here, the main effects are the differences in the mean response of a factor over all other levels of a factor.
         </p>
@@ -90,14 +90,14 @@
         </p>
         <sidebyside widths="40% 40%" >
             <image source="lec6-me-2.png"/>
-            <image source="l3c6-me-1.png"/>
+            <image source="lec6-me-1.png"/>
         </sidebyside>
         
         <p>
-            On the left, we see that <m>\bar{Y}_{1\cdot\cdot} \lt \bar{Y_{2\cdot\cdot}}</m> and <m>\bar{Y_{\cdot Y\cdot}} \\lt \bar{Y_{\cdot 2\cdot}}</m>, which gives the main effects of both nitrogen and phosphorous. 
+            On the left, we see that <m>\overline{Y}_{1\cdot\cdot} \lt \overline{Y_{2\cdot\cdot}}</m> and <m>\overline{Y_{\cdot 1\cdot}} \lt \overline{Y_{\cdot 2\cdot}}</m>, which gives the main effects of both nitrogen and phosphorous. 
         </p>
         <p>
-            On the right, we see <m>\bar{Y_{1\cdot\cdot}} = \bar{Y_{2\cdot\cdot}}</m> and <m>\bar{Y_{\cdot 1\cdot}} \lt \bar{Y_{\cdot 2\cdot}}</m>, so conclude there is no main effect of nitrogen.
+            On the right, we see <m>\overline{Y_{1\cdot\cdot}} = \overline{Y_{2\cdot\cdot}}</m> and <m>\overline{Y_{\cdot 1\cdot}} \lt \overline{Y_{\cdot 2\cdot}}</m>, so conclude there is no main effect of nitrogen.
         </p>
     </section>
 
@@ -226,7 +226,7 @@
                 <cell>SS</cell>
                 <cell>MS</cell>
                 <cell>F</cell>
-                <cell>Pr \gt F</cell>
+                <cell><m>Pr \gt F</m></cell>
             </row>
             <row>
                 <cell>Trt</cell>
@@ -399,7 +399,7 @@
                 <cell>SS</cell>
                 <cell>MS</cell>
                 <cell>F</cell>
-                <cell>Pr \gt F</cell>
+                <cell><m>Pr \gt F</m></cell>
             </row>
             <row>
                 <cell>Car</cell>
@@ -495,22 +495,22 @@
                 <cell>Test Statistic</cell>
             </row>
             <row>
-                <cell><m>H_0:\bar{\mu_{1\cdot}} = \cdots \bar{\mu_{a\cdot}}</m></cell>
+                <cell><m>H_0:\overline{\mu_{1\cdot}} = \cdots \overline{\mu_{a\cdot}}</m></cell>
                 <cell><m>H_0: \alpha_1 = \cdots = \alpha_a = 0</m></cell>
                 <cell><m>F = MSA/MSE</m></cell>
             </row>
             <row>
-                <cell><m>H_a:</m> at least one <m>\bar{\mu_{i\cdot}}</m> is distinct</cell>
+                <cell><m>H_a:</m> at least one <m>\overline{\mu_{i\cdot}}</m> is distinct</cell>
                 <cell><m>H_a:</m> at least one <m>\alpha_{i}</m> is distinct</cell>
                 <cell>Reject <m>H_0</m> if <m>F\geq F_{\alpha,a-1,ab(n-1)}</m></cell>
             </row>
             <row>
-                <cell><m>H_0: \bar{\mu_{\cdot 1}} = \cdots \bar{\mu_{\cdot b}}</m></cell>
+                <cell><m>H_0: \overline{\mu_{\cdot 1}} = \cdots \overline{\mu_{\cdot b}}</m></cell>
                 <cell><m>H_0: \beta_1 = \cdots = \beta_b = 0</m></cell>
                 <cell><m>F = MSB/MSE</m></cell>
             </row>
             <row>
-                <cell><m>H_a:</m> at least one <m>\bar{\mu_{\cdot j}}</m> is distinct</cell>
+                <cell><m>H_a:</m> at least one <m>\overline{\mu_{\cdot j}}</m> is distinct</cell>
                 <cell><m>H_a:</m> at least one <m>\beta_j</m> is distinct</cell>
                 <cell>Reject <m>H_0</m> if <m>F\geq F_{\alpha,b-1,ab(n-1)}</m></cell>
             </row>
@@ -526,7 +526,7 @@
             </row>
         </tabular>
         <p>
-            Here, <m>\bar{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}</m> and <m>\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}</m>
+            Here, <m>\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}</m> and <m>\ds\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}</m>
         </p>
         <p>
             When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.
