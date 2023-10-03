@@ -386,6 +386,78 @@ var ptx_lunr_docs = [
   "number": "5.5",
   "title": "Summary",
   "body": " Summary     Fisher's LSD: For pairwise contrasts, no control over FWER    Tukey's HSD: For pairwise contrasts, controls FWER    Scheff's method: For any contrasts, controls FWER     "
+},
+{
+  "id": "lec-13-sec-1",
+  "level": "1",
+  "url": "lec-13-sec-1.html",
+  "type": "Section",
+  "number": "6.1",
+  "title": "Factorial Experiments",
+  "body": " Factorial Experiments  In one-way ANOVA, we consider a single factor\/treatment with levels on the response of our interest. In practice, though, there must be more than one single treatment. For example, we can compare gas mileage (mpg) for car models and gasoline additives; or, we can observe the effect of two major fertilizer ingredients (nitrogen and phosphorus) on crop yield.  A factorial treatment structure is an experiment where the response is observed for all combinations of each factor. A two-way factorial experiment is one in which we examine all combinations of the levels of two treatments: with levels, and with levels. This creates a factorial structure with treatment combinations.  As a matter of notation, we use the notation to denote the th replicate of treatment and . We can extend the notation:                      This table gives a factorial design with for   "
+},
+{
+  "id": "p-203",
+  "level": "2",
+  "url": "lec-13-sec-1.html#p-203",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "factorial treatment structure "
+},
+{
+  "id": "lec-13-sec-2",
+  "level": "1",
+  "url": "lec-13-sec-2.html",
+  "type": "Section",
+  "number": "6.2",
+  "title": "Simple Effects and Main Effects",
+  "body": " Simple Effects and Main Effects  We are interested in whether any difference of average response is significant due to the treatment structure. A simple effect (SE) of treatment is the difference between mean responses at two levels of at a given level of treatment .  Consider the example where we compare the mean yield for two levels of nitrogen (N) and phosphorous (P):                   The estimated SE of nitrogen at is given by And similarly, the estimated SE of nitrogen at is given by   A main effect is the effect of each individual treatment\/factor on the response. For example, the main effect of treatment is the average of simple effects of . In the nitrogen\/phosphorous example, the estimated main effect of nitrogen is given by Here, the main effects are the differences in the mean response of a factor over all other levels of a factor.  For the same example, if we have the following information      On the left, we see that and , which gives the main effects of both nitrogen and phosphorous.  On the right, we see and , so conclude there is no main effect of nitrogen.  "
+},
+{
+  "id": "p-206",
+  "level": "2",
+  "url": "lec-13-sec-2.html#p-206",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "simple effect "
+},
+{
+  "id": "p-209",
+  "level": "2",
+  "url": "lec-13-sec-2.html#p-209",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "main effect "
+},
+{
+  "id": "lec13-sec-3",
+  "level": "1",
+  "url": "lec13-sec-3.html",
+  "type": "Section",
+  "number": "6.3",
+  "title": "Interaction",
+  "body": " Interaction  Suppose we have a different data set so that the figure is given by   From this, we see that the effect of nitrogen is different for and . We say that interaction occurs when two factors and have a nonconstant differences in mean response levels across treatments.  As an example, compare the gas mileage for 3 car models and two gasoline additives:                      The figure below shows the sample mean of each combination.   From the figure, we see that additive 1 is best for the first and third cars, while additive 2 is better for the second car. The sample mean difference of Additives 1 and 2 change for each car; this means that there is interaction between car models and gasoline additives.  "
+},
+{
+  "id": "p-214",
+  "level": "2",
+  "url": "lec13-sec-3.html#p-214",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "interaction "
+},
+{
+  "id": "lec13-sec-4",
+  "level": "1",
+  "url": "lec13-sec-4.html",
+  "type": "Section",
+  "number": "6.4",
+  "title": "Models for Factorial Experiments and Connections to ANOVA",
+  "body": " Models for Factorial Experiments and Connections to ANOVA  A completely randomized design with factorial treatment structure can be described in terms of a statistical model as follows: where    is the k-th observation at      is the average of the population with      is the overall population mean     is the average of the population with      is the average of the population with      is the interaction between two populations with      is a random error     Reconsider the car\/gasoline example as a one-way treatment structure with six levels (three car models and two additives); the data is reproduced below:                      We have the one-way ANOVA table:    Source  df  SS  MS  F  Pr \\gt F    Trt  5  107.6667  21.5333  10.7  0.0059    Error  6  12.0000  2.0    Total  11  119.6667    From this, we can test against for at least one pair . Under , we conclude that there is a significant difference in average of mpg among the six treatment combinations.  So, we construct five meaningful, mutually orthogonal contrasts as follows:              1  1  1  0  0       2  1  1         3  1   1        4  1   0  0       5  1          The description of the contrasts are given:   Contrast 1: Difference in average mpg between Car 1 and Car 3    Contrast 2: Difference between average mpg of Cars 1 & 3 and that of Car 2    Contrast 3: Difference in average mpg between Additive 1 and Additive 2    Contrast 4: Difference in average mpg between Car 1 and Car 3 for each additive    Contrast 5: Difference between average mpg of Cars 1 & 3 and that of Car 2 for each Additive.   Contrasts 1 and 2 give a model of car effect; contrast 3 gives an effect of additive; contrasts 3 and 4 give interaction between car and additive.  The following table shows the corresponding , and -statistic values:    Contrast                               Note that . The SS due to the model of car ( )is 95.16667 with , the SS due to gasoline additive ( ) is 0.333 with , and the SS due to interaction ( ) is 12.16667 with   The decomposition of SSTrt via each contrast gives the following table:    Source  df  SS  MS  F  Pr \\gt F    Car  2  95.1667  47.83335  23.7917  0.0014    Additive  1  0.3333  0.3333  0.1665  0.6973    Interaction  2  12.1667  6.08335  3.0417  0.1224    Error  6  12.0000  2.0    Total  11  1119.6667    We conclude that there is no significant interaction between model of car and gasoline additive under , and the effect of gasoline additive is not significant under the same significance. However, we do conclude that the effect of the car model is significant.  For a CRD of factorial treatment structure with the same number of replicates , the source of variation can be decomposed as follows:    Source  df  SS  MS  F    A  a-1  SSA  MSA = SSA\/(a-1)  MSA\/MSE    B  b-1  SSB  MSB = SSB\/(b-1)  MSB\/MSE    AB  (a-1)(b-1)  SS(AB)  MSA = SS(AB)\/((a-1)(b-1))  MS(AB)\/MSE    Error  ab(n-1)  SSE  MSE = SSE\/(ab(n-1))    Total  abn-1  SSTotal    When conducting experiments using ANOVA for factorial experiments, we have the following options:    Means Model  Effects Model  Test Statistic         at least one is distinct  at least one is distinct  Reject if         at least one is distinct  at least one is distinct  Reject if         for at least one  at least one is nonzero  Reject if    Here, and   When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.  In the absence of significant interaction, the test for main effects can be interpreted separately.  "
 }
 ]
 
