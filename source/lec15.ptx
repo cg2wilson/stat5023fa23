@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-15" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 15 &amp; 16- 10/ 5 and 10/10/2023</title>
+
+    <section xml:id="lec-15-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Contrasts and Comparisons in Factorial Experiments</title>
+        
+        <subsection xml:id="lec-15-sec-1-notations">
+            <title>Notations</title>
+                <p>
+                    An <m>a\times b</m> factorial design under <m>n_{ij} = n</m> for all <m>i,j</m>:
+                    <ul>
+                        <li>
+                            <p>
+                                <m>\overline{Y_{ij\cdot}} = \sum_{k=1}^n \dfrac{Y_{ijk}}{n}</m> estimates <m>\mu_{ij}</m> and <m>s_{\overline{Y_{ij\cdot}}} = \sqrt{MSE/n}</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>\overline{Y_{i\cdot\cdot}} = \sum_{j=1}^b \dfrac{\overline{Y_{ij\cdot}}}{b}</m> estimates <m>\overline{\mu_{i\cdot}} = \sum_{j=1}^b \dfrac{\mu_{ij}}{b}</m> and <m>s_{\overline{Y_{i\cdot\cdot}}} = \sqrt{MSE/(nb)}</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>\overline{Y_{\cdot j\cdot}} = \sum_{i=1}^a \dfrac{\overline{Y_{ij\cdot}}}{a}</m> estimates <m>\overline{\mu_{\cdot j}} = \sum_{i=1}^a \dfrac{\mu_{ij}}{a}</m> and <m>s_{\overline{Y_{\cdot j\cdot}}} = \sqrt{MSE/(na)}</m>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+        </subsection>
+
+        <subsection xml:id="lec-15-sec-1-contrasts">
+            <title>Contrasts with Significant Interaction</title>
+            
+            <p>
+                When the interaction is significant, compare means among each treatment combination for main effects. So, with 
+                <me>
+                    L = \ds \sum_{i,j} a_{ij}\mu_{ij} = 0
+                </me>
+                consider 
+                <me>
+                    H_0: L = 0
+                </me>
+                vs.
+                <me>
+                    H_a: L\neq 0
+                </me>
+                <m>\hat{L} = \ds \sum_{i,j} a_{ij}\overline{Y_{ij\cdot}}</m> estimates <m>L</m> and its standard error estimates <m>s_{\hat{L}}</m>:
+                <me>
+                    s_{\hat{L}} = \sqrt{MSE\cdot \sum_{i,j} \dfrac{a_{ij}^2}{n}} = \sqrt{\dfrac{MSE}{n}\cdot \sum_{i,j} a_{ij}^2}
+                </me>
+                We have two test statistics:
+                <me>
+                    t = \dfrac{\hat{L}}{s_{\hat{L}}}
+                </me>
+                which indicates that we reject <m>H_0</m> if <m>|t|\geq t_{\alpha/2,ab(n-1)}</m>, and
+                <me>
+                    F = t^2 = \lrpar{\dfrac{\hat{L}}{s_{\hat{L}}}}^2 = \dfrac{SSC_{L}/1}{MSE}
+                </me>
+                which indicates that we reject <m>H_0</m> if <m>F \geq F_{\alpha,1,ab(n-1)}</m>
+            </p>
+        </subsection>
+
+        <subsection xml:id="lec15-sec-1-pairwise">
+            <title>Pairwise Comparison Interaction</title>
+            
+            <p>
+                For Fisher's LSD with <m>\mu_{ij} - \mu_{i'j'}</m>, we set
+                <md>
+                    <mrow>LSD \amp = t_{\alpha/2,ab(n-1)\cdot s_{\overline{Y_{ij\cdot}}-\overline{Y_{i'j'}}}} </mrow>
+                    <mrow> \amp = t_{\alpha/2,ab(n-1)\cdot \sqrt{MSE\cdot\dfrac{2}{n}}} </mrow>
+                </md>
+                If 
+                <me>
+                    \overline{Y_{ij\cdot}} - \overline{Y_{i'j'\cdot}}\geq LSD
+                </me>
+                then the two treatment combinations <m>A - i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
+            </p>
+
+            <p>
+                For Tukey's HSD with <m>\mu_{ij} - \mu_{i'j'}</m>, we set\
+                <me>
+                    HSD = q_{\alpha,ab,ab(n-1)}\sqrt{MSE\cdot \dfrac{1}{n}}
+                </me>
+                If
+                <me>
+                    \overline{Y_{ij\cdot}} - \overline{Y_{i'j'\cdot}}\geq HSD
+                </me>
+                tthen the two treatment combinations <m>A - i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
+            </p>
+
+            <p>
+                For Scheffe's method for <m>L = \ds \sum_{i,j} a_{ij}\mu_{ij} = 0</m>, set
+                <me>
+                    S = \sqrt{(ab-1)F_{\alpha,ab-1,ab(n-1)}}\cdot \sqrt{\dfrac{MSE}{n}\cdot \sum_{i,j} a_{ij}^2}
+                </me>
+                We reject the null <m>H_0: L = 0</m> if <m>|\hat{L}|\geq S</m>
+            </p>
+            <p>
+                When there is not significant interaction, main effects can be calculated by averaging over the other treatments.
+            </p>
+            <tabular>
+                <row>
+                    <cell>Treatment <m>A</m> with <m>a</m> levels</cell>
+                    <cell>Treatment <m>B</m> with <m>b</m> levels</cell>
+                </row>
+                <row>
+                    <cell><m>H_0: \ds \sum_{i=1}^a a_i\overline{\mu_i} = 0</m></cell>
+                    <cell><m>H_0: \ds \sum_{j=1}^b a_j\overline{\mu_j} = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>\hat{L} = \ds \sum_{i=1}^a a_i\overline{Y_{i\cdot\cdot}}</m></cell>
+                    <cell><m>\hat{L} = \ds \sum_{j=1}^b a_j\overline{Y_{\cdot j\cdot}}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\ds s_{\hat{L}} = \sqrt{\dfrac{MSE}{nb}\cdot \sum_{i=1}^a}a_i^2</m></cell>
+                    <cell><m>\ds s_{\hat{L}} = \sqrt{\dfrac{MSE}{na}\cdot \sum_{j=1}^b}a_j^2</m></cell>
+                </row>
+                <row>
+                    <cell><m>LSD = t_{\alpha/2,ab(n-1)}\cdot \sqrt{MSE\cdot \dfrac{2}{nb}}</m></cell>
+                    <cell><m>LSD = t_{\alpha/2,ab(n-1)}\cdot \sqrt{MSE\cdot \dfrac{2}{na}}</m></cell>
+                </row>
+                <row>
+                    <cell><m>HSD = q_{\alpha,a,ab(n-1)}\sqrt{MSE\cdot \dfrac{1}{nb}}</m></cell>
+                    <cell><m>HSD = q_{\alpha,b,ab(n-1)}\sqrt{MSE\cdot \dfrac{1}{na}}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\text{Scheffe }= \sqrt{(a-1)F_{\alpha,a-1,ab(n-1)}}\cdot s_{\hat{L}}</m></cell>
+                    <cell><m>\text{Scheffe }= \sqrt{(b-1)F_{\alpha,b-1,ab(n-1)}}\cdot s_{\hat{L}}</m></cell>
+                </row>
+            </tabular>
+        </subsection>
+
+        <subsection xml:id="lec15-sec-1-examples">
+            <title>Examples</title>
+            
+            <example>
+                <statement>
+                    <p>
+                        A marketing company investigates the factors that may influence the length of time a commercial can hold a child’s attention. A preliminary study reveals that the age of the child and the type of advertised product may be significant factors. A group of 20 children is recruited in each age group, and 10 are randomly assigned to watch a 60-second commercial for each of the two products (Breakfast cereals and Video games). Researchers record their attention spans during the viewing of the commercial. The two-way ANOVA table is shown as follows:
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell>Source</cell>
+                            <cell>df</cell>
+                            <cell>SS</cell>
+                            <cell>MS</cell>
+                            <cell><m>F</m> value</cell>
+                            <cell><m>Pr\gt F</m></cell>
+                        </row>
+                        <row>
+                            <cell>Age</cell>
+                            <cell>2</cell>
+                            <cell>1303.0</cell>
+                            <cell>651.5</cell>
+                            <cell>4.43</cell>
+                            <cell>0.017</cell>
+                        </row>
+                        <row>
+                            <cell>Product</cell>
+                            <cell>1</cell>
+                            <cell>2018.4</cell>
+                            <cell>2018.4</cell>
+                            <cell>13.72</cell>
+                            <cell>0.001</cell>
+                        </row>
+                        <row>
+                            <cell>Interaction</cell>
+                            <cell>2</cell>
+                            <cell>1384.3</cell>
+                            <cell>692.1</cell>
+                            <cell>4.79</cell>
+                            <cell>0.013</cell>
+                        </row>
+                        <row>
+                            <cell>Error</cell>
+                            <cell>54</cell>
+                            <cell>7994.0</cell>
+                            <cell>147.1</cell>
+ 
+                        </row>
+                        <row>
+                            <cell>Total</cell>
+                            <cell>59</cell>
+                            <cell>12649.7</cell>
+                            
+                        </row>
+                    </tabular>
+                    <p>
+                        Note that the interaction is significant under <m>\alpha = 0.05</m>.
+                    </p>
+                    <p>
+                        The sample means are given below:
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell></cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>3</cell>
+                        </row>
+                        <row>
+                            <cell>1</cell>
+                            <cell><m>\overline{Y_{11\cdot}}=22.9</m></cell>
+                            <cell><m>\overline{Y_{21\cdot}}=19.6</m></cell>
+                            <cell><m>\overline{Y_{31\cdot}}=21.9</m></cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell><m>\overline{Y_{12\cdot}}=23.1</m></cell>
+                            <cell><m>\overline{Y_{22\cdot}}=30.5</m></cell>
+                            <cell><m>\overline{Y_{33\cdot}}=45.6</m></cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        The firm wants to determine whether there were large differences in the mean length of time that the commercial is able to hold the child's attention depending on these two factors.
+                    </p>
+                    <p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Question 1: Use Tukey's method to identify significant differences in the mean attenion spans of the three age groups of children
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Use Tukey's method to identify significant differences in the mean attention spans for the types of products.
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Due to the presence of significant action, we need to investigate the main effects of age for each product separately.
+                        <ol>
+                            <li>
+                                <p>
+                                    Fix the first product <m>B = 1</m>. Then, consider the following pairwise comparisons for the main effect of age:
+                                    <md>
+                                        <mrow>H_0: \amp \mu_{11} - \mu{21} = 0 </mrow>
+                                        <mrow>H_0: \amp \mu_{11} - \mu{31} = 0 </mrow>
+                                        <mrow>H_0: \amp \mu_{21} - \mu{31} = 0 </mrow>
+                                    </md>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Compare Tukey's HSD with each pairwise mean difference.
+                                    <md>
+                                        <mrow>|\overline{Y_{11\cdot}} - \overline{Y_{21\cdot}}| \amp = 3.3 </mrow>
+                                        <mrow>|\overline{Y_{11\cdot}} - \overline{Y_{31\cdot}}| \amp = 1.0 </mrow>
+                                        <mrow>|\overline{Y_{21\cdot}} - \overline{Y_{31\cdot}}| \amp = 2.3 </mrow>
+                                    </md>
+                                    and 
+                                    <me>
+                                        HSD = q_{0.05,6,54}\sqrt{147.1\cdot \dfrac{1}{10}} = 16.03
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    We conclude that there is no main effect of age for the first product (breakfast cereals).
+                                </p>
+                            </li>
+                        </ol>
+                        Now repeat the process with the second product <m>B = 2</m>.
+                        <ol>
+                            <li>
+                                <p>
+                                    Consider the pairwise comparisons for the main effect of age:
+                                    <md>
+                                        <mrow>H_0: \amp \mu_{12} - \mu{22} = 0 </mrow>
+                                        <mrow>H_0: \amp \mu_{12} - \mu{32} = 0 </mrow>
+                                        <mrow>H_0: \amp \mu_{22} - \mu{32} = 0 </mrow>
+                                    </md>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Compare Tukey's HSD with each pairwise mean difference.
+                                    <md>
+                                        <mrow>|\overline{Y_{12\cdot}} - \overline{Y_{22\cdot}}| \amp = 7.4 </mrow>
+                                        <mrow>|\overline{Y_{12\cdot}} - \overline{Y_{32\cdot}}| \amp = 22.5 </mrow>
+                                        <mrow>|\overline{Y_{22\cdot}} - \overline{Y_{32\cdot}}| \amp = 15.1 </mrow>
+                                    </md>
+                                    and 
+                                    <me>
+                                        HSD = q_{0.05,6,54}\sqrt{147.1\cdot \dfrac{1}{10}} = 16.03
+                                    </me>
+                                    as before
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    We conclude that there is a significant difference between the first and third age groups for the second product (video games).
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        For the second question, due to the presence of significant interaction, we need to investigate the main effects of the product types for each age group separately.
+                        <ol>
+                            <li>
+                                <p>
+                                    Fix the first age group <m>A = 1</m>. Consider the comparison <m>H_0: \mu_{11} - \mu_{12} = 0</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>|\overline{Y_{11\cdot}}-\overline{Y_{12\cdot}}| = 0.2 \lt HSD = 16.03</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    We conclude there is no significant difference between the two products for the first age group.
+                                </p>
+                            </li>
+                        </ol>
+                        <alert>Homework</alert>: repeat for the second and third age groups.
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <statement>
+                    <p>
+                        An experiment studies the effects of four different pesticides on the yield of fruit from three different varieties of a citrus tree.
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell>Source</cell>
+                            <cell>df</cell>
+                            <cell>SS</cell>
+                            <cell>MS</cell>
+                            <cell><m>F</m> value</cell>
+                            <cell><m>Pr\gt F</m></cell>
+                        </row>
+                        <row>
+                            <cell>Pesticide</cell>
+                            <cell>3</cell>
+                            <cell>2226.290</cell>
+                            <cell>742.10</cell>
+                            <cell>17.51</cell>
+                            <cell>0.0001</cell>
+                        </row>
+                        <row>
+                            <cell>Variety</cell>
+                            <cell>2</cell>
+                            <cell>3996.08</cell>
+                            <cell>1998.04</cell>
+                            <cell>47.13</cell>
+                            <cell><m>\lt </m> 0.00001</cell>
+                        </row>
+                        <row>
+                            <cell>Interaction</cell>
+                            <cell>6</cell>
+                            <cell>456.92</cell>
+                            <cell>76.15</cell>
+                            <cell>1.80</cell>
+                            <cell>0.1818</cell>
+                        </row>
+                        <row>
+                            <cell>Error</cell>
+                            <cell>12</cell>
+                            <cell>508.67</cell>
+                            <cell>42.39</cell>
+ 
+                        </row>
+                        <row>
+                            <cell>Total</cell>
+                            <cell>23</cell>
+                            <cell>7187.96</cell>
+                            
+                        </row>
+                    </tabular>
+                    <p>
+                        There is no significant interaction; we interpret the main effects from the ANOVA table. We also reject the null hypotheses
+                        <me>
+                            H_0: \overline{\mu_{1\cdot}} = \cdots = \overline{\mu_{a\cdot}}
+                        </me>
+                        and 
+                        <me>
+                            H_0: \overline{\mu_{\cdot 1}} = \cdots = \overline{\mu_{ \cdot b}}
+                        </me>
+                        We want to know which pairwise mean difference or contrast is significantly different from 0. This gives three questions:
+                        <ol>
+                            <li>
+                                <p>
+                                    Let <m>\overline{Y_{1\cdot\cdot}} = 53</m>, <m>\overline{Y_{2\cdot\cdot}} = 67.83</m>, <m>\overline{Y_{3\cdot\cdot}} = 51.17</m>, and <m>\overline{Y_{4\cdot\cdot}} = 73.83</m>. Using Tukey's HSD with <m>\alpha = 0.05</m>, identify which pair(s) of pesticides have significantly different average effect on yield.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Given that <m>\overline{Y_{\cdot 1\cdot}} = 46.88</m>, <m>\overline{Y_{\cdot 2\cdot}} = 59.25</m>, and <m>\overline{Y_{\cdot 3\cdot}} = 78.25</m>, identify which pair(s) of varieties have significantly different average effect on yield using Tukey's HSD with <m>\alpha = 0.05</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Under <m>\alpha = 0.05</m>, test the following two null hypotheses using Scheffe's Method:
+                                    <me>
+                                        H_{01}: L_1 = (\overline{\mu_{1\cdot}} + \overline{\mu_{2\cdot}}) - (\overline{\mu_{3\cdot}} + \overline{\mu_{4\cdot}}) = 0
+                                    </me>
+                                    and 
+                                    <me>
+                                        H_{02}: L_2 = 2\overline{\mu_{\cdot 2}} - (\overline{\mu_{\cdot 1}} + \overline{\mu_{\cdot 3}}) = 0
+                                    </me>
+                                    
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        First we compute
+                        <me>
+                            HSD = q_{\alpha,a,ab(n-1)}\cdot \sqrt{MSE\cdot \dfrac{1}{nb}} = 4.19866\cdot \sqrt{\dfrac{42.39}{6}} = 7.891
+                        </me>
+                        Then, compare each pairwise diffence of the pesticides to HSD:
+                        <md>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  22.66\gt HSD</mrow>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  16.66\gt HSD</mrow>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{1\cdot\cdod}} \amp =  1.83 \lt HSD</mrow>
+                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  20.83\gt HSD</mrow>
+                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  14.83\gt HSD</mrow>
+                            <mrow>|\overline{Y_{2\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  6 \lt HSD</mrow>
+                        </md>
+                        So we conclude that
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell>Pesticide</cell>
+                            <cell>3</cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>4</cell>
+                        </row>
+                        <row>
+                            <cell>Sample Mean</cell>
+                            <cell><m>51.17^a</m></cell>
+                            <cell><m>53^a</m></cell>
+                            <cell><m>67.83^b</m></cell>
+                            <cell><m>73.83^b</m></cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        Question 2 is left as homework
+                    </p>
+                    <p>
+                        Compute:
+                        <md>
+                            <mrow>S_1 \amp = \sqrt{(a-1)\cdot F_{\alpha,a-1,ab(n-1)}}\cdot \sqrt{\dfrac{MSE}{nb}\sum_i a_i^2} </mrow>
+                            <mrow> \amp = \sqrt{3\cdot F_{0.05,3,12}}\cdot \sqrt{\dfrac{42.39}{6}\cdot \lrpar{1^2 + 1^2 + (-1)^2 + (-1)^2}} </mrow>
+                            <mrow> \amp = 17.20 </mrow>
+                        </md>
+                        and 
+                        <md>
+                            <mrow>S_2 \amp = \sqrt{(b-1)\cdot F_{\alpha,b-1,ab(n-1)}}\cdot \sqrt{\dfrac{MSE}{na}\sum_j a_j^2} </mrow>
+                            <mrow> \amp = \sqrt{2\cdot F_{0.05,2,12}}\cdot \sqrt{\dfrac{42.39}{8}\cdot \lrpar{(-1)^2 + 2^2 + (-1)^2 }} </mrow>
+                            <mrow> \amp = 15.72 </mrow>
+                        </md>
+                        Now, calculate each <m>\hat{L_i}</m> and compare <m>|\hat{L_i}|</m> with <m>S_i</m>.
+                        <me>
+                            \hat{L_1} = (\overline{Y_{1\cdot\cdot}} + \overline{Y_{2\cdot\cdot}}) - (\overline{Y_{3\cdot\cdot}} + \overline{Y_{4\cdot\cdot}}) = -9.17
+                        </me>
+                        So <m>|\hat{L_1}\lt S_1</m>. Similarly,
+                        <me>
+                            \hat{L_2} = 2\overline{Y_{\cdot 2\cdot}} - \lrpar{\overline{\cdot 1\cdot}+\overline{\cdot 3 \cdot}} = 31.49
+                        </me>
+                        So <m>|\hat{L_2}| \gt S_2</m>. We have two conclusions:
+                        <ul>
+                            <li>
+                                <p>
+                                    We fail to reject <m>H_{01}</m>, which implies that there is no significant difference between the average yield over the 1st and 2nd pesticides and the average yield over the 3rd and 4th pesticides.
+                                </p>
+                                <p>
+                                    We reject <m>H_{02}</m>, which implies that the average yield of the 2nd variety is significantly different from the average yield of the 1st and 3rd varieties.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+    </section>
+ 
+    <section xml:id="lec15-sec2">
+        <title>Interaction Plots</title>
+        
+        <p>
+            Interaction plots are a diagnostic tool used to assess interaction between treatments. We plot the mean of response by the levels of one treatment; each level of the other treatments is represented by a different line. This will illustrate the consistency (or lack thereof) of the main effects.
+        </p>
+        <p>
+            The plot below shows the interaction plot from Example 2:
+        </p>
+        <image source="lec15-1.png"/>
+        <p>
+            If we have a <m>2\times 2</m> factorial structure, we have two cases. In case one, there is no interaction, i.e. <m>\mu_{11} = \mu_{12} = \mu_{21} - \mu_{22}</m>. In this case, <m>\overline{Y_{2\cdot\cdot}} - \overline{Y_{1\cdot\cdot}}</m> estimates <m>\overline{\mu_{2\cdot}} - \overline{\mu_{1\cdot}}</m>. In the image below, the left shows no main effect of A, while the right indicates a main effect of A.
+        </p>
+        <image source="lec15-2.png"/>
+        <p>
+            Recall the car model and gasoline additive example:
+        </p>
+        <image source="lec6-interaction-ex.png"/>
+        <p>
+            We saw no significant interaction, and that the average mpg between Car1 and Car2 is not significantly different for each additive, i.e. <m>\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22}</m> as well as the average mpg between Additive1 and Additive2 is not significantly different for each Car: <m>\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22} = \mu_{31} - \mu_{32}</m>.
+        </p>
+        <p>
+            In case two, we have a nontrivial interaction, i.e. <m>\mu_{11}-\mu_{12}\neq \mu_{21}-\mu_{22}</m>: 
+        </p>
+        <image source="lec16-3.png"/>
+        <p>
+            The main effects differ depending on the other treatment.
+        </p>
+    </section>
+
+    
+</chapter>
