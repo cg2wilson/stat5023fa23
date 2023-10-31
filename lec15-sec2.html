@@ -202,7 +202,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-15-sec-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-15.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-15-sec-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-15.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-16.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
 \newcommand{\lrpar}[1]{\left(#1\right)}
@@ -286,25 +286,52 @@ window.MathJax = {
 <li class="active"><div class="toc-item"><a href="lec15-sec2.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Interaction Plots</span></a></div></li>
 </ul>
 </li>
+<li>
+<div class="toc-item"><a href="lec-16.html" class="internal"><span class="codenumber">8</span> <span class="title">Lecture 16- nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-16-sec-1.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-1" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-2" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Models for Three-Way Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-3" class="internal"><span class="codenumber">8.1.3</span> <span class="title">ANOVA for Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lect-16-sec-1-4" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-5" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Examples</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-18.html" class="internal"><span class="codenumber">9</span> <span class="title">Lecture 18 - nd</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="lec-18-sec-1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Fixed, Random, and Mixed Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-1" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-2" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-3" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="lec-18-sec-2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Variance Component Estimation</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec15-sec2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.2</span> <span class="title">Interaction Plots</span>
 </h2>
-<div class="para" id="p-282">Interaction plots are a diagnostic tool used to assess interaction between treatments. We plot the mean of response by the levels of one treatment; each level of the other treatments is represented by a different line. This will illustrate the consistency (or lack thereof) of the main effects.</div>
-<div class="para" id="p-283">The plot below shows the interaction plot from Example 2:</div>
+<div class="para" id="p-286">Interaction plots are a diagnostic tool used to assess interaction between treatments. We plot the mean of response by the levels of one treatment; each level of the other treatments is represented by a different line. This will illustrate the consistency (or lack thereof) of the main effects.</div>
+<div class="para" id="p-287">The plot below shows the interaction plot from Example 2:</div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lec15-1.png" class="contained"></div>
-<div class="para" id="p-284">If we have a <span class="process-math">\(2\times 2\)</span> factorial structure, we have two cases. In case one, there is no interaction, i.e. <span class="process-math">\(\mu_{11} = \mu_{12} = \mu_{21} - \mu_{22}\text{.}\)</span> In this case, <span class="process-math">\(\overline{Y_{2\cdot\cdot}} - \overline{Y_{1\cdot\cdot}}\)</span> estimates <span class="process-math">\(\overline{\mu_{2\cdot}} - \overline{\mu_{1\cdot}}\text{.}\)</span> In the image below, the left shows no main effect of A, while the right indicates a main effect of A.</div>
+<div class="para" id="p-288">If we have a <span class="process-math">\(2\times 2\)</span> factorial structure, we have two cases. In case one, there is no interaction, i.e. <span class="process-math">\(\mu_{11} = \mu_{12} = \mu_{21} - \mu_{22}\text{.}\)</span> In this case, <span class="process-math">\(\overline{Y_{2\cdot\cdot}} - \overline{Y_{1\cdot\cdot}}\)</span> estimates <span class="process-math">\(\overline{\mu_{2\cdot}} - \overline{\mu_{1\cdot}}\text{.}\)</span> In the image below, the left shows no main effect of A, while the right indicates a main effect of A.</div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lec15-2.png" class="contained"></div>
-<div class="para" id="p-285">Recall the car model and gasoline additive example:</div>
+<div class="para" id="p-289">Recall the car model and gasoline additive example:</div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lec6-interaction-ex.png" class="contained"></div>
-<div class="para" id="p-286">We saw no significant interaction, and that the average mpg between Car1 and Car2 is not significantly different for each additive, i.e. <span class="process-math">\(\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22}\)</span> as well as the average mpg between Additive1 and Additive2 is not significantly different for each Car: <span class="process-math">\(\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22} = \mu_{31} - \mu_{32}\text{.}\)</span>
+<div class="para" id="p-290">We saw no significant interaction, and that the average mpg between Car1 and Car2 is not significantly different for each additive, i.e. <span class="process-math">\(\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22}\)</span> as well as the average mpg between Additive1 and Additive2 is not significantly different for each Car: <span class="process-math">\(\mu_{11} - \mu_{21} = \mu_{21}-\mu_{22} = \mu_{31} - \mu_{32}\text{.}\)</span>
 </div>
-<div class="para" id="p-287">In case two, we have a nontrivial interaction, i.e. <span class="process-math">\(\mu_{11}-\mu_{12}\neq \mu_{21}-\mu_{22}\text{:}\)</span>
+<div class="para" id="p-291">In case two, we have a nontrivial interaction, i.e. <span class="process-math">\(\mu_{11}-\mu_{12}\neq \mu_{21}-\mu_{22}\text{:}\)</span>
 </div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lec16-3.png" class="contained"></div>
-<div class="para" id="p-288">The main effects differ depending on the other treatment.</div></section></div>
+<div class="para" id="p-292">The main effects differ depending on the other treatment.</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="lec-15-sec-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="lec-15-sec-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-16.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -13,24 +13,38 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">First we compute</div>
+<div class="para">There is no significant interaction; we interpret the main effects from the ANOVA table. We also reject the null hypotheses</div>
 <div class="displaymath process-math">
 \begin{equation*}
-HSD = q_{\alpha,a,ab(n-1)}\cdot \sqrt{MSE\cdot \dfrac{1}{nb}} = 4.19866\cdot \sqrt{\dfrac{42.39}{6}} = 7.891
+H_0: \overline{\mu_{1\cdot}} = \cdots = \overline{\mu_{a\cdot}}
 \end{equation*}
 </div>
-<div class="para">Then, compare each pairwise diffence of the pesticides to HSD:</div>
+<div class="para">and</div>
 <div class="displaymath process-math">
-\begin{align*}
-|\overline{Y_{3\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  22.66\gt HSD\\
-|\overline{Y_{3\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  16.66\gt HSD\\
-|\overline{Y_{3\cdot\cdot}} - \overline{Y_{1\cdot\cdod}} \amp =  1.83 \lt HSD\\
-|\overline{Y_{1\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  20.83\gt HSD\\
-|\overline{Y_{1\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  14.83\gt HSD\\
-|\overline{Y_{2\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  6 \lt HSD
-\end{align*}
+\begin{equation*}
+H_0: \overline{\mu_{\cdot 1}} = \cdots = \overline{\mu_{ \cdot b}}
+\end{equation*}
 </div>
-<div class="para">So we conclude that</div>
+<div class="para">We want to know which pairwise mean difference or contrast is significantly different from 0. This gives three questions:</div>
+<ol class="decimal">
+<li><div class="para">Let <span class="process-math">\(\overline{Y_{1\cdot\cdot}} = 53\text{,}\)</span> <span class="process-math">\(\overline{Y_{2\cdot\cdot}} = 67.83\text{,}\)</span> <span class="process-math">\(\overline{Y_{3\cdot\cdot}} = 51.17\text{,}\)</span> and <span class="process-math">\(\overline{Y_{4\cdot\cdot}} = 73.83\text{.}\)</span> Using Tukey’s HSD with <span class="process-math">\(\alpha = 0.05\text{,}\)</span> identify which pair(s) of pesticides have significantly different average effect on yield.</div></li>
+<li><div class="para">Given that <span class="process-math">\(\overline{Y_{\cdot 1\cdot}} = 46.88\text{,}\)</span> <span class="process-math">\(\overline{Y_{\cdot 2\cdot}} = 59.25\text{,}\)</span> and <span class="process-math">\(\overline{Y_{\cdot 3\cdot}} = 78.25\text{,}\)</span> identify which pair(s) of varieties have significantly different average effect on yield using Tukey’s HSD with <span class="process-math">\(\alpha = 0.05\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">Under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> test the following two null hypotheses using Scheffe’s Method:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_{01}: L_1 = (\overline{\mu_{1\cdot}} + \overline{\mu_{2\cdot}}) - (\overline{\mu_{3\cdot}} + \overline{\mu_{4\cdot}}) = 0
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_{02}: L_2 = 2\overline{\mu_{\cdot 2}} - (\overline{\mu_{\cdot 1}} + \overline{\mu_{\cdot 3}}) = 0
+\end{equation*}
+</div>
+</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="lec-15-sec-1.html#p-277" class="internal">in-context</a></span>
 </body>

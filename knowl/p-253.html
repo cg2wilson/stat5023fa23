@@ -12,7 +12,48 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">When there is not significant interaction, main effects can be calculated by averaging over the other treatments.</div>
+<div class="para logical">
+<div class="para">When the interaction is significant, compare means among each treatment combination for main effects. So, with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L = \ds \sum_{i,j} a_{ij}\mu_{ij} = 0
+\end{equation*}
+</div>
+<div class="para">consider</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_0: L = 0
+\end{equation*}
+</div>
+<div class="para">vs.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_a: L\neq 0
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(\hat{L} = \ds \sum_{i,j} a_{ij}\overline{Y_{ij\cdot}}\)</span> estimates <span class="process-math">\(L\)</span> and its standard error estimates <span class="process-math">\(s_{\hat{L}}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s_{\hat{L}} = \sqrt{MSE\cdot \sum_{i,j} \dfrac{a_{ij}^2}{n}} = \sqrt{\dfrac{MSE}{n}\cdot \sum_{i,j} a_{ij}^2}
+\end{equation*}
+</div>
+<div class="para">We have two test statistics:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\hat{L}}{s_{\hat{L}}}
+\end{equation*}
+</div>
+<div class="para">which indicates that we reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(|t|\geq t_{\alpha/2,ab(n-1)}\text{,}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = t^2 = \lrpar{\dfrac{\hat{L}}{s_{\hat{L}}}}^2 = \dfrac{SSC_{L}/1}{MSE}
+\end{equation*}
+</div>
+<div class="para">which indicates that we reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(F \geq F_{\alpha,1,ab(n-1)}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="lec-15-sec-1.html#p-253" class="internal">in-context</a></span>
 </body>
 </html>

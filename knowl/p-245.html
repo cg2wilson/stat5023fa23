@@ -11,22 +11,27 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">An <span class="process-math">\(a\times b\)</span> factorial design under <span class="process-math">\(n_{ij} = n\)</span> for all <span class="process-math">\(i,j\text{:}\)</span>
+<div class="para">Ultimately, this gives some steps, given a 2-way ANOVA table:</div>
+<ol class="decimal">
+<li><div class="para">Check the F-statistic for interaction</div></li>
+<li><div class="para logical">
+<div class="para">If the resulting interaction is significant, then compare the average case-by-case; make a comparison for each group. For example, in the car-gas additive example, if there is significant interaction, we will need to compare the means:</div>
+<div class="displaymath process-math">
+\begin{align*}
+H_{0}: \amp \mu_{11} - \mu{21} = 0 \\
+H_{0}: \amp \mu_{11} - \mu{32} = 0 \\
+H_{0}: \amp \mu_{21} - \mu{31} = 0 \\
+H_{0}: \amp \mu_{12} - \mu{22} = 0 \\
+H_{0}: \amp \mu_{12} - \mu{32} = 0 \\
+H_{0}: \amp \mu_{22} - \mu{13} = 0 
+\end{align*}
 </div>
-<ul class="disc">
-<li><div class="para">
-<span class="process-math">\(\overline{Y_{ij\cdot}} = \sum_{k=1}^n \dfrac{Y_{ijk}}{n}\)</span> estimates <span class="process-math">\(\mu_{ij}\)</span> and <span class="process-math">\(s_{\overline{Y_{ij\cdot}}} = \sqrt{MSE/n}\)</span>
 </div></li>
-<li><div class="para">
-<span class="process-math">\(\overline{Y_{i\cdot\cdot}} = \sum_{j=1}^b \dfrac{\overline{Y_{ij\cdot}}}{b}\)</span> estimates <span class="process-math">\(\overline{\mu_{i\cdot}} = \sum_{j=1}^b \dfrac{\mu_{ij}}{b}\)</span> and <span class="process-math">\(s_{\overline{Y_{i\cdot\cdot}}} = \sqrt{MSE/(nb)}\)</span>
-</div></li>
-<li><div class="para">
-<span class="process-math">\(\overline{Y_{\cdot j\cdot}} = \sum_{i=1}^a \dfrac{\overline{Y_{ij\cdot}}}{a}\)</span> estimates <span class="process-math">\(\overline{\mu_{\cdot j}} = \sum_{i=1}^a \dfrac{\mu_{ij}}{a}\)</span> and <span class="process-math">\(s_{\overline{Y_{\cdot j\cdot}}} = \sqrt{MSE/(na)}\)</span>
-</div></li>
-</ul>
+<li><div class="para">If there is not significant interaction, we can make an interpretation from the first two rows of the table (the treatment rows) for main effect.</div></li>
+</ol>
 </div>
-<span class="incontext"><a href="lec-15-sec-1.html#p-245" class="internal">in-context</a></span>
+<span class="incontext"><a href="lec13-sec-4.html#p-245" class="internal">in-context</a></span>
 </body>
 </html>

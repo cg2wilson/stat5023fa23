@@ -286,6 +286,33 @@ window.MathJax = {
 <li><div class="toc-item"><a href="lec15-sec2.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Interaction Plots</span></a></div></li>
 </ul>
 </li>
+<li>
+<div class="toc-item"><a href="lec-16.html" class="internal"><span class="codenumber">8</span> <span class="title">Lecture 16- nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-16-sec-1.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-1" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-2" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Models for Three-Way Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-3" class="internal"><span class="codenumber">8.1.3</span> <span class="title">ANOVA for Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lect-16-sec-1-4" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-5" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Examples</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-18.html" class="internal"><span class="codenumber">9</span> <span class="title">Lecture 18 - nd</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="lec-18-sec-1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Fixed, Random, and Mixed Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-1" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-2" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-3" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="lec-18-sec-2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Variance Component Estimation</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec13-sec-4"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.4</span> <span class="title">Models for Factorial Experiments and Connections to ANOVA</span>
@@ -627,10 +654,30 @@ H_0: \mu_{11} = \mu_{12} = \mu_{21} = \mu_{22} = \mu_{31} = \mu_{32}
 </td>
 </tr>
 </table></div>
-<div class="para" id="p-242">Here, <span class="process-math">\(\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}\)</span> and <span class="process-math">\(\ds\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}\)</span>
+<div class="para" id="p-242">Here, <span class="process-math">\(\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}\)</span> and <span class="process-math">\(\ds \overline{\mu_{\cdot j}}\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}\)</span>
 </div>
 <div class="para" id="p-243">When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.</div>
-<div class="para" id="p-244">In the absence of significant interaction, the test for main effects can be interpreted separately.</div></section></div>
+<div class="para" id="p-244">In the absence of significant interaction, the test for main effects can be interpreted separately.</div>
+<div class="para logical" id="p-245">
+<div class="para">Ultimately, this gives some steps, given a 2-way ANOVA table:</div>
+<ol class="decimal">
+<li id="li-78"><div class="para" id="p-246">Check the F-statistic for interaction</div></li>
+<li id="li-79"><div class="para logical" id="p-247">
+<div class="para">If the resulting interaction is significant, then compare the average case-by-case; make a comparison for each group. For example, in the car-gas additive example, if there is significant interaction, we will need to compare the means:</div>
+<div class="displaymath process-math" id="md-16">
+\begin{align*}
+H_{0}: \amp \mu_{11} - \mu{21} = 0 \\
+H_{0}: \amp \mu_{11} - \mu{32} = 0 \\
+H_{0}: \amp \mu_{21} - \mu{31} = 0 \\
+H_{0}: \amp \mu_{12} - \mu{22} = 0 \\
+H_{0}: \amp \mu_{12} - \mu{32} = 0 \\
+H_{0}: \amp \mu_{22} - \mu{13} = 0 
+\end{align*}
+</div>
+</div></li>
+<li id="li-80"><div class="para" id="p-248">If there is not significant interaction, we can make an interpretation from the first two rows of the table (the treatment rows) for main effect.</div></li>
+</ol>
+</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec13-sec-3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-15.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
