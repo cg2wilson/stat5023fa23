@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-16" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 16- nd</title>
+
+    <section xml:id="lec-16-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Three-Way Factorial Experiment</title>
+        
+        <subsection xml:id="lec-16-sec-1-1">
+            <title>Three-Way Factorial Experiment</title>
+
+            <p>
+                A two-way factorial design looks at all combinations of two factors A and B; we can extend to three factors. Consider an experiment with three treatments: A with <m>a</m> levels, B with <m>b</m> levels, and C with <m>c</m> levels. This gives a <m>a\times b\times c</m> factorial structure with <m>abc</m> treatment combinations. 
+            </p>
+            <p>
+                We have the notation <m>Y_{ijkl}</m> to notate the <m>l</m>th replicates with treatments <m>A=i,B=j,C=k</m>:
+            </p>
+            <tabular>       
+                <row>
+                    <cell></cell>
+                    <cell colspan="2"><m>A = 1</m></cell>
+                    <cell colspan="2"><m>A = 2</m></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell><m>B = 1</m></cell>
+                    <cell><m>B = 2</m></cell>
+                    <cell><m>B = 1</m></cell>
+                    <cell><m>B = 2</m></cell>
+                </row>
+                <row>
+                    <cell><m>C =1 </m></cell>
+                    <cell><m>Y_{1111},Y_{1112}</m></cell>
+                    <cell><m>Y_{1211},Y_{1212}</m></cell>
+                    <cell><m>Y_{2111},Y_{2112}</m></cell>
+                    <cell><m>Y_{2211},Y_{2212}</m></cell>
+                </row>
+                <row>
+                    <cell><m>C =2 </m></cell>
+                    <cell><m>Y_{1121},Y_{1122}</m></cell>
+                    <cell><m>Y_{1221},Y_{1222}</m></cell>
+                    <cell><m>Y_{2121},Y_{2122}</m></cell>
+                    <cell><m>Y_{2221},Y_{2222}</m></cell>
+                </row>
+            </tabular>
+        </subsection>
+        <subsection xml:id="lec-16-sec-1-2">
+            <title>Models for Three-Way Factorial Experiments</title>
+            
+            <p>
+                A completely randomized design with <m>a\times b\times c</m> factorial treatment structure can be described by the means model
+                <me>
+                    Y_{ijkl} = \mu_{ijk} + \varepsilon_{ijkl}
+                </me>
+                where <m>\varepsilon_{ijkl}\tilde^{iid} N(0,\sigma^2)</m> is random error and <m>\mu_{ijk}</m> is the population mean with <m>A=i,B=j,C=k</m>, or the effects model
+                <me>
+                    Y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + (\alpha\beta)_{ij} + (\alpha\gamma)_{ik} + (\beta\gamma)_{jk} + (\alpha\beta\gamma)_{ijk} + \varepsilon_{ijkl}
+                </me>
+                We have the main effects <m>\alpha_i,\beta_j,\gamma_k</m>, two-way interactions <m>(\alpha\beta)_{ij},(\alpha\gamma)_{ik},(\beta\gamma)_{jk}</m>, and three-way interaction <m>(\alpha\beta\gamma)_{ijk}</m>
+                
+            </p>
+        </subsection>
+
+        <subsection xml:id="lec-16-sec-1-3">
+            <title>ANOVA for Factorial Experiments</title>
+            
+            <p>
+                For a CRD with <m>a\times b\times c</m> factorial treatment structure with the same number of replicates <m>n</m>, the source of variation can be decomposed as
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                </row>
+                <row>
+                    <cell><m>A</m></cell>
+                    <cell><m>a-1</m></cell>
+                </row>
+                <row>
+                    <cell><m>B</m></cell>
+                    <cell><m>b-1</m></cell>
+                </row>
+                <row>
+                    <cell><m>C</m></cell>
+                    <cell><m>c-1</m></cell>
+                </row>
+                <row>
+                    <cell><m>AB</m></cell>
+                    <cell><m>(a-1)(b-1)</m></cell>
+                </row>
+                <row>
+                    <cell><m>AC</m></cell>
+                    <cell><m>(a-1)(c-1)</m></cell>
+                </row>
+                <row>
+                    <cell><m>BC</m></cell>
+                    <cell><m>(b-1)(c-1)</m></cell>
+                </row>
+                <row>
+                    <cell><m>ABC</m></cell>
+                    <cell><m>(a-1)(b-1)(c-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>abc(n-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>abcn-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                The SS corresponding to each source and the <m>F</m> statistics can be similarly defined.
+            </p>
+        </subsection>
+        <subsection xml:id="lect-16-sec-1-4">
+            <title>Interaction</title>
+            
+            <p>
+                A two-way interaction can be interpreted in the same manner as before. The presence of an AC interaction means that the mean responses among the levels of factor A are different across the levels of factor C.
+            </p>
+            <p>
+                In order to interpret a three-way interaction, we need to consider that the differences in mean responses for levels of factor C change across combinations of levels for factors A and B. The pattern in the interactions between factors A and B changes across the levels of factor C.
+            </p>
+            <p>
+                Under the presence of a three-way interaction, we plot a separate profile plot for the two-way interaction at each level of the other factor to check different patterns in several of the profile plots. If the three-way interaction is significant, then comparisons among each treatment combination of A, B, and C must be made for main effects. If the three-way interaction is not significant, but at least one of the two-way interactions is, then comparisons among the involved treatment combinations must be made for main effects. If both two-way and three-way interactions are insignificant, then the output from the ANOVA table can be directly interpreted for main effects.
+            </p>
+            
+        </subsection>
+
+        <subsection xml:id="lec-16-sec-1-5">
+            <title>Examples</title>
+            
+            <p>
+                Need to include examples 
+            </p>
+        </subsection>
+    </section>
+
+    
+</chapter>

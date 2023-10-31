@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-18" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 18 - nd</title>
+
+    <section xml:id="lec-18-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Fixed, Random, and Mixed Models</title>
+        
+        <subsection xml:id="lec-18-sec-1-1">
+            <title>Fixed Effects Model with Factorial Treatment</title>
+        
+            <p>
+                Consider an <m>a\times b</m> factorial treatment structure in a CRD. The fixed effects model for <m>i = 1,...,a</m>, <m>j = 1,...,b</m>, and <m>k = 1,...,n</m> is given by
+                <me>
+                    Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+                </me>
+                where <m>Y_{ijk}</m> is the k-th observation at <m>A = i,B=j</m>, <m>\mu</m> is the overall population mean, <m>\alpha_i</m> is a fixed (non-random) main effect factor of <m>A = i</m>, <m>\beta_j</m> is a fixed (non-random) main effect factor of <m>B = j</m>, <m>(\alpha\beta)_{ij}</m> is a fixed (non-random) interaction of <m>A = i,B=j</m>, and <m>\varepsilon_{ijk}\sim^{iid} N(0,\sigma^2_\varepsilon)</m> is a random error. We have the following table:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell>F</cell>
+                    <cell><m>H_0</m></cell>
+                </row>
+                <row>
+                    <cell><m>A</m></cell>
+                    <cell><m>a-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + \dfrac{nb}{a-1}\sum^a \alpha_i^2</m></cell>
+                    <cell><m>\dfrac{MSA}{MSE}</m></cell>
+                    <cell><m>H_0: \alpha_1=...=\alpha_a = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>B</m></cell>
+                    <cell><m>b-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + \dfrac{na}{b-1}\sum^b \beta_j^2</m></cell>
+                    <cell><m>\dfrac{MSB}{MSE}</m></cell>
+                    <cell><m>H_0: \beta_1=...=\beta_b = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>AB</m></cell>
+                    <cell><m>(a-1)(b-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + \dfrac{n}{(a-1)(b-1)}\sum_{i,j} (\alpha\beta)_{ij}^2</m></cell>
+                    <cell><m>\dfrac{MSAB}{MSE}</m></cell>
+                    <cell><m>H_0:</m> no interaction</cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>ab(n-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>abn-1</m></cell>
+                </row>
+            </tabular>
+        </subsection>
+        <subsection xml:id="lec-18-sec-1-2">
+            <title>Random Effects Model with Factorial Treatment</title>
+            
+            <p>
+                A random effects model for <m>i =1,...,a</m>, <m>j=1,...,b</m>, and <m>k=1,...,n</m> is given by
+                <me>
+                    Y_{ijk} \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+                </me>
+                where <m>Y_{ijk}</m> is the k-th observation at <m>A=i,B=j</m>, <m>\mu</m> is the overall population mean, <m>\alpha_i</m> is the main effect of factor <m>A = i</m> such that <m>\alpha_i\sim^{iid} N(0,\sigma_\alpha^2)</m>, <m>\beta_j</m> is the main effect of factor <m>B = j</m> such that <m>\beta_j\sim^{iid} N(0,\sigma^2_\beta)</m>, <m>(\alpha\beta)_{ij}</m> is the interaction of <m>A=i,B=j</m> such that <m>(\alpha\beta)_{ij}\sim^{iid} N(0,\sigma_{\alpha\beta}^2)</m>, and <m>\varepsilon_{ijk}\sim^{iid} N(0,\sigma_\varepsilon^2)</m> is random error. We have a similar (but distinct!) table to the fixed effects model:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell>F</cell>
+                    <cell><m>H_0</m></cell>
+                </row>
+                <row>
+                    <cell><m>A</m></cell>
+                    <cell><m>a-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2 + nb\sigma_\alpha^2</m></cell>
+                    <cell><m>\dfrac{MSA}{MSAB}\sim F_{a-1,(a-1)(b-1)}</m></cell>
+                    <cell><m>H_0: \sigma_\alpha^2 = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>B</m></cell>
+                    <cell><m>b-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2 + na\sigma_\beta^2</m></cell>
+                    <cell><m>\dfrac{MSB}{MSAB}\sim F_{b-1,(a-1)(b-1)}</m></cell>
+                    <cell><m>H_0: \sigma_\beta^2 = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>AB</m></cell>
+                    <cell><m>(a-1)(b-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2</m></cell>
+                    <cell><m>\dfrac{MSAB}{MSE}\sim F_{(a-1)(b-1),ab(n-1)}</m></cell>
+                    <cell><m>H_0: \sigma_{\alpha\beta}^2= 0</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>ab(n-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>abn-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                Note in particular that the test statistics are constructed differently. Unlike the fixed effects model, the result from testing <m>\sigma_\alpha^2 = 0</m> and <m>\sigma_\beta^2 = 0</m> can be interpreted even when there exists significant evidence in favor of <m>\sigma_{\alpha\beta}^2 \gt 0</m>. If any variance components turn out to be significant, then we are interested in estimating the variance components (see below).
+            </p>
+        </subsection>
+        <subsection xml:id="lec-18-sec-1-3">
+            <title>Mixed Effects Model with Factorial Treatment</title>
+            
+            <p>
+                A mixed effects model for <m>i=1,...,a</m>, <m>j=1,...b</m>, and <m>k=1,...,n</m> is given by
+                <me>
+                    Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta_{ij}) + \varepsilon_{ijk}
+                </me>
+                where <m>Y_{ijk}</m> is the k-th observation at <m>A=i,B=j</m>, <m>\mu</m> is the overall population mean, <m>\alpha_i</m> is a fixed (non-random) main effect of factor <m>A=i</m>, <m>\beta_j</m> is a main effect of factor <m>B=j</m> such that <m>\beta_j \sim^{iid} N(0,\sigma_\beta^2)</m>, <m>(\alpha\beta)_{ij}</m> is the interaction of <m>A=i,B=j</m> such that <m>(\alpha\beta)_{ij}\sim^{iid} N(0,\sigma_{\alpha\beta}^2)</m>, and <m>\varepsilon_{ijk}\sim^{iid} N(0,\sigma_\varepsilon^2)</m> is a random error. We get the following table:                
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell>F</cell>
+                    <cell><m>H_0</m></cell>
+                </row>
+                <row>
+                    <cell><m>A</m></cell>
+                    <cell><m>a-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2 + \dfrac{nb}{a-1}\sum_i \alpha_i^2</m></cell>
+                    <cell><m>\dfrac{MSA}{MSAB}\sim F_{a-1,(a-1)(b-1)}</m></cell>
+                    <cell><m>H_0: \alpha_1=...=\alpha_a = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>B</m></cell>
+                    <cell><m>b-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2 + na\sigma_\beta^2</m></cell>
+                    <cell><m>\dfrac{MSB}{MSAB}\sim F_{b-1,(a-1)(b-1)}</m></cell>
+                    <cell><m>H_0: \sigma_\beta^2 = 0</m></cell>
+                </row>
+                <row>
+                    <cell><m>AB</m></cell>
+                    <cell><m>(a-1)(b-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + n\sigma_{\alpha\beta}^2</m></cell>
+                    <cell><m>\dfrac{MSAB}{MSE}\sim F_{(a-1)(b-1),ab(n-1)}</m></cell>
+                    <cell><m>H_0: \sigma_{\alpha\beta}^2= 0</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>ab(n-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>abn-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                The fixed, random, and mixed effects models can also be generalized to factorial treatment structures with more than two factors. If any one factor is random, then the interaction must also be random. For example, an <m>a\times b\times c</m> factorial structure where the main effect of factor <m>A</m> is fixed while the other factors <m>B,C</m> are random gives
+            </p>
+            <tabular>
+                <row>
+                    <cell>fixed effects</cell>
+                    <cell>random effects</cell>
+                </row>
+                <row>
+                    <cell>A</cell>
+                    <cell>B,C,AB,AC,BC,ABC</cell>
+                </row>
+            </tabular>
+            <p>
+                The presence of significant, fixed interaction means that there are different effects of the factor A across the levels of the other factor, B. In a mixed model, the levels of factor B are randomly selected; however, random interaction in a mixed model is to account for variability of our response attributed to each combination of factors A and B. No matter what the results are for the test of <m>\sigma_{\alpha\beta}^2</m>, we can proceed to use the F-tests for factors A and B.
+            </p>
+        </subsection>
+    </section>
+
+    <section xml:id="lec-18-sec-2">
+        <title>Variance Component Estimation</title>
+        
+        <p>
+            There are two methods to estimate the variance component: the method of moments; and restricted maximum likelihood (REML) by using <c>PROC MIXED</c>. For the method of moments, we equate the mean squares for random effects and the corresponding EMS and then solve for the variance components. Under the mixed effects model, equating the mean squares and the corresponding EMS gives
+            <ul>
+                <li>
+                    <p>
+                        <m>MSE = \hat{\sigma}_\varepsilon^2</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>MSAB = \hat{\sigma}_\varepsilon^2 + n\hat{\sigma}_{\alpha\beta}^2</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>MSB = \hat{\sigma}_\varepsilon^2 + n\hat{\sigma}_{\alpha\beta}^2 + na\hat{\sigma}_\beta^2</m>
+                    </p>
+                </li>
+            </ul>
+            Solving for each variance component leads us to see that
+            <ul>
+                <li>
+                    <p>
+                        <m>\hat{\sigma}_\varepsilon^2 = MSE</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\hat{\sigma}_{\alpha\beta}^2 = \dfrac{MSAB - MSE}{n}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\hat{\sigma}_\beta^2 = \dfrac{MSB-MSAB}{na}</m>
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <example>
+            <statement>
+                <p>
+                    A company wants to evalute the effectiveness of two different sunscreen types (<m>S1</m> and <m>S2</m>) with 40 subjects. For each subject, a 1-inch square was marked off on their back, under the shoulder and above the small of the back. A response is recorded based on reading the color of the skin in the square before and after the application of a fixed amount of each sunscreen. The measurement of color is extremely variable, so the company randomly selects 10 technicians from their worldwide staff to participate in the study to assess the variability in the readings due to the technician taking the readings. Four subjects, two having <m>S1</m> and two having <m>S2</m>, were randomly assigned to each technician for evaluation.
+                </p>
+                <p>
+                    <ol marker="a">
+                        <li>
+                            <p>
+                                Write the appropriate model for the study
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Write the appropriate hypotheses which can be tested by using the following table:
+                            </p>
+                            <tabular>
+                                <row>
+                                    <cell>Source</cell>
+                                    <cell>df</cell>
+                                    <cell>SS</cell>
+                                    <cell>MS</cell>
+                                    <cell>EMS</cell>
+                                </row>
+                                <row>
+                                    <cell>Suncreen</cell>
+                                    <cell>1</cell>
+                                    <cell>4.49</cell>
+                                    <cell>4.49</cell>
+                                    <cell><m>\sigma_\varepsilon^2 + 2\sigma_{\alpha\beta}^2 + 20\sum_i \alpha_i^2</m></cell>
+                                </row>
+                                <row>
+                                    <cell>Technician</cell>
+                                    <cell>9</cell>
+                                    <cell>517.49</cell>
+                                    <cell>57.50</cell>
+                                    <cell><m>\sigma_\varepsilon^2 + 2\sigma_{\alpha\beta}^2 + 4 \sigma_\beta^2</m></cell>
+                                </row>
+                                <row>
+                                    <cell>Interaction</cell>
+                                    <cell>9</cell>
+                                    <cell>5.97</cell>
+                                    <cell>0.66</cell>
+                                    <cell><m>\sigma_\varepsilon^2 + 2\sigma_{\alpha\beta}^2</m></cell>
+                                </row>
+                                <row>
+                                    <cell>Error</cell>
+                                    <cell>20</cell>
+                                    <cell>2.64</cell>
+                                    <cell>0.13</cell>
+                                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                                </row>
+                                <row>
+                                    <cell>Total</cell>
+                                    <cell>39</cell>
+                                </row>
+                            </tabular>
+                        </li>
+                        <li>
+                            <p>
+                                Test the hypotheses specified in part (b)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Make a conclusion:
+                                <ol>
+                                    <li>
+                                        <p>
+                                            Reject <m>H_0: \sigma_{\alpha\beta}^2=0</m>, thus we would conclude that the variations in the determinations of skin color due to technician differences are different for the two types of sunscreen.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Reject <m>H_0: \sigma_\beta^2 = 0</m>, thus there is a significant source of random variation due to variability from technician to technicia 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Reject <m>H_0: \alpha_1-\alpha_2 = 0</m>, thus there is significant evidence that the mean response differs for the two sunscreens
+                                        </p>
+                                    </li>
+                                </ol>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Estimate the variance components by using the method of moments.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    <ol marker="a">
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </example>
+    </section>
+
+    
+</chapter>

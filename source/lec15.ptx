@@ -68,18 +68,18 @@
             <p>
                 For Fisher's LSD with <m>\mu_{ij} - \mu_{i'j'}</m>, we set
                 <md>
-                    <mrow>LSD \amp = t_{\alpha/2,ab(n-1)\cdot s_{\overline{Y_{ij\cdot}}-\overline{Y_{i'j'}}}} </mrow>
-                    <mrow> \amp = t_{\alpha/2,ab(n-1)\cdot \sqrt{MSE\cdot\dfrac{2}{n}}} </mrow>
+                    <mrow>LSD \amp = t_{\alpha/2,ab(n-1)}\cdot s_{\overline{Y_{ij\cdot}}-\overline{Y_{i'j'}}} </mrow>
+                    <mrow> \amp = t_{\alpha/2,ab(n-1)}\cdot \sqrt{MSE\cdot\dfrac{2}{n}} </mrow>
                 </md>
                 If 
                 <me>
                     \overline{Y_{ij\cdot}} - \overline{Y_{i'j'\cdot}}\geq LSD
                 </me>
-                then the two treatment combinations <m>A - i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
+                then the two treatment combinations <m>A = i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
             </p>
 
             <p>
-                For Tukey's HSD with <m>\mu_{ij} - \mu_{i'j'}</m>, we set\
+                For Tukey's HSD with <m>\mu_{ij} - \mu_{i'j'}</m>, we set
                 <me>
                     HSD = q_{\alpha,ab,ab(n-1)}\sqrt{MSE\cdot \dfrac{1}{n}}
                 </me>
@@ -87,7 +87,7 @@
                 <me>
                     \overline{Y_{ij\cdot}} - \overline{Y_{i'j'\cdot}}\geq HSD
                 </me>
-                tthen the two treatment combinations <m>A - i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
+                then the two treatment combinations <m>A = i,B=j</m> and <m>A = i',B=j'</m> have significantly different averages.
             </p>
 
             <p>
@@ -420,12 +420,12 @@
                         </me>
                         Then, compare each pairwise diffence of the pesticides to HSD:
                         <md>
-                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  22.66\gt HSD</mrow>
-                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  16.66\gt HSD</mrow>
-                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{1\cdot\cdod}} \amp =  1.83 \lt HSD</mrow>
-                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  20.83\gt HSD</mrow>
-                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{2\cdot\cdod}} \amp =  14.83\gt HSD</mrow>
-                            <mrow>|\overline{Y_{2\cdot\cdot}} - \overline{Y_{4\cdot\cdod}} \amp =  6 \lt HSD</mrow>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{4\cdot\cdot}}| \amp =  22.66\gt HSD</mrow>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{2\cdot\cdot}} |\amp =  16.66\gt HSD</mrow>
+                            <mrow>|\overline{Y_{3\cdot\cdot}} - \overline{Y_{1\cdot\cdot}} |\amp =  1.83 \lt HSD</mrow>
+                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{4\cdot\cdot}} |\amp =  20.83\gt HSD</mrow>
+                            <mrow>|\overline{Y_{1\cdot\cdot}} - \overline{Y_{2\cdot\cdot}} |\amp =  14.83\gt HSD</mrow>
+                            <mrow>|\overline{Y_{2\cdot\cdot}} - \overline{Y_{4\cdot\cdot}} |\amp =  6 \lt HSD</mrow>
                         </md>
                         So we conclude that
                     </p>
@@ -467,7 +467,7 @@
                         </me>
                         So <m>|\hat{L_1}\lt S_1</m>. Similarly,
                         <me>
-                            \hat{L_2} = 2\overline{Y_{\cdot 2\cdot}} - \lrpar{\overline{\cdot 1\cdot}+\overline{\cdot 3 \cdot}} = 31.49
+                            \hat{L_2} = 2\overline{Y_{\cdot 2\cdot}} - \lrpar{\overline{Y_{\cdot 1\cdot}}+\overline{Y_{\cdot 3 \cdot}}} = 31.49
                         </me>
                         So <m>|\hat{L_2}| \gt S_2</m>. We have two conclusions:
                         <ul>

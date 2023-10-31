@@ -526,13 +526,41 @@
             </row>
         </tabular>
         <p>
-            Here, <m>\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}</m> and <m>\ds\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}</m>
+            Here, <m>\ds\overline{\mu_{i\cdot}} = \dfrac{1}{b} \sum_{j=1}^b \mu_{ij}</m> and <m>\ds \overline{\mu_{\cdot j}}\dfrac{1}{a}\sum_{i=1}^a \mu_{ij}</m>
         </p>
         <p>
             When conducting these tests, we should first conduct a test for interaction between two factors. If significant interaction exists, the tests for main effects must be interpreted carefully. This is because the main effects of some treatments are no longer constant for the levels of another treatment under significant interaction between A and B. Thus, under significant interaction, the means of treatment A need to be compared for each level of treatment B.
         </p>
         <p>
             In the absence of significant interaction, the test for main effects can be interpreted separately.
+        </p>
+        <p>
+            Ultimately, this gives some steps, given a 2-way ANOVA table:
+            <ol>
+                <li>
+                    <p>
+                        Check the F-statistic for interaction
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If the resulting interaction is significant, then compare the average case-by-case; make a comparison for each group. For example, in the car-gas additive example, if there is significant interaction, we will need to compare the means:
+                        <md>
+                            <mrow>H_{0}: \amp \mu_{11} - \mu{21} = 0 </mrow>
+                            <mrow>H_{0}: \amp \mu_{11} - \mu{32} = 0 </mrow>
+                            <mrow>H_{0}: \amp \mu_{21} - \mu{31} = 0 </mrow>
+                            <mrow>H_{0}: \amp \mu_{12} - \mu{22} = 0 </mrow>
+                            <mrow>H_{0}: \amp \mu_{12} - \mu{32} = 0 </mrow>
+                            <mrow>H_{0}: \amp \mu_{22} - \mu{13} = 0 </mrow>
+                        </md>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If there is not significant interaction, we can make an interpretation from the first two rows of the table (the treatment rows) for main effect.
+                    </p>
+                </li>
+            </ol>
         </p>
     </section>
 </chapter>

@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-17" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 16- nd</title>
+
+    <section xml:id="lec-17-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Introduction to Fixed and Random Effects</title>
+        
+        <subsection xml:id="lec-17-sec-1-1">
+            <title>Fixed Effects Model</title>
+        
+            <p>
+                Consider a one-way treatment structure with <m>t</m> levels in a CRD. Then we have the fixed effects model
+                <me>
+                    Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
+                </me>
+                where <m>i = 1,...,t</m> and <m>j = 1,...,n</m>, <m>Y_{ij}</m> is the <m>j-</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i-</m>the level effect (a fixed constant), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\tilde^{iid} N(0,\sigma^2_\varepsilon</m>. Note that there are only <m>t</m> levels about which we are making inferences.
+            </p>
+            <p>
+                Under the fixed effects model, we have the following:
+            </p>
+            <tabular>
+                <row>
+                    <cell><m>E(Y_{ij}) = \mu + \tau_i</m></cell>
+                    <cell><m>Var(Y_{ij}) = \sigma^2_\varepsilon</m></cell>
+                </row>
+                <row>
+                    <cell><m>E(\overline{Y_{i\cdot}}) = \mu + \tau_i</m></cell>
+                    <cell><m>Var(\overline{Y_{i\cdot}}) = \sigma^2_\varepsilon/n</m></cell>
+                </row>
+            </tabular>
+            <p>
+                for <m>\overline{Y_{i\cdot}} = \mu + \tau_i + \overline{\varepsilon_{i\cdot}}</m> due to the assumption on random error. 
+            </p>
+            <p>
+                Recall that 
+                <me>SSTrt = \sum_{i=1}^t n(\overline{Y_{i\cdot}}-\overline{Y_{\cdot\cdot}})^2</me>
+                and note that its expectation can be written as
+                <me>
+                    E(SSTrt) = (t-1)\sigma^2_\varepsilon + n\sum_{i=1}^t \tau_i^2
+                </me>
+                We can define the forresponding expected mean square (EMS) such that
+                <me>
+                    E(MSTrt) = E\lrpar{\dfrac{SSTrt}{t-1}} = \sigma^2_\varepsilon + \dfrac{n\sum_{i=1}^t\tau_i^2}{t-1}
+                </me>
+                which gives the table 
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                </row>
+                <row>
+                    <cell>Trt</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma^2_\varepsilon + \dfrac{n}{t-1}\sum_{i=1}^t \tau_i^2</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>t(n-1)</m></cell>
+                    <cell><m>\sigma^2_\varepsilon = E(MSE)</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>nt-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                Recall that, for the average difference among <m>t</m> treatment levels, we test the hypothesis
+                <me>
+                    H_0: \tau_1 = \tau_2 = \cdots \tau_t = 0
+                </me>
+                against <m>H_a:</m> at least one <m>\tau_i</m> is non-zero. Under <m>H_0</m>, the EMS for the treatment should be the same with that for error; under <m>H_a</m>, the EMS for treatment should be larger than that for error. This means that for the test statistic
+                <me>
+                    F = \dfrac{MSTrt}{MSE}\tilde F_{t-1,t(n-1)}
+                </me>
+                under <m>H_0</m>, an F-value closer to 1 indicates greater likelihood that we fail to reject <m>H_0</m>.
+                
+            </p>
+        </subsection>
+    </section>
+
+    <section xml:id="lec-17-sec-2">
+        <title>Random Effects Model</title>
+        
+        <p>
+            Up to now, we've looked at a study or experiment involving factors having a predetermined set of levels. For a fixed effects model, the inferences are only for the levels of the factors actually used in the experiment; consider the example where we want to compare the intensities of the electrostatic discharges of lightning at three different tracking stations within a 20-mile radius of the central computing facilities of a university. Suppose that we want to make an inference for all possible tracking stations. Instead of being concerned about only these three tracking stations, we can consider these stations as a random sample of three taken from the many possible locations for tracking stations.
+        </p>
+        <p>
+            This means that our goal becomes to identify factors that are sources of variability in the response variable instead of estimating some fixed effects. For example, we can consider what happens when the quality control engineer attempts to determine which factors in the production process are the major sources of variability (worker ability, types of machines, etc.). Rather than treating those factors as fixed, we can consider them as random. So, we need to estimate the contribution of each of these soruces of variability (called <term>variance components</term>, see below) to the overall variability in the product's quality (response).
+        </p>
+        <p>
+            For a random effects model, we consider a one-way treatment structure in a CRD with <m>t</m> treatment levels corresponding to the random sample of population of possible levels. This gives the model
+            <me>
+                Y_{ij} = \mu _+ \tau_i + \varepsilon_{ij}
+            </me>
+            where <m>Y_{ij}</m> is the <m>j</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i</m>th treatment level effect (random such that <m>\tau_i\tilde^{iid} N(0,\sigma_\tau^2</m>)), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\tilde^{iid} N(0,\sigma^2_\varepsilon)</m>. We wish to make inferences about all possible levels in the population. This gives the following table.
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>EMS</cell>
+            </row>
+            <row>
+                <cell>Trt</cell>
+                <cell><m>t-1</m></cell>
+                <cell><m>\sigma^2_\varepsilon + n\sigma^2_\tau</m></cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell><m>t(n-1)</m></cell>
+                <cell><m>\sigma^2_\varepsilon</m></cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell><m>nt-1</m></cell>
+            </row>
+        </tabular>
+        <p>
+            For the random effects model, we are testing
+            <me>
+                H_0: \sigma^2_\tau = 0
+            </me>
+            versus 
+            <me>
+                H_a: \sigma^2_\tau \gt 0
+            </me>
+            Under <m>H_0</m>, all <m>\tau_i</m> values are 0 because <m>\tau_i\tilde^{iid} N(0,0)</m>. The test statistic for the test above is given by
+            <me>
+                F = \dfrac{MSTrt}{MSE} \tilde F_{t-1,t(n-1)}
+            </me>
+            under <m>H_0</m>. If we reject <m>H_0</m>, we are interested in estimating <m>\sigma^2_\tau</m>
+        </p>
+        <p>
+            We have some terms and values:
+            <ul>
+                <li>
+                    <p>
+                        <m>\sigma^2_\tau</m> and <m>\sigma^2_\varepsilon</m> are called <term>variance components</term>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>MSE = \hat{\sigma^2_\varepsilon}</m> is the estimate of <m>\sigma^2_\varepsilon</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        MSTrt is a point estimate of <m>\sigma^2_\varepsilon + n\sigma^2_\tau</m>, which we term EMS
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>MSTrt = \hat{\sigma^2_\varepsilon} + n\hat{\sigma^2_\tau}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Solving for <m>\hat{\sigma^2_\tau}</m>, we get <m>\hat{\sigma^2_\tau} = \dfrac{1}{n} (MSTrt - \hat{\sigma^2_\varepsilon})</m>. This is called the Method of Moments Estimation (MME) of <m>\hat{\sigma^2_\tau}</m>. Note that MME can yield negative variance estimates.
+                    </p>
+                </li>
+            </ul>
+            We can use specific techniques to avoid the negative variance component estimates; in SAS, <c>PROC MIXED</c> or (<c>PROC GLIMMIX</c>) statement allows us to use the method called Restriced Maximum Likelihood (REML) for that. 
+            
+        </p>
+    </section>
+    <section xml:id="lec-17-sec-3">
+        <title>Examples</title>
+        
+        <p>
+            To investigate the effect that teachers had on the variation in students' grades, a large school district desgined an experiment in which four teachers were randomly selected from the population of teachers in the district. Seven students were randomly assigned to each of the four teachers, and their final score was recorded at the end of the year.
+        </p>
+        <tabular>
+            <row>
+                <cell>Teacher</cell>
+                <cell colspan="7">Score</cell>
+            </row>
+            <row>
+                <cell>A</cell>
+                <cell>84</cell>
+                <cell>90</cell>
+                <cell>76</cell>
+                <cell>62</cell>
+                <cell>72</cell>
+                <cell>81</cell>
+                <cell>70</cell>
+            </row>
+            <row>
+                <cell>B</cell>
+                <cell>75</cell>
+                <cell>85</cell>
+                <cell>91</cell>
+                <cell>98</cell>
+                <cell>82</cell>
+                <cell>75</cell>
+                <cell>74</cell>
+            </row>
+            <row>
+                <cell>C</cell>
+                <cell>72</cell>
+                <cell>76</cell>
+                <cell>74</cell>
+                <cell>85</cell>
+                <cell>77</cell>
+                <cell>60</cell>
+                <cell>62</cell>
+            </row>
+            <row>
+                <cell>D</cell>
+                <cell>88</cell>
+                <cell>98</cell>
+                <cell>70</cell>
+                <cell>95</cell>
+                <cell>86</cell>
+                <cell>80</cell>
+                <cell>75</cell>
+            </row>
+        </tabular>
+        <p>
+            First, write an appropriate statistical model. Because the four teachers were selected at random, we can use a single-factor random-effects model such that
+            <me>
+                Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
+            </me>
+            where <m>i=1,...,4</m> and <m>j=1,...,7</m>. Thus, we have
+        </p>
+        <tabular>
+            <row>
+                <cell>Source</cell>
+                <cell>df</cell>
+                <cell>SS</cell>
+                <cell>MS</cell>
+                <cell><m>F</m></cell>
+                <cell>EMS</cell>
+            </row>
+            <row>
+                <cell>Treatment</cell>
+                <cell>3</cell>
+                <cell>683.3</cell>
+                <cell>227.8</cell>
+                <cell>2.57</cell>
+                <cell><m>\sigma^2_\varepsilon + 7\sigma^2_\tau</m></cell>
+            </row>
+            <row>
+                <cell>Error</cell>
+                <cell>24</cell>
+                <cell>2119.7</cell>
+                <cell>88.3</cell>
+                <cell></cell>
+                <cell><m>\sigma^2_\varepsilon</m></cell>
+            </row>
+            <row>
+                <cell>Total</cell>
+                <cell>27</cell>
+                <cell>2803.0</cell>
+            </row>
+        </tabular>
+        <p>
+            Now, write the hypothesis for the ANOVA output and make a conclusion under <m>\alpha = 0.05</m>: 
+            <me>
+                H_0: \sigma^2_\tau = 0
+            </me>
+            versus
+            <me>
+                H_a: \sigma^2_\tau \gt 0
+            </me>
+            Since <m>F = 2.57 \lt F_{0.05,3,24} = 3.01</m>, which leads us to fail to reject <m>H_0</m>. Thus, there is no significant evidence to indicate that there is an additional variability in students' scores from teacher to teacher.
+            
+        </p>
+        <p>
+            Finally, estimate the variance components by MME; here, we calculate the estimates for illustration even though we fail to reject <m>H_0</m>. We know that the MME of <m>\sigma^2_\varepsilon</m> and <m>\sigma^2_\tau</m> satisfy the following equations:
+            <md>
+                <mrow> 227.8 \amp = \hat{\sigma^2_\varepsilon} + 7\hat{\sigma^2_\tau} </mrow>
+                <mrow> 88.3 \amp =  \hat{\sigma^2_\varepsilon}</mrow>
+            </md>
+            which implies that <m>\hat{\sigma^2_\varepsilon} = 88.3</m> and <m>\hat{\sigma^2_\tau} = 19.9</m>
+        </p>
+    </section>
+
+    
+</chapter>
