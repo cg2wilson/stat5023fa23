@@ -18,8 +18,8 @@
             <tabular>       
                 <row>
                     <cell></cell>
-                    <cell colspan="2"><m>A = 1</m></cell>
-                    <cell colspan="2"><m>A = 2</m></cell>
+                    <cell colspan="2" halign="center"><m>A = 1</m></cell>
+                    <cell colspan="2" halign="center"><m>A = 2</m></cell>
                 </row>
                 <row>
                     <cell></cell>

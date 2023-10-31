@@ -223,7 +223,7 @@
             <me>
                 Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
             </me>
-            where <m>i=1,...,4</m> and <m>j=1,...,7</m>. Thus, we have
+            where <m>i=1,...,4</m>, <m>j=1,...,7</m>. Thus, we have
         </p>
         <tabular>
             <row>
