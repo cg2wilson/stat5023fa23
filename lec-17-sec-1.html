@@ -338,7 +338,7 @@ window.MathJax = {
 Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(i = 1,...,t\)</span> and <span class="process-math">\(j = 1,...,n\text{,}\)</span> <span class="process-math">\(Y_{ij}\)</span> is the <span class="process-math">\(j-\)</span>th observation in treatment level <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(\mu\)</span> is the overall mean (a fixed constant), <span class="process-math">\(\tau_i\)</span> is the <span class="process-math">\(i-\)</span>the level effect (a fixed constant), and <span class="process-math">\(\varepsilon_{ij}\)</span> is random error associated with <span class="process-math">\(Y_{ij}\)</span> such that <span class="process-math">\(\varepsilon_{ij}\tilde^{iid} N(0,\sigma^2_\varepsilon\text{.}\)</span> Note that there are only <span class="process-math">\(t\)</span> levels about which we are making inferences.</div>
+<div class="para">where <span class="process-math">\(i = 1,...,t\)</span> and <span class="process-math">\(j = 1,...,n\text{,}\)</span> <span class="process-math">\(Y_{ij}\)</span> is the <span class="process-math">\(j-\)</span>th observation in treatment level <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(\mu\)</span> is the overall mean (a fixed constant), <span class="process-math">\(\tau_i\)</span> is the <span class="process-math">\(i-\)</span>the level effect (a fixed constant), and <span class="process-math">\(\varepsilon_{ij}\)</span> is random error associated with <span class="process-math">\(Y_{ij}\)</span> such that <span class="process-math">\(\varepsilon_{ij}\sim^{iid} N(0,\sigma^2_\varepsilon)\text{.}\)</span> Note that there are only <span class="process-math">\(t\)</span> levels about which we are making inferences.</div>
 </div>
 <div class="para" id="p-303">Under the fixed effects model, we have the following:</div>
 <div class="tabular-box natural-width"><table class="tabular">
@@ -404,7 +404,7 @@ H_0: \tau_1 = \tau_2 = \cdots \tau_t = 0
 <div class="para">against <span class="process-math">\(H_a:\)</span> at least one <span class="process-math">\(\tau_i\)</span> is non-zero. Under <span class="process-math">\(H_0\text{,}\)</span> the EMS for the treatment should be the same with that for error; under <span class="process-math">\(H_a\text{,}\)</span> the EMS for treatment should be larger than that for error. This means that for the test statistic</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F = \dfrac{MSTrt}{MSE}\tilde F_{t-1,t(n-1)}
+F = \dfrac{MSTrt}{MSE}\sim F_{t-1,t(n-1)}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{,}\)</span> an F-value closer to 1 indicates greater likelihood that we fail to reject <span class="process-math">\(H_0\text{.}\)</span>
