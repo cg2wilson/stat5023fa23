@@ -14,7 +14,7 @@
                 <me>
                     Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
                 </me>
-                where <m>i = 1,...,t</m> and <m>j = 1,...,n</m>, <m>Y_{ij}</m> is the <m>j-</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i-</m>the level effect (a fixed constant), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\tilde^{iid} N(0,\sigma^2_\varepsilon</m>. Note that there are only <m>t</m> levels about which we are making inferences.
+                where <m>i = 1,...,t</m> and <m>j = 1,...,n</m>, <m>Y_{ij}</m> is the <m>j-</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i-</m>the level effect (a fixed constant), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\sim^{iid} N(0,\sigma^2_\varepsilon)</m>. Note that there are only <m>t</m> levels about which we are making inferences.
             </p>
             <p>
                 Under the fixed effects model, we have the following:
@@ -73,7 +73,7 @@
                 </me>
                 against <m>H_a:</m> at least one <m>\tau_i</m> is non-zero. Under <m>H_0</m>, the EMS for the treatment should be the same with that for error; under <m>H_a</m>, the EMS for treatment should be larger than that for error. This means that for the test statistic
                 <me>
-                    F = \dfrac{MSTrt}{MSE}\tilde F_{t-1,t(n-1)}
+                    F = \dfrac{MSTrt}{MSE}\sim F_{t-1,t(n-1)}
                 </me>
                 under <m>H_0</m>, an F-value closer to 1 indicates greater likelihood that we fail to reject <m>H_0</m>.
                 
@@ -95,7 +95,7 @@
             <me>
                 Y_{ij} = \mu _+ \tau_i + \varepsilon_{ij}
             </me>
-            where <m>Y_{ij}</m> is the <m>j</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i</m>th treatment level effect (random such that <m>\tau_i\tilde^{iid} N(0,\sigma_\tau^2</m>)), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\tilde^{iid} N(0,\sigma^2_\varepsilon)</m>. We wish to make inferences about all possible levels in the population. This gives the following table.
+            where <m>Y_{ij}</m> is the <m>j</m>th observation in treatment level <m>i</m>, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i</m>th treatment level effect (random such that <m>\tau_i\sim^{iid} N(0,\sigma_\tau^2</m>)), and <m>\varepsilon_{ij}</m> is random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\sim^{iid} N(0,\sigma^2_\varepsilon)</m>. We wish to make inferences about all possible levels in the population. This gives the following table.
         </p>
         <tabular>
             <row>
@@ -127,9 +127,9 @@
             <me>
                 H_a: \sigma^2_\tau \gt 0
             </me>
-            Under <m>H_0</m>, all <m>\tau_i</m> values are 0 because <m>\tau_i\tilde^{iid} N(0,0)</m>. The test statistic for the test above is given by
+            Under <m>H_0</m>, all <m>\tau_i</m> values are 0 because <m>\tau_i\sim^{iid} N(0,0)</m>. The test statistic for the test above is given by
             <me>
-                F = \dfrac{MSTrt}{MSE} \tilde F_{t-1,t(n-1)}
+                F = \dfrac{MSTrt}{MSE} \sim F_{t-1,t(n-1)}
             </me>
             under <m>H_0</m>. If we reject <m>H_0</m>, we are interested in estimating <m>\sigma^2_\tau</m>
         </p>
@@ -143,7 +143,7 @@
                 </li>
                 <li>
                     <p>
-                        <m>MSE = \hat{\sigma^2_\varepsilon}</m> is the estimate of <m>\sigma^2_\varepsilon</m>
+                        <m>MSE = \hat{\sigma}^2_\varepsilon</m> is the estimate of <m>\sigma^2_\varepsilon</m>
                     </p>
                 </li>
                 <li>
@@ -153,12 +153,12 @@
                 </li>
                 <li>
                     <p>
-                        <m>MSTrt = \hat{\sigma^2_\varepsilon} + n\hat{\sigma^2_\tau}</m>
+                        <m>MSTrt = \hat{\sigma}^2_\varepsilon + n\hat{\sigma}^2_\tau</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        Solving for <m>\hat{\sigma^2_\tau}</m>, we get <m>\hat{\sigma^2_\tau} = \dfrac{1}{n} (MSTrt - \hat{\sigma^2_\varepsilon})</m>. This is called the Method of Moments Estimation (MME) of <m>\hat{\sigma^2_\tau}</m>. Note that MME can yield negative variance estimates.
+                        Solving for <m>\hat{\sigma}^2_\tau</m>, we get <m>\hat{\sigma}^2_\tau = \dfrac{1}{n} (MSTrt - \hat{\sigma}^2_\varepsilon)</m>. This is called the Method of Moments Estimation (MME) of <m>\hat{\sigma}^2_\tau</m>. Note that MME can yield negative variance estimates.
                     </p>
                 </li>
             </ul>
