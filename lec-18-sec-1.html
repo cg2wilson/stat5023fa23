@@ -300,27 +300,38 @@ window.MathJax = {
 </li></ul>
 </li>
 <li>
-<div class="toc-item"><a href="lec-18.html" class="internal"><span class="codenumber">9</span> <span class="title">Lecture 18 - nd</span></a></div>
+<div class="toc-item"><a href="lec-17.html" class="internal"><span class="codenumber">9</span> <span class="title">Lecture 17- nd</span></a></div>
 <ul class="structural">
-<li class="active">
-<div class="toc-item"><a href="lec-18-sec-1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Fixed, Random, and Mixed Models</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-1" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span></a></div></li>
-<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-2" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span></a></div></li>
-<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-3" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span></a></div></li>
+<li>
+<div class="toc-item"><a href="lec-17-sec-1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Introduction to Fixed and Random Effects</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-17-sec-1.html#lec-17-sec-1-1" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="lec-17-sec-2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Random Effects Model</span></a></div></li>
+<li><div class="toc-item"><a href="lec-17-sec-3.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Examples</span></a></div></li>
 </ul>
 </li>
-<li><div class="toc-item"><a href="lec-18-sec-2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Variance Component Estimation</span></a></div></li>
+<li>
+<div class="toc-item"><a href="lec-18.html" class="internal"><span class="codenumber">10</span> <span class="title">Lecture 18 - nd</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="lec-18-sec-1.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Fixed, Random, and Mixed Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-1" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-2" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-3" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="lec-18-sec-2.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Variance Component Estimation</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-18-sec-1"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">Fixed, Random, and Mixed Models</span>
+<span class="type">Section</span> <span class="codenumber">10.1</span> <span class="title">Fixed, Random, and Mixed Models</span>
 </h2>
 <section class="subsection" id="lec-18-sec-1-1"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span>
+<span class="type">Subsection</span> <span class="codenumber">10.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span>
 </h3>
-<div class="para logical" id="p-302">
+<div class="para logical" id="p-321">
 <div class="para">Consider an <span class="process-math">\(a\times b\)</span> factorial treatment structure in a CRD. The fixed effects model for <span class="process-math">\(i = 1,...,a\text{,}\)</span> <span class="process-math">\(j = 1,...,b\text{,}\)</span> and <span class="process-math">\(k = 1,...,n\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -369,9 +380,9 @@ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(abn-1\)</span></td>
 </tr>
 </table></div></section><section class="subsection" id="lec-18-sec-1-2"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span>
+<span class="type">Subsection</span> <span class="codenumber">10.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span>
 </h3>
-<div class="para logical" id="p-303">
+<div class="para logical" id="p-322">
 <div class="para">A random effects model for <span class="process-math">\(i =1,...,a\text{,}\)</span> <span class="process-math">\(j=1,...,b\text{,}\)</span> and <span class="process-math">\(k=1,...,n\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -419,10 +430,10 @@ Y_{ijk} \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(abn-1\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="p-304">Note in particular that the test statistics are constructed differently. Unlike the fixed effects model, the result from testing <span class="process-math">\(\sigma_\alpha^2 = 0\)</span> and <span class="process-math">\(\sigma_\beta^2 = 0\)</span> can be interpreted even when there exists significant evidence in favor of <span class="process-math">\(\sigma_{\alpha\beta}^2 \gt 0\text{.}\)</span> If any variance components turn out to be significant, then we are interested in estimating the variance components (see below).</div></section><section class="subsection" id="lec-18-sec-1-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">9.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span>
+<div class="para" id="p-323">Note in particular that the test statistics are constructed differently. Unlike the fixed effects model, the result from testing <span class="process-math">\(\sigma_\alpha^2 = 0\)</span> and <span class="process-math">\(\sigma_\beta^2 = 0\)</span> can be interpreted even when there exists significant evidence in favor of <span class="process-math">\(\sigma_{\alpha\beta}^2 \gt 0\text{.}\)</span> If any variance components turn out to be significant, then we are interested in estimating the variance components (see below).</div></section><section class="subsection" id="lec-18-sec-1-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">10.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span>
 </h3>
-<div class="para logical" id="p-305">
+<div class="para logical" id="p-324">
 <div class="para">A mixed effects model for <span class="process-math">\(i=1,...,a\text{,}\)</span> <span class="process-math">\(j=1,...b\text{,}\)</span> and <span class="process-math">\(k=1,...,n\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -470,7 +481,7 @@ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta_{ij}) + \varepsilon_{ijk}
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(abn-1\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="p-306">The fixed, random, and mixed effects models can also be generalized to factorial treatment structures with more than two factors. If any one factor is random, then the interaction must also be random. For example, an <span class="process-math">\(a\times b\times c\)</span> factorial structure where the main effect of factor <span class="process-math">\(A\)</span> is fixed while the other factors <span class="process-math">\(B,C\)</span> are random gives</div>
+<div class="para" id="p-325">The fixed, random, and mixed effects models can also be generalized to factorial treatment structures with more than two factors. If any one factor is random, then the interaction must also be random. For example, an <span class="process-math">\(a\times b\times c\)</span> factorial structure where the main effect of factor <span class="process-math">\(A\)</span> is fixed while the other factors <span class="process-math">\(B,C\)</span> are random gives</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">fixed effects</td>
@@ -481,7 +492,7 @@ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta_{ij}) + \varepsilon_{ijk}
 <td class="l m b0 r0 l0 t0 lines">B,C,AB,AC,BC,ABC</td>
 </tr>
 </table></div>
-<div class="para" id="p-307">The presence of significant, fixed interaction means that there are different effects of the factor A across the levels of the other factor, B. In a mixed model, the levels of factor B are randomly selected; however, random interaction in a mixed model is to account for variability of our response attributed to each combination of factors A and B. No matter what the results are for the test of <span class="process-math">\(\sigma_{\alpha\beta}^2\text{,}\)</span> we can proceed to use the F-tests for factors A and B.</div></section></section></div>
+<div class="para" id="p-326">The presence of significant, fixed interaction means that there are different effects of the factor A across the levels of the other factor, B. In a mixed model, the levels of factor B are randomly selected; however, random interaction in a mixed model is to account for variability of our response attributed to each combination of factors A and B. No matter what the results are for the test of <span class="process-math">\(\sigma_{\alpha\beta}^2\text{,}\)</span> we can proceed to use the F-tests for factors A and B.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-18.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-18-sec-2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

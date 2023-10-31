@@ -505,11 +505,56 @@ var ptx_lunr_docs = [
   "body": " Three-Way Factorial Experiment   Three-Way Factorial Experiment  A two-way factorial design looks at all combinations of two factors A and B; we can extend to three factors. Consider an experiment with three treatments: A with levels, B with levels, and C with levels. This gives a factorial structure with treatment combinations.  We have the notation to notate the th replicates with treatments :                                Models for Three-Way Factorial Experiments  A completely randomized design with factorial treatment structure can be described by the means model where is random error and is the population mean with , or the effects model We have the main effects , two-way interactions , and three-way interaction     ANOVA for Factorial Experiments  For a CRD with factorial treatment structure with the same number of replicates , the source of variation can be decomposed as    Source  df                                Error     Total     The SS corresponding to each source and the statistics can be similarly defined.    Interaction  A two-way interaction can be interpreted in the same manner as before. The presence of an AC interaction means that the mean responses among the levels of factor A are different across the levels of factor C.  In order to interpret a three-way interaction, we need to consider that the differences in mean responses for levels of factor C change across combinations of levels for factors A and B. The pattern in the interactions between factors A and B changes across the levels of factor C.  Under the presence of a three-way interaction, we plot a separate profile plot for the two-way interaction at each level of the other factor to check different patterns in several of the profile plots. If the three-way interaction is significant, then comparisons among each treatment combination of A, B, and C must be made for main effects. If the three-way interaction is not significant, but at least one of the two-way interactions is, then comparisons among the involved treatment combinations must be made for main effects. If both two-way and three-way interactions are insignificant, then the output from the ANOVA table can be directly interpreted for main effects.    Examples  Need to include examples   "
 },
 {
+  "id": "lec-17-sec-1",
+  "level": "1",
+  "url": "lec-17-sec-1.html",
+  "type": "Section",
+  "number": "9.1",
+  "title": "Introduction to Fixed and Random Effects",
+  "body": " Introduction to Fixed and Random Effects   Fixed Effects Model  Consider a one-way treatment structure with levels in a CRD. Then we have the fixed effects model where and , is the th observation in treatment level , is the overall mean (a fixed constant), is the the level effect (a fixed constant), and is random error associated with such that . Note that there are only levels about which we are making inferences.  Under the fixed effects model, we have the following:            for due to the assumption on random error.  Recall that and note that its expectation can be written as We can define the forresponding expected mean square (EMS) such that which gives the table    Source  df  EMS    Trt      Error      Total     Recall that, for the average difference among treatment levels, we test the hypothesis against at least one is non-zero. Under , the EMS for the treatment should be the same with that for error; under , the EMS for treatment should be larger than that for error. This means that for the test statistic under , an F-value closer to 1 indicates greater likelihood that we fail to reject .   "
+},
+{
+  "id": "lec-17-sec-2",
+  "level": "1",
+  "url": "lec-17-sec-2.html",
+  "type": "Section",
+  "number": "9.2",
+  "title": "Random Effects Model",
+  "body": " Random Effects Model  Up to now, we've looked at a study or experiment involving factors having a predetermined set of levels. For a fixed effects model, the inferences are only for the levels of the factors actually used in the experiment; consider the example where we want to compare the intensities of the electrostatic discharges of lightning at three different tracking stations within a 20-mile radius of the central computing facilities of a university. Suppose that we want to make an inference for all possible tracking stations. Instead of being concerned about only these three tracking stations, we can consider these stations as a random sample of three taken from the many possible locations for tracking stations.  This means that our goal becomes to identify factors that are sources of variability in the response variable instead of estimating some fixed effects. For example, we can consider what happens when the quality control engineer attempts to determine which factors in the production process are the major sources of variability (worker ability, types of machines, etc.). Rather than treating those factors as fixed, we can consider them as random. So, we need to estimate the contribution of each of these soruces of variability (called variance components , see below) to the overall variability in the product's quality (response).  For a random effects model, we consider a one-way treatment structure in a CRD with treatment levels corresponding to the random sample of population of possible levels. This gives the model where is the th observation in treatment level , is the overall mean (a fixed constant), is the th treatment level effect (random such that )), and is random error associated with such that . We wish to make inferences about all possible levels in the population. This gives the following table.    Source  df  EMS    Trt      Error      Total     For the random effects model, we are testing versus Under , all values are 0 because . The test statistic for the test above is given by under . If we reject , we are interested in estimating   We have some terms and values:    and are called variance components      is the estimate of     MSTrt is a point estimate of , which we term EMS         Solving for , we get . This is called the Method of Moments Estimation (MME) of . Note that MME can yield negative variance estimates.   We can use specific techniques to avoid the negative variance component estimates; in SAS, PROC MIXED or ( PROC GLIMMIX ) statement allows us to use the method called Restriced Maximum Likelihood (REML) for that.  "
+},
+{
+  "id": "p-308",
+  "level": "2",
+  "url": "lec-17-sec-2.html#p-308",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "variance components "
+},
+{
+  "id": "p-311",
+  "level": "2",
+  "url": "lec-17-sec-2.html#p-311",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "variance components "
+},
+{
+  "id": "lec-17-sec-3",
+  "level": "1",
+  "url": "lec-17-sec-3.html",
+  "type": "Section",
+  "number": "9.3",
+  "title": "Examples",
+  "body": " Examples  To investigate the effect that teachers had on the variation in students' grades, a large school district desgined an experiment in which four teachers were randomly selected from the population of teachers in the district. Seven students were randomly assigned to each of the four teachers, and their final score was recorded at the end of the year.    Teacher  Score    A  84  90  76  62  72  81  70    B  75  85  91  98  82  75  74    C  72  76  74  85  77  60  62    D  88  98  70  95  86  80  75    First, write an appropriate statistical model. Because the four teachers were selected at random, we can use a single-factor random-effects model such that where and . Thus, we have    Source  df  SS  MS   EMS    Treatment  3  683.3  227.8  2.57     Error  24  2119.7  88.3      Total  27  2803.0    Now, write the hypothesis for the ANOVA output and make a conclusion under : versus Since , which leads us to fail to reject . Thus, there is no significant evidence to indicate that there is an additional variability in students' scores from teacher to teacher.  Finally, estimate the variance components by MME; here, we calculate the estimates for illustration even though we fail to reject . We know that the MME of and satisfy the following equations: which implies that and   "
+},
+{
   "id": "lec-18-sec-1",
   "level": "1",
   "url": "lec-18-sec-1.html",
   "type": "Section",
-  "number": "9.1",
+  "number": "10.1",
   "title": "Fixed, Random, and Mixed Models",
   "body": " Fixed, Random, and Mixed Models   Fixed Effects Model with Factorial Treatment  Consider an factorial treatment structure in a CRD. The fixed effects model for , , and is given by where is the k-th observation at , is the overall population mean, is a fixed (non-random) main effect factor of , is a fixed (non-random) main effect factor of , is a fixed (non-random) interaction of , and is a random error. We have the following table:    Source  df  EMS  F                       no interaction    Error      Total       Random Effects Model with Factorial Treatment  A random effects model for , , and is given by where is the k-th observation at , is the overall population mean, is the main effect of factor such that , is the main effect of factor such that , is the interaction of such that , and is random error. We have a similar (but distinct!) table to the fixed effects model:    Source  df  EMS  F                          Error      Total     Note in particular that the test statistics are constructed differently. Unlike the fixed effects model, the result from testing and can be interpreted even when there exists significant evidence in favor of . If any variance components turn out to be significant, then we are interested in estimating the variance components (see below).    Mixed Effects Model with Factorial Treatment  A mixed effects model for , , and is given by where is the k-th observation at , is the overall population mean, is a fixed (non-random) main effect of factor , is a main effect of factor such that , is the interaction of such that , and is a random error. We get the following table:    Source  df  EMS  F                          Error      Total     The fixed, random, and mixed effects models can also be generalized to factorial treatment structures with more than two factors. If any one factor is random, then the interaction must also be random. For example, an factorial structure where the main effect of factor is fixed while the other factors are random gives    fixed effects  random effects    A  B,C,AB,AC,BC,ABC    The presence of significant, fixed interaction means that there are different effects of the factor A across the levels of the other factor, B. In a mixed model, the levels of factor B are randomly selected; however, random interaction in a mixed model is to account for variability of our response attributed to each combination of factors A and B. No matter what the results are for the test of , we can proceed to use the F-tests for factors A and B.   "
 },
@@ -518,7 +563,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "lec-18-sec-2.html",
   "type": "Section",
-  "number": "9.2",
+  "number": "10.2",
   "title": "Variance Component Estimation",
   "body": " Variance Component Estimation  There are two methods to estimate the variance component: the method of moments; and restricted maximum likelihood (REML) by using PROC MIXED . For the method of moments, we equate the mean squares for random effects and the corresponding EMS and then solve for the variance components. Under the mixed effects model, equating the mean squares and the corresponding EMS gives                 Solving for each variance component leads us to see that                     A company wants to evalute the effectiveness of two different sunscreen types ( and ) with 40 subjects. For each subject, a 1-inch square was marked off on their back, under the shoulder and above the small of the back. A response is recorded based on reading the color of the skin in the square before and after the application of a fixed amount of each sunscreen. The measurement of color is extremely variable, so the company randomly selects 10 technicians from their worldwide staff to participate in the study to assess the variability in the readings due to the technician taking the readings. Four subjects, two having and two having , were randomly assigned to each technician for evaluation.     Write the appropriate model for the study    Write the appropriate hypotheses which can be tested by using the following table:    Source  df  SS  MS  EMS    Suncreen  1  4.49  4.49     Technician  9  517.49  57.50     Interaction  9  5.97  0.66     Error  20  2.64  0.13     Total  39      Test the hypotheses specified in part (b)    Make a conclusion:   Reject , thus we would conclude that the variations in the determinations of skin color due to technician differences are different for the two types of sunscreen.    Reject , thus there is a significant source of random variation due to variability from technician to technicia    Reject , thus there is significant evidence that the mean response differs for the two sunscreens       Estimate the variance components by using the method of moments.                                 "
 },
@@ -527,7 +572,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "lec-18-sec-2.html#example-13",
   "type": "Example",
-  "number": "9.2.1",
+  "number": "10.2.1",
   "title": "",
   "body": "  A company wants to evalute the effectiveness of two different sunscreen types ( and ) with 40 subjects. For each subject, a 1-inch square was marked off on their back, under the shoulder and above the small of the back. A response is recorded based on reading the color of the skin in the square before and after the application of a fixed amount of each sunscreen. The measurement of color is extremely variable, so the company randomly selects 10 technicians from their worldwide staff to participate in the study to assess the variability in the readings due to the technician taking the readings. Four subjects, two having and two having , were randomly assigned to each technician for evaluation.     Write the appropriate model for the study    Write the appropriate hypotheses which can be tested by using the following table:    Source  df  SS  MS  EMS    Suncreen  1  4.49  4.49     Technician  9  517.49  57.50     Interaction  9  5.97  0.66     Error  20  2.64  0.13     Total  39      Test the hypotheses specified in part (b)    Make a conclusion:   Reject , thus we would conclude that the variations in the determinations of skin color due to technician differences are different for the two types of sunscreen.    Reject , thus there is a significant source of random variation due to variability from technician to technicia    Reject , thus there is significant evidence that the mean response differs for the two sunscreens       Estimate the variance components by using the method of moments.                                "
 }

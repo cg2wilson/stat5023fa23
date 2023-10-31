@@ -13,14 +13,26 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">A mixed effects model for <span class="process-math">\(i=1,...,a\text{,}\)</span> <span class="process-math">\(j=1,...b\text{,}\)</span> and <span class="process-math">\(k=1,...,n\)</span> is given by</div>
+<div class="para">Recall that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta_{ij}) + \varepsilon_{ijk}
+SSTrt = \sum_{i=1}^t n(\overline{Y_{i\cdot}}-\overline{Y_{\cdot\cdot}})^2
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(Y_{ijk}\)</span> is the k-th observation at <span class="process-math">\(A=i,B=j\text{,}\)</span> <span class="process-math">\(\mu\)</span> is the overall population mean, <span class="process-math">\(\alpha_i\)</span> is a fixed (non-random) main effect of factor <span class="process-math">\(A=i\text{,}\)</span> <span class="process-math">\(\beta_j\)</span> is a main effect of factor <span class="process-math">\(B=j\)</span> such that <span class="process-math">\(\beta_j \sim^{iid} N(0,\sigma_\beta^2)\text{,}\)</span> <span class="process-math">\((\alpha\beta)_{ij}\)</span> is the interaction of <span class="process-math">\(A=i,B=j\)</span> such that <span class="process-math">\((\alpha\beta)_{ij}\sim^{iid} N(0,\sigma_{\alpha\beta}^2)\text{,}\)</span> and <span class="process-math">\(\varepsilon_{ijk}\sim^{iid} N(0,\sigma_\varepsilon^2)\)</span> is a random error. We get the following table:</div>
+<div class="para">and note that its expectation can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(SSTrt) = (t-1)\sigma^2_\varepsilon + n\sum_{i=1}^t \tau_i^2
+\end{equation*}
 </div>
-<span class="incontext"><a href="lec-18-sec-1.html#p-305" class="internal">in-context</a></span>
+<div class="para">We can define the forresponding expected mean square (EMS) such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(MSTrt) = E\lrpar{\dfrac{SSTrt}{t-1}} = \sigma^2_\varepsilon + \dfrac{n\sum_{i=1}^t\tau_i^2}{t-1}
+\end{equation*}
+</div>
+<div class="para">which gives the table</div>
+</div>
+<span class="incontext"><a href="lec-17-sec-1.html#p-305" class="internal">in-context</a></span>
 </body>
 </html>
