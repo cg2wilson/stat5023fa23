@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-19" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 19 - nd</title>
+
+    <section xml:id="lec-19-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Randomized Complete Block Design</title>
+        
+        <subsection xml:id="lec-19-sec-1-1">
+            <title>Randomized Complete Block Design</title>
+        
+            <p>
+                In a randomized complete block design, we have the following terms:
+                <ul>
+                    <li>
+                        <p>
+                            Experimental Unit: The object that receives the treatment level
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Completely Randomized Design: Units are randomly assigned to each treatment level. Here, we implicitly treat each experimental unit as homogeneous.
+                        </p>
+                    </li>
+                </ul>
+                In some situations, there may exist additional variability from other sources. Also, we may be required to use the paired t-test to remove any potential heterogeneity.
+            </p>
+            <p>
+                One example situation may be: Suppose we study the effect of three different fertilizers on corn yields with fifteen 1-acre plots. Assume there exists a gradien tin the plots which impacts yields; unless we take the gradient into account, our response (yields) would be affected by both fertilizers and the gradient. So, three fertilizers need to be randomly assigned within each strip.
+            </p>
+            <p>
+                In RCBD, treatment levels may be group or "blocked" to account for unwanted variability. The blocks each consist of homogeneous experimental units with a random assignment of <m>t</m> treatment levels within each block. This means we have the table below. Let <m>Y_{ij}</m> be an observation in the <m>j-</m>th block receiving the <m>i-</m>th treatment level.
+            </p>
+            <tabular>
+                <row>
+                    <cell></cell>
+                    <cell>Block 1</cell>
+                    <cell>Block 2</cell>
+                    <cell><m>\cdots</m></cell>
+                    <cell>Block <m>n</m></cell>
+                </row>
+                <row>
+                    <cell>Level 1</cell>
+                    <cell><m>Y_{11}</m></cell>
+                    <cell><m>Y_{12}</m></cell>
+                    <cell><m>\cdots</m></cell>
+                    <cell><m>Y_{1n}</m></cell>
+                </row>
+                <row>
+                    <cell>Level 2</cell>
+                    <cell><m>Y_{21}</m></cell>
+                    <cell><m>Y_{22}</m></cell>
+                    <cell><m>\cdots</m></cell>
+                    <cell><m>Y_{2n}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\vdots</m></cell>
+                    <cell><m>\vdots</m></cell>
+                    <cell><m>\vdots</m></cell>
+                    <cell><m>\vdots</m></cell>
+                    <cell><m>\vdots</m></cell>
+                </row>
+                <row>
+                    <cell>Level <m>t</m></cell>
+                    <cell><m>Y_{t1}</m></cell>
+                    <cell><m>Y_{t2}</m></cell>
+                    <cell><m>\cdots</m></cell>
+                    <cell><m>Y_{tn}</m></cell>
+                </row>
+            </tabular>
+            <p>
+                Note that in each block, there are <m>t</m> treatment levels, so there are <m>t</m> observations. 
+            </p>
+            <p>
+                The design above is a RCBD with <m>n</m> blocks. The treatment structure is one-way with <m>t</m> levels. We have the following statistical model associated with the table:
+                <me>
+                    Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}
+                </me>
+                where <m>i=1,...,t</m> and <m>j=1,...,n</m>, <m>Y_{ij}</m> is the observation in the <m>j-</m>th block receiving the <m>i-</m>th treatment level, <m>\mu</m> is the overall mean (a fixed constant), <m>\tau_i</m> is the <m>i-</m>th treatment level effect (a fixed constant), <m>\beta_j</m> is the <m>j-</m>th treatment block effect such that <m>\beta_j \sim^{iid} N(0,\sigma^2_{block})</m>, and <m>\varepsilon_{ij}</m> is a random error associated with <m>Y_{ij}</m> such that <m>\varepsilon_{ij}\sim^{iid} N(0,\sigma^2_\varepsilon)</m>
+            </p>
+            <p>
+                This gives us the following ANOVA table for RCBD:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell>Test Statistic</cell>
+                </row>
+                <row>
+                    <cell>Block</cell>
+                    <cell><m>n-1</m></cell>
+                    <cell><m>\sigma^2_\varepsilon + t\sigma^2_{block}</m></cell>
+                    <cell><m>F = MSTrt/MSE</m></cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\ds \sigma^2_\varepsilon + \dfrac{n}{t-1}\sum_{i=1}^t \tau_i^2</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>(n-1)(t-1)</m></cell>
+                    <cell><m>\sigma^2_\varepsilon</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>nt-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                The null hypothesis being tested is 
+                <me>
+                    H_0: \tau_1 = \cdots = \tau_t = 0
+                </me>
+            </p>
+            <p>
+                Here, note the following: randomization has been applied only to treatments within blocks; we assume no interaction between treatments and blocks; we are not interested in testing a hypothesis about the blocking factor.
+            </p>
+            <p>
+                Under RCBD, we have the standard error estimates of <m>\overline{Y}_{i\cdot}</m> and <m>\overline{Y}_{i\cdot} - \overline{Y}_{i'\cdot}</m>:
+                <md>
+                    <mrow>s_{\overline{Y}_{i\cdot}} \amp = \sqrt{\dfrac{\hat{\sigma}_{block}^2 + \hat{\sigma}_\varepsilon^2}{n}} </mrow>
+                    <mrow> s_{\overline{Y}_{i\cdot}-\overline{Y}_{i'\cdot}}\amp = \sqrt{\dfrac{2\hat{\sigma}_\varepsilon^2}{n}} </mrow>
+                </md>
+                Under these estimated standard errors, we can perform inference as before. For a contrast <m>L = \ds \sum_{i=1}^t a_i\tau_i</m> such that <m>\ds \sum_{i=1}^t a_i = 0</m>, we have
+                <md>
+                    <mrow> \hat{L} \amp = \ds \sum_{i=1}^t a_i \overline{Y}_{i\cdot} </mrow>
+                    <mrow> s_{\hat{L}} \amp = \sqrt{\ds\dfrac{\hat{\sigma}^2_\varepsilon}{n}\sum_{i=1}^ta_i^2} </mrow>
+                </md>
+                We wish to test the hypothesis <m>H_0: L = 0</m> versus <m>H_a: L\neq 0</m> with 
+                <me>
+                    t = \dfrac{\hat{L}}{s_{\hat{L}}}\sim t_{(n-1)(t-1)}
+                </me>
+                under <m>H_0</m>. Thus, reject <m>H_0</m> if <m>|t| \geq t_{\alpha/2,(n-1)(t-1)}</m> under significance level <m>\alpha</m>.
+            </p>
+            <p>
+                For multiple comparison, we have
+            </p>
+            <tabular>
+                <row>
+                    <cell>Method</cell>
+                    <cell>Cutoff</cell>
+                    <cell><m>H_0</m> and Rejection Decision</cell>
+                </row>
+                <row>
+                    <cell>Fisher</cell>
+                    <cell><m>LSD = t_{\alpha/2,(n-1)(t-1)s_{\overline{Y}_{i\cdot}-\overline{Y}_{i'\cdot}}}</m></cell>
+                    <cell><m>H_0: \tau_i - \tau_{i'} = 0</m> if <m>|\overline{Y}_{i\cdot}-\overline{Y}_{i'\cdot}|\geq LSD</m></cell>
+                </row>
+                <row>
+                    <cell>Tukey</cell>
+                    <cell><m>HSD = q_{\alpha,t,(n-1)(t-1)}\sqrt{\dfrac{\hat{\sigma}^2_\varepsilon}{n}}</m></cell>
+                    <cell><m>H_0: \tau_i - \tau_{i'} = 0</m> if <m>|\overline{Y}_{i\cdot}-\overline{Y}_{i'\cdot}|\geq HSD</m></cell>
+                </row>
+                <row>
+                    <cell>Scheffe</cell>
+                    <cell><m>S = \sqrt{(t-1)F_{\alpha,t-1,(n-1)(t-1)}}\cdot s_{\hat{L}}</m></cell>
+                    <cell>
+                        <m>H_0: \ds \sum_{i=1}^t a_i\tau_i = 0</m> if <m>|\hat{L}| \geq S</m>
+                    </cell>
+                </row>
+            </tabular>
+            <p>
+                We have the following ANOVA table for RCBD with <m>n</m> blocks with an <m>a\times b</m> factorial (fixed) treatment structure:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell><m>H_0</m></cell>
+                    <cell><m>F</m></cell>
+                </row>
+                <row>
+                    <cell>Block</cell>
+                    <cell><m>n-1</m></cell>
+                    <cell><m>\sigma^2_\varepsilon + ab\sigma^2_{block}</m></cell>
+                </row>
+                <row>
+                    <cell>A</cell>
+                    <cell><m>a-1</m></cell>
+                    <cell><m>\ds\sigma^2_\varepsilon + \dfrac{nb}{a-1} \sum_{i=1}^a \alpha_i^2</m></cell>
+                    <cell> <m>H_0: \alpha_1 = \cdots = \alpha_a = 0</m></cell>
+                    <cell><m>MSA/MSE</m></cell>
+                </row>
+                <row>
+                    <cell>B</cell>
+                    <cell><m>b-1</m></cell>
+                    <cell><m>\ds\sigma^2_\varepsilon + \dfrac{na}{b-1} \sum_{i=1}^b \beta_j^2</m></cell>
+                    <cell> <m>H_0: \beta_1 = \cdots = \beta_b = 0</m></cell>
+                    <cell><m>MSB/MSE</m></cell>
+                </row>
+                <row>
+                    <cell>AB</cell>
+                    <cell><m>(a-1)(b-1)</m></cell>
+                    <cell><m>\ds\sigma^2_\varepsilon + \dfrac{n}{(a-1)(b-1)} \sum (\alpha\beta)_{ij}^2</m></cell>
+                    <cell> <m>H_0:</m> no interaction</cell>
+                    <cell><m>MSAB/MSE</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>(ab-1)(n-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell> <m>abn-1</m></cell>
+                </row>
+            </tabular>
+
+            <example>
+                <statement>
+                    <p>
+                        An education specialist wants to compare the average difference among the three different vocabulary tests that are available for children. They select 8 children and administer all three tests, with results given below.
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell></cell>
+                            <cell colspan="8" halign="center">Child</cell>
+                            <cell>Test Means</cell>
+                        </row>
+                        <row>
+                            <cell></cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>3</cell>
+                            <cell>4</cell>
+                            <cell>5</cell>
+                            <cell>6</cell>
+                            <cell>7</cell>
+                            <cell>8</cell>
+                            <cell></cell>
+                        </row>
+                        <row>
+                            <cell>Test A</cell>
+                            <cell>18</cell>
+                            <cell>24</cell>
+                            <cell>30</cell>
+                            <cell>12</cell>
+                            <cell>26</cell>
+                            <cell>15</cell>
+                            <cell>29</cell>
+                            <cell>20</cell>
+                            <cell>21.75</cell>
+                        </row>
+                        <row>
+                            <cell>Test B</cell>
+                            <cell>24</cell>
+                            <cell>25</cell>
+                            <cell>30</cell>
+                            <cell>15</cell>
+                            <cell>23</cell>
+                            <cell>15</cell>
+                            <cell>33</cell>
+                            <cell>19</cell>
+                            <cell>23.00</cell>
+                        </row>
+                        <row>
+                            <cell>Test C</cell>
+                            <cell>17</cell>
+                            <cell>21</cell>
+                            <cell>26</cell>
+                            <cell>11</cell>
+                            <cell>22</cell>
+                            <cell>12</cell>
+                            <cell>21</cell>
+                            <cell>18</cell>
+                            <cell>18.50</cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        This results in the following ANOVA table:
+                    </p>
+                    
+                    <tabular>
+                        <row>
+                            <cell></cell>
+                            <cell>df</cell>
+                            <cell>SS</cell>
+                            <cell>MS</cell>
+                        </row>
+                        <row>
+                            <cell>Test</cell>
+                            <cell>2</cell>
+                            <cell>86.333</cell>
+                            <cell>43.167</cell>
+                        </row>
+                        <row>
+                            <cell>Child</cell>
+                            <cell>7</cell>
+                            <cell>719.85</cell>
+                            <cell>102.84</cell>
+                        </row>
+                        <row>
+                            <cell>Error</cell>
+                            <cell>14</cell>
+                            <cell>61.755</cell>
+                            <cell>4.411</cell>
+                        </row>
+                    </tabular>
+                </statement>
+                <solution>
+                    <p>
+                        We test <m>H_0: \tau_1 = \tau_2 = \tau_3 = 0</m> by using the <m>F</m>
+                    -statistic
+                    <me>
+                        F = \dfrac{MSTrt}{MSE} = \dfrac{43.167}{4.411} = 9.79\tilde F_{2,14}
+                    </me>
+                    under <m>H_0</m>. Under <m>\alpha=0.05</m>, there is significant evidence that at least one vocabulary test has a different mean score; so, we do a pairwise comparison. Under <m>\alpha=0.05</m>, we have Tukey's HSD give
+                    <me>
+                        q_{0.05,3,14}\sqrt{MSE/8} = 2.75
+                    </me>
+                    which results in
+                    <md>
+                        <mrow>|\overline{Y}_{1\cdot} - \overline{Y}_{2\cdot} \amp = |21.75-23.00| \lt HSD </mrow>
+                        <mrow>|\overline{Y}_{3\cdot} - \overline{Y}_{2\cdot}\amp = |21.75 - 18.50| \gt HSD </mrow>
+                        <mrow>|\overline{Y}_{2\cdot} - \overline{Y}_{3\cdot} \amp |23.00-18.50| \gt HSD </mrow>
+                    </md>
+                    so we conclude that there is no significant average difference between tests A and B, while the other pairs show significant differences.
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+
+    </section>
+
+    
+</chapter>
