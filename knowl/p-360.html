@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Under RCBD, we have the standard error estimates of <span class="process-math">\(\overline{Y}_{i\cdot}\)</span> and <span class="process-math">\(\overline{Y}_{i\cdot} - \overline{Y}_{i'\cdot}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+s_{\overline{Y}_{i\cdot}} \amp = \sqrt{\dfrac{\hat{\sigma}_{block}^2 + \hat{\sigma}_\varepsilon^2}{n}} \\
+s_{\overline{Y}_{i\cdot}-\overline{Y}_{i'\cdot}}\amp = \sqrt{\dfrac{2\hat{\sigma}_\varepsilon^2}{n}} 
+\end{align*}
+</div>
+<div class="para">Under these estimated standard errors, we can perform inference as before. For a contrast <span class="process-math">\(L = \ds \sum_{i=1}^t a_i\tau_i\)</span> such that <span class="process-math">\(\ds \sum_{i=1}^t a_i = 0\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\hat{L} \amp = \ds \sum_{i=1}^t a_i \overline{Y}_{i\cdot} \\
+s_{\hat{L}} \amp = \sqrt{\ds\dfrac{\hat{\sigma}^2_\varepsilon}{n}\sum_{i=1}^ta_i^2} 
+\end{align*}
+</div>
+<div class="para">We wish to test the hypothesis <span class="process-math">\(H_0: L = 0\)</span> versus <span class="process-math">\(H_a: L\neq 0\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\hat{L}}{s_{\hat{L}}}\sim t_{(n-1)(t-1)}
+\end{equation*}
+</div>
+<div class="para">under <span class="process-math">\(H_0\text{.}\)</span> Thus, reject <span class="process-math">\(H_0\)</span> if <span class="process-math">\(|t| \geq t_{\alpha/2,(n-1)(t-1)}\)</span> under significance level <span class="process-math">\(\alpha\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="lec-19-sec-1.html#p-360" class="internal">in-context</a></span>
+</body>
+</html>
