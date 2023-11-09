@@ -16,7 +16,7 @@
 <div class="para">We test <span class="process-math">\(H_0: \tau_1 = \tau_2 = \tau_3 = 0\)</span> by using the <span class="process-math">\(F\)</span> -statistic</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F = \dfrac{MSTrt}{MSE} = \dfrac{43.167}{4.411} = 9.79\tilde F_{2,14}
+F = \dfrac{MSTrt}{MSE} = \dfrac{43.167}{4.411} = 9.79\sim F_{2,14}
 \end{equation*}
 </div>
 <div class="para">under <span class="process-math">\(H_0\text{.}\)</span> Under <span class="process-math">\(\alpha=0.05\text{,}\)</span> there is significant evidence that at least one vocabulary test has a different mean score; so, we do a pairwise comparison. Under <span class="process-math">\(\alpha=0.05\text{,}\)</span> we have Tukey’s HSD give</div>
@@ -28,9 +28,9 @@ q_{0.05,3,14}\sqrt{MSE/8} = 2.75
 <div class="para">which results in</div>
 <div class="displaymath process-math">
 \begin{align*}
-|\overline{Y}_{1\cdot} - \overline{Y}_{2\cdot} \amp = |21.75-23.00| \lt HSD \\
-|\overline{Y}_{3\cdot} - \overline{Y}_{2\cdot}\amp = |21.75 - 18.50| \gt HSD \\
-|\overline{Y}_{2\cdot} - \overline{Y}_{3\cdot} \amp |23.00-18.50| \gt HSD 
+|\overline{Y}_{1\cdot} - \overline{Y}_{2\cdot}| \amp = |21.75-23.00| \lt HSD \\
+|\overline{Y}_{3\cdot} - \overline{Y}_{2\cdot}| \amp = |21.75 - 18.50| \gt HSD \\
+|\overline{Y}_{2\cdot} - \overline{Y}_{3\cdot}| \amp =  |23.00-18.50| \gt HSD 
 \end{align*}
 </div>
 <div class="para">so we conclude that there is no significant average difference between tests A and B, while the other pairs show significant differences.</div>

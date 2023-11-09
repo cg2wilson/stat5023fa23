@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">GIven the above estimated standard errors, we can make inferences using contrasts and multiple comparisons. Let <span class="process-math">\(L = \ds \sum_{k=1}^t a_k\tau_k\)</span> be a contrast of interest. Then,</div>
+<ul class="disc">
+<li><div class="para logical">
+<div class="para">A <span class="process-math">\(100(1-\alpha)\%\)</span> CI for <span class="process-math">\(L\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ds \sum_{k=1}^t a_k\overline{Y}_k\pm t_{\alpha/2,(t-1)(t-2)}\cdot \sqrt{\hat{\sigma}^2_\varepsilon \sum_{k=1}^t \dfrac{1}{t}a_k^2}
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(\ds \sum_{k=1}^t a_k\overline{Y}_k\)</span> is <span class="process-math">\(\hat{L}\)</span> and <span class="process-math">\(s_{\hat{L}}\)</span> is given by <span class="process-math">\(\sqrt{\hat{\sigma}^2_\varepsilon \sum_{k=1}^t \dfrac{1}{t}a_k^2}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We may hypothesis test <span class="process-math">\(H_0: L = 0\)</span> vs. <span class="process-math">\(H_a: L\neq 0\)</span> using a <span class="process-math">\(t-\)</span>test or <span class="process-math">\(F-\)</span>test as before:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\sum a_k \overline{Y}_k}{\sqrt{\hat{\sigma}^2_\varepsilon \sum \dfrac{1}{t}a_k^2}}\sim t_{(t-1)(t-2)}
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{SSC_L/1}{MSE}\sim F_{\alpha,1,(t-1)(t-2)}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(SSC_L = \dfrac{\hat{L}^2}{\sum \dfrac{1}{t} a_k^2} = \dfrac{t\lrpar{\sum a_k\overline{Y}_k}^2}{\sum a_k^2}\text{.}\)</span> Note that we reject <span class="process-math">\(H_0\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|t| \geq t_{\alpha/2,(t-1)(t-2)} 
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F\geq F_{\alpha,1,(t-1)(t-2)}
+\end{equation*}
+</div>
+</div></li>
+</ul>
+</div>
+<span class="incontext"><a href="lec-20-sec-1.html#p-384" class="internal">in-context</a></span>
+</body>
+</html>
