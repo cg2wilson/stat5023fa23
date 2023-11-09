@@ -306,7 +306,7 @@
                         We test <m>H_0: \tau_1 = \tau_2 = \tau_3 = 0</m> by using the <m>F</m>
                     -statistic
                     <me>
-                        F = \dfrac{MSTrt}{MSE} = \dfrac{43.167}{4.411} = 9.79\tilde F_{2,14}
+                        F = \dfrac{MSTrt}{MSE} = \dfrac{43.167}{4.411} = 9.79\sim F_{2,14}
                     </me>
                     under <m>H_0</m>. Under <m>\alpha=0.05</m>, there is significant evidence that at least one vocabulary test has a different mean score; so, we do a pairwise comparison. Under <m>\alpha=0.05</m>, we have Tukey's HSD give
                     <me>
@@ -314,9 +314,9 @@
                     </me>
                     which results in
                     <md>
-                        <mrow>|\overline{Y}_{1\cdot} - \overline{Y}_{2\cdot} \amp = |21.75-23.00| \lt HSD </mrow>
-                        <mrow>|\overline{Y}_{3\cdot} - \overline{Y}_{2\cdot}\amp = |21.75 - 18.50| \gt HSD </mrow>
-                        <mrow>|\overline{Y}_{2\cdot} - \overline{Y}_{3\cdot} \amp |23.00-18.50| \gt HSD </mrow>
+                        <mrow>|\overline{Y}_{1\cdot} - \overline{Y}_{2\cdot}| \amp = |21.75-23.00| \lt HSD </mrow>
+                        <mrow>|\overline{Y}_{3\cdot} - \overline{Y}_{2\cdot}| \amp = |21.75 - 18.50| \gt HSD </mrow>
+                        <mrow>|\overline{Y}_{2\cdot} - \overline{Y}_{3\cdot}| \amp =  |23.00-18.50| \gt HSD </mrow>
                     </md>
                     so we conclude that there is no significant average difference between tests A and B, while the other pairs show significant differences.
                     </p>

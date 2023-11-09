@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-20" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 20 - nd</title>
+
+    <section xml:id="lec-20-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Latin Square Design</title>
+        
+        <subsection xml:id="lec-20-sec-1-1">
+            <title>Latin Square Design</title>
+
+            <p>
+                Recall that in RCBD, we had one factor chosen to be blocked in order to control outside variability. A Latin Square design chooses to block two factors. The two sources of variability are represented as rows and columns; each treatment level occurs once and only once in each row and column. This procedure requires that there be exactly <m>t</m> rows and columns, for the <m>t</m> treatments.
+            </p>
+
+            <p>
+                As a quick example, consider this situation: A consumer organization wants to evaluate three major brands, <m>B_1,B_2,B_3</m>, of room air cleaners. In order to make the ratings as realistic as possible, they choose to evaluate the air cleaners outside the testing laboratory in residential homes. To control for variations due to the differening air qualities in the homes and due to the time-of-year characteristics of external air pollution, they use a cleaner of each brand in each of three homes and to run the tests at three different months. This would result in the following square:
+            </p>
+            <tabular>
+                <row>
+                    <cell></cell>
+                    <cell>Home 1</cell>
+                    <cell>Home 2</cell>
+                    <cell>Home 3</cell>
+                </row>
+                <row>
+                    <cell>Month 1</cell>
+                    <cell><m>B_1</m></cell>
+                    <cell><m>B_2</m></cell>
+                    <cell><m>B_3</m></cell>
+                </row>
+                <row>
+                    <cell>Month 2</cell>
+                    <cell><m>B_2</m></cell>
+                    <cell><m>B_3</m></cell>
+                    <cell><m>B_1</m></cell>
+                </row>
+                <row>
+                    <cell>Month 3</cell>
+                    <cell><m>B_3</m></cell>
+                    <cell><m>B_1</m></cell>
+                    <cell><m>B_2</m></cell>
+                </row>
+            </tabular>
+            <p>
+                For Latin Squares, proper random assignment of treatment matters. We may randomly assign some labels to columns in Row 1, then assign them to remaining rows so that each label appears only once in each row and column. Then, we randonmly assign the treatment levels to each label.
+            </p>
+            <p>
+                The statistical effects model is given by
+                <me>
+                    Y_{ij(k)} = \mu + \rho_i + \gamm_j + \tau_k + \varepsilon_{ijk}
+                </me>
+                for <m>i,j,k=1,...,t</m> with
+                <ul>
+                    <li>
+                        <p>
+                            <m>Y_{ij(k)}</m> being the observation at row <m>i</m> and column <m>j</m> with treatment level <m>k</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\mu</m> the overall mean
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\rho_i</m> the effect of row <m>i</m> such that <m>\rho_i\sim^{iid} N(0,\sigma_{row}^2)</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\gamma_j</m> the effect of row <m>j</m> such that <m>\gamma_j\sim^{iid} N(0,\sigma_{column}^2)</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\tau_k</m> is a fixed (non-random) effect of treatment level <m>k</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\varepsilon_{ijk}\sim^{iid} N(0,\sigma_\varepsilon^2)</m> is a random error.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+
+            <p>
+                We have the following source of variation in a Latin Square Design:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                    <cell><m>H_0</m></cell>
+                    <cell><m>F</m></cell>
+                </row>
+                <row>
+                    <cell>Row</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + t\sigma^2_{row}</m></cell>
+                </row>
+                <row>
+                    <cell>Column</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + t\sigma^2_{column}</m></cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + \dfrac{t}{t-1}\sum_{k=1}^t \tau_k^2</m></cell>
+                    <cell><m>H_0: \tau_1 = \cdots = \tau_t = 0</m></cell>
+                    <cell><m>\dfrac{MSTrt}{MSE}</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>(t-1)(t-2)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>t^2-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                Note the following:
+                <ul>
+                    <li>
+                        <p>
+                            The treatment mean is given by
+                            <me>
+                                \overline{Y}_k = \dfrac{1}{t} \sum_{i,j} Y_{ij(k)}
+                            </me>
+                            
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>Var(\overline{Y}_k) = \dfrac{1}{t}\lrpar{\sigma_{row}^2 + \sigma^2_{column} + \sigma^2_\varepsilon}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The standard error estimate of <m>\overline{Y}_k</m> is given by
+                            <me>
+                                s_{\overline{Y}_k} = \sqrt{Var(\overline{Y}_k)}
+                            </me>
+                            
+                        </p>
+                    </li>
+                </ul>
+                Also, <m>\tau_k - \tau_{k'}</m> can be estimated by <m>\overline{Y}_k - \overline{Y}_{k'}</m>. This means that
+                <ul>
+                    <li>
+                        <p>
+                            <m>Var(\overline{Y}_k - \overline{Y}_{k'}) = \dfrac{2}{t}\sigma_\varepsilon^2</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>s_{\overline{Y}_k - \overline{Y}_{k'}} = \sqrt{Var(\overline{Y}_k - \overline{Y}_{k'})}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A <m>100(1-\alpha)\%</m> CI for <m>\tau_k-\tau_{k'}</m> is given by
+                            <me>
+                                (Var(\overline{Y}_k - \overline{Y}_{k'})) \pm t_{\alpha/2,(t-1)(t-2)}\cdot s_{Var(\overline{Y}_k - \overline{Y}_{k'})}
+                            </me>
+                            
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                GIven the above estimated standard errors, we can make inferences using contrasts and multiple comparisons. Let <m>L = \ds \sum_{k=1}^t a_k\tau_k</m> be a contrast of interest. Then,
+                <ul>
+                    <li>
+                        <p>
+                            A <m>100(1-\alpha)\%</m> CI for <m>L</m> is given by
+                            <me>
+                                \ds \sum_{k=1}^t a_k\overline{Y}_k\pm t_{\alpha/2,(t-1)(t-2)}\cdot \sqrt{\hat{\sigma}^2_\varepsilon \sum_{k=1}^t \dfrac{1}{t}a_k^2}
+                            </me>
+                            Note that <m>\ds \sum_{k=1}^t a_k\overline{Y}_k</m> is <m>\hat{L}</m> and <m>s_{\hat{L}}</m> is given by <m>\sqrt{\hat{\sigma}^2_\varepsilon \sum_{k=1}^t \dfrac{1}{t}a_k^2}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We may hypothesis test <m>H_0: L = 0</m> vs. <m>H_a: L\neq 0</m> using a <m>t-</m>test or <m>F-</m>test as before:
+                            <me>
+                                t = \dfrac{\sum a_k \overline{Y}_k}{\sqrt{\hat{\sigma}^2_\varepsilon \sum \dfrac{1}{t}a_k^2}}\sim t_{(t-1)(t-2)}
+                            </me>
+                            or 
+                            <me>
+                                F = \dfrac{SSC_L/1}{MSE}\sim F_{\alpha,1,(t-1)(t-2)}
+                            </me>
+                            where <m>SSC_L = \dfrac{\hat{L}^2}{\sum \dfrac{1}{t} a_k^2} = \dfrac{t\lrpar{\sum a_k\overline{Y}_k}^2}{\sum a_k^2}</m>. Note that we reject <m>H_0</m> if
+                            <me>
+                                |t| \geq t_{\alpha/2,(t-1)(t-2)} 
+                            </me>
+                            or
+                            <me>
+                                F\geq F_{\alpha,1,(t-1)(t-2)}
+                            </me>          
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                When two sources of outside variability can be well-identified, the Latin square is an effective design. We only restrict that the number of treatments be equal to the number of rows and columns. Small designs generally have too few replications for a desirable level of precision, however.
+            </p>
+            <example>
+                <statement>
+                    <p>
+                        The study of home air cleaners as a Latin square design using randomly chosen five homes and five months as blocking variables is given below; the response variable is the CADR value obtained from a room air cleaner in a given home during a given month.
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell></cell>
+                            <cell halign="center" colspan="5"></cell>
+                        </row>
+                        <row>
+                            <cell>Month</cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>3</cell>
+                            <cell>4</cell>
+                            <cell>5</cell>
+                            <cell>Month Mean</cell>
+                            <cell>Brand Mean</cell>
+                        </row>
+                        <row>
+                            <cell>1</cell>
+                            <cell><m>B_1(162)</m></cell>
+                            <cell><m>B_2(89)</m></cell>
+                            <cell><m>B_3(160)</m></cell>
+                            <cell><m>B_4(146)</m></cell>
+                            <cell><m>B_5(241)</m></cell>
+                            <cell>159.6</cell>
+                            <cell>182.2</cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell><m>B_2(115)</m></cell>
+                            <cell><m>B_3(192)</m></cell>
+                            <cell><m>B_4(164)</m></cell>
+                            <cell><m>B_5(296)</m></cell>
+                            <cell><m>B_1(142)</m></cell>
+                            <cell>181.8</cell>
+                            <cell>139.8</cell>
+                        </row>
+                        <row>
+                            <cell>3</cell>
+                            <cell><m>B_3(149)</m></cell>
+                            <cell><m>B_4(273)</m></cell>
+                            <cell><m>B_5(238)</m></cell>
+                            <cell><m>B_1(227)</m></cell>
+                            <cell><m>B_2(103)</m></cell>
+                            <cell>198.0</cell>
+                            <cell>165.6</cell>
+                        </row>
+                        <row>
+                            <cell>4</cell>
+                            <cell><m>B_4(229)</m></cell>
+                            <cell><m>B_5(273)</m></cell>
+                            <cell><m>B_1(175)</m></cell>
+                            <cell><m>B_2(71)</m></cell>
+                            <cell><m>B_3(119)</m></cell>
+                            <cell>173.4</cell>
+                            <cell>229.0</cell>
+                        </row>
+                        <row>
+                            <cell>5</cell>
+                            <cell><m>B_5(328)</m></cell>
+                            <cell><m>B_1(205)</m></cell>
+                            <cell><m>B_2(321)</m></cell>
+                            <cell><m>B_3(208)</m></cell>
+                            <cell><m>B_4(333)</m></cell>
+                            <cell>279.0</cell>
+                            <cell>275.2</cell>
+                        </row>
+                        <row>
+                            <cell>Home mean</cell>
+                            <cell>196.6</cell>
+                            <cell>206.4</cell>
+                            <cell>211.6</cell>
+                            <cell>189.6</cell>
+                            <cell>187.6</cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Write an appropriate statistical model for this experimental situation
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Test whether the five brands show any average difference or not under <m>\alpha = 0.05</m>. Assume <m>MSTrt = 14508.54</m> and <m>MSE = 2887.29</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Under <m>\alpha = 0.05</m>, test whether the average CADR of Brands 4 and 5 using <m>MSE = 2887.29</m>
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        <ol>
+                            <li>
+                                <p>
+                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+        <subsection xml:id="lec-20-1-2">
+            <title>Latin Square Design with Multiple Squares</title>
+            
+            <p>
+                Consider a <m>2\times 2</m> Latin square:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                </row>
+                <row>
+                    <cell>Row</cell>
+                    <cell>1</cell>
+                </row>
+                <row>
+                    <cell>Column</cell>
+                    <cell>1</cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell>1</cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell>0</cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell>3</cell>
+                </row>
+            </tabular>
+            <p>
+                Here, there are no degrees of freedom for error; this means that no test of significance can be done. For this reason, more than one Latin square can be used in an experiment. The larger df means that the have a better estimate of the error variance.
+            </p>
+            <p>
+                For <m>s</m> many <m>t\times t</m> Latin squares, the sources of variation can generally be partitioned as follows:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                </row>
+                <row>
+                    <cell>Square</cell>
+                    <cell><m>s</m></cell>
+                </row>
+                <row>
+                    <cell>Row within Square</cell>
+                    <cell><m>s(t-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Column within Square</cell>
+                    <cell><m>s(t-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell><m>t-1</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>s(t-1)(t-2)+(s-1)(t-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>t^2s-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                As an example, assume that there are two lab technicians to carry out an experiment. Each of the technicians has different "luck" in carrying out the experiment.
+            </p>
+            <tabular>
+                <row>
+                    <cell></cell>
+                    <cell halign="center" colspan="4">Technician 1</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell>Oven 1</cell>
+                    <cell>Oven 2</cell>
+                    <cell>Oven 3</cell>
+                    <cell>Oven 4</cell>
+                </row>
+                <row>
+                    <cell>Day 1</cell>
+                    <cell>A</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                    <cell>C</cell>
+                </row>
+                <row>
+                    <cell>Day 2</cell>
+                    <cell>D</cell>
+                    <cell>C</cell>
+                    <cell>A</cell>
+                    <cell>B</cell>
+                </row>
+                <row>
+                    <cell>Day 3</cell>
+                    <cell>C</cell>
+                    <cell>A</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                </row>
+                <row>
+                    <cell>Day 4</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                    <cell>C</cell>
+                    <cell>A</cell>
+                </row>
+            </tabular>
+            <tabular>
+                <row>
+                    <cell></cell>
+                    <cell halign="center" colspan="4">Technician 2</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell>Oven 5</cell>
+                    <cell>Oven 6</cell>
+                    <cell>Oven 7</cell>
+                    <cell>Oven 8</cell>
+                </row>
+                <row>
+                    <cell>Day 5</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                    <cell>A</cell>
+                    <cell>C</cell>
+                </row>
+                <row>
+                    <cell>Day 6</cell>
+                    <cell>A</cell>
+                    <cell>C</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                </row>
+                <row>
+                    <cell>Day 7</cell>
+                    <cell>D</cell>
+                    <cell>A</cell>
+                    <cell>C</cell>
+                    <cell>B</cell>
+                </row>
+                <row>
+                    <cell>Day 8</cell>
+                    <cell>C</cell>
+                    <cell>B</cell>
+                    <cell>D</cell>
+                    <cell>A</cell>
+                </row>
+            </tabular>
+            <p>
+                What are the sources of variation in the experiment?
+            </p>
+        </subsection>
+
+    </section>
+
+    
+</chapter>
