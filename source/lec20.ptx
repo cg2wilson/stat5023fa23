@@ -48,7 +48,7 @@
             <p>
                 The statistical effects model is given by
                 <me>
-                    Y_{ij(k)} = \mu + \rho_i + \gamm_j + \tau_k + \varepsilon_{ijk}
+                    Y_{ij(k)} = \mu + \rho_i + \gamma_j + \tau_k + \varepsilon_{ijk}
                 </me>
                 for <m>i,j,k=1,...,t</m> with
                 <ul>
@@ -314,12 +314,12 @@
                         <ol>
                             <li>
                                 <p>
-                                    
+                                    <m>Y_{ij(k)} = \mu + \rho_i + \gamma_j + \tau_k + \varepsilon_{ijk}</m>, where <m>\rho_i</m> and <m>\gamma_j</m> are random effects for the row and column, respectively, and <m>\tau_k</m> is the effect for the treatment. 
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                    
+                                    <m>F = \dfrac{MSTrt}{MSE} = \dfrac{14508.54}{2887.29}7\sim F_{4,12}</m>, which results in rejection of the null (double check).
                                 </p>
                             </li>
                             <li>

@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-21" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 21 - nd</title>
+
+    <section xml:id="lec-21-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Nested Factor and Subsampling</title>
+        
+        <subsection xml:id="lec-21-sec-1-1">
+            <title>Nested Factor and Subsampling</title>
+
+            <p>
+                As a motivating example, consider the situation where a pharmaceutical company conducts test to determine stability of its product in two manufacturing sites. At each site, a random sample of three batches of the product was obtained, and additional random samples of 10 different tablets were obtained from each batch. 
+            </p>
+            <p>
+                Note that in this situation, we are not considering factorial design; we have three batches at Site 1 which are distinct from those at Site 2. 
+            </p>
+
+            <definition>
+                <title>Nested Factor/Crossed Factor</title>            
+                <statement>
+                    <p>
+                        Factor B is said to be <term>nested</term> within levels of A if the physical properties of the <m>b</m> levels of Factor B vary depending on which level of Factor A it is associated with. Two factors A and B are <term>crossed</term> if the physical properties of the <m>b</m> levels of Factor B are identical for all levels of Factor A.
+                    </p>
+                    <p>
+                        In other words, a nested factor is one whose levels are unique to each level of a second factor.
+                    </p>
+                </statement>
+            </definition>
+
+            <p>
+                In the previous example, batch is nested within site, and tablet is nested within batch (hence site). 
+            </p>
+
+            <p>
+                Suppose we study whether or not there exists any difference on average response in patients having the same therapy among hospitals. A CRD with one-way treatment structure would have us select <m>s</m> patients at each of <m>t</m> randomly chosen hospitals. The hospital has randomly selected treatment levels, which are normally distributed as <m>N(0,\sigma^2_{hospital})</m>; patients are randomly chosen experimental units unique to each hospital, normally distributed as <m>N(0,\sigma^2_\varepsilon)</m>. Here, each experimental unit can be nested within a treatment level. Error comes from variability from patients within the hospital, so we have
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma^2_\varepsilon + s\sigma^2_{hospital}</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>t(s-1)</m></cell>
+                    <cell><m>\sigma^2_\varepsilon</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell>ts-1</cell>
+                </row>
+
+            </tabular>
+
+            <p>
+                Suppose that we have two drugs to be compared at the same, randomly chosen 10 hospitals. We have a two-way factorial treatment structure with random effect for hospital from <m>N(0,\sigma^2_H)</m> and fixed effects for drugs. Select <m>s</m> patients for Drug 1 at each hospital and <m>s</m> patients for Drug 2 at each hospital. There exists interaction between the hospital and the drug, from <m>N(0,\sigma^2_{HD})</m>. The error then is due to patients within Drug and Hospital, taken from <m>N(0,\sigma^2_\varepsilon)</m>. This gives
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                </row>
+                <row>
+                    <cell>Drug</cell>
+                    <cell>1</cell>
+                    <cell><m>\sigma^2_\varepsilon + s\sigma^2_{HD} + 10s\sum_{i=1}^2 \alpha_i^2</m></cell>
+                </row>
+                <row>
+                    <cell>Hospital</cell>
+                    <cell>9</cell>
+                    <cell><m>\sigma^2_\varepsilon + s\sigma^2_{HD} + 2s\sigma^2_H</m></cell>
+                </row>
+                <row>
+                    <cell>Drug<m>\times</m>Hospital</cell>
+                    <cell>9</cell>
+                    <cell><m>\sigma^2_\varepsilon + s\sigma^2_{HD}</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>2\cdot 10(s-1)</m></cell>
+                    <cell><m>\sigma^2_\varepsilon</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>2\cdot 10s-1</m></cell>
+                </row>
+
+            </tabular>
+
+            <p>
+                Now suppose 10 hospitals are randomly selected to test Drug 1 and another 10 hospitals are randomly selected to test Drug 2. A random sample of <m>s</m> patients is chosen in each hospital. In this case, Hospital is nested within Drug; this gives different df from the factorial case and <m>N(0,\sigma^2_{H(D)})</m>. It's not possible to model the interaction because observations from all Drug and Hospital combinations are not available. The error is due to patients nested within Hospital and Drug, so <m>N(0,\sigma^2_\varepsilon)
+                </m>
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                </row>
+                <row>
+                    <cell>Drug</cell>
+                    <cell><m>2-1 =1 </m></cell>
+                    <cell><m>\sigma^2_\varepsilon + s\sigma^2_{H(D)} + 10s\sum_{i=1}^2 \alpha_i^2</m></cell>
+                </row>
+                <row>
+                    <cell>Hospital (within Drug)</cell>
+                    <cell><m>2(10-1) = 18</m></cell>
+                    <cell><m>\sigma_\varepsilon^2 + s\sigma^2_{H(D)}</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>2\times 10(s-1)</m></cell>
+                    <cell><m>\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>2\times 10s-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                A <term>subsample</term> is a subvidision of an experimental unit, i.e. it is nested within an experimental unit. In the previous example, the treatment is the drug, the experimental unit is the hospital, and the subsampling unit is the patient. 
+            </p>
+            <p>
+                As another example, if we have a treatment of toxic levels, our experimental unit could be an aquarium, with a subsampling unit of fish.
+            </p>
+            <p>
+                A statistical effects model with a treatment structure of one-way with <m>t</m> levels, as a CRD with <m>n</m> replications and <m>s</m> subsamples can be given as
+                <me>
+                    Y_{ijk} = \mu + \tau_i + \varepsilon_{(i)j} + \delta_{(ij)k}
+                </me>
+                for <m>i = 1,...,t</m>, <m>j = 1,...,n</m>, and <m>k = 1,...,s</m>, where
+                <ul>
+                    <li>
+                        <p>
+                            <m>Y_{ijk}</m> is the observation on subsample <m>k</m> of experimental unit <m>j</m> in treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\mu</m> is the fixed overall mean
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\tau_i</m> is a fixed effect of treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\varepsilon_{(i)j}</m> is random error due to the <m>j-</m>th experimental unit within treatment level <m>i</m>. <m>\varepsilon_{(i)j}\sim^{iid} N(0,\sigma_\varepsilon^2)</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\delta_{(ij)k}</m> is the random error due to the <m>k-</m>th subsample in experimental unit <m>j</m> within treatment level <m>i</m>. <m>\delta_{(ij)k}\sim^{iid} N(0,\sigma_\delta^2</m>
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                In general, we can partition the sources of variation of the model as follows:
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                    <cell>EMS</cell>
+                </row>
+                <row>
+                    <cell>Treatment</cell>
+                    <cell><m>t-1</m></cell>
+                    <cell><m>\sigma^2_\delta + s\sigma_\varepsilon^2 + \dfrac{sn}{t-1} \sum_{i=1}^t \alpha_i^2</m></cell>
+                </row>
+                <row>
+                    <cell>Exp. Error</cell>
+                    <cell><m>t(n-1)</m></cell>
+                    <cell><m>\sigma_\delta^2 + s\sigma_\varepsilon^2</m></cell>
+                </row>
+                <row>
+                    <cell>Subsampling Error</cell>
+                    <cell><m>tn(s-1)</m></cell>
+                    <cell><m>\sigma_\delta^2</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>tns-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                Here, <m>nt</m> is the number of experimental nits, and <m>nts</m> is the total number of observations. The exp. error term is the error due to the experimental unit within each treatment, and subsampling error is due to the subsample in the experimental unit within each treatment.
+            </p>
+        </subsection>
+
+    </section>
+
+    
+</chapter>
