@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>STAT 5023: Nested Factor and Subsampling</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="STAT 5023 - Statistics For Experimenters II">
+<meta property="book:author" content="Cory Wilson">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="stat5023-fa23.html"><span class="title">STAT 5023 - Statistics For Experimenters II:</span> <span class="subtitle">Fall 2023</span></a></h1>
+<p class="byline">Cory Wilson</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-22.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-22.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
+\newcommand{\lrpar}[1]{\left(#1\right)}
+\newcommand{\lrbrace}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\dc}{^\circ}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="lec-4.html" class="internal"><span class="codenumber">1</span> <span class="title">Lecture 4 - 08/31/23</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-4-sec1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Observational vs. Experimental Studies</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Completely Randomized Design (CRD)</span></a></div></li>
+<li><div class="toc-item"><a href="lec-4-sec3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Linear Model Approach</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-5.html" class="internal"><span class="codenumber">2</span> <span class="title">Lecture 5 - 09/05/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-5-sec1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">One-way ANOVA: Assumptions</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">One-way ANOVA: Graphics</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">One-way ANOVA: Check Normality</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec4.html" class="internal"><span class="codenumber">2.4</span> <span class="title">One-way ANOVA: Homogeneity of Variances</span></a></div></li>
+<li><div class="toc-item"><a href="lec-5-sec5.html" class="internal"><span class="codenumber">2.5</span> <span class="title">One-way ANOVA: Data Transformation</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-6.html" class="internal"><span class="codenumber">3</span> <span class="title">Lecture 6 &amp; 7- 09/07 and 09/12/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-6-sec1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Linear Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-6-sec2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Orthogonal Contrasts</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-8.html" class="internal"><span class="codenumber">4</span> <span class="title">Lecture 8 &amp; 9- 09/14 and 09/19/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-8-sec1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Simultaneous Contrasts</span></a></div></li>
+<li><div class="toc-item"><a href="lec-8-sec2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Trend Analysis</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-9.html" class="internal"><span class="codenumber">5</span> <span class="title">Lecture 9 &amp; 11, 13- 09/19, 09/26, 09/28/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-9-sec1.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Multiple Comparisons</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Fisher’s LSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Tukey’s HSD</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Scheff’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="lec-9-sec5.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-13.html" class="internal"><span class="codenumber">6</span> <span class="title">Lecture 14 &amp; 15- 10/3 and 10/5/2023</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-13-sec-1.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-13-sec-2.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Simple Effects and Main Effects</span></a></div></li>
+<li><div class="toc-item"><a href="lec13-sec-3.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec13-sec-4.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Models for Factorial Experiments and Connections to ANOVA</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-15.html" class="internal"><span class="codenumber">7</span> <span class="title">Lecture 15 &amp; 16- 10/ 5 and 10/10/2023</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="lec-15-sec-1.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Contrasts and Comparisons in Factorial Experiments</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-15-sec-1.html#lec-15-sec-1-notations" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Notations</span></a></div></li>
+<li><div class="toc-item"><a href="lec-15-sec-1.html#lec-15-sec-1-contrasts" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Contrasts with Significant Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec-15-sec-1.html#lec15-sec-1-pairwise" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Pairwise Comparison Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec-15-sec-1.html#lec15-sec-1-examples" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Examples</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="lec15-sec2.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Interaction Plots</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-16.html" class="internal"><span class="codenumber">8</span> <span class="title">Lecture 16- nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-16-sec-1.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-1" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Three-Way Factorial Experiment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-2" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Models for Three-Way Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-3" class="internal"><span class="codenumber">8.1.3</span> <span class="title">ANOVA for Factorial Experiments</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lect-16-sec-1-4" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Interaction</span></a></div></li>
+<li><div class="toc-item"><a href="lec-16-sec-1.html#lec-16-sec-1-5" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Examples</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-17.html" class="internal"><span class="codenumber">9</span> <span class="title">Lecture 17- nd</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="lec-17-sec-1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Introduction to Fixed and Random Effects</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-17-sec-1.html#lec-17-sec-1-1" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Fixed Effects Model</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="lec-17-sec-2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Random Effects Model</span></a></div></li>
+<li><div class="toc-item"><a href="lec-17-sec-3.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Examples</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-18.html" class="internal"><span class="codenumber">10</span> <span class="title">Lecture 18 - nd</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="lec-18-sec-1.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Fixed, Random, and Mixed Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-1" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Fixed Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-2" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Random Effects Model with Factorial Treatment</span></a></div></li>
+<li><div class="toc-item"><a href="lec-18-sec-1.html#lec-18-sec-1-3" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Mixed Effects Model with Factorial Treatment</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="lec-18-sec-2.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Variance Component Estimation</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-19.html" class="internal"><span class="codenumber">11</span> <span class="title">Lecture 19 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-19-sec-1.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Randomized Complete Block Design</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-19-sec-1.html#lec-19-sec-1-1" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Randomized Complete Block Design</span></a></div></li></ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-20.html" class="internal"><span class="codenumber">12</span> <span class="title">Lecture 20 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-20-sec-1.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Latin Square Design</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-20-sec-1.html#lec-20-sec-1-1" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Latin Square Design</span></a></div></li>
+<li><div class="toc-item"><a href="lec-20-sec-1.html#lec-20-1-2" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Latin Square Design with Multiple Squares</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-21.html" class="internal"><span class="codenumber">13</span> <span class="title">Lecture 21 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-21-sec-1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Nested Factor and Subsampling</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-21-sec-1.html#lec-21-sec-1-1" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Nested Factor and Subsampling</span></a></div></li></ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-22.html" class="internal"><span class="codenumber">14</span> <span class="title">Lecture 22 - nd</span></a></div>
+<ul class="structural"><li class="active">
+<div class="toc-item"><a href="lec-22-sec-1.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Nested Factor and Subsampling</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-22-sec-1.html#lec-22-sec-1-1" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Split-Plot Design</span></a></div></li></ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-22-sec-1"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">14.1</span> <span class="title">Nested Factor and Subsampling</span>
+</h2>
+<section class="subsection" id="lec-22-sec-1-1"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">14.1.1</span> <span class="title">Split-Plot Design</span>
+</h3>
+<div class="para" id="p-420">Consider a two-way factorial treatment structure. A random assignment of one factor would be difficult to apply to the experimental units of the other factor; for example, if we consider the yields of three different varieties of cottons compared under two different irrigation systems with two observations at each treatment combination, we see that the irrigation systems must apply the water to large sections of land and that a CRD might be time-consuming.</div>
+<div class="para" id="p-421">Each irrigation system would be applied to two larger "whole plots" and the three varieties of cottons would be planted in three "subplots" within each whole plot:</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/split-plot1.png" class="contained"></div>
+<div class="para" id="p-422">A split-plot design is applicable to factorial treatment structure only with two different sizes of experimental units: whole-plot experimental unit or main unit; subplot experimental unit or subunit. Split-plot design involves more than one randomization when assigning treatments to experimental units. Consider Factor A in a CRD with <span class="process-math">\(n\)</span> replications per level. The <span class="process-math">\(a\)</span> levels of factor A are applied to a whole plot, which is then subdivided into subplots to which one of the <span class="process-math">\(b\)</span> levels of Factor B are assigned, as in the image below.</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/split-plot2.png" class="contained"></div>
+<div class="para" id="p-423">For experimental error, we consider the variance among things treated alike. In split-plot design, the two factors A and B have two different sizes of experimental units. This means there are two sources of error variance considered: variability between whole plots within each level of factor A; and variability among subplots.</div>
+<div class="para" id="p-424">This makes the treatment structure <span class="process-math">\(a\times b\)</span> factorial with factors A and B as whole-plot and subplot treatment, respectively. The design structure is split-plot in a CRD with <span class="process-math">\(n\)</span> replications.</div>
+<div class="para logical" id="p-425">
+<div class="para">A statistical effects model for an <span class="process-math">\(a\times b\)</span> factorial treatment structure in a completely randomized split-plot design is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_{ijk} = \mu + \alpha_i + \delta_{k(i)} + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\alpha_i + \delta_{k(i)}\)</span> is focused on the whole-plot, while the trailing three terms focus on the suplot. Here, <span class="process-math">\(i=1,...,a\text{,}\)</span> <span class="process-math">\(j=1,...,b\text{,}\)</span> and <span class="process-math">\(k=1,...,n\text{.}\)</span> Specifically, we also have</div>
+<ul class="disc">
+<li id="li-150"><div class="para" id="p-426">
+<span class="process-math">\(Y_{ijk}\text{:}\)</span> the <span class="process-math">\(k-\)</span>th response of <span class="process-math">\(A = i,B=j\)</span>
+</div></li>
+<li id="li-151"><div class="para" id="p-427">
+<span class="process-math">\(\mu\text{:}\)</span> the fixed overall mean</div></li>
+<li id="li-152"><div class="para" id="p-428">
+<span class="process-math">\(\alpha_i, \beta_j\text{:}\)</span> the fixed main effects of <span class="process-math">\(A=i,B=j\text{,}\)</span> respectively</div></li>
+<li id="li-153"><div class="para" id="p-429">
+<span class="process-math">\((\alpha\beta)_{ij}\text{:}\)</span> the fixed interaction effects of <span class="process-math">\(A =i,B=j\)</span>
+</div></li>
+<li id="li-154"><div class="para" id="p-430">
+<span class="process-math">\(\delta_{k(i)}\text{:}\)</span> random error due to the <span class="process-math">\(k-\)</span>th experimental unit within <span class="process-math">\(A = i\text{,}\)</span> with <span class="process-math">\(\delta_{k(i)}\sim^{iid} N(0,\sigma^2_\delta)\)</span>
+</div></li>
+<li id="li-155"><div class="para" id="p-431">
+<span class="process-math">\(\varepsilon_{ijk}\text{:}\)</span> random error due to the <span class="process-math">\(k-\)</span>th experimental unit in <span class="process-math">\(A=i,B=j\)</span> such that <span class="process-math">\(\varepsilon_{ijk}\sim^{iid} N(0,\sigma^2_\varepsilon)\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">Note that the error terms are independent of each other. This gives the table below:</div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">Source</td>
+<td class="l m b0 r0 l0 t0 lines">df</td>
+<td class="l m b0 r0 l0 t0 lines">MS</td>
+<td class="l m b0 r0 l0 t0 lines">EMS</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Whole Plot Analysis</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(A\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a-1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">MSA</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma_\varepsilon^2 + b\sigma_\delta^2 + \dfrac{nb}{a-1}\sum \alpha_i^2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">WP Error</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">MSWPE</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma_\varepsilon^2 + b\sigma_\delta^2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Subplot Analysis</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b-1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">MSB</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma_\varepsilon^2 + \dfrac{na}{b-1}\sum \beta_j^2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(AB\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((a-1)(b-1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">MSAB</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma_\varepsilon^2 + \dfrac{n}{(a-1)(b-1)}\sum (\alpha\beta)_{ij}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">SP Error</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)(b-1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">MSSPE</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma_\varepsilon^2 \)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(abn-1\)</span></td>
+</tr>
+</table></div>
+<div class="para logical" id="p-432">
+<div class="para">For interaction effects, we reject <span class="process-math">\(H_0:\text{ no interaction}\)</span> when</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSAB}{MSSPE} \geq F_{\alpha,(a-1)(b-1),a(n-1)(b-1)}
+\end{equation*}
+</div>
+<div class="para">If the interaction is insignificant, we proceed to the main effects as follows:</div>
+<ol class="decimal">
+<li id="li-156"><div class="para logical" id="p-433">
+<div class="para">Reject <span class="process-math">\(H_0: \alpha_1 = \cdots = \alpha_a = 0\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSA}{MSWPE}\geq F_{\alpha, a-1,a(n-1)}
+\end{equation*}
+</div>
+</div></li>
+<li id="li-157"><div class="para logical" id="p-434">
+<div class="para">Reject <span class="process-math">\(H_0: \beta_1 = \cdots = \beta_b = 0\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
+\end{equation*}
+</div>
+</div></li>
+</ol>
+<div class="para">In the event that the main effects are significant, we can compare the average responses to the two levels of each factor:</div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">estimates</td>
+<td class="l m b0 r0 l0 t0 lines">standard error estimates</td>
+<td class="l m b0 r0 l0 t0 lines">df for <span class="process-math">\(t-\)</span>statistic</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\alpha_i - \alpha_{i'}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s_{\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}} = \sqrt{\dfrac{1}{nb}\lrpar{2(\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta)}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\beta_j - \beta_{j'}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{\cdot j\cdot} - \overline{Y}_{\cdot j'\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s_{\overline{Y}_{\cdot j\cdot} - \overline{Y}_{\cdot j'\cdot}} = \sqrt{\dfrac{1}{na}\cdot 2\hat{\sigma}^2_\varepsilon}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)(b-1)\)</span></td>
+</tr>
+</table></div>
+<div class="para" id="p-435">The above standard error formulae can be generalized for any contrast such that <span class="process-math">\(L_A = \sum a_i\alpha_i\)</span> or <span class="process-math">\(L_B = \sum b_j\beta_j\)</span> by replacing 2 with <span class="process-math">\(\sum a_i^2\)</span> or <span class="process-math">\(\sum b_j^2\text{.}\)</span>
+</div>
+<div class="para" id="p-436">We can perform pairwise comparison of levels of factors A and B in split-plot design:</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Method</td>
+<td class="l m b0 r0 l0 t0 lines">Cutoff</td>
+<td class="l m b0 r0 l0 t0 lines">Decision</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Fisher (A)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(LSD = t_{\alpha/2,a(n-1)}\sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{sigma}^2_\delta}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \alpha_i - \alpha_{i'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}|\geq LSD\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Fisher (B)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(LSD = t_{\alpha/2,a(b-1)(n-1)}\sqrt{\dfrac{2}{na}\hat{\sigma}_\varepsilon^2}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \beta_j - \beta_{j'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{\cdot j \cdot} - \overline{Y}_{\cdot j'\cdot}|\geq LSD\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Tukey (A)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(HSD = q_{\alpha,a,a(n-1)}\sqrt{\dfrac{1}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \alpha_i - \alpha_{i'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}|\geq HSD\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Tukey (B)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(HSD = q_{\alpha,b,a(b-1)(n-1)}\sqrt{\dfrac{1}{na}\hat{\sigma}^2}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \beta_j - \beta_{j'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{\cdot j \cdot} - \overline{Y}_{\cdot j'\cdot}|\geq LSD\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Scheffe (A)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(S = \sqrt{(a-1)F_{\alpha,a-1,a(n-1)}}\cdot \sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{sigma}^2_\delta}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \alpha_i - \alpha_{i'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}|\geq S\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Scheffe (B)</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(S = \sqrt{(b-1)F_{\alpha,b-1,a(b-1)(n-1)}}\cdot \sqrt{\dfrac{2}{na}\hat{\sigma}^2_\varepsilon}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Reject <span class="process-math">\(H_0: \beta_j - \beta_{j'}=0\)</span> if <span class="process-math">\(|\overline{Y}_{\cdot j \cdot} - \overline{Y}_{\cdot j'\cdot}|\geq S\)</span>
+</td>
+</tr>
+</table></div>
+<div class="para" id="p-437">If the interaction is significant, then we compare the group means among each treatment combination. The standard error estimates and corresponding df get different depending on the types of comparison we make.</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">estimates</td>
+<td class="l m b0 r0 l0 t0 lines">standard error estimates</td>
+<td class="l m b0 r0 l0 t0 lines">df for <span class="process-math">\(t-\)</span>statistic</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mu_{ij} - \mu_{ij'}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{ij\cdot} - \overline{Y}_{ij'\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(sqrt{\dfrac{2}{n}\cdot \hat{\sigma}^2_\varepsilon}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)(b-1)\)</span></td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines">Difference in B at the same level of A</td></tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mu_{ij} - \mu{i'j}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{ij\cdot} - \overline{Y}_{i'j\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">pooled estimates</td>
+<td class="l m b0 r0 l0 t0 lines">Satterthwaite df</td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines">Difference in A at the same levels of B</td></tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mu_{ij} - \mu_{i'j'}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{ij\cdot} - \overline{Y}_{i'j'\cdot}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">pooled estimates</td>
+<td class="l m b0 r0 l0 t0 lines">Satterthwaite df</td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines">Difference in A at different levels of B</td></tr>
+</table></div>
+<div class="para logical" id="p-438">
+<div class="para">For pooled estimates and Satterthwaite df, we use</div>
+<div class="displaymath process-math" id="md-29">
+\begin{align*}
+\text{pooled estimates }\amp = \sqrt{\dfrac{2}{nb}\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}} \\
+\text{Satterthwaite df } \amp = \dfrac{\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}^2}{\dfrac{((b-1)SS_SPErr)^2}{a(b-1)(n-1)} + \dfrac{(SS_{WPErr})^2}{a(n-1)}} 
+\end{align*}
+</div>
+</div>
+<article class="example example-like" id="example-16"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">14.1.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-439">A study was designed to determine if additional phosphorus applied to the soil would increase the yield of soybeans. There are three major varieties of soybeans of interest (V1, V2, and V3) and four levels of phosphorus (0, 30, 60, and 90 pounds per acre). Researchers have nine plots of land available for the study. Because of the complexities of planting the soybeans on the plots of the given size, it was decided to plant a single variety of soybeans on each plot and then divide each plot into four subplots. Researchers randomly assigned a variety to one plot within each block of three plots and then randomy assigned the levels of phosphorus to the four subplots within each plot.</div> <div class="para logical" id="p-440"><ol class="decimal">
+<li id="li-158"><div class="para" id="p-441">Identify an experimental design and an appropriate statistical model which are best consistent with the given description of the study.</div></li>
+<li id="li-159">
+<div class="para" id="p-442">Consider the following ANOVA table:</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Source</td>
+<td class="l m b0 r0 l0 t0 lines">df</td>
+<td class="l m b0 r0 l0 t0 lines">SS</td>
+<td class="l m b0 r0 l0 t0 lines">MS</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Variety</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">671.81</td>
+<td class="l m b0 r0 l0 t0 lines">335.90</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">WP Error</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">6.56</td>
+<td class="l m b0 r0 l0 t0 lines">1.64</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Phosphorus</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">136.12</td>
+<td class="l m b0 r0 l0 t0 lines">136.12</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Variety*Phosphorus</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">117.41</td>
+<td class="l m b0 r0 l0 t0 lines">19.57</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">SP Error</td>
+<td class="l m b0 r0 l0 t0 lines">18</td>
+<td class="l m b0 r0 l0 t0 lines">4.08</td>
+<td class="l m b0 r0 l0 t0 lines">0.23</td>
+</tr>
+</table></div>
+<div class="para" id="p-443">Under <span class="process-math">\(\alpha = 0.01\text{,}\)</span> provide your complete conclusion about interaction and main effects.</div>
+</li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><div class="para" id="p-444"></div></div></div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="lec-22.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
