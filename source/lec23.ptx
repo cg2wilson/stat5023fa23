@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="lec-23" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 23 - nd</title>
+
+    <section xml:id="lec-23-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Experiments with Repeated Measures</title>
+        
+        <subsection xml:id="lec-23-sec-1-1">
+            <title>Experiments with Repeated Measures</title>
+
+            <p>
+                An <term>experiment with repeated measures</term> is one in which each experimental unit has more than a single measurement taken over time or location. For example, if patients are randomly assigned to one of two medications, they may have a response measured every week for three weeks. Comparison of medications, weeks on medications, and the interaction between the two can be investigated. Let <m>Y_{ijk}</m> denote an observation at time <m>j</m> on experimental unit <m>k</m> of treatment level <m>i</m>.
+            </p>
+            <tabular>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell halign="center" colspan="3">Time</cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>Week 1</cell>
+                    <cell>Week 2</cell>
+                    <cell>Week 3</cell>
+                </row>
+                <row>
+                    <cell>Med 1</cell>
+                    <cell>Patient 1</cell>
+                    <cell><m>Y_{111}</m></cell>
+                    <cell><m>Y_{121}</m></cell>
+                    <cell><m>Y_{131}</m></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell>Patient 2</cell>
+                    <cell><m>Y_{112}</m></cell>
+                    <cell><m>Y_{122}</m></cell>
+                    <cell><m>Y_{132}</m></cell>
+                </row>
+                <row>
+                    <cell>Med 2</cell>
+                    <cell>Patient 1</cell>
+                    <cell><m>Y_{211}</m></cell>
+                    <cell><m>Y_{221}</m></cell>
+                    <cell><m>Y_{231}</m></cell>
+                </row>
+                <row>
+                    <cell></cell>
+                    <cell>Patient 2</cell>
+                    <cell><m>Y_{212}</m></cell>
+                    <cell><m>Y_{222}</m></cell>
+                    <cell><m>Y_{232}</m></cell>
+                </row>
+            </tabular>
+            <p>
+                In general, for a one-way treatment structure with <m>t</m> levels and for a CRD with <m>n</m> repetitions and <m>p</m> repeated measures, the sources of variation are given by
+            </p>
+            <tabular>
+                <row>
+                    <cell>Source</cell>
+                    <cell>df</cell>
+                </row>
+                <row>
+                    <cell>Trt</cell>
+                    <cell><m>t-1</m></cell>
+                </row>
+                <row>
+                    <cell>Time</cell>
+                    <cell><m>p-1</m></cell>
+                </row>
+                <row>
+                    <cell>Trt*Time</cell>
+                    <cell><m>(t-1)(p-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Error</cell>
+                    <cell><m>tp(n-1)</m></cell>
+                </row>
+                <row>
+                    <cell>Total</cell>
+                    <cell><m>tpn-1</m></cell>
+                </row>
+            </tabular>
+            <p>
+                A statistical effects model with this design and treatment structure is given by
+                <me>
+                    Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
+                </me>
+                for <m>i=1,...,t</m>, <m>j=1,...,p</m>, and <m>k=1,...,m</m> with 
+                <ul>
+                    <li>
+                        <p>
+                            <m>Y_{ijk}</m>: observation at time <m>j</m> on experimental unit <m>k</m> of treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\mu</m>: fixed overall mean
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\tau_i</m>: fixed effect of treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\pi_j</m>: fixsed effect of time <m>j</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>(\tau\pi)_{ij}</m>: interaction of <m>i-</m>th treatment and <m>j-</m>th time
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\varepsilon_{ijk}</m>: random error associated with <m>Y_{ijk}</m>. Note: it would not be likely that these are iid in this context.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                So far, we have assumed observations are independent. However, in a repeated measures setup, <m>Y_{ijk}</m> and <m>Y_{ij'k}</m> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.
+            </p>
+            <p>
+                The solution is to use <term>covariance</term> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association. 
+            </p>
+            <p>
+                In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.
+            </p>
+            <p>
+                The structure of covariance for the model must be chosen specifically. We have four options; let <m>0\lt \rho \lt 1</m>:
+                <ol>
+                    <li>
+                        <p>
+                            Variance Components (VC):
+                            <me>
+                                \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = 0
+                            </me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Compound Symmetry (CS):
+                            <me>
+                                \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = \rho\sigma^2
+                            </me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            AR(1):
+                            <md>
+                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i2k},Y_{i3k})  \amp = \rho \sigma^2 </mrow>
+                                <mrow>\text{Cov}\,(Y_{i1k},Y_{i3k}) = \rho^2\sigma^2 \amp </mrow>
+                            </md>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Unstructured:
+                            <md>
+                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) \amp = \sigma_{12} </mrow>
+                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i3k}) \amp = \sigma_{13} </mrow>
+                                <mrow> \text{Cov}\,(Y_{i2k},Y_{i3k}) \amp = \sigma_{23} </mrow>
+                            </md>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+            <p>
+                Choosing an appropriate structure is challenging and beyond the scope of the course; <c>SAS</c> provides some measures of model fit such as AIC, BIC. The Null Model Likelihood Ratio Test compares VC to the other specified one by testing the hypothesis
+                <me>
+                    H_0: \text{VC is appropriate }
+                </me>
+                versus
+                <me>
+                    H_a: \text{the other is appropriate}
+                </me>
+                The outputs can guide us to choose the covariance structure.
+                
+            </p>
+        </subsection>
+
+    </section>
+
+    
+</chapter>

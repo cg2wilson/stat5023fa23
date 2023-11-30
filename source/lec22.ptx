@@ -4,7 +4,7 @@
 	<title>Lecture 22 - nd</title>
 
     <section xml:id="lec-22-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
-        <title>Nested Factor and Subsampling</title>
+        <title>Split-Plot Design</title>
         
         <subsection xml:id="lec-22-sec-1-1">
             <title>Split-Plot Design</title>
@@ -33,7 +33,7 @@
                 <me>
                     Y_{ijk} = \mu + \alpha_i + \delta_{k(i)} + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
                 </me>
-                where <m>\alpha_i + \delta_{k(i)}</m> is focused on the whole-plot, while the trailing three terms focus on the suplot. Here, <m>i=1,...,a</m>, <m>j=1,...,b</m>, and <m>k=1,...,n</m>. Specifically, we also have
+                where <m>\alpha_i + \delta_{k(i)}</m> is focused on the whole-plot, while the trailing three terms focus on the subplot. Here, <m>i=1,...,a</m>, <m>j=1,...,b</m>, and <m>k=1,...,n</m>. Specifically, we also have
                 <ul>
                     <li>
                         <p>
@@ -177,7 +177,7 @@
                 </row>
                 <row>
                     <cell>Fisher (A)</cell>
-                    <cell><m>LSD = t_{\alpha/2,a(n-1)}\sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{sigma}^2_\delta}}</m></cell>
+                    <cell><m>LSD = t_{\alpha/2,a(n-1)}\sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta}}</m></cell>
                     <cell>Reject <m>H_0: \alpha_i - \alpha_{i'}=0</m> if <m>|\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}|\geq LSD</m></cell>
                 </row>
                 <row>
@@ -193,11 +193,11 @@
                 <row>
                     <cell>Tukey (B)</cell>
                     <cell><m>HSD = q_{\alpha,b,a(b-1)(n-1)}\sqrt{\dfrac{1}{na}\hat{\sigma}^2}</m></cell>
-                    <cell>Reject <m>H_0: \beta_j - \beta_{j'}=0</m> if <m>|\overline{Y}_{\cdot j \cdot} - \overline{Y}_{\cdot j'\cdot}|\geq LSD</m></cell>
+                    <cell>Reject <m>H_0: \beta_j - \beta_{j'}=0</m> if <m>|\overline{Y}_{\cdot j \cdot} - \overline{Y}_{\cdot j'\cdot}|\geq HSD</m></cell>
                 </row>
                 <row>
                     <cell>Scheffe (A)</cell>
-                    <cell><m>S = \sqrt{(a-1)F_{\alpha,a-1,a(n-1)}}\cdot \sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{sigma}^2_\delta}}</m></cell>
+                    <cell><m>S = \sqrt{(a-1)F_{\alpha,a-1,a(n-1)}}\cdot \sqrt{\dfrac{2}{nb}\lrpar{\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta}}</m></cell>
                     <cell>Reject <m>H_0: \alpha_i - \alpha_{i'}=0</m> if <m>|\overline{Y}_{i\cdot\cdot} - \overline{Y}_{i'\cdot\cdot}|\geq S</m></cell>
                 </row>
                 <row>

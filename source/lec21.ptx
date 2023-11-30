@@ -125,6 +125,17 @@
                 </row>
             </tabular>
             <p>
+                Here, we have <m>H_0: \sigma^2_{H(D)} = 0</m> versus <m>H_a: \sigma^2_{H(D)}\gt 0</m> with the test statistic
+                <me>
+                    F = \dfrac{MSHospital}{MSE} \sim F_{8,20(s-1)}
+                </me>
+                and <m>H_0: \tau_1 = \tau_2</m> versus <m>H_a: \tau_1\neq \tau_2</m>, with the test statistic
+                <me>
+                    F = \dfrac{MSDrug}{MSHospital}\sim F_{1,18}
+                </me>
+                
+            </p>
+            <p>
                 A <term>subsample</term> is a subvidision of an experimental unit, i.e. it is nested within an experimental unit. In the previous example, the treatment is the drug, the experimental unit is the hospital, and the subsampling unit is the patient. 
             </p>
             <p>
@@ -194,7 +205,7 @@
                 </row>
             </tabular>
             <p>
-                Here, <m>nt</m> is the number of experimental nits, and <m>nts</m> is the total number of observations. The exp. error term is the error due to the experimental unit within each treatment, and subsampling error is due to the subsample in the experimental unit within each treatment.
+                Here, <m>nt</m> is the number of experimental units, and <m>nts</m> is the total number of observations. The exp. error term is the error due to the experimental unit within each treatment, and subsampling error is due to the subsample in the experimental unit within each treatment.
             </p>
         </subsection>
 
