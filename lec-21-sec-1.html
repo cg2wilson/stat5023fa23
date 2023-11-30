@@ -351,8 +351,15 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="lec-22.html" class="internal"><span class="codenumber">14</span> <span class="title">Lecture 22 - nd</span></a></div>
 <ul class="structural"><li>
-<div class="toc-item"><a href="lec-22-sec-1.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Nested Factor and Subsampling</span></a></div>
+<div class="toc-item"><a href="lec-22-sec-1.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Split-Plot Design</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="lec-22-sec-1.html#lec-22-sec-1-1" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Split-Plot Design</span></a></div></li></ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="lec-23.html" class="internal"><span class="codenumber">15</span> <span class="title">Lecture 23 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-23-sec-1.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Experiments with Repeated Measures</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="lec-23-sec-1.html#lec-23-sec-1-1" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Experiments with Repeated Measures</span></a></div></li></ul>
 </li></ul>
 </li>
 </ul></nav></div>
@@ -449,9 +456,23 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2\times 10s-1\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="p-410">A <dfn class="terminology">subsample</dfn> is a subvidision of an experimental unit, i.e. it is nested within an experimental unit. In the previous example, the treatment is the drug, the experimental unit is the hospital, and the subsampling unit is the patient.</div>
-<div class="para" id="p-411">As another example, if we have a treatment of toxic levels, our experimental unit could be an aquarium, with a subsampling unit of fish.</div>
-<div class="para logical" id="p-412">
+<div class="para logical" id="p-410">
+<div class="para">Here, we have <span class="process-math">\(H_0: \sigma^2_{H(D)} = 0\)</span> versus <span class="process-math">\(H_a: \sigma^2_{H(D)}\gt 0\)</span> with the test statistic</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSHospital}{MSE} \sim F_{8,20(s-1)}
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(H_0: \tau_1 = \tau_2\)</span> versus <span class="process-math">\(H_a: \tau_1\neq \tau_2\text{,}\)</span> with the test statistic</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSDrug}{MSHospital}\sim F_{1,18}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="p-411">A <dfn class="terminology">subsample</dfn> is a subvidision of an experimental unit, i.e. it is nested within an experimental unit. In the previous example, the treatment is the drug, the experimental unit is the hospital, and the subsampling unit is the patient.</div>
+<div class="para" id="p-412">As another example, if we have a treatment of toxic levels, our experimental unit could be an aquarium, with a subsampling unit of fish.</div>
+<div class="para logical" id="p-413">
 <div class="para">A statistical effects model with a treatment structure of one-way with <span class="process-math">\(t\)</span> levels, as a CRD with <span class="process-math">\(n\)</span> replications and <span class="process-math">\(s\)</span> subsamples can be given as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -460,23 +481,23 @@ Y_{ijk} = \mu + \tau_i + \varepsilon_{(i)j} + \delta_{(ij)k}
 </div>
 <div class="para">for <span class="process-math">\(i = 1,...,t\text{,}\)</span> <span class="process-math">\(j = 1,...,n\text{,}\)</span> and <span class="process-math">\(k = 1,...,s\text{,}\)</span> where</div>
 <ul class="disc">
-<li id="li-145"><div class="para" id="p-413">
+<li id="li-145"><div class="para" id="p-414">
 <span class="process-math">\(Y_{ijk}\)</span> is the observation on subsample <span class="process-math">\(k\)</span> of experimental unit <span class="process-math">\(j\)</span> in treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-146"><div class="para" id="p-414">
+<li id="li-146"><div class="para" id="p-415">
 <span class="process-math">\(\mu\)</span> is the fixed overall mean</div></li>
-<li id="li-147"><div class="para" id="p-415">
+<li id="li-147"><div class="para" id="p-416">
 <span class="process-math">\(\tau_i\)</span> is a fixed effect of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-148"><div class="para" id="p-416">
+<li id="li-148"><div class="para" id="p-417">
 <span class="process-math">\(\varepsilon_{(i)j}\)</span> is random error due to the <span class="process-math">\(j-\)</span>th experimental unit within treatment level <span class="process-math">\(i\text{.}\)</span> <span class="process-math">\(\varepsilon_{(i)j}\sim^{iid} N(0,\sigma_\varepsilon^2)\)</span>
 </div></li>
-<li id="li-149"><div class="para" id="p-417">
+<li id="li-149"><div class="para" id="p-418">
 <span class="process-math">\(\delta_{(ij)k}\)</span> is the random error due to the <span class="process-math">\(k-\)</span>th subsample in experimental unit <span class="process-math">\(j\)</span> within treatment level <span class="process-math">\(i\text{.}\)</span> <span class="process-math">\(\delta_{(ij)k}\sim^{iid} N(0,\sigma_\delta^2\)</span>
 </div></li>
 </ul>
 </div>
-<div class="para" id="p-418">In general, we can partition the sources of variation of the model as follows:</div>
+<div class="para" id="p-419">In general, we can partition the sources of variation of the model as follows:</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Source</td>
@@ -503,7 +524,7 @@ Y_{ijk} = \mu + \tau_i + \varepsilon_{(i)j} + \delta_{(ij)k}
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(tns-1\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="p-419">Here, <span class="process-math">\(nt\)</span> is the number of experimental nits, and <span class="process-math">\(nts\)</span> is the total number of observations. The exp. error term is the error due to the experimental unit within each treatment, and subsampling error is due to the subsample in the experimental unit within each treatment.</div></section></section></div>
+<div class="para" id="p-420">Here, <span class="process-math">\(nt\)</span> is the number of experimental units, and <span class="process-math">\(nts\)</span> is the total number of observations. The exp. error term is the error due to the experimental unit within each treatment, and subsampling error is due to the subsample in the experimental unit within each treatment.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-21.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-22.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

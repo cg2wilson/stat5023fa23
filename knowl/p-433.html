@@ -13,12 +13,32 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
+<div class="para">For interaction effects, we reject <span class="process-math">\(H_0:\text{ no interaction}\)</span> when</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSAB}{MSSPE} \geq F_{\alpha,(a-1)(b-1),a(n-1)(b-1)}
+\end{equation*}
+</div>
+<div class="para">If the interaction is insignificant, we proceed to the main effects as follows:</div>
+<ol class="decimal">
+<li><div class="para logical">
 <div class="para">Reject <span class="process-math">\(H_0: \alpha_1 = \cdots = \alpha_a = 0\)</span> if</div>
 <div class="displaymath process-math">
 \begin{equation*}
 F = \dfrac{MSA}{MSWPE}\geq F_{\alpha, a-1,a(n-1)}
 \end{equation*}
 </div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Reject <span class="process-math">\(H_0: \beta_1 = \cdots = \beta_b = 0\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
+\end{equation*}
+</div>
+</div></li>
+</ol>
+<div class="para">In the event that the main effects are significant, we can compare the average responses to the two levels of each factor:</div>
 </div>
 <span class="incontext"><a href="lec-22-sec-1.html#p-433" class="internal">in-context</a></span>
 </body>
