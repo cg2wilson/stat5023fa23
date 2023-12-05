@@ -107,7 +107,7 @@
                     </li>
                     <li>
                         <p>
-                            <m>\pi_j</m>: fixsed effect of time <m>j</m>
+                            <m>\pi_j</m>: fixed effect of time <m>j</m>
                         </p>
                     </li>
                     <li>
@@ -183,6 +183,41 @@
                 The outputs can guide us to choose the covariance structure.
                 
             </p>
+            <example>
+                <statement>
+                    <p>
+                        An experiment is conducted to determine the effect of salt in the soil on the emergence of grass seeds. There are three replications of four plots, each treated to contain 0, 8, 16, and 24% salt. The percent of seeds emerging is observed 5, 8, 11, and 14 days after planting. THere are 12 separate plots; that is, the three replications within each level of salt are unrelated. Within each plot, there are four repeated measurements corresponding to days after planting.
+                    </p>
+                    <image source="repetition1.png"/>
+                    <p>
+                        The repeated measures can be analyzed using the following SAS code:
+                        <cd>
+                            <cline>DATA one;</cline>
+                            <cline>INPUT trt time expunit response;</cline>
+                            <cline>DATALINES;</cline>
+                            <cline>...</cline>
+                            <cline>PROC MIXED DATA = one PLOTS=RESIDUALPANEL;</cline>
+                            <cline>CLASS trt time expunit;</cline>
+                            <cline>MODEL response = trt time trt*time/ DDFM = SATTERTH</cline>
+                            <cline>REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option ></cline>
+                        </cd>
+                        The line <c>SUBJECT = expunit(trt)</c> shows that each experimental unit is nested within treatment. The <c>TYPE = &lt; option ></c> specifies covariance structure.
+                    </p>
+                    <p>
+                        For <m>a\times b</m> factorial treatment structure, we can still use similar code with a slight change:
+                        <cd>
+                            <cline>DATA two;</cline>
+                            <cline>INPUT A B time expunit response;</cline>
+                            <cline>DATALINES;</cline>
+                            <cline>...</cline>
+                            <cline>PROC MIXED DATA = two;</cline>
+                            <cline>CLASS A B time expunit;</cline>
+                            <cline>MODEL response = A | B | time / DDFM = SATTERTH</cline>
+                            <cline>REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option ></cline>
+                        </cd>
+                    </p>
+                </statement>
+            </example>
         </subsection>
 
     </section>

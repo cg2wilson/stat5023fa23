@@ -124,7 +124,7 @@
                     </p>
                     <image source="ancova1.png" />
                     <p>
-                        Slow release (S) appears to show a higher yield than the other two. THe yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.
+                        Slow release (S) appears to show a higher yield than the other two. The yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.
                     </p>
                 </statement>
             </example>
