@@ -450,66 +450,77 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(tpn-1\)</span></td>
 </tr>
 </table></div>
-<div class="para logical" id="p-451">
+<div class="para" id="p-451">Note that in the previous example, <span class="process-math">\(t=2\)</span> (two medicines), <span class="process-math">\(n = 2\)</span> (two patients), and <span class="process-math">\(p = 3\)</span> (three repetitions).</div>
+<div class="para logical" id="p-452">
 <div class="para">A statistical effects model with this design and treatment structure is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 \end{equation*}
 </div>
-<div class="para">for <span class="process-math">\(i=1,...,t\text{,}\)</span> <span class="process-math">\(j=1,...,p\text{,}\)</span> and <span class="process-math">\(k=1,...,m\)</span> with</div>
+<div class="para">for <span class="process-math">\(i=1,...,t\text{,}\)</span> <span class="process-math">\(j=1,...,p\text{,}\)</span> and <span class="process-math">\(k=1,...,n\)</span> with</div>
 <ul class="disc">
-<li id="li-162"><div class="para" id="p-452">
+<li id="li-162"><div class="para" id="p-453">
 <span class="process-math">\(Y_{ijk}\text{:}\)</span> observation at time <span class="process-math">\(j\)</span> on experimental unit <span class="process-math">\(k\)</span> of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-163"><div class="para" id="p-453">
+<li id="li-163"><div class="para" id="p-454">
 <span class="process-math">\(\mu\text{:}\)</span> fixed overall mean</div></li>
-<li id="li-164"><div class="para" id="p-454">
+<li id="li-164"><div class="para" id="p-455">
 <span class="process-math">\(\tau_i\text{:}\)</span> fixed effect of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-165"><div class="para" id="p-455">
-<span class="process-math">\(\pi_j\text{:}\)</span> fixsed effect of time <span class="process-math">\(j\)</span>
+<li id="li-165"><div class="para" id="p-456">
+<span class="process-math">\(\pi_j\text{:}\)</span> fixed effect of time <span class="process-math">\(j\)</span>
 </div></li>
-<li id="li-166"><div class="para" id="p-456">
+<li id="li-166"><div class="para" id="p-457">
 <span class="process-math">\((\tau\pi)_{ij}\text{:}\)</span> interaction of <span class="process-math">\(i-\)</span>th treatment and <span class="process-math">\(j-\)</span>th time</div></li>
-<li id="li-167"><div class="para" id="p-457">
+<li id="li-167"><div class="para" id="p-458">
 <span class="process-math">\(\varepsilon_{ijk}\text{:}\)</span> random error associated with <span class="process-math">\(Y_{ijk}\text{.}\)</span> Note: it would not be likely that these are iid in this context.</div></li>
 </ul>
 </div>
-<div class="para" id="p-458">So far, we have assumed observations are independent. However, in a repeated measures setup, <span class="process-math">\(Y_{ijk}\)</span> and <span class="process-math">\(Y_{ij'k}\)</span> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.</div>
-<div class="para" id="p-459">The solution is to use <dfn class="terminology">covariance</dfn> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association.</div>
-<div class="para" id="p-460">In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.</div>
-<div class="para logical" id="p-461">
+<div class="para" id="p-459">So far, we have assumed observations are independent. However, in a repeated measures setup, <span class="process-math">\(Y_{ijk}\)</span> and <span class="process-math">\(Y_{ij'k}\)</span> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.</div>
+<div class="para" id="p-460">The solution is to use <dfn class="terminology">covariance</dfn> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association.</div>
+<div class="para" id="p-461">In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.</div>
+<div class="para logical" id="p-462">
 <div class="para">The structure of covariance for the model must be chosen specifically. We have four options; let <span class="process-math">\(0\lt \rho \lt 1\text{:}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-168"><div class="para logical" id="p-462">
+<li id="li-168">
+<div class="para logical" id="p-463">
 <div class="para">Variance Components (VC):</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = 0
 \end{equation*}
 </div>
-</div></li>
-<li id="li-169"><div class="para logical" id="p-463">
+</div>
+<div class="para" id="p-464">VC is also referred to as "independence"; specifically, this means that there is no linear relationship between different random variables</div>
+</li>
+<li id="li-169">
+<div class="para logical" id="p-465">
 <div class="para">Compound Symmetry (CS):</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = \rho\sigma^2
 \end{equation*}
 </div>
-</div></li>
-<li id="li-170"><div class="para logical" id="p-464">
-<div class="para">AR(1):</div>
+</div>
+<div class="para" id="p-466">We assume that each covariance is the same between different random variables</div>
+</li>
+<li id="li-170">
+<div class="para logical" id="p-467">
+<div class="para">First-Order Auto-Regressive, AR(1):</div>
 <div class="displaymath process-math" id="md-30">
 \begin{align*}
 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i2k},Y_{i3k})  \amp = \rho \sigma^2 \\
 \text{Cov}\,(Y_{i1k},Y_{i3k}) = \rho^2\sigma^2 \amp 
 \end{align*}
 </div>
-</div></li>
-<li id="li-171"><div class="para logical" id="p-465">
-<div class="para">Unstructured:</div>
+</div>
+<div class="para" id="p-468">AR(1) assumes that as measurements become further apart, extra factors of <span class="process-math">\(\rho\)</span> are needed (eg, Time 1 and Time 2 only need <span class="process-math">\(\rho\text{,}\)</span> but Time 1 and Time 3 need <span class="process-math">\(\rho^2\)</span>)</div>
+</li>
+<li id="li-171">
+<div class="para logical" id="p-469">
+<div class="para">Unstructured (UN):</div>
 <div class="displaymath process-math" id="md-31">
 \begin{align*}
 \text{Cov}\,(Y_{i1k},Y_{i2k}) \amp = \sigma_{12} \\
@@ -517,10 +528,12 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 \text{Cov}\,(Y_{i2k},Y_{i3k}) \amp = \sigma_{23} 
 \end{align*}
 </div>
-</div></li>
+</div>
+<div class="para" id="p-470">Unstructured assumes separate covariacne for each pair of repeated measurements.</div>
+</li>
 </ol>
 </div>
-<div class="para logical" id="p-466">
+<div class="para logical" id="p-471">
 <div class="para">Choosing an appropriate structure is challenging and beyond the scope of the course; <code class="code-inline tex2jax_ignore">SAS</code> provides some measures of model fit such as AIC, BIC. The Null Model Likelihood Ratio Test compares VC to the other specified one by testing the hypothesis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -538,7 +551,7 @@ H_a: \text{the other is appropriate}
 <article class="example example-like" id="example-17"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-467">An experiment is conducted to determine the effect of salt in the soil on the emergence of grass seeds. There are three replications of four plots, each treated to contain 0, 8, 16, and 24% salt. The percent of seeds emerging is observed 5, 8, 11, and 14 days after planting. THere are 12 separate plots; that is, the three replications within each level of salt are unrelated. Within each plot, there are four repeated measurements corresponding to days after planting.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/repetition1.png" class="contained"></div> <div class="para logical" id="p-468">
+<div class="para" id="p-472">An experiment is conducted to determine the effect of salt in the soil on the emergence of grass seeds. There are three replications of four plots, each treated to contain 0, 8, 16, and 24% salt. The percent of seeds emerging is observed 5, 8, 11, and 14 days after planting. THere are 12 separate plots; that is, the three replications within each level of salt are unrelated. Within each plot, there are four repeated measurements corresponding to days after planting.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/repetition1.png" class="contained"></div> <div class="para logical" id="p-473">
 <div class="para">The repeated measures can be analyzed using the following SAS code:</div>
 <pre class="code-display tex2jax_ignore">DATA one;
 INPUT trt time expunit response;
@@ -550,7 +563,43 @@ MODEL response = trt time trt*time/ DDFM = SATTERTH
 REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option &gt;
 </pre>
 <div class="para">The line <code class="code-inline tex2jax_ignore">SUBJECT = expunit(trt)</code> shows that each experimental unit is nested within treatment. The <code class="code-inline tex2jax_ignore">TYPE = &lt; option &gt;</code> specifies covariance structure.</div>
-</div> <div class="para logical" id="p-469">
+</div> <div class="para logical" id="p-474">
+<div class="para">Based on the SAS output (salt_output(1).pdf), we see the following (for VC):</div>
+<ul class="disc">
+<li id="li-172"><div class="para" id="p-475">The "Estimated R Matrix" identifies the relationship between the four time roles; this indicates that <span class="process-math">\(\sigma^2 = 56.5212\text{;}\)</span> this is confirmed in the "Covariance Parameter Estimates" table.</div></li>
+<li id="li-173"><div class="para" id="p-476">The AIC and BIC are going to be compared between different structures to determine the best.</div></li>
+<li id="li-174"><div class="para logical" id="p-477">
+<div class="para">The Null Model Likelihood Ratio Test tests the hypothesis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_0: \text{VC is appropriate }
+\end{equation*}
+</div>
+<div class="para">versus</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_a: \text{the other is appropriate}
+\end{equation*}
+</div>
+<div class="para">So since this is VC vs. VC, this table contributes nothing.</div>
+</div></li>
+<li id="li-175"><div class="para" id="p-478">The Fixed Effects table indicates that there is significant interaction, so we proceed normally.</div></li>
+</ul>
+<div class="para">For AR(1), we have</div>
+<ul class="disc">
+<li id="li-176"><div class="para" id="p-479">In the "Covariance Parameter Estimates" table, the AR(1) line indicates <span class="process-math">\(\hat{\rho}\text{,}\)</span> and the Residual indicates <span class="process-math">\(\hat{\sigma}^2\text{.}\)</span> In particular, we see that <span class="process-math">\(\hat{\rho}\cdot \hat{\sigma}^2 = 0.83\cdot 52.7691 = 43.7987\text{.}\)</span> Similarly, <span class="process-math">\(\hat{\rho}^2\sigma^2 = (0.83)^2\cdot 55.7691=36.3533\)</span>
+</div></li>
+<li id="li-177"><div class="para" id="p-480">Comparing the AIC and BIC values with those from VC (215.6 vs. 245.4 and 216.6 vs. 245.9), since we go with smaller values, this suggests that AR(1) is more appropriate.</div></li>
+<li id="li-178"><div class="para" id="p-481">The NMLR test concludes that <span class="process-math">\(p \lt 0.0001\text{,}\)</span> so between the AIC/BIC measurements and the NMLR test, we choose AR(1) as the appropriate structure.</div></li>
+</ul>
+<div class="para">For CS, we have</div>
+<ul class="disc">
+<li id="li-179"><div class="para" id="p-482">Since CS assumes covariance is the same, we see this in the R Matrix and the Parameter Estimates tables. Similarly, we see that <span class="process-math">\(Cov(X,Y) + \sigma^2 = Cov(X,X) \text{.}\)</span>
+</div></li>
+<li id="li-180"><div class="para" id="p-483">We see that AR(1) has smaller AIC and BIC values than CS, so we prefer AR(1) to CS, and both over VC.</div></li>
+<li id="li-181"><div class="para" id="p-484">NMLR concludes that CS is more appropriate than VC.</div></li>
+</ul>
+</div></article><div class="para logical" id="p-485">
 <div class="para">For <span class="process-math">\(a\times b\)</span> factorial treatment structure, we can still use similar code with a slight change:</div>
 <pre class="code-display tex2jax_ignore">DATA two;
 INPUT A B time expunit response;
@@ -561,7 +610,7 @@ CLASS A B time expunit;
 MODEL response = A | B | time / DDFM = SATTERTH
 REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option &gt;
 </pre>
-</div></article></section></section></div>
+</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-24.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

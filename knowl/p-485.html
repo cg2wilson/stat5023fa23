@@ -12,9 +12,18 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">
-<span class="process-math">\(\beta_i\text{:}\)</span> the slope for treatment level <span class="process-math">\(i\)</span>
+<div class="para logical">
+<div class="para">For <span class="process-math">\(a\times b\)</span> factorial treatment structure, we can still use similar code with a slight change:</div>
+<pre class="code-display tex2jax_ignore">DATA two;
+INPUT A B time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = two;
+CLASS A B time expunit;
+MODEL response = A | B | time / DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option &gt;
+</pre>
 </div>
-<span class="incontext"><a href="lec-24-sec-1.html#p-485" class="internal">in-context</a></span>
+<span class="incontext"><a href="lec-23-sec-1.html#p-485" class="internal">in-context</a></span>
 </body>
 </html>

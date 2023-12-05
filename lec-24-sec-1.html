@@ -379,13 +379,13 @@ window.MathJax = {
 <section class="subsection" id="lec-24-sec-1-1"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">16.1.1</span> <span class="title">Motivation</span>
 </h3>
-<div class="para" id="p-470">With one-way ANOVA in a CRD, we look at a comparison of a single treatment with <span class="process-math">\(t\)</span> levels; we implicitly assume that we have homogeneous experimental units. However, often there are additional sources of variability which impact the response. In RCBD, we require a correct identification of blocking factor; what if we have a continuous blocking factor instead? RCBD requires a discrete factor, so you would have to introduce a level of subjectivity.</div>
-<div class="para" id="p-471">Suppose that in addition to a response <span class="process-math">\(Y\text{,}\)</span> we observe some auxiliary variable <span class="process-math">\(X\text{.}\)</span> We call <span class="process-math">\(X\)</span> <dfn class="terminology">covariate</dfn> and consider it to be lienarly related to <span class="process-math">\(Y\text{;}\)</span> covariation is difficult to control in experimentation.</div>
-<div class="para" id="p-472">ANCOVA makes an adjustment of <span class="process-math">\(X\)</span> to remove the additional source of variability by <span class="process-math">\(X\)</span> that would be associated with <span class="process-math">\(Y\text{.}\)</span> It involves fitting several linear lines to observations at each treatment level to account for the effect of the covariate <span class="process-math">\(X\)</span> and often leads to more precise statistical inference of treatment effects.</div>
+<div class="para" id="p-486">With one-way ANOVA in a CRD, we look at a comparison of a single treatment with <span class="process-math">\(t\)</span> levels; we implicitly assume that we have homogeneous experimental units. However, often there are additional sources of variability which impact the response. In RCBD, we require a correct identification of blocking factor; what if we have a continuous blocking factor instead? RCBD requires a discrete factor, so you would have to introduce a level of subjectivity.</div>
+<div class="para" id="p-487">Suppose that in addition to a response <span class="process-math">\(Y\text{,}\)</span> we observe some auxiliary variable <span class="process-math">\(X\text{.}\)</span> We call <span class="process-math">\(X\)</span> <dfn class="terminology">covariate</dfn> and consider it to be lienarly related to <span class="process-math">\(Y\text{;}\)</span> covariation is difficult to control in experimentation.</div>
+<div class="para" id="p-488">ANCOVA makes an adjustment of <span class="process-math">\(X\)</span> to remove the additional source of variability by <span class="process-math">\(X\)</span> that would be associated with <span class="process-math">\(Y\text{.}\)</span> It involves fitting several linear lines to observations at each treatment level to account for the effect of the covariate <span class="process-math">\(X\)</span> and often leads to more precise statistical inference of treatment effects.</div>
 <article class="example example-like" id="example-18"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-473">The effects of a slow-release fertilizer (S) and a fast-release fertilizer (F) on seed yield of peanut plants were compared to a control (C), which is a standard fertilizer, with 10 replications of each treatment. The researcher recognized that the 30 plants were not at the same level of development thus their heights were recorded at the start of the experiment.</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-489">The effects of a slow-release fertilizer (S) and a fast-release fertilizer (F) on seed yield of peanut plants were compared to a control (C), which is a standard fertilizer, with 10 replications of each treatment. The researcher recognized that the 30 plants were not at the same level of development thus their heights were recorded at the start of the experiment.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Control (C)</td>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Slow Release (S)</td>
@@ -479,11 +479,11 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines">8.5</td>
 <td class="l m b0 r0 l0 t0 lines">40</td>
 </tr>
-</table></div> <div class="para" id="p-474">The results are plotted below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova1.png" class="contained"></div> <div class="para" id="p-475">Slow release (S) appears to show a higher yield than the other two. The yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.</div></article></section><section class="subsection" id="lec24-sec-1-2"><h3 class="heading hide-type">
+</table></div> <div class="para" id="p-490">The results are plotted below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova1.png" class="contained"></div> <div class="para" id="p-491">Slow release (S) appears to show a higher yield than the other two. The yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.</div></article></section><section class="subsection" id="lec24-sec-1-2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">16.1.2</span> <span class="title">Using ANCOVA</span>
 </h3>
-<div class="para" id="p-476">We can consider the following two models with a covariate in addition to the ANOVA model for a one-way treatment structure in a CRD:</div>
-<div class="para logical" id="p-477">
+<div class="para" id="p-492">We can consider the following two models with a covariate in addition to the ANOVA model for a one-way treatment structure in a CRD:</div>
+<div class="para logical" id="p-493">
 <div class="para">
 <em class="alert">Parallel Lines Model</em>:</div>
 <div class="displaymath process-math">
@@ -493,18 +493,18 @@ Y_{ij} = \alpha_i + \beta X_{ij} + \varepsilon_{ij}
 </div>
 <div class="para">for <span class="process-math">\(i=1,...,t\text{,}\)</span> <span class="process-math">\(j=1,...,n\text{,}\)</span> where</div>
 <ul class="disc">
-<li id="li-172"><div class="para" id="p-478">
+<li id="li-182"><div class="para" id="p-494">
 <span class="process-math">\(Y_{ij}\)</span> denotes response for the <span class="process-math">\(j-\)</span>th replicate of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-173"><div class="para" id="p-479">
+<li id="li-183"><div class="para" id="p-495">
 <span class="process-math">\(\alpha_i\text{:}\)</span> the <span class="process-math">\(y-\)</span>intercept for treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-174"><div class="para" id="p-480">
+<li id="li-184"><div class="para" id="p-496">
 <span class="process-math">\(\beta\text{:}\)</span> the slope (same for all treatment levels)</div></li>
-<li id="li-175"><div class="para" id="p-481">
+<li id="li-185"><div class="para" id="p-497">
 <span class="process-math">\(X_{ij}\text{:}\)</span> covariate for <span class="process-math">\(j-\)</span>th replicate of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-176"><div class="para" id="p-482">
+<li id="li-186"><div class="para" id="p-498">
 <span class="process-math">\(\varepsilon_{ij}\text{:}\)</span> random error associated with <span class="process-math">\(Y_{ij}\)</span> such that <span class="process-math">\(\varepsilon\overline{\sim}{iid}N(0,\sigma^2_\varepsilon)\)</span>
 </div></li>
 </ul>
@@ -517,27 +517,27 @@ Y_{ij} = \alpha_i + \beta X_{ij} + \varepsilon_{ij}
 </div>
 <div class="para">for <span class="process-math">\(i=1,...,t\text{,}\)</span> <span class="process-math">\(j=1,...,n\text{,}\)</span> where</div>
 <ul class="disc">
-<li id="li-177"><div class="para" id="p-483">
+<li id="li-187"><div class="para" id="p-499">
 <span class="process-math">\(Y_{ij}\)</span> denotes response for the <span class="process-math">\(j-\)</span>th replicate of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-178"><div class="para" id="p-484">
+<li id="li-188"><div class="para" id="p-500">
 <span class="process-math">\(\alpha_i\text{:}\)</span> the <span class="process-math">\(y-\)</span>intercept for treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-179"><div class="para" id="p-485">
+<li id="li-189"><div class="para" id="p-501">
 <span class="process-math">\(\beta_i\text{:}\)</span> the slope for treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-180"><div class="para" id="p-486">
+<li id="li-190"><div class="para" id="p-502">
 <span class="process-math">\(X_{ij}\text{:}\)</span> covariate for <span class="process-math">\(j-\)</span>th replicate of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-181"><div class="para" id="p-487">
+<li id="li-191"><div class="para" id="p-503">
 <span class="process-math">\(\varepsilon_{ij}\text{:}\)</span> random error associated with <span class="process-math">\(Y_{ij}\)</span> such that <span class="process-math">\(\varepsilon\stackrel{iid}{\sim}N(0,\sigma^2_\varepsilon)\)</span>
 </div></li>
 </ul>
 </div>
-<div class="para logical" id="p-488">
+<div class="para logical" id="p-504">
 <div class="para">Step-by-step analysis goes as follows:</div>
 <ol class="decimal">
-<li id="li-182"><div class="para logical" id="p-489">
+<li id="li-192"><div class="para logical" id="p-505">
 <div class="para">Is the covariate necessary? Test</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -552,7 +552,7 @@ H_a: \beta_j \neq 0 \text{ for some } j
 </div>
 <div class="para">If we fail to reject <span class="process-math">\(H_0\text{,}\)</span> we proceed with one-way ANOVA. If we reject <span class="process-math">\(H_0\text{,}\)</span> proceed to step 2.</div>
 </div></li>
-<li id="li-183"><div class="para logical" id="p-490">
+<li id="li-193"><div class="para logical" id="p-506">
 <div class="para">Are the lines parallel? Test</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -597,7 +597,7 @@ H_a:\text{ at least one }\alpha_i + \beta_i x_0\text{ is distinct}
 <article class="example example-like" id="example-19"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-491">Consider the plant yield data from earlier:</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-507">Consider the plant yield data from earlier:</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Control (C)</td>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Slow Release (S)</td>
@@ -691,7 +691,7 @@ H_a:\text{ at least one }\alpha_i + \beta_i x_0\text{ is distinct}
 <td class="l m b0 r0 l0 t0 lines">8.5</td>
 <td class="l m b0 r0 l0 t0 lines">40</td>
 </tr>
-</table></div> <div class="para logical" id="p-492">
+</table></div> <div class="para logical" id="p-508">
 <div class="para">The SAS code is given by</div>
 <pre class="code-display tex2jax_ignore">DATA one;
 INPUT trt $ height yield;
@@ -702,7 +702,7 @@ CLASS trt;
 MODEL yield = trt trt*height;
 </pre>
 <div class="para">This gives the following table:</div>
-</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova2.png" class="contained"></div> <div class="para" id="p-493">We reject <span class="process-math">\(H_0: \beta_1 = \beta_2 = \beta_3 = 0\)</span> (<span class="process-math">\(p \lt 0.001\)</span>) at the <span class="process-math">\(\alpha = 0.05\)</span> significance level. We conclude that height is a significant covariate which as an effect on yield in at least one treatment level.</div> <div class="para" id="p-494">To test <span class="process-math">\(H_0: \beta_1 = \beta_2=\beta_3\text{,}\)</span> add <code class="code-inline tex2jax_ignore">MODEL yield = trt height trt*height</code> to the SAS code. This gives the following table:</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova3.png" class="contained"></div> <div class="para logical" id="p-495">
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova2.png" class="contained"></div> <div class="para" id="p-509">We reject <span class="process-math">\(H_0: \beta_1 = \beta_2 = \beta_3 = 0\)</span> (<span class="process-math">\(p \lt 0.001\)</span>) at the <span class="process-math">\(\alpha = 0.05\)</span> significance level. We conclude that height is a significant covariate which as an effect on yield in at least one treatment level.</div> <div class="para" id="p-510">To test <span class="process-math">\(H_0: \beta_1 = \beta_2=\beta_3\text{,}\)</span> add <code class="code-inline tex2jax_ignore">MODEL yield = trt height trt*height</code> to the SAS code. This gives the following table:</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova3.png" class="contained"></div> <div class="para logical" id="p-511">
 <div class="para">The <span class="process-math">\(p-\)</span>value on the last row tests</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -710,10 +710,10 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 \end{equation*}
 </div>
 <div class="para">We fail to reject <span class="process-math">\(H_0\)</span> under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> so a parallel lines model is most appropriate.</div>
-</div> <div class="para" id="p-496">Running the statemend <code class="code-inline tex2jax_ignore">MODEL yield = trt height/NOINT SOLUTION</code> gives the table</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova4.png" class="contained"></div> <div class="para logical" id="p-497">
+</div> <div class="para" id="p-512">Running the statemend <code class="code-inline tex2jax_ignore">MODEL yield = trt height/NOINT SOLUTION</code> gives the table</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova4.png" class="contained"></div> <div class="para logical" id="p-513">
 <div class="para">This gives slope and intercept estimates for each line:</div>
 <ul class="disc">
-<li id="li-184"><div class="para logical" id="p-498">
+<li id="li-194"><div class="para logical" id="p-514">
 <div class="para">Treatment C:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -721,7 +721,7 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 \end{equation*}
 </div>
 </div></li>
-<li id="li-185"><div class="para logical" id="p-499">
+<li id="li-195"><div class="para logical" id="p-515">
 <div class="para">Treatment F:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -729,7 +729,7 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 \end{equation*}
 </div>
 </div></li>
-<li id="li-186"><div class="para logical" id="p-500">
+<li id="li-196"><div class="para logical" id="p-516">
 <div class="para">Treatment S:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -739,7 +739,7 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 </div></li>
 </ul>
 <div class="para">The plot of the parallel lines against the response is given below:</div>
-</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova5.png" class="contained"></div> <div class="para" id="p-501">To test which pair of treatment shows significant difference, use <code class="code-inline tex2jax_ignore">LSMEANS trt</code> and get</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova6.png" class="contained"></div> <div class="para logical" id="p-502">
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova5.png" class="contained"></div> <div class="para" id="p-517">To test which pair of treatment shows significant difference, use <code class="code-inline tex2jax_ignore">LSMEANS trt</code> and get</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova6.png" class="contained"></div> <div class="para logical" id="p-518">
 <div class="para">Note that each <code class="code-inline tex2jax_ignore">LSMEAN</code> is calcualte from each line at</div>
 <div class="displaymath process-math">
 \begin{equation*}

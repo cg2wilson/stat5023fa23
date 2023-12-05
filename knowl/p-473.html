@@ -12,7 +12,19 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The effects of a slow-release fertilizer (S) and a fast-release fertilizer (F) on seed yield of peanut plants were compared to a control (C), which is a standard fertilizer, with 10 replications of each treatment. The researcher recognized that the 30 plants were not at the same level of development thus their heights were recorded at the start of the experiment.</div>
-<span class="incontext"><a href="lec-24-sec-1.html#p-473" class="internal">in-context</a></span>
+<div class="para logical">
+<div class="para">The repeated measures can be analyzed using the following SAS code:</div>
+<pre class="code-display tex2jax_ignore">DATA one;
+INPUT trt time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = one PLOTS=RESIDUALPANEL;
+CLASS trt time expunit;
+MODEL response = trt time trt*time/ DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option &gt;
+</pre>
+<div class="para">The line <code class="code-inline tex2jax_ignore">SUBJECT = expunit(trt)</code> shows that each experimental unit is nested within treatment. The <code class="code-inline tex2jax_ignore">TYPE = &lt; option &gt;</code> specifies covariance structure.</div>
+</div>
+<span class="incontext"><a href="lec-23-sec-1.html#p-473" class="internal">in-context</a></span>
 </body>
 </html>

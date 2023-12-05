@@ -13,12 +13,57 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
+<div class="para">The structure of covariance for the model must be chosen specifically. We have four options; let <span class="process-math">\(0\lt \rho \lt 1\text{:}\)</span>
+</div>
+<ol class="decimal">
+<li>
+<div class="para logical">
 <div class="para">Variance Components (VC):</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = 0
 \end{equation*}
 </div>
+</div>
+<div class="para">VC is also referred to as "independence"; specifically, this means that there is no linear relationship between different random variables</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Compound Symmetry (CS):</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = \rho\sigma^2
+\end{equation*}
+</div>
+</div>
+<div class="para">We assume that each covariance is the same between different random variables</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">First-Order Auto-Regressive, AR(1):</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i2k},Y_{i3k})  \amp = \rho \sigma^2 \\
+\text{Cov}\,(Y_{i1k},Y_{i3k}) = \rho^2\sigma^2 \amp 
+\end{align*}
+</div>
+</div>
+<div class="para">AR(1) assumes that as measurements become further apart, extra factors of <span class="process-math">\(\rho\)</span> are needed (eg, Time 1 and Time 2 only need <span class="process-math">\(\rho\text{,}\)</span> but Time 1 and Time 3 need <span class="process-math">\(\rho^2\)</span>)</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Unstructured (UN):</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{Cov}\,(Y_{i1k},Y_{i2k}) \amp = \sigma_{12} \\
+\text{Cov}\,(Y_{i1k},Y_{i3k}) \amp = \sigma_{13} \\
+\text{Cov}\,(Y_{i2k},Y_{i3k}) \amp = \sigma_{23} 
+\end{align*}
+</div>
+</div>
+<div class="para">Unstructured assumes separate covariacne for each pair of repeated measurements.</div>
+</li>
+</ol>
 </div>
 <span class="incontext"><a href="lec-23-sec-1.html#p-462" class="internal">in-context</a></span>
 </body>

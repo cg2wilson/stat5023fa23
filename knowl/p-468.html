@@ -11,20 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">The repeated measures can be analyzed using the following SAS code:</div>
-<pre class="code-display tex2jax_ignore">DATA one;
-INPUT trt time expunit response;
-DATALINES;
-...
-PROC MIXED DATA = one PLOTS=RESIDUALPANEL;
-CLASS trt time expunit;
-MODEL response = trt time trt*time/ DDFM = SATTERTH
-REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option &gt;
-</pre>
-<div class="para">The line <code class="code-inline tex2jax_ignore">SUBJECT = expunit(trt)</code> shows that each experimental unit is nested within treatment. The <code class="code-inline tex2jax_ignore">TYPE = &lt; option &gt;</code> specifies covariance structure.</div>
-</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para">AR(1) assumes that as measurements become further apart, extra factors of <span class="process-math">\(\rho\)</span> are needed (eg, Time 1 and Time 2 only need <span class="process-math">\(\rho\text{,}\)</span> but Time 1 and Time 3 need <span class="process-math">\(\rho^2\)</span>)</div>
 <span class="incontext"><a href="lec-23-sec-1.html#p-468" class="internal">in-context</a></span>
 </body>
 </html>
