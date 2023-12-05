@@ -118,7 +118,7 @@
                 </row>
             </tabular>
             <p>
-                For interaction effects, we reject <m>H_0:\text{ no interaction}</m> when
+                For interaction effects, we reject <m>H_0:(\alpha\beta)_{ij} = 0</m> when
                 <me>
                     F = \dfrac{MSAB}{MSSPE} \geq F_{\alpha,(a-1)(b-1),a(n-1)(b-1)}
                 </me>
@@ -165,6 +165,20 @@
             </tabular>
             <p>
                 The above standard error formulae can be generalized for any contrast such that <m>L_A = \sum a_i\alpha_i</m> or <m>L_B = \sum b_j\beta_j</m> by replacing 2 with <m>\sum a_i^2</m> or <m>\sum b_j^2</m>.
+            </p>
+            <p>
+                Note that for <m>H_0: \alpha_i = \alpha_j = 0</m>, we have
+                <me>
+                    t = \dfrac{\overline{Y}_{i\cdot\cdot - \overline{Y}_{i'\cdot\cdot}}}{\sqrt{\dfrac{1}{nb}\lrpar{2(\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta)}}}
+                </me>
+                with 
+                <me>
+                    t \sim t_{df}
+                </me>
+                where df is described in the table. Similarly, when testing the <m>\beta_j</m> terms, we have
+                <me>
+                    t = \dfrac{\overline{Y}_{\cdot j\cdot - \overline{Y}_{\cdot j'\cdot}}}{\sqrt{\dfrac{1}{na}\cdot 2\hat{\sigma}^2_\varepsilon}}
+                </me>
             </p>
             <p>
                 We can perform pairwise comparison of levels of factors A and B in split-plot design:
@@ -219,7 +233,7 @@
                 <row>
                     <cell><m>\mu_{ij} - \mu_{ij'}</m></cell>
                     <cell><m>\overline{Y}_{ij\cdot} - \overline{Y}_{ij'\cdot}</m></cell>
-                    <cell><m>sqrt{\dfrac{2}{n}\cdot \hat{\sigma}^2_\varepsilon}</m></cell>
+                    <cell><m>\sqrt{\dfrac{2}{n}\cdot \hat{\sigma}^2_\varepsilon}</m></cell>
                     <cell><m>a(n-1)(b-1)</m></cell>
                 </row>
                 <row>
@@ -248,7 +262,7 @@
                 For pooled estimates and Satterthwaite df, we use
                 <md>
                     <mrow> \text{pooled estimates }\amp = \sqrt{\dfrac{2}{nb}\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}} </mrow>
-                    <mrow> \text{Satterthwaite df } \amp = \dfrac{\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}^2}{\dfrac{((b-1)SS_SPErr)^2}{a(b-1)(n-1)} + \dfrac{(SS_{WPErr})^2}{a(n-1)}} </mrow>
+                    <mrow> \text{Satterthwaite df } \amp = \dfrac{\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}^2}{\dfrac{((b-1)SS_{SPErr})^2}{a(b-1)(n-1)} + \dfrac{(SS_{WPErr})^2}{a(n-1)}} </mrow>
                 </md>
             </p>
 
@@ -315,7 +329,34 @@
                 </statement>
                 <solution>
                     <p>
-                        
+                        <ol>
+                            <li>
+                                <p>
+                                    We use a split plot design and the consequent model from above:
+                                    <me>
+                                        Y_{ijk} = \mu + \alpha_i + \delta_{k(i)} + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+                                    </me>
+                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    For the interaction, we have
+                                    <me>
+                                        F = \dfrac{19.57}{0.23} \sim F_{6,18}
+                                    </me>
+                                    This interaction is not significant. For the main effects, we have 
+                                    <me>
+                                        F = \dfrac{335.90}{1.64}
+                                    </me>
+                                    for the variety, and 
+                                    <me>
+                                        F = \dfrac{136.12}{0.23}
+                                    </me>
+                                    for the phosphorus. 
+                                </p>
+                            </li>
+                        </ol>
                     </p>
                 </solution>
             </example>

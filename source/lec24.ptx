@@ -1,188 +1,435 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<chapter xml:id="lec-23" xmlns:xi="http://www.w3.org/2001/XInclude">
-	<title>Lecture 23 - nd</title>
+<chapter xml:id="lec-24" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Lecture 24 - nd</title>
 
-    <section xml:id="lec-23-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
-        <title>Experiments with Repeated Measures</title>
+    <section xml:id="lec-24-sec-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Analysis of Covariance</title>
         
-        <subsection xml:id="lec-23-sec-1-1">
-            <title>Experiments with Repeated Measures</title>
+        <subsection xml:id="lec-24-sec-1-1">
+            <title>Motivation</title>
 
             <p>
-                An <term>experiment with repeated measures</term> is one in which each experimental unit has more than a single measurement taken over time or location. For example, if patients are randomly assigned to one of two medications, they may have a response measured every week for three weeks. Comparison of medications, weeks on medications, and the interaction between the two can be investigated. Let <m>Y_{ijk}</m> denote an observation at time <m>j</m> on experimental unit <m>k</m> of treatment level <m>i</m>.
+                With one-way ANOVA in a CRD, we look at a comparison of a single treatment with <m>t</m> levels; we implicitly assume that we have homogeneous experimental units. However, often there are additional sources of variability which impact the response. In RCBD, we require a correct identification of blocking factor; what if we have a continuous blocking factor instead? RCBD requires a discrete factor, so you would have to introduce a level of subjectivity.
             </p>
-            <tabular>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell halign="center" colspan="3">Time</cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell>Week 1</cell>
-                    <cell>Week 2</cell>
-                    <cell>Week 3</cell>
-                </row>
-                <row>
-                    <cell>Med 1</cell>
-                    <cell>Patient 1</cell>
-                    <cell><m>Y_{111}</m></cell>
-                    <cell><m>Y_{121}</m></cell>
-                    <cell><m>Y_{131}</m></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell>Patient 2</cell>
-                    <cell><m>Y_{112}</m></cell>
-                    <cell><m>Y_{122}</m></cell>
-                    <cell><m>Y_{132}</m></cell>
-                </row>
-                <row>
-                    <cell>Med 2</cell>
-                    <cell>Patient 1</cell>
-                    <cell><m>Y_{211}</m></cell>
-                    <cell><m>Y_{221}</m></cell>
-                    <cell><m>Y_{231}</m></cell>
-                </row>
-                <row>
-                    <cell></cell>
-                    <cell>Patient 2</cell>
-                    <cell><m>Y_{212}</m></cell>
-                    <cell><m>Y_{222}</m></cell>
-                    <cell><m>Y_{232}</m></cell>
-                </row>
-            </tabular>
             <p>
-                In general, for a one-way treatment structure with <m>t</m> levels and for a CRD with <m>n</m> repetitions and <m>p</m> repeated measures, the sources of variation are given by
+                Suppose that in addition to a response <m>Y</m>, we observe some auxiliary variable <m>X</m>. We call <m>X</m> <term>covariate</term> and consider it to be lienarly related to <m>Y</m>; covariation is difficult to control in experimentation.
             </p>
-            <tabular>
-                <row>
-                    <cell>Source</cell>
-                    <cell>df</cell>
-                </row>
-                <row>
-                    <cell>Trt</cell>
-                    <cell><m>t-1</m></cell>
-                </row>
-                <row>
-                    <cell>Time</cell>
-                    <cell><m>p-1</m></cell>
-                </row>
-                <row>
-                    <cell>Trt*Time</cell>
-                    <cell><m>(t-1)(p-1)</m></cell>
-                </row>
-                <row>
-                    <cell>Error</cell>
-                    <cell><m>tp(n-1)</m></cell>
-                </row>
-                <row>
-                    <cell>Total</cell>
-                    <cell><m>tpn-1</m></cell>
-                </row>
-            </tabular>
             <p>
-                A statistical effects model with this design and treatment structure is given by
+                ANCOVA makes an adjustment of <m>X</m> to remove the additional source of variability by <m>X</m> that would be associated with <m>Y</m>. It involves fitting several linear lines to observations at each treatment level to account for the effect of the covariate <m>X</m> and often leads to more precise statistical inference of treatment effects.
+            </p>
+
+            <example>
+                <statement>
+                    <p>
+                        The effects of a slow-release fertilizer (S) and a fast-release fertilizer (F) on seed yield of peanut plants were compared to a control (C), which is a standard fertilizer, with 10 replications of each treatment. The researcher recognized that the 30 plants were not at the same level of development thus their heights were recorded at the start of the experiment.
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell colspan="2" halign="center">Control (C)</cell>
+                            <cell colspan="2" halign="center">Slow Release (S)</cell>
+                            <cell colspan="2" halign="center">Fast Release (F)</cell>
+                        </row>
+                        <row>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                        </row>
+                        <row>
+                            <cell>12.2</cell>
+                            <cell>45</cell>
+                            <cell>16.6</cell>
+                            <cell>63</cell>
+                            <cell>9.5</cell>
+                            <cell>52</cell>
+                        </row>
+                        <row>
+                            <cell>12.4</cell>
+                            <cell>52</cell>
+                            <cell>15.8</cell>
+                            <cell>50</cell>
+                            <cell>9.5</cell>
+                            <cell>54</cell>
+                        </row>
+                        <row>
+                            <cell>11.9</cell>
+                            <cell>42</cell>
+                            <cell>16.5</cell>
+                            <cell>63</cell>
+                            <cell>9.6</cell>
+                            <cell>58</cell>
+                        </row>
+                        <row>
+                            <cell>11.3</cell>
+                            <cell>35</cell>
+                            <cell>15</cell>
+                            <cell>33</cell>
+                            <cell>8.8</cell>
+                            <cell>45</cell>
+                        </row>
+                        <row>
+                            <cell>11.8</cell>
+                            <cell>40</cell>
+                            <cell>15.4</cell>
+                            <cell>38</cell>
+                            <cell>9.5</cell>
+                            <cell>57</cell>
+                        </row>
+                        <row>
+                            <cell>12.1</cell>
+                            <cell>48</cell>
+                            <cell>15.6</cell>
+                            <cell>45</cell>
+                            <cell>9.8</cell>
+                            <cell>62</cell>
+                        </row>
+                        <row>
+                            <cell>13.1</cell>
+                            <cell>60</cell>
+                            <cell>15.8</cell>
+                            <cell>50</cell>
+                            <cell>9.1</cell>
+                            <cell>52</cell>
+                        </row>
+                        <row>
+                            <cell>12.7</cell>
+                            <cell>61</cell>
+                            <cell>15.8</cell>
+                            <cell>48</cell>
+                            <cell>10.3</cell>
+                            <cell>67</cell>
+                        </row>
+                        <row>
+                            <cell>12.4</cell>
+                            <cell>50</cell>
+                            <cell>16</cell>
+                            <cell>50</cell>
+                            <cell>9.5</cell>
+                            <cell>55</cell>
+                        </row>
+                        <row>
+                            <cell>11.4</cell>
+                            <cell>33</cell>
+                            <cell>15.8</cell>
+                            <cell>49</cell>
+                            <cell>8.5</cell>
+                            <cell>40</cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        The results are plotted below.
+                    </p>
+                    <image source="ancova1.png" />
+                    <p>
+                        Slow release (S) appears to show a higher yield than the other two. THe yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.
+                    </p>
+                </statement>
+            </example>
+        </subsection>
+
+        <subsection xml:id="lec24-sec-1-2">
+            <title>Using ANCOVA</title>
+            
+            <p>
+                We can consider the following two models with a covariate in addition to the ANOVA model for a one-way treatment structure in a CRD:
+            </p>
+            <p>
+                <alert>Parallel Lines Model</alert>:
                 <me>
-                    Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
+                    Y_{ij} = \alpha_i + \beta X_{ij} + \varepsilon_{ij}
                 </me>
-                for <m>i=1,...,t</m>, <m>j=1,...,p</m>, and <m>k=1,...,m</m> with 
+                for <m>i=1,...,t</m>, <m>j=1,...,n</m>, where
                 <ul>
                     <li>
                         <p>
-                            <m>Y_{ijk}</m>: observation at time <m>j</m> on experimental unit <m>k</m> of treatment level <m>i</m>
+                            <m>Y_{ij}</m> denotes response for the <m>j-</m>th replicate of treatment level <m>i</m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m>\mu</m>: fixed overall mean
+                            <m>\alpha_i</m>: the <m>y-</m>intercept for treatment level <m>i</m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m>\tau_i</m>: fixed effect of treatment level <m>i</m>
+                            <m>\beta</m>: the slope (same for all treatment levels)
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m>\pi_j</m>: fixsed effect of time <m>j</m>
+                            <m>X_{ij}</m>: covariate for <m>j-</m>th replicate of treatment level <m>i</m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m>(\tau\pi)_{ij}</m>: interaction of <m>i-</m>th treatment and <m>j-</m>th time
+                            <m>\varepsilon_{ij}</m>: random error associated with <m>Y_{ij}</m> such that <m>\varepsilon\overline{\sim}{iid}N(0,\sigma^2_\varepsilon)</m>
+                        </p>
+                    </li>
+                </ul>
+                <alert>Non-Parallel Lines Model</alert>:
+                <me>
+                    Y_{ij} = \alpha_i + \beta X_{ij} + \varepsilon_{ij}
+                </me>
+                for <m>i=1,...,t</m>, <m>j=1,...,n</m>, where
+                <ul>
+                    <li>
+                        <p>
+                            <m>Y_{ij}</m> denotes response for the <m>j-</m>th replicate of treatment level <m>i</m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m>\varepsilon_{ijk}</m>: random error associated with <m>Y_{ijk}</m>. Note: it would not be likely that these are iid in this context.
+                            <m>\alpha_i</m>: the <m>y-</m>intercept for treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\beta_i</m>: the slope for treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>X_{ij}</m>: covariate for <m>j-</m>th replicate of treatment level <m>i</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\varepsilon_{ij}</m>: random error associated with <m>Y_{ij}</m> such that <m>\varepsilon\stackrel{iid}{\sim}N(0,\sigma^2_\varepsilon)</m>
                         </p>
                     </li>
                 </ul>
             </p>
+
             <p>
-                So far, we have assumed observations are independent. However, in a repeated measures setup, <m>Y_{ijk}</m> and <m>Y_{ij'k}</m> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.
-            </p>
-            <p>
-                The solution is to use <term>covariance</term> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association. 
-            </p>
-            <p>
-                In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.
-            </p>
-            <p>
-                The structure of covariance for the model must be chosen specifically. We have four options; let <m>0\lt \rho \lt 1</m>:
+                Step-by-step analysis goes as follows:
                 <ol>
                     <li>
                         <p>
-                            Variance Components (VC):
+                            Is the covariate necessary? Test
                             <me>
-                                \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = 0
+                                H_0: \beta_1 = \cdots = \beta_t = 0
                             </me>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Compound Symmetry (CS):
+                            vs.
                             <me>
-                                \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = \rho\sigma^2
+                                H_a: \beta_j \neq 0 \text{ for some } j
                             </me>
+                            If we fail to reject <m>H_0</m>, we proceed with one-way ANOVA. If we reject <m>H_0</m>, proceed to step 2.
+                            
                         </p>
                     </li>
                     <li>
                         <p>
-                            AR(1):
-                            <md>
-                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i2k},Y_{i3k})  \amp = \rho \sigma^2 </mrow>
-                                <mrow>\text{Cov}\,(Y_{i1k},Y_{i3k}) = \rho^2\sigma^2 \amp </mrow>
-                            </md>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Unstructured:
-                            <md>
-                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) \amp = \sigma_{12} </mrow>
-                                <mrow> \text{Cov}\,(Y_{i1k},Y_{i3k}) \amp = \sigma_{13} </mrow>
-                                <mrow> \text{Cov}\,(Y_{i2k},Y_{i3k}) \amp = \sigma_{23} </mrow>
-                            </md>
+                            Are the lines parallel? Test
+                            <me>
+                                H_0: \beta_1 = \cdots = \beta_t
+                            </me>
+                            vs.
+                            <me>
+                                H_a: \text{ at least one }\beta_i\text{ is distinct}
+                            </me>
+                            If we fail to reject <m>H_0</m>, we adopt the parallel lines model. Then, each treatment effect can be compared at any value of the covariate. This is equivalent to testing
+                            <me>
+                                H_0: \alpha_1 = \cdots = \alpha_t
+                            </me>
+                            vs.
+                            <me>
+                                H_a: \text{ at least one }\alpha_i \text{ is distinct}
+                            </me>
+                            If we reject <m>H_0</m>, we adopt the non-parallel lines model. Then, each treatment effect needs to be compared at different values of the covariates, which is equivalent to testing
+                            <me>
+                                H_0: \alpha_1 + \beta_1x_0 = \cdots = \alpha_t + \beta_t x_0
+                            </me>
+                            vs.
+                            <me>
+                                H_a:\text{ at least one }\alpha_i + \beta_i x_0\text{ is distinct}
+                            </me>
+                            where <m>x_0</m> is some specific value of <m>X</m>.
                         </p>
                     </li>
                 </ol>
             </p>
-            <p>
-                Choosing an appropriate structure is challenging and beyond the scope of the course; <c>SAS</c> provides some measures of model fit such as AIC, BIC. The Null Model Likelihood Ratio Test compares VC to the other specified one by testing the hypothesis
-                <me>
-                    H_0: \text{VC is appropriate }
-                </me>
-                versus
-                <me>
-                    H_a: \text{the other is appropriate}
-                </me>
-                The outputs can guide us to choose the covariance structure.
-                
-            </p>
+
+            <example>
+                <statement>
+                    <p>
+                        Consider the plant yield data from earlier:
+                    </p>
+                    <tabular>
+                        <row>
+                            <cell colspan="2" halign="center">Control (C)</cell>
+                            <cell colspan="2" halign="center">Slow Release (S)</cell>
+                            <cell colspan="2" halign="center">Fast Release (F)</cell>
+                        </row>
+                        <row>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                            <cell>Yield</cell>
+                            <cell>Height</cell>
+                        </row>
+                        <row>
+                            <cell>12.2</cell>
+                            <cell>45</cell>
+                            <cell>16.6</cell>
+                            <cell>63</cell>
+                            <cell>9.5</cell>
+                            <cell>52</cell>
+                        </row>
+                        <row>
+                            <cell>12.4</cell>
+                            <cell>52</cell>
+                            <cell>15.8</cell>
+                            <cell>50</cell>
+                            <cell>9.5</cell>
+                            <cell>54</cell>
+                        </row>
+                        <row>
+                            <cell>11.9</cell>
+                            <cell>42</cell>
+                            <cell>16.5</cell>
+                            <cell>63</cell>
+                            <cell>9.6</cell>
+                            <cell>58</cell>
+                        </row>
+                        <row>
+                            <cell>11.3</cell>
+                            <cell>35</cell>
+                            <cell>15</cell>
+                            <cell>33</cell>
+                            <cell>8.8</cell>
+                            <cell>45</cell>
+                        </row>
+                        <row>
+                            <cell>11.8</cell>
+                            <cell>40</cell>
+                            <cell>15.4</cell>
+                            <cell>38</cell>
+                            <cell>9.5</cell>
+                            <cell>57</cell>
+                        </row>
+                        <row>
+                            <cell>12.1</cell>
+                            <cell>48</cell>
+                            <cell>15.6</cell>
+                            <cell>45</cell>
+                            <cell>9.8</cell>
+                            <cell>62</cell>
+                        </row>
+                        <row>
+                            <cell>13.1</cell>
+                            <cell>60</cell>
+                            <cell>15.8</cell>
+                            <cell>50</cell>
+                            <cell>9.1</cell>
+                            <cell>52</cell>
+                        </row>
+                        <row>
+                            <cell>12.7</cell>
+                            <cell>61</cell>
+                            <cell>15.8</cell>
+                            <cell>48</cell>
+                            <cell>10.3</cell>
+                            <cell>67</cell>
+                        </row>
+                        <row>
+                            <cell>12.4</cell>
+                            <cell>50</cell>
+                            <cell>16</cell>
+                            <cell>50</cell>
+                            <cell>9.5</cell>
+                            <cell>55</cell>
+                        </row>
+                        <row>
+                            <cell>11.4</cell>
+                            <cell>33</cell>
+                            <cell>15.8</cell>
+                            <cell>49</cell>
+                            <cell>8.5</cell>
+                            <cell>40</cell>
+                        </row>
+                    </tabular>
+                    <p>
+                        The SAS code is given by
+                        <cd>
+                            <cline>DATA one;</cline>
+                            <cline>INPUT trt $ height yield;</cline>
+                            <cline>DATALINES;</cline>
+                            <cline>...</cline>
+                            <cline>PROC MIXED DATA = one;</cline>
+                            <cline>CLASS trt;</cline>
+                            <cline>MODEL yield = trt trt*height;</cline>
+                        </cd>
+                        This gives the following table:
+                    </p>
+                    <image source="ancova2.png"/>
+                    <p>
+                        We reject <m>H_0: \beta_1 = \beta_2 = \beta_3 = 0</m> (<m>p \lt 0.001</m>) at the <m>\alpha = 0.05</m> significance level. We conclude that height is a significant covariate which as an effect on yield in at least one treatment level.
+                    </p>
+                    <p>
+                        To test <m>H_0: \beta_1 = \beta_2=\beta_3</m>, add <c>MODEL yield = trt height trt*height</c> to the SAS code. This gives the following table:
+                    </p>
+                    <image source="ancova3.png" />
+                    <p>
+                        The <m>p-</m>value on the last row tests
+                        <me>
+                            H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
+                        </me>
+                        We fail to reject <m>H_0</m> under <m>\alpha = 0.05</m>, so a parallel lines model is most appropriate.
+                    </p>
+                    <p>
+                        Running the statemend <c>MODEL yield = trt height/NOINT SOLUTION</c> gives the table
+                    </p>
+                    <image source="ancova4.png"/>
+                    <p>
+                        This gives slope and intercept estimates for each line:
+                        <ul>
+                            <li>
+                                <p>
+                                    Treatment C: 
+                                    <me>
+                                        \hat{\text{Yield}} = 9.530 + 0.056\cdot\text{Height}
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Treatment F: 
+                                    <me>
+                                        \hat{\text{Yield}} = 6.385 + 0.056\cdot\text{Height}
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Treatment S: 
+                                    <me>
+                                        \hat{\text{Yield}} = 13.101 + 0.056\cdot\text{Height}
+                                    </me>
+                                </p>
+                            </li>
+                        </ul>
+                        The plot of the parallel lines against the response is given below:
+                    </p>
+                    <image source="ancova5.png"/>
+                    <p>
+                        To test which pair of treatment shows significant difference, use <c>LSMEANS trt</c> and get
+                    </p>
+                    <image source="ancova6.png"/>
+                    <p>
+                        Note that each <c>LSMEAN</c> is calcualte from each line at 
+                        <me>
+                            x = \text{ Sample mean of Height }=40.90036
+                        </me>
+                        
+                    </p>
+                </statement>
+
+            </example>
+            
         </subsection>
 
     </section>
