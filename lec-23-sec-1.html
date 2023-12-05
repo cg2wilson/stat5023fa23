@@ -202,7 +202,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-23.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="lec-23.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="lec-24.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(      \newcommand{\ds}{\displaystyle}
 \newcommand{\lrpar}[1]{\left(#1\right)}
@@ -362,6 +362,16 @@ window.MathJax = {
 <ul class="structural"><li><div class="toc-item"><a href="lec-23-sec-1.html#lec-23-sec-1-1" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Experiments with Repeated Measures</span></a></div></li></ul>
 </li></ul>
 </li>
+<li>
+<div class="toc-item"><a href="lec-24.html" class="internal"><span class="codenumber">16</span> <span class="title">Lecture 24 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-24-sec-1.html" class="internal"><span class="codenumber">16.1</span> <span class="title">Analysis of Covariance</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-24-sec-1.html#lec-24-sec-1-1" class="internal"><span class="codenumber">16.1.1</span> <span class="title">Motivation</span></a></div></li>
+<li><div class="toc-item"><a href="lec-24-sec-1.html#lec24-sec-1-2" class="internal"><span class="codenumber">16.1.2</span> <span class="title">Using ANCOVA</span></a></div></li>
+</ul>
+</li></ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-23-sec-1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">15.1</span> <span class="title">Experiments with Repeated Measures</span>
@@ -369,7 +379,7 @@ window.MathJax = {
 <section class="subsection" id="lec-23-sec-1-1"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">15.1.1</span> <span class="title">Experiments with Repeated Measures</span>
 </h3>
-<div class="para" id="p-446">An <dfn class="terminology">experiment with repeated measures</dfn> is one in which each experimental unit has more than a single measurement taken over time or location. For example, if patients are randomly assigned to one of two medications, they may have a response measured every week for three weeks. Comparison of medications, weeks on medications, and the interaction between the two can be investigated. Let <span class="process-math">\(Y_{ijk}\)</span> denote an observation at time <span class="process-math">\(j\)</span> on experimental unit <span class="process-math">\(k\)</span> of treatment level <span class="process-math">\(i\text{.}\)</span>
+<div class="para" id="p-449">An <dfn class="terminology">experiment with repeated measures</dfn> is one in which each experimental unit has more than a single measurement taken over time or location. For example, if patients are randomly assigned to one of two medications, they may have a response measured every week for three weeks. Comparison of medications, weeks on medications, and the interaction between the two can be investigated. Let <span class="process-math">\(Y_{ijk}\)</span> denote an observation at time <span class="process-math">\(j\)</span> on experimental unit <span class="process-math">\(k\)</span> of treatment level <span class="process-math">\(i\text{.}\)</span>
 </div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
@@ -413,7 +423,7 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Y_{232}\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="p-447">In general, for a one-way treatment structure with <span class="process-math">\(t\)</span> levels and for a CRD with <span class="process-math">\(n\)</span> repetitions and <span class="process-math">\(p\)</span> repeated measures, the sources of variation are given by</div>
+<div class="para" id="p-450">In general, for a one-way treatment structure with <span class="process-math">\(t\)</span> levels and for a CRD with <span class="process-math">\(n\)</span> repetitions and <span class="process-math">\(p\)</span> repeated measures, the sources of variation are given by</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Source</td>
@@ -440,7 +450,7 @@ window.MathJax = {
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(tpn-1\)</span></td>
 </tr>
 </table></div>
-<div class="para logical" id="p-448">
+<div class="para logical" id="p-451">
 <div class="para">A statistical effects model with this design and treatment structure is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -449,31 +459,31 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 </div>
 <div class="para">for <span class="process-math">\(i=1,...,t\text{,}\)</span> <span class="process-math">\(j=1,...,p\text{,}\)</span> and <span class="process-math">\(k=1,...,m\)</span> with</div>
 <ul class="disc">
-<li id="li-160"><div class="para" id="p-449">
+<li id="li-162"><div class="para" id="p-452">
 <span class="process-math">\(Y_{ijk}\text{:}\)</span> observation at time <span class="process-math">\(j\)</span> on experimental unit <span class="process-math">\(k\)</span> of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-161"><div class="para" id="p-450">
+<li id="li-163"><div class="para" id="p-453">
 <span class="process-math">\(\mu\text{:}\)</span> fixed overall mean</div></li>
-<li id="li-162"><div class="para" id="p-451">
+<li id="li-164"><div class="para" id="p-454">
 <span class="process-math">\(\tau_i\text{:}\)</span> fixed effect of treatment level <span class="process-math">\(i\)</span>
 </div></li>
-<li id="li-163"><div class="para" id="p-452">
+<li id="li-165"><div class="para" id="p-455">
 <span class="process-math">\(\pi_j\text{:}\)</span> fixsed effect of time <span class="process-math">\(j\)</span>
 </div></li>
-<li id="li-164"><div class="para" id="p-453">
+<li id="li-166"><div class="para" id="p-456">
 <span class="process-math">\((\tau\pi)_{ij}\text{:}\)</span> interaction of <span class="process-math">\(i-\)</span>th treatment and <span class="process-math">\(j-\)</span>th time</div></li>
-<li id="li-165"><div class="para" id="p-454">
+<li id="li-167"><div class="para" id="p-457">
 <span class="process-math">\(\varepsilon_{ijk}\text{:}\)</span> random error associated with <span class="process-math">\(Y_{ijk}\text{.}\)</span> Note: it would not be likely that these are iid in this context.</div></li>
 </ul>
 </div>
-<div class="para" id="p-455">So far, we have assumed observations are independent. However, in a repeated measures setup, <span class="process-math">\(Y_{ijk}\)</span> and <span class="process-math">\(Y_{ij'k}\)</span> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.</div>
-<div class="para" id="p-456">The solution is to use <dfn class="terminology">covariance</dfn> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association.</div>
-<div class="para" id="p-457">In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.</div>
-<div class="para logical" id="p-458">
+<div class="para" id="p-458">So far, we have assumed observations are independent. However, in a repeated measures setup, <span class="process-math">\(Y_{ijk}\)</span> and <span class="process-math">\(Y_{ij'k}\)</span> are likely to be correlated; in order to appropriately analyze the repeated measures, we need to account for how the observations within each subject are dependent to each other.</div>
+<div class="para" id="p-459">The solution is to use <dfn class="terminology">covariance</dfn> (a numerical measure of linear association between two random variables). Covariance generalizes variance to multiple variables. A small covariance indicates no linear association between two random variables, while a larger one indicates a stronger association.</div>
+<div class="para" id="p-460">In the medication example above, the measurements are made on the same unit for three weeks. So, we need to consider the covariance structure between Week 1 and Week 2, Week 1 and Week 3, and Week 2 and Week 3.</div>
+<div class="para logical" id="p-461">
 <div class="para">The structure of covariance for the model must be chosen specifically. We have four options; let <span class="process-math">\(0\lt \rho \lt 1\text{:}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-166"><div class="para logical" id="p-459">
+<li id="li-168"><div class="para logical" id="p-462">
 <div class="para">Variance Components (VC):</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -481,7 +491,7 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-167"><div class="para logical" id="p-460">
+<li id="li-169"><div class="para logical" id="p-463">
 <div class="para">Compound Symmetry (CS):</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -489,7 +499,7 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-168"><div class="para logical" id="p-461">
+<li id="li-170"><div class="para logical" id="p-464">
 <div class="para">AR(1):</div>
 <div class="displaymath process-math" id="md-30">
 \begin{align*}
@@ -498,7 +508,7 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 \end{align*}
 </div>
 </div></li>
-<li id="li-169"><div class="para logical" id="p-462">
+<li id="li-171"><div class="para logical" id="p-465">
 <div class="para">Unstructured:</div>
 <div class="displaymath process-math" id="md-31">
 \begin{align*}
@@ -510,7 +520,7 @@ Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
 </div></li>
 </ol>
 </div>
-<div class="para logical" id="p-463">
+<div class="para logical" id="p-466">
 <div class="para">Choosing an appropriate structure is challenging and beyond the scope of the course; <code class="code-inline tex2jax_ignore">SAS</code> provides some measures of model fit such as AIC, BIC. The Null Model Likelihood Ratio Test compares VC to the other specified one by testing the hypothesis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -526,7 +536,7 @@ H_a: \text{the other is appropriate}
 <div class="para">The outputs can guide us to choose the covariance structure.</div>
 </div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-24.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

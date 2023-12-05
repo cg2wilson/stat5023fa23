@@ -362,6 +362,16 @@ window.MathJax = {
 <ul class="structural"><li><div class="toc-item"><a href="lec-23-sec-1.html#lec-23-sec-1-1" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Experiments with Repeated Measures</span></a></div></li></ul>
 </li></ul>
 </li>
+<li>
+<div class="toc-item"><a href="lec-24.html" class="internal"><span class="codenumber">16</span> <span class="title">Lecture 24 - nd</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="lec-24-sec-1.html" class="internal"><span class="codenumber">16.1</span> <span class="title">Analysis of Covariance</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="lec-24-sec-1.html#lec-24-sec-1-1" class="internal"><span class="codenumber">16.1.1</span> <span class="title">Motivation</span></a></div></li>
+<li><div class="toc-item"><a href="lec-24-sec-1.html#lec24-sec-1-2" class="internal"><span class="codenumber">16.1.2</span> <span class="title">Using ANCOVA</span></a></div></li>
+</ul>
+</li></ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="lec-22-sec-1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">14.1</span> <span class="title">Split-Plot Design</span>
@@ -454,7 +464,7 @@ Y_{ijk} = \mu + \alpha_i + \delta_{k(i)} + \beta_j + (\alpha\beta)_{ij} + \varep
 </tr>
 </table></div>
 <div class="para logical" id="p-433">
-<div class="para">For interaction effects, we reject <span class="process-math">\(H_0:\text{ no interaction}\)</span> when</div>
+<div class="para">For interaction effects, we reject <span class="process-math">\(H_0:(\alpha\beta)_{ij} = 0\)</span> when</div>
 <div class="displaymath process-math">
 \begin{equation*}
 F = \dfrac{MSAB}{MSSPE} \geq F_{\alpha,(a-1)(b-1),a(n-1)(b-1)}
@@ -503,7 +513,27 @@ F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
 </table></div>
 <div class="para" id="p-436">The above standard error formulae can be generalized for any contrast such that <span class="process-math">\(L_A = \sum a_i\alpha_i\)</span> or <span class="process-math">\(L_B = \sum b_j\beta_j\)</span> by replacing 2 with <span class="process-math">\(\sum a_i^2\)</span> or <span class="process-math">\(\sum b_j^2\text{.}\)</span>
 </div>
-<div class="para" id="p-437">We can perform pairwise comparison of levels of factors A and B in split-plot design:</div>
+<div class="para logical" id="p-437">
+<div class="para">Note that for <span class="process-math">\(H_0: \alpha_i = \alpha_j = 0\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\overline{Y}_{i\cdot\cdot - \overline{Y}_{i'\cdot\cdot}}}{\sqrt{\dfrac{1}{nb}\lrpar{2(\hat{\sigma}^2_\varepsilon + b\hat{\sigma}^2_\delta)}}}
+\end{equation*}
+</div>
+<div class="para">with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t \sim t_{df}
+\end{equation*}
+</div>
+<div class="para">where df is described in the table. Similarly, when testing the <span class="process-math">\(\beta_j\)</span> terms, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\overline{Y}_{\cdot j\cdot - \overline{Y}_{\cdot j'\cdot}}}{\sqrt{\dfrac{1}{na}\cdot 2\hat{\sigma}^2_\varepsilon}}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="p-438">We can perform pairwise comparison of levels of factors A and B in split-plot design:</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Method</td>
@@ -547,7 +577,7 @@ F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
 </td>
 </tr>
 </table></div>
-<div class="para" id="p-438">If the interaction is significant, then we compare the group means among each treatment combination. The standard error estimates and corresponding df get different depending on the types of comparison we make.</div>
+<div class="para" id="p-439">If the interaction is significant, then we compare the group means among each treatment combination. The standard error estimates and corresponding df get different depending on the types of comparison we make.</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines"></td>
@@ -558,7 +588,7 @@ F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
 <tr>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mu_{ij} - \mu_{ij'}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\overline{Y}_{ij\cdot} - \overline{Y}_{ij'\cdot}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(sqrt{\dfrac{2}{n}\cdot \hat{\sigma}^2_\varepsilon}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sqrt{\dfrac{2}{n}\cdot \hat{\sigma}^2_\varepsilon}\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a(n-1)(b-1)\)</span></td>
 </tr>
 <tr><td class="l m b0 r0 l0 t0 lines">Difference in B at the same level of A</td></tr>
@@ -577,22 +607,22 @@ F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
 </tr>
 <tr><td class="l m b0 r0 l0 t0 lines">Difference in A at different levels of B</td></tr>
 </table></div>
-<div class="para logical" id="p-439">
+<div class="para logical" id="p-440">
 <div class="para">For pooled estimates and Satterthwaite df, we use</div>
 <div class="displaymath process-math" id="md-29">
 \begin{align*}
 \text{pooled estimates }\amp = \sqrt{\dfrac{2}{nb}\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}} \\
-\text{Satterthwaite df } \amp = \dfrac{\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}^2}{\dfrac{((b-1)SS_SPErr)^2}{a(b-1)(n-1)} + \dfrac{(SS_{WPErr})^2}{a(n-1)}} 
+\text{Satterthwaite df } \amp = \dfrac{\lrpar{(b-1)SS_{SPErr} + SS_{WPErr}}^2}{\dfrac{((b-1)SS_{SPErr})^2}{a(b-1)(n-1)} + \dfrac{(SS_{WPErr})^2}{a(n-1)}} 
 \end{align*}
 </div>
 </div>
 <article class="example example-like" id="example-16"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">14.1.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-440">A study was designed to determine if additional phosphorus applied to the soil would increase the yield of soybeans. There are three major varieties of soybeans of interest (V1, V2, and V3) and four levels of phosphorus (0, 30, 60, and 90 pounds per acre). Researchers have nine plots of land available for the study. Because of the complexities of planting the soybeans on the plots of the given size, it was decided to plant a single variety of soybeans on each plot and then divide each plot into four subplots. Researchers randomly assigned a variety to one plot within each block of three plots and then randomy assigned the levels of phosphorus to the four subplots within each plot.</div> <div class="para logical" id="p-441"><ol class="decimal">
-<li id="li-158"><div class="para" id="p-442">Identify an experimental design and an appropriate statistical model which are best consistent with the given description of the study.</div></li>
+<div class="para" id="p-441">A study was designed to determine if additional phosphorus applied to the soil would increase the yield of soybeans. There are three major varieties of soybeans of interest (V1, V2, and V3) and four levels of phosphorus (0, 30, 60, and 90 pounds per acre). Researchers have nine plots of land available for the study. Because of the complexities of planting the soybeans on the plots of the given size, it was decided to plant a single variety of soybeans on each plot and then divide each plot into four subplots. Researchers randomly assigned a variety to one plot within each block of three plots and then randomy assigned the levels of phosphorus to the four subplots within each plot.</div> <div class="para logical" id="p-442"><ol class="decimal">
+<li id="li-158"><div class="para" id="p-443">Identify an experimental design and an appropriate statistical model which are best consistent with the given description of the study.</div></li>
 <li id="li-159">
-<div class="para" id="p-443">Consider the following ANOVA table:</div>
+<div class="para" id="p-444">Consider the following ANOVA table:</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Source</td>
@@ -631,11 +661,41 @@ F = \dfrac{MSB}{MSSPE} \geq F_{\alpha,b-1,a(n-1)(b-1)}
 <td class="l m b0 r0 l0 t0 lines">0.23</td>
 </tr>
 </table></div>
-<div class="para" id="p-444">Under <span class="process-math">\(\alpha = 0.01\text{,}\)</span> provide your complete conclusion about interaction and main effects.</div>
+<div class="para" id="p-445">Under <span class="process-math">\(\alpha = 0.01\text{,}\)</span> provide your complete conclusion about interaction and main effects.</div>
 </li>
 </ol></div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><div class="para" id="p-445"></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><div class="para logical" id="p-446"><ol class="decimal">
+<li id="li-160"><div class="para logical" id="p-447">
+<div class="para">We use a split plot design and the consequent model from above:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_{ijk} = \mu + \alpha_i + \delta_{k(i)} + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+\end{equation*}
+</div>
+</div></li>
+<li id="li-161"><div class="para logical" id="p-448">
+<div class="para">For the interaction, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{19.57}{0.23} \sim F_{6,18}
+\end{equation*}
+</div>
+<div class="para">This interaction is not significant. For the main effects, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{335.90}{1.64}
+\end{equation*}
+</div>
+<div class="para">for the variety, and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \dfrac{136.12}{0.23}
+\end{equation*}
+</div>
+<div class="para">for the phosphorus.</div>
+</div></li>
+</ol></div></div></div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-22.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-23.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
