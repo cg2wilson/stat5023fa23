@@ -12,9 +12,9 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.2</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.1</span><span class="period">.</span>
 </h4>
-<div class="para">Consider the plant yield data from earlier:</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para">The effects of a slow-release fertilizer (S) and a fast-release fertilizer (F) on seed yield of peanut plants were compared to a control (C), which is a standard fertilizer, with 10 replications of each treatment. The researcher recognized that the 30 plants were not at the same level of development thus their heights were recorded at the start of the experiment.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Control (C)</td>
 <td class="c m b0 r0 l0 t0 lines" colspan="2">Slow Release (S)</td>
@@ -108,61 +108,6 @@
 <td class="l m b0 r0 l0 t0 lines">8.5</td>
 <td class="l m b0 r0 l0 t0 lines">40</td>
 </tr>
-</table></div> <div class="para logical">
-<div class="para">The SAS code is given by</div>
-<pre class="code-display tex2jax_ignore">DATA one;
-INPUT trt $ height yield;
-DATALINES;
-...
-PROC MIXED DATA = one;
-CLASS trt;
-MODEL yield = trt trt*height;
-</pre>
-<div class="para">This gives the following table:</div>
-</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova2.png" class="contained"></div> <div class="para">We reject <span class="process-math">\(H_0: \beta_1 = \beta_2 = \beta_3 = 0\)</span> (<span class="process-math">\(p \lt 0.001\)</span>) at the <span class="process-math">\(\alpha = 0.05\)</span> significance level. We conclude that height is a significant covariate which as an effect on yield in at least one treatment level.</div> <div class="para">To test <span class="process-math">\(H_0: \beta_1 = \beta_2=\beta_3\text{,}\)</span> add <code class="code-inline tex2jax_ignore">MODEL yield = trt height trt*height</code> to the SAS code. This gives the following table:</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova3.png" class="contained"></div> <div class="para logical">
-<div class="para">The <span class="process-math">\(p-\)</span>value on the last row tests</div>
-<div class="displaymath process-math">
-\begin{equation*}
-H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
-\end{equation*}
-</div>
-<div class="para">We fail to reject <span class="process-math">\(H_0\)</span> under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> so a parallel lines model is most appropriate.</div>
-</div> <div class="para">Running the statemend <code class="code-inline tex2jax_ignore">MODEL yield = trt height/NOINT SOLUTION</code> gives the table</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova4.png" class="contained"></div> <div class="para logical">
-<div class="para">This gives slope and intercept estimates for each line:</div>
-<ul class="disc">
-<li><div class="para logical">
-<div class="para">Treatment C:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\text{Yield}} = 9.530 + 0.056\cdot\text{Height}
-\end{equation*}
-</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">Treatment F:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\text{Yield}} = 6.385 + 0.056\cdot\text{Height}
-\end{equation*}
-</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">Treatment S:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\text{Yield}} = 13.101 + 0.056\cdot\text{Height}
-\end{equation*}
-</div>
-</div></li>
-</ul>
-<div class="para">The plot of the parallel lines against the response is given below:</div>
-</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova5.png" class="contained"></div> <div class="para">To test which pair of treatment shows significant difference, use <code class="code-inline tex2jax_ignore">LSMEANS trt</code> and get</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova6.png" class="contained"></div> <div class="para logical">
-<div class="para">Note that each <code class="code-inline tex2jax_ignore">LSMEAN</code> is calcualte from each line at</div>
-<div class="displaymath process-math">
-\begin{equation*}
-x = \text{ Sample mean of Height }=40.90036
-\end{equation*}
-</div>
-</div></article><span class="incontext"><a href="lec-24-sec-1.html#example-18" class="internal">in-context</a></span>
+</table></div> <div class="para">The results are plotted below.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova1.png" class="contained"></div> <div class="para">Slow release (S) appears to show a higher yield than the other two. The yield also tends to depend on the initial height of the plant; we need to take the covariate into account for more accurate estimates of treatment effects.</div></article><span class="incontext"><a href="lec-24-sec-1.html#example-18" class="internal">in-context</a></span>
 </body>
 </html>

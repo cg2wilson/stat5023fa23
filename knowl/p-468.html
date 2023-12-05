@@ -11,8 +11,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Suppose that in addition to a response <span class="process-math">\(Y\text{,}\)</span> we observe some auxiliary variable <span class="process-math">\(X\text{.}\)</span> We call <span class="process-math">\(X\)</span> <dfn class="terminology">covariate</dfn> and consider it to be lienarly related to <span class="process-math">\(Y\text{;}\)</span> covariation is difficult to control in experimentation.</div>
-<span class="incontext"><a href="lec-24-sec-1.html#p-468" class="internal">in-context</a></span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">The repeated measures can be analyzed using the following SAS code:</div>
+<pre class="code-display tex2jax_ignore">DATA one;
+INPUT trt time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = one PLOTS=RESIDUALPANEL;
+CLASS trt time expunit;
+MODEL response = trt time trt*time/ DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option &gt;
+</pre>
+<div class="para">The line <code class="code-inline tex2jax_ignore">SUBJECT = expunit(trt)</code> shows that each experimental unit is nested within treatment. The <code class="code-inline tex2jax_ignore">TYPE = &lt; option &gt;</code> specifies covariance structure.</div>
+</div>
+<span class="incontext"><a href="lec-23-sec-1.html#p-468" class="internal">in-context</a></span>
 </body>
 </html>

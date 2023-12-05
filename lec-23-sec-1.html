@@ -534,7 +534,34 @@ H_a: \text{the other is appropriate}
 \end{equation*}
 </div>
 <div class="para">The outputs can guide us to choose the covariance structure.</div>
-</div></section></section></div>
+</div>
+<article class="example example-like" id="example-17"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-467">An experiment is conducted to determine the effect of salt in the soil on the emergence of grass seeds. There are three replications of four plots, each treated to contain 0, 8, 16, and 24% salt. The percent of seeds emerging is observed 5, 8, 11, and 14 days after planting. THere are 12 separate plots; that is, the three replications within each level of salt are unrelated. Within each plot, there are four repeated measurements corresponding to days after planting.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/repetition1.png" class="contained"></div> <div class="para logical" id="p-468">
+<div class="para">The repeated measures can be analyzed using the following SAS code:</div>
+<pre class="code-display tex2jax_ignore">DATA one;
+INPUT trt time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = one PLOTS=RESIDUALPANEL;
+CLASS trt time expunit;
+MODEL response = trt time trt*time/ DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(trt) TYPE = &lt; option &gt;
+</pre>
+<div class="para">The line <code class="code-inline tex2jax_ignore">SUBJECT = expunit(trt)</code> shows that each experimental unit is nested within treatment. The <code class="code-inline tex2jax_ignore">TYPE = &lt; option &gt;</code> specifies covariance structure.</div>
+</div> <div class="para logical" id="p-469">
+<div class="para">For <span class="process-math">\(a\times b\)</span> factorial treatment structure, we can still use similar code with a slight change:</div>
+<pre class="code-display tex2jax_ignore">DATA two;
+INPUT A B time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = two;
+CLASS A B time expunit;
+MODEL response = A | B | time / DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option &gt;
+</pre>
+</div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="lec-23.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="lec-24.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

@@ -11,8 +11,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">ANCOVA makes an adjustment of <span class="process-math">\(X\)</span> to remove the additional source of variability by <span class="process-math">\(X\)</span> that would be associated with <span class="process-math">\(Y\text{.}\)</span> It involves fitting several linear lines to observations at each treatment level to account for the effect of the covariate <span class="process-math">\(X\)</span> and often leads to more precise statistical inference of treatment effects.</div>
-<span class="incontext"><a href="lec-24-sec-1.html#p-469" class="internal">in-context</a></span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">For <span class="process-math">\(a\times b\)</span> factorial treatment structure, we can still use similar code with a slight change:</div>
+<pre class="code-display tex2jax_ignore">DATA two;
+INPUT A B time expunit response;
+DATALINES;
+...
+PROC MIXED DATA = two;
+CLASS A B time expunit;
+MODEL response = A | B | time / DDFM = SATTERTH
+REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option &gt;
+</pre>
+</div>
+<span class="incontext"><a href="lec-23-sec-1.html#p-469" class="internal">in-context</a></span>
 </body>
 </html>
