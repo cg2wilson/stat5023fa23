@@ -84,11 +84,14 @@
                 </row>
             </tabular>
             <p>
+                Note that in the previous example, <m>t=2</m> (two medicines), <m>n = 2</m> (two patients), and <m>p = 3</m> (three repetitions).
+            </p>
+            <p>
                 A statistical effects model with this design and treatment structure is given by
                 <me>
                     Y_{ijk} = \mu + \tau_i + \pi_j + (\tau\pi)_{ij} + \varepsilon_{ijk}
                 </me>
-                for <m>i=1,...,t</m>, <m>j=1,...,p</m>, and <m>k=1,...,m</m> with 
+                for <m>i=1,...,t</m>, <m>j=1,...,p</m>, and <m>k=1,...,n</m> with 
                 <ul>
                     <li>
                         <p>
@@ -141,6 +144,10 @@
                                 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = 0
                             </me>
                         </p>
+                        <p>
+                            VC is also referred to as "independence"; specifically, this means that there is no linear relationship between different random variables
+                            
+                        </p>
                     </li>
                     <li>
                         <p>
@@ -149,24 +156,33 @@
                                 \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i1k},Y_{i3k}) = \text{Cov}\,(Y_{i2k},Y_{i3k}) = \rho\sigma^2
                             </me>
                         </p>
+                        <p>
+                            We assume that each covariance is the same between different random variables
+                        </p>
                     </li>
                     <li>
                         <p>
-                            AR(1):
+                            First-Order Auto-Regressive, AR(1):
                             <md>
                                 <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) = \text{Cov}\,(Y_{i2k},Y_{i3k})  \amp = \rho \sigma^2 </mrow>
                                 <mrow>\text{Cov}\,(Y_{i1k},Y_{i3k}) = \rho^2\sigma^2 \amp </mrow>
                             </md>
                         </p>
+                        <p>
+                            AR(1) assumes that as measurements become further apart, extra factors of <m>\rho</m> are needed (eg, Time 1 and Time 2 only need <m>\rho</m>, but Time 1 and Time 3 need <m>\rho^2</m>)
+                        </p>
                     </li>
                     <li>
                         <p>
-                            Unstructured:
+                            Unstructured (UN):
                             <md>
                                 <mrow> \text{Cov}\,(Y_{i1k},Y_{i2k}) \amp = \sigma_{12} </mrow>
                                 <mrow> \text{Cov}\,(Y_{i1k},Y_{i3k}) \amp = \sigma_{13} </mrow>
                                 <mrow> \text{Cov}\,(Y_{i2k},Y_{i3k}) \amp = \sigma_{23} </mrow>
                             </md>
+                        </p>
+                        <p>
+                            Unstructured assumes separate covariacne for each pair of repeated measurements.
                         </p>
                     </li>
                 </ol>
@@ -204,20 +220,90 @@
                         The line <c>SUBJECT = expunit(trt)</c> shows that each experimental unit is nested within treatment. The <c>TYPE = &lt; option ></c> specifies covariance structure.
                     </p>
                     <p>
-                        For <m>a\times b</m> factorial treatment structure, we can still use similar code with a slight change:
-                        <cd>
-                            <cline>DATA two;</cline>
-                            <cline>INPUT A B time expunit response;</cline>
-                            <cline>DATALINES;</cline>
-                            <cline>...</cline>
-                            <cline>PROC MIXED DATA = two;</cline>
-                            <cline>CLASS A B time expunit;</cline>
-                            <cline>MODEL response = A | B | time / DDFM = SATTERTH</cline>
-                            <cline>REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option ></cline>
-                        </cd>
+                        Based on the SAS output (salt_output(1).pdf), we see the following (for VC):
+                        <ul>
+                            <li>
+                                <p>
+                                    The "Estimated R Matrix" identifies the relationship between the four time roles; this indicates that <m>\sigma^2 = 56.5212</m>; this is confirmed in the "Covariance Parameter Estimates" table.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The AIC and BIC are going to be compared between different structures to determine the best.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The Null Model Likelihood Ratio Test tests the hypothesis
+                                    <me>
+                                        H_0: \text{VC is appropriate }
+                                    </me>
+                                    versus
+                                    <me>
+                                        H_a: \text{the other is appropriate}
+                                    </me>
+                                    So since this is VC vs. VC, this table contributes nothing.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The Fixed Effects table indicates that there is significant interaction, so we proceed normally.
+                                </p>
+                            </li>
+                        </ul>
+                        For AR(1), we have
+                        <ul>
+                            <li>
+                                <p>
+                                    In the "Covariance Parameter Estimates" table, the AR(1) line indicates <m>\hat{\rho}</m>, and the Residual indicates <m>\hat{\sigma}^2</m>. In particular, we see that <m>\hat{\rho}\cdot \hat{\sigma}^2 = 0.83\cdot 52.7691 = 43.7987</m>. Similarly, <m>\hat{\rho}^2\sigma^2 = (0.83)^2\cdot 55.7691=36.3533</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Comparing the AIC and BIC values with those from VC (215.6 vs. 245.4 and 216.6 vs. 245.9), since we go with smaller values, this suggests that AR(1) is more appropriate.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The NMLR test concludes that <m>p \lt 0.0001</m>, so between the AIC/BIC measurements and the NMLR test, we choose AR(1) as the appropriate structure.
+                                </p>
+                            </li>
+                        </ul>
+                        For CS, we have
+                        <ul>
+                            <li>
+                                <p>
+                                    Since CS assumes covariance is the same, we see this in the R Matrix and the Parameter Estimates tables. Similarly, we see that <m>Cov(X,Y) + \sigma^2 = Cov(X,X) </m>. 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    We see that AR(1) has smaller AIC and BIC values than CS, so we prefer AR(1) to CS, and both over VC. 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    NMLR concludes that CS is more appropriate than VC.
+                                </p>
+                            </li>
+                        </ul>
                     </p>
+                    
                 </statement>
             </example>
+            <p>
+                For <m>a\times b</m> factorial treatment structure, we can still use similar code with a slight change:
+                <cd>
+                    <cline>DATA two;</cline>
+                    <cline>INPUT A B time expunit response;</cline>
+                    <cline>DATALINES;</cline>
+                    <cline>...</cline>
+                    <cline>PROC MIXED DATA = two;</cline>
+                    <cline>CLASS A B time expunit;</cline>
+                    <cline>MODEL response = A | B | time / DDFM = SATTERTH</cline>
+                    <cline>REPEATED / SUBJECT = expunit(A*B) TYPE = &lt; option ></cline>
+                </cd>
+            </p>
         </subsection>
 
     </section>
