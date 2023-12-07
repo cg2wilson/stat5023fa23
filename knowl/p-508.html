@@ -18,7 +18,7 @@
 INPUT trt $ height yield;
 DATALINES;
 ...
-PROC MIXED DATA = one;
+PROC GLM DATA = one;
 CLASS trt;
 MODEL yield = trt trt*height;
 </pre>

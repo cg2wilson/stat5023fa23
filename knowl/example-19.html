@@ -114,7 +114,7 @@
 INPUT trt $ height yield;
 DATALINES;
 ...
-PROC MIXED DATA = one;
+PROC GLM DATA = one;
 CLASS trt;
 MODEL yield = trt trt*height;
 </pre>
@@ -127,7 +127,7 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 \end{equation*}
 </div>
 <div class="para">We fail to reject <span class="process-math">\(H_0\)</span> under <span class="process-math">\(\alpha = 0.05\text{,}\)</span> so a parallel lines model is most appropriate.</div>
-</div> <div class="para">Running the statemend <code class="code-inline tex2jax_ignore">MODEL yield = trt height/NOINT SOLUTION</code> gives the table</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova4.png" class="contained"></div> <div class="para logical">
+</div> <div class="para">Running the statement <code class="code-inline tex2jax_ignore">MODEL yield = trt height/NOINT SOLUTION</code> gives the table</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova4.png" class="contained"></div> <div class="para logical">
 <div class="para">This gives slope and intercept estimates for each line:</div>
 <ul class="disc">
 <li><div class="para logical">
@@ -156,8 +156,8 @@ H_0: \beta_1 - \beta_3 = \beta_2 - \beta_3 = 0
 </div></li>
 </ul>
 <div class="para">The plot of the parallel lines against the response is given below:</div>
-</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova5.png" class="contained"></div> <div class="para">To test which pair of treatment shows significant difference, use <code class="code-inline tex2jax_ignore">LSMEANS trt</code> and get</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova6.png" class="contained"></div> <div class="para logical">
-<div class="para">Note that each <code class="code-inline tex2jax_ignore">LSMEAN</code> is calcualte from each line at</div>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova5.png" class="contained"></div> <div class="para">To test which pair of treatment shows significant difference, use <code class="code-inline tex2jax_ignore">LSMEANS trt / ADJUST=Tukey</code> and get</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ancova6.png" class="contained"></div> <div class="para logical">
+<div class="para">Note that each <code class="code-inline tex2jax_ignore">LSMEAN</code> is calculated from each line at</div>
 <div class="displaymath process-math">
 \begin{equation*}
 x = \text{ Sample mean of Height }=40.90036
