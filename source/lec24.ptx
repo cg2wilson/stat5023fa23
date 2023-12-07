@@ -165,7 +165,7 @@
                     </li>
                     <li>
                         <p>
-                            <m>\varepsilon_{ij}</m>: random error associated with <m>Y_{ij}</m> such that <m>\varepsilon\overline{\sim}{iid}N(0,\sigma^2_\varepsilon)</m>
+                            <m>\varepsilon_{ij}</m>: random error associated with <m>Y_{ij}</m> such that <m>\varepsilon\stackrel{iid}{\sim}N(0,\sigma^2_\varepsilon)</m>
                         </p>
                     </li>
                 </ul>
@@ -359,7 +359,7 @@
                             <cline>INPUT trt $ height yield;</cline>
                             <cline>DATALINES;</cline>
                             <cline>...</cline>
-                            <cline>PROC MIXED DATA = one;</cline>
+                            <cline>PROC GLM DATA = one;</cline>
                             <cline>CLASS trt;</cline>
                             <cline>MODEL yield = trt trt*height;</cline>
                         </cd>
@@ -381,7 +381,7 @@
                         We fail to reject <m>H_0</m> under <m>\alpha = 0.05</m>, so a parallel lines model is most appropriate.
                     </p>
                     <p>
-                        Running the statemend <c>MODEL yield = trt height/NOINT SOLUTION</c> gives the table
+                        Running the statement <c>MODEL yield = trt height/NOINT SOLUTION</c> gives the table
                     </p>
                     <image source="ancova4.png"/>
                     <p>
@@ -416,11 +416,11 @@
                     </p>
                     <image source="ancova5.png"/>
                     <p>
-                        To test which pair of treatment shows significant difference, use <c>LSMEANS trt</c> and get
+                        To test which pair of treatment shows significant difference, use <c>LSMEANS trt / ADJUST=Tukey</c> and get
                     </p>
                     <image source="ancova6.png"/>
                     <p>
-                        Note that each <c>LSMEAN</c> is calcualte from each line at 
+                        Note that each <c>LSMEAN</c> is calculated from each line at 
                         <me>
                             x = \text{ Sample mean of Height }=40.90036
                         </me>
